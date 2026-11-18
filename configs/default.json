@@ -1,0 +1,18 @@
+{
+  "model": {
+    "provider": "yandex-ai-studio",
+    "model_id": null
+  },
+  "limits": {
+    "max_steps": 20,
+    "timeout_seconds": 300
+  },
+  "search": {
+    "top_k": 20
+  },
+  "pricing": {
+    "currency": "RUB",
+    "input_per_1000": null,
+    "output_per_1000": null
+  }
+}

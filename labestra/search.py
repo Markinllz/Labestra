@@ -3,6 +3,7 @@
 import math
 import sqlite3
 import time
+import warnings
 from contextlib import contextmanager
 from typing import Protocol
 
@@ -97,6 +98,7 @@ class LocalSearch:
             self._sources[source.source_id] = source
             grouped[source.source_id] = []
         seen = set()
+        self._fragments = {}
         for fragment in fragments:
             if not isinstance(fragment, Fragment):
                 _fail("invalid_input", "Некорректный фрагмент")
@@ -114,11 +116,18 @@ class LocalSearch:
             if source.sha256 is not None and source.sha256 != fragment.snapshot_sha256:
                 _fail("invalid_input", "Хеш фрагмента не совпадает с хешем источника")
             grouped[fragment.source_id].append(fragment)
+            self._fragments[fragment.fragment_id] = fragment
         rows = [(key, self._sources[key].title, _source_text(grouped[key])) for key in sorted(self._sources)]
         self._db = sqlite3.connect(":memory:")
         try:
             self._db.execute("CREATE VIRTUAL TABLE sources USING fts5(source_id UNINDEXED, title, body, tokenize='unicode61')")
             self._db.executemany("INSERT INTO sources VALUES (?, ?, ?)", rows)
+            self._db.execute("CREATE VIRTUAL TABLE fragments USING fts5(fragment_id UNINDEXED, source_id UNINDEXED, text, tokenize='unicode61')")
+            self._db.executemany(
+                "INSERT INTO fragments VALUES (?, ?, ?)",
+                [(f.fragment_id, f.source_id, f.text) for f in sorted(fragments, key=lambda f: f.fragment_id)],
+            )
+            self._db.execute("CREATE TEMP TABLE selected_sources(source_id TEXT PRIMARY KEY)")
             # Use the actual SQLite tokenizer for the query, rather than a
             # Python approximation that could disagree on Unicode punctuation.
             self._db.execute("CREATE VIRTUAL TABLE query_text USING fts5(text, tokenize='unicode61')")
@@ -159,20 +168,13 @@ class LocalSearch:
         No SQL or MATCH syntax supplied by the caller is executed.
         """
         with self._deadline() as check:
-            if type(query) is not str or not query.strip() or len(query) > 1000:
-                _fail("invalid_input", "Запрос должен содержать от 1 до 1000 символов")
             if type(filters) is not dict or filters:
                 _fail("invalid_input", "Поддерживается только filters={}")
             if type(collection_id) is not str or not collection_id.strip():
                 _fail("invalid_input", "Требуется непустой collection_id")
             if collection_id != self._collection_id:
                 _fail("not_found", "Коллекция не найдена")
-            self._db.execute("DELETE FROM query_text")
-            self._db.execute("INSERT INTO query_text(text) VALUES (?)", (query,))
-            terms = [row[0] for row in self._db.execute("SELECT term FROM query_terms ORDER BY offset LIMIT 101")]
-            if not terms or len(terms) > 100:
-                _fail("invalid_input", "Запрос должен содержать от 1 до 100 слов")
-            expression = " OR ".join('"' + term.replace('"', '""') + '"' for term in dict.fromkeys(terms))
+            expression = self._query_expression(query)
             check()
             rows = self._db.execute(
                 "SELECT source_id FROM sources WHERE sources MATCH ? "
@@ -181,8 +183,102 @@ class LocalSearch:
             ).fetchall()
             return [self._sources[row[0]] for row in rows]
 
+    def _query_expression(self, query: str) -> str:
+        if type(query) is not str or not query.strip() or len(query) > 1000:
+            _fail("invalid_input", "Запрос должен содержать от 1 до 1000 символов")
+        self._db.execute("DELETE FROM query_text")
+        self._db.execute("INSERT INTO query_text(text) VALUES (?)", (query,))
+        terms = [row[0] for row in self._db.execute("SELECT term FROM query_terms ORDER BY offset LIMIT 101")]
+        if not terms or len(terms) > 100:
+            _fail("invalid_input", "Запрос должен содержать от 1 до 100 слов")
+        return " OR ".join('"' + term.replace('"', '""') + '"' for term in dict.fromkeys(terms))
+
+    def _corpus_sources(self, corpus: Corpus, check) -> set[str]:
+        # The runner resolves the revision ID into a Corpus. LocalSearch has no
+        # registry of revisions: validate the supplied membership and collection.
+        if not isinstance(corpus, Corpus):
+            _fail("invalid_input", "Требуется объект Corpus")
+        if not isinstance(corpus.corpus_revision_id, str) or not corpus.corpus_revision_id.strip():
+            _fail("invalid_input", "Требуется непустой corpus_revision_id")
+        if not isinstance(corpus.collection_id, str) or not corpus.collection_id.strip():
+            _fail("invalid_input", "Требуется непустой collection_id корпуса")
+        if corpus.collection_id != self._collection_id:
+            _fail("not_found", "Коллекция корпуса не найдена")
+        if type(corpus.source_ids) is not list:
+            _fail("invalid_input", "source_ids корпуса должен быть списком")
+        result = set()
+        for source_id in corpus.source_ids:
+            check()
+            if type(source_id) is not str or not source_id.strip():
+                _fail("invalid_input", "source_ids должен содержать непустые строки")
+            if source_id not in self._sources:
+                _fail("not_found", "Источник корпуса не найден")
+            result.add(source_id)
+        return result
+
     def search_fragments(self, query: str, corpus: Corpus) -> list[Fragment]:
-        raise NotImplementedError("Participant 2: implement corpus fragment search")
+        """Rank matching fragments within corpus; <=10 total and <=3/source.
+
+        BM25 uses the fixed collection index. Membership restricts candidates
+        before per-source selection; ties use fragment_id (BINARY). Iterate the
+        ranked stream until quotas are filled, rather than truncating first.
+        """
+        with self._deadline() as check:
+            allowed = self._corpus_sources(corpus, check)
+            expression = self._query_expression(query)
+            if not allowed:
+                return []
+            self._db.execute("DELETE FROM selected_sources")
+            self._db.executemany("INSERT INTO selected_sources VALUES (?)", ((key,) for key in sorted(allowed)))
+            check()
+            cursor = self._db.execute(
+                "SELECT fragment_id, source_id FROM fragments "
+                "WHERE fragments MATCH ? AND source_id IN (SELECT source_id FROM selected_sources) "
+                "ORDER BY bm25(fragments, 0.0, 0.0, 1.0), fragment_id COLLATE BINARY",
+                (expression,),
+            )
+            result, counts = [], {}
+            try:
+                for fragment_id, source_id in cursor:
+                    check()
+                    count = counts.get(source_id, 0)
+                    if count >= 3:
+                        continue
+                    result.append(self._fragments[fragment_id])
+                    counts[source_id] = count + 1
+                    if len(result) == 10:
+                        break
+            finally:
+                cursor.close()
+            return result
 
     def read_fragments(self, fragment_ids: list[str], corpus: Corpus) -> list[Fragment]:
-        raise NotImplementedError("Participant 2: validate IDs and read exact fragments")
+        """Read exact records in requested order, at most 10 submitted IDs.
+
+        Empty input returns []; identical IDs are deduplicated with a warning.
+        An invalid/unknown/outside-corpus ID fails the entire call. The limit is
+        applied before deduplication. No paraphrase or partial result is returned.
+        """
+        with self._deadline() as check:
+            allowed = self._corpus_sources(corpus, check)
+            if type(fragment_ids) is not list or len(fragment_ids) > 10:
+                _fail("invalid_input", "Требуется список не более чем из 10 ID фрагментов")
+            result, seen = [], set()
+            duplicate = False
+            for fragment_id in fragment_ids:
+                check()
+                if type(fragment_id) is not str or not fragment_id.strip():
+                    _fail("invalid_input", "ID фрагмента должен быть непустой строкой")
+                fragment = self._fragments.get(fragment_id)
+                if fragment is None:
+                    _fail("not_found", "Фрагмент не найден")
+                if fragment.source_id not in allowed:
+                    _fail("outside_corpus", "Фрагмент не принадлежит выбранному корпусу")
+                if fragment_id in seen:
+                    duplicate = True
+                    continue
+                seen.add(fragment_id)
+                result.append(fragment)
+            if duplicate:
+                warnings.warn("Повторные ID фрагментов удалены в памяти", stacklevel=2)
+            return result

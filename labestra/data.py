@@ -1,8 +1,8 @@
-"""Загрузка и проверка научных данных — участники 1 и 2."""
+"""Загрузка и проверка научных данных — Аркаша (данные) и Макс (загрузка)."""
 
 from pathlib import Path
 
-from .schemas import Case, Fragment, Source
+from .schemas import Case, Corpus, Fragment, Source
 
 
 def load_sources(path: Path) -> list[Source]:
@@ -10,6 +10,10 @@ def load_sources(path: Path) -> list[Source]:
 
 
 def load_fragments(path: Path) -> list[Fragment]:
+    raise NotImplementedError
+
+
+def load_corpora(path: Path) -> list[Corpus]:
     raise NotImplementedError
 
 

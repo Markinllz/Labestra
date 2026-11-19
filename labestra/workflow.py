@@ -1,4 +1,4 @@
-"""Participant 3: fixed J1/J2 workflow, LLM adapter and limits."""
+"""Олег: фиксированный J1/J2. Поиск через переданный SearchTools с общим учётом runner."""
 
 from .schemas import Case, RunResult
 from .search import SearchTools

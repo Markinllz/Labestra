@@ -3,7 +3,7 @@
 from dataclasses import dataclass, field
 from typing import Any, Literal
 
-SCHEMA_VERSION = "1"
+SCHEMA_VERSION = "1.1"
 
 
 @dataclass(frozen=True)
@@ -55,6 +55,8 @@ class Case:
     group_id: str
     question: str
     collection_id: str
+    # Frozen English query shared by baseline and system; empty for clarify/refuse.
+    search_query: str = ""
     corpus_revision_id: str | None = None
     history: list[dict[str, str]] = field(default_factory=list)
     limits: Limits = field(default_factory=Limits)
@@ -100,6 +102,9 @@ class RunResult:
     usage: Usage
     duration_seconds: float
     human_active_seconds: float | None = None
+    # Ordered initial source search, before human selection; J2 may leave it empty.
+    retrieved_source_ids: list[str] = field(default_factory=list)
+    corpus_revision_id: str | None = None
 
 
 @dataclass(frozen=True)
@@ -107,7 +112,8 @@ class ToolError:
     code: str
     message: str
     retryable: bool
-    tool_call_id: str
+    # The runner wrapper binds the actual ID; tool implementations may leave it empty.
+    tool_call_id: str = ""
 
 
 class ToolFailure(Exception):

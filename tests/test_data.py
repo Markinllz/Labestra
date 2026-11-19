@@ -5,8 +5,9 @@ import tempfile
 import unittest
 import warnings
 from pathlib import Path
+from unittest.mock import patch
 
-from labestra.data import load_cases, load_corpora, load_sources, validate_dataset
+from labestra.data import load_cases, load_corpora, load_fragments, load_sources, validate_dataset
 
 
 class DataTests(unittest.TestCase):
@@ -40,7 +41,18 @@ class DataTests(unittest.TestCase):
         path = self.root / name
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(''.join(json.dumps(x) + '\n' for x in records), encoding='utf-8')
+        self.refresh_manifest()
         return path
+
+    def refresh_manifest(self):
+        names = ['data/sources.jsonl', 'data/fragments.jsonl', 'data/corpora.jsonl',
+                 'eval/dev/tasks.jsonl', 'eval/visible/tasks.jsonl', 'data/snapshots/s1.txt']
+        if not all((self.root / name).is_file() for name in names):
+            return
+        manifest = dict(manifest_version='1', schema_version='1.1', dataset_version='fixture-v1',
+                        collection_id='collection', files={
+                            name: hashlib.sha256((self.root / name).read_bytes()).hexdigest() for name in names})
+        (self.root / 'data/manifest.json').write_text(json.dumps(manifest), encoding='utf-8')
 
     def test_valid_dataset_and_private_files_ignored(self):
         self.write('eval/private/holdout.jsonl', [{'invalid': 'private'}])
@@ -174,6 +186,159 @@ class DataTests(unittest.TestCase):
         from labestra.data import chunk_snapshot
         fragments = chunk_snapshot('s1', self.text.encode(), chunk_size=3, overlap=1)
         self.write('data/fragments.jsonl', [asdict(f) for f in fragments])
+        validate_dataset(self.root)
+
+    def test_blank_ids_rejected_by_loaders(self):
+        examples = [
+            (load_sources, self.source, ('source_id', 'external_id')),
+            (load_fragments, self.fragment, ('fragment_id', 'source_id')),
+            (load_corpora, self.corpus, ('corpus_revision_id', 'collection_id')),
+            (load_cases, self.case('dev'), ('case_id', 'collection_id', 'group_id', 'corpus_revision_id')),
+        ]
+        for loader, record, fields in examples:
+            for field in fields:
+                for value in ('', ' \t'):
+                    with self.subTest(field=field, value=value):
+                        path = self.write('blank.jsonl', [dict(record, **{field: value})])
+                        with self.assertRaisesRegex(ValueError, 'идентификатор'):
+                            loader(path)
+        path = self.write('blank.jsonl', [dict(self.corpus, source_ids=[' '])])
+        with self.assertRaisesRegex(ValueError, 'source_ids'):
+            load_corpora(path)
+
+    def test_blank_source_id_rejected_by_full_validation(self):
+        self.write('data/sources.jsonl', [dict(self.source, source_id=' ')])
+        with self.assertRaisesRegex(ValueError, 'source_id: идентификатор'):
+            validate_dataset(self.root)
+
+    def test_manifest_required_and_schema_checked(self):
+        path = self.root / 'data/manifest.json'
+        original = json.loads(path.read_text())
+        for field, value in [('manifest_version', '2'), ('schema_version', '1'),
+                             ('dataset_version', ' '), ('collection_id', ''), ('files', [])]:
+            with self.subTest(field=field):
+                path.write_text(json.dumps(dict(original, **{field: value})))
+                with self.assertRaisesRegex(ValueError, field):
+                    validate_dataset(self.root)
+        for field in original:
+            changed = dict(original)
+            del changed[field]
+            path.write_text(json.dumps(changed))
+            with self.assertRaisesRegex(ValueError, field):
+                validate_dataset(self.root)
+        path.unlink()
+        with self.assertRaisesRegex(ValueError, 'manifest.json'):
+            validate_dataset(self.root)
+
+    def test_manifest_hashes_and_required_files(self):
+        path = self.root / 'data/manifest.json'
+        original = json.loads(path.read_text())
+        for name in original['files']:
+            with self.subTest(name=name):
+                changed = json.loads(json.dumps(original))
+                del changed['files'][name]
+                path.write_text(json.dumps(changed))
+                with self.assertRaisesRegex(ValueError, 'manifest'):
+                    validate_dataset(self.root)
+        for digest in ('REPLACE_WITH_SHA256_OF_FILE', '0'*64):
+            changed = json.loads(json.dumps(original))
+            changed['files']['data/sources.jsonl'] = digest
+            path.write_text(json.dumps(changed))
+            with self.assertRaisesRegex(ValueError, 'SHA-256'):
+                validate_dataset(self.root)
+        path.write_text(json.dumps(original))
+        with (self.root / 'data/sources.jsonl').open('ab') as stream:
+            stream.write(b'\n')
+        with self.assertRaisesRegex(ValueError, 'SHA-256'):
+            validate_dataset(self.root)
+
+    def test_manifest_collection_checked_even_for_j1(self):
+        self.write('eval/dev/tasks.jsonl', [dict(self.case('dev'), phase='J1',
+                    corpus_revision_id=None, collection_id='wrong')])
+        self.write('data/corpora.jsonl', [dict(self.corpus, collection_id='wrong')])
+        with self.assertRaises(ValueError) as ctx:
+            validate_dataset(self.root)
+        message = str(ctx.exception)
+        self.assertIn('eval/dev/tasks.jsonl[dev].collection_id: не совпадает с manifest', message)
+        self.assertIn('data/corpora.jsonl[c1].collection_id: не совпадает с manifest', message)
+
+    def private_guard(self):
+        private = self.root / 'eval/private'
+        private.mkdir(parents=True, exist_ok=True)
+        target = private / 'secret.txt'
+        target.write_text('private test sentinel')
+        original_open = Path.open
+
+        def guarded_open(path, *args, **kwargs):
+            self.assertFalse(path.resolve().is_relative_to(private.resolve()),
+                             'validator attempted to open a private file')
+            return original_open(path, *args, **kwargs)
+
+        return target, guarded_open
+
+    def test_snapshot_private_paths_rejected_before_open(self):
+        target, guard = self.private_guard()
+        link = self.root / 'data/snapshots/link.txt'
+        link.symlink_to(target)
+        candidates = ['eval/private/secret.txt', 'data/snapshots/../../eval/private/secret.txt',
+                      'data/snapshots/link.txt', str(target)]
+        for candidate in candidates:
+            with self.subTest(candidate=candidate):
+                self.write('data/sources.jsonl', [dict(self.source, snapshot_path=candidate)])
+                with patch.object(Path, 'open', guard):
+                    with self.assertRaisesRegex(ValueError, 'snapshot_path'):
+                        validate_dataset(self.root)
+
+    def test_snapshot_directory_symlink_cannot_redefine_boundary(self):
+        target, guard = self.private_guard()
+        (target.parent / 's1.txt').write_text(self.text)
+        snapshots = self.root / 'data/snapshots'
+        snapshots.rename(self.root / 'data/saved-snapshots')
+        snapshots.symlink_to(target.parent, target_is_directory=True)
+        with patch.object(Path, 'open', guard):
+            with self.assertRaisesRegex(ValueError, 'snapshot_path'):
+                validate_dataset(self.root)
+
+    def test_manifest_cannot_hash_private_files_or_links(self):
+        target, guard = self.private_guard()
+        (self.root / 'data/snapshots/link.txt').symlink_to(target)
+        path = self.root / 'data/manifest.json'
+        original = json.loads(path.read_text())
+        for name in ('eval/private/secret.txt', 'eval/gold/visible.jsonl',
+                     'data/snapshots/link.txt', 'data/snapshots/../../eval/private/secret.txt',
+                     str(target)):
+            with self.subTest(name=name):
+                changed = json.loads(json.dumps(original))
+                changed['files'][name] = '0'*64
+                path.write_text(json.dumps(changed))
+                with patch.object(Path, 'open', guard):
+                    with self.assertRaisesRegex(ValueError, 'путь запрещён'):
+                        validate_dataset(self.root)
+
+    def test_public_jsonl_and_manifest_symlinks_to_private_not_opened(self):
+        target, guard = self.private_guard()
+        for name in ('data/sources.jsonl', 'data/manifest.json'):
+            with self.subTest(name=name):
+                path = self.root / name
+                original = path.read_bytes()
+                path.unlink()
+                path.symlink_to(target)
+                try:
+                    with patch.object(Path, 'open', guard):
+                        with self.assertRaises(ValueError):
+                            validate_dataset(self.root)
+                finally:
+                    path.unlink()
+                    path.write_bytes(original)
+
+    def test_snapshot_internal_symlink_allowed(self):
+        link = self.root / 'data/snapshots/link.txt'
+        link.symlink_to(self.root / self.source['snapshot_path'])
+        self.write('data/sources.jsonl', [dict(self.source, snapshot_path='data/snapshots/link.txt')])
+        path = self.root / 'data/manifest.json'
+        manifest = json.loads(path.read_text())
+        manifest['files']['data/snapshots/link.txt'] = self.source['sha256']
+        path.write_text(json.dumps(manifest))
         validate_dataset(self.root)
 
     def test_missing_required_snapshot(self):

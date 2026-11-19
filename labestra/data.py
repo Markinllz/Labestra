@@ -9,11 +9,11 @@ import math
 import re
 import types
 import warnings
-from dataclasses import MISSING, fields, is_dataclass
-from pathlib import Path
+from dataclasses import MISSING, dataclass, fields, is_dataclass
+from pathlib import Path, PurePosixPath
 from typing import Literal, Union, get_args, get_origin, get_type_hints
 
-from .schemas import Case, Corpus, Fragment, Source
+from .schemas import SCHEMA_VERSION, Case, Corpus, Fragment, Source
 
 
 def _decode(value, annotation, location, errors):
@@ -69,6 +69,121 @@ def _decode(value, annotation, location, errors):
     return value
 
 
+_PUBLIC_FILES = frozenset({
+    "data/sources.jsonl", "data/fragments.jsonl", "data/corpora.jsonl",
+    "eval/dev/tasks.jsonl", "eval/visible/tasks.jsonl",
+})
+
+
+@dataclass(frozen=True)
+class _Manifest:
+    manifest_version: str
+    schema_version: str
+    dataset_version: str
+    collection_id: str
+    files: dict[str, str]
+
+
+def _parse_json(text: str, location: str):
+    duplicate_keys = []
+
+    def object_pairs(pairs):
+        result = {}
+        for key, value in pairs:
+            if key in result:
+                # Preserve the distinction between bool/int, also when nested.
+                before = json.dumps(result[key], sort_keys=True, ensure_ascii=True)
+                after = json.dumps(value, sort_keys=True, ensure_ascii=True)
+                if before != after:
+                    raise ValueError("conflicting JSON keys")
+                duplicate_keys.append(key)
+            result[key] = value
+        return result
+
+    result = json.loads(text, object_pairs_hook=object_pairs)
+    for key in duplicate_keys:
+        warnings.warn(f"{location}.{key}: одинаковый повторный ключ объединён в памяти", stacklevel=3)
+    return result
+
+
+def _public_path(root: Path, name: str, *, snapshot: bool = False) -> Path:
+    """Resolve and authorize before opening; private files are never targets.
+
+    Paths are canonical project-relative POSIX paths. Snapshot aliases are
+    allowed only if their resolved target remains in the actual permitted
+    root/data/snapshots subtree; a symlink replacing that directory cannot
+    redefine the boundary to eval/private or an external directory.
+    """
+    relative = PurePosixPath(name)
+    if relative.is_absolute() or ".." in relative.parts or str(relative) != name:
+        raise ValueError("Некорректный относительный путь")
+    is_snapshot = relative.parts[:2] == ("data", "snapshots") and len(relative.parts) > 2
+    if snapshot and not is_snapshot:
+        raise ValueError("Снимки разрешены только в data/snapshots/")
+    if not is_snapshot and name not in _PUBLIC_FILES | {"data/manifest.json"}:
+        raise ValueError("Путь не относится к публичному набору")
+    try:
+        base = root.resolve(strict=True)
+        target = (base / name).resolve(strict=True)
+        if is_snapshot:
+            if not target.is_relative_to(base / "data" / "snapshots"):
+                raise ValueError("Снимок выходит за data/snapshots/")
+        elif target not in {base / item for item in _PUBLIC_FILES | {"data/manifest.json"}}:
+            raise ValueError("Публичный файл ссылается за разрешённые границы")
+        if not target.is_file():
+            raise ValueError("Ожидается файл")
+        return target
+    except (OSError, RuntimeError) as exc:
+        raise ValueError("Путь недоступен") from exc
+
+
+def _validate_manifest(root: Path, errors: list[str]) -> _Manifest | None:
+    location = "data/manifest.json"
+    try:
+        path = _public_path(root, location)
+        raw = _parse_json(path.read_text(encoding="utf-8-sig"), location)
+    except (OSError, UnicodeError, ValueError, RecursionError):
+        errors.append(f"{location}: файл отсутствует, недоступен или содержит некорректный JSON")
+        return None
+    schema_errors = []
+    manifest = _decode(raw, _Manifest, location, schema_errors)
+    if schema_errors:
+        errors.extend(schema_errors)
+        return None
+    if manifest.manifest_version != "1":
+        errors.append(f"{location}.manifest_version: поддерживается версия 1")
+    if manifest.schema_version != SCHEMA_VERSION:
+        errors.append(f"{location}.schema_version: не совпадает с версией схемы приложения")
+    for name in ("dataset_version", "collection_id"):
+        if not getattr(manifest, name).strip():
+            errors.append(f"{location}.{name}: требуется непустая строка")
+    for name in sorted(_PUBLIC_FILES - manifest.files.keys()):
+        errors.append(f"{location}.files: отсутствует обязательный файл {name}")
+    for name, expected in manifest.files.items():
+        loc = f"{location}.files[{name}]"
+        # manifest must not hash itself, private material or arbitrary files.
+        if name == location:
+            errors.append(f"{loc}: manifest не включается в собственный список файлов")
+            continue
+        if re.fullmatch(r"[0-9a-fA-F]{64}", expected) is None:
+            errors.append(f"{loc}: требуется SHA-256 из 64 шестнадцатеричных символов")
+            continue
+        try:
+            target = _public_path(root, name)
+        except ValueError:
+            errors.append(f"{loc}: файл недоступен или путь запрещён")
+            continue
+        try:
+            with target.open("rb") as stream:
+                actual = hashlib.file_digest(stream, "sha256").hexdigest()
+        except OSError:
+            errors.append(f"{loc}: не удалось прочитать файл")
+            continue
+        if actual != expected.lower():
+            errors.append(f"{loc}: SHA-256 не совпадает с содержимым файла")
+    return manifest
+
+
 def _read(path, cls, id_field):
     path = Path(path)
     errors, records, seen = [], [], {}
@@ -81,30 +196,22 @@ def _read(path, cls, id_field):
         if not line.strip():
             continue
         location = f"{path}:{number}"
-        duplicate_keys = []
-
-        def object_pairs(pairs):
-            result = {}
-            for key, value in pairs:
-                if key in result:
-                    # JSON serialization distinguishes bool/int and nested types.
-                    before = json.dumps(result[key], sort_keys=True, ensure_ascii=True)
-                    after = json.dumps(value, sort_keys=True, ensure_ascii=True)
-                    if before != after:
-                        raise ValueError("conflicting JSON keys")
-                    duplicate_keys.append(key)
-                result[key] = value
-            return result
-
         try:
-            raw = json.loads(line, object_pairs_hook=object_pairs)
+            raw = _parse_json(line, location)
         except (ValueError, RecursionError):
             errors.append(f"{location}: некорректный JSON или конфликт повторных ключей")
             continue
-        for key in duplicate_keys:
-            warnings.warn(f"{location}.{key}: одинаковый повторный ключ объединён в памяти", stacklevel=3)
         row_errors = []
         record = _decode(raw, cls, location, row_errors)
+        if not row_errors:
+            for item in fields(record):
+                value = getattr(record, item.name)
+                if item.name.endswith("_id") and value is not None and not value.strip():
+                    row_errors.append(f"{location}.{item.name}: идентификатор не может быть пустым")
+                if item.name == "source_ids":
+                    for index, source_id in enumerate(value):
+                        if not source_id.strip():
+                            row_errors.append(f"{location}.source_ids[{index}]: идентификатор не может быть пустым")
         if row_errors:
             errors.extend(row_errors)
             continue
@@ -158,11 +265,13 @@ def validate_dataset(root: Path) -> None:
     """Validate data and public dev/visible inputs under the project root.
 
     Collect recoverable diagnostics; never read private gold or holdout files.
-    Does not certify scientific correctness or validate an unspecified manifest.
+    Validates manifest v1 and schema version against SCHEMA_VERSION.
+    The runner separately checks manifest.collection_id against active config.
     """
     root = Path(root)
     errors = []
     loaded = {}
+    manifest = _validate_manifest(root, errors)
     specs = [
         ("data/sources.jsonl", Source, "source_id"),
         ("data/fragments.jsonl", Fragment, "fragment_id"),
@@ -171,7 +280,13 @@ def validate_dataset(root: Path) -> None:
         ("eval/visible/tasks.jsonl", Case, "case_id"),
     ]
     for name, cls, key in specs:
-        records, problems = _read(root / name, cls, key)
+        try:
+            path = _public_path(root, name)
+        except ValueError:
+            loaded[name] = []
+            errors.append(f"{name}: недоступный или запрещённый путь")
+            continue
+        records, problems = _read(path, cls, key)
         loaded[name] = records
         errors.extend(problems)
     sources = {s.source_id: s for s in loaded["data/sources.jsonl"]}
@@ -183,12 +298,15 @@ def validate_dataset(root: Path) -> None:
             errors.append(f"{loc}: требуются snapshot_path и sha256")
         if source.snapshot_path is None:
             continue
-        path = Path(source.snapshot_path)
-        if path.is_absolute() or not (root / path).resolve().is_relative_to(root.resolve()):
-            errors.append(f"{loc}.snapshot_path: требуется путь внутри корня проекта")
+        if manifest is not None and source.snapshot_path not in manifest.files:
+            errors.append(f"{loc}.snapshot_path: снимок отсутствует в manifest.files")
+        try:
+            path = _public_path(root, source.snapshot_path, snapshot=True)
+        except ValueError:
+            errors.append(f"{loc}.snapshot_path: снимок недоступен или выходит за data/snapshots/")
             continue
         try:
-            blob = (root / path).read_bytes()
+            blob = path.read_bytes()
             text = blob.decode("utf-8")
         except (OSError, UnicodeError):
             errors.append(f"{loc}.snapshot_path: снимок недоступен или не является UTF-8")
@@ -221,6 +339,8 @@ def validate_dataset(root: Path) -> None:
                 if end > len(text) or text[start:end] != fragment.text:
                     errors.append(f"{loc}.location: координаты не соответствуют тексту фрагмента")
     for corpus in corpora.values():
+        if manifest is not None and corpus.collection_id != manifest.collection_id:
+            errors.append(f"data/corpora.jsonl[{corpus.corpus_revision_id}].collection_id: не совпадает с manifest")
         for source_id in corpus.source_ids:
             if source_id not in sources:
                 errors.append(f"data/corpora.jsonl[{corpus.corpus_revision_id}].source_ids: источник отсутствует")
@@ -229,6 +349,8 @@ def validate_dataset(root: Path) -> None:
         name = f"eval/{split}/tasks.jsonl"
         for case in loaded[name]:
             loc = f"{name}[{case.case_id}]"
+            if manifest is not None and case.collection_id != manifest.collection_id:
+                errors.append(f"{loc}.collection_id: не совпадает с manifest")
             if case.case_id in case_ids:
                 errors.append(f"{loc}.case_id: ID повторяется в публичных частях")
             case_ids.add(case.case_id)

@@ -131,6 +131,51 @@ class DataTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "снимок пуст"):
             validate_dataset(self.root)
 
+    def test_unicode_line_separators_in_json_string(self):
+        path = self.root / 'unicode.jsonl'
+        record = dict(self.source, title='A\u2028B\u2029C')
+        path.write_text(json.dumps(record, ensure_ascii=False) + '\n', encoding='utf-8')
+        self.assertEqual(load_sources(path)[0].title, record['title'])
+
+    def test_huge_numeric_field_is_reported(self):
+        path = self.write('huge.jsonl', [dict(self.case('dev'), limits={'timeout_seconds': 10**400})])
+        with self.assertRaisesRegex(ValueError, 'timeout_seconds'):
+            load_cases(path)
+
+    def test_repeated_json_keys(self):
+        path = self.root / 'keys.jsonl'
+        base = json.dumps(self.source)
+        for value in ('"other"', '123'):
+            path.write_text(base[:-1] + ', "source_id":' + value + '}\n')
+            with self.assertRaisesRegex(ValueError, 'конфликт'):
+                load_sources(path)
+        path.write_text(base[:-1] + ', "source_id":"s1"}\n')
+        before = path.read_bytes()
+        with self.assertWarns(UserWarning):
+            self.assertEqual(load_sources(path)[0].source_id, 's1')
+        self.assertEqual(path.read_bytes(), before)
+
+    def test_duplicate_nested_key_types_not_coerced(self):
+        case = json.dumps(self.case('dev'))
+        path = self.root / 'nested.jsonl'
+        path.write_text(case[:-1] + ', "limits":{"max_steps":1,"max_steps":true}}\n')
+        with self.assertRaisesRegex(ValueError, 'конфликт'):
+            load_cases(path)
+
+    def test_coordinates_must_match_exact_slice(self):
+        for location in ('chars:0:99999', 'chars:1:2', 'chars:2:1', 'page:1', 'chars:-1:3'):
+            with self.subTest(location=location):
+                self.write('data/fragments.jsonl', [dict(self.fragment, location=location)])
+                with self.assertRaisesRegex(ValueError, 'location'):
+                    validate_dataset(self.root)
+
+    def test_generated_fragments_validate(self):
+        from dataclasses import asdict
+        from labestra.data import chunk_snapshot
+        fragments = chunk_snapshot('s1', self.text.encode(), chunk_size=3, overlap=1)
+        self.write('data/fragments.jsonl', [asdict(f) for f in fragments])
+        validate_dataset(self.root)
+
     def test_missing_required_snapshot(self):
         self.write('data/sources.jsonl', [dict(self.source, snapshot_path=None)])
         with self.assertRaisesRegex(ValueError, 'требуются'):

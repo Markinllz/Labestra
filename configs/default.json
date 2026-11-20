@@ -1,0 +1,29 @@
+{
+  "model": {
+    "provider": "yandex-ai-studio",
+    "model_id": null
+  },
+  "limits": {
+    "max_steps": 20,
+    "timeout_seconds": 300
+  },
+  "search": {
+    "top_k": 20,
+    "filters": {},
+    "query_language": "en",
+    "rewrite_query": false,
+    "timeout_seconds": 30
+  },
+  "pricing": {
+    "currency": "RUB",
+    "input_per_1000": null,
+    "output_per_1000": null
+  },
+  "collection_id": null,
+  "paths": {
+    "data_dir": "data"
+  },
+  "baseline": {
+    "human_time_limit_seconds": null
+  }
+}

@@ -1,0 +1,6 @@
+# Snapshot bytes define hashes and fragment IDs. Preserve PDF extraction verbatim.
+data/snapshots/*.txt -text whitespace=-blank-at-eof
+# Hash-addressed structured inputs must stay LF on every platform.
+data/*.json text eol=lf
+data/*.jsonl text eol=lf
+eval/**/tasks.jsonl text eol=lf

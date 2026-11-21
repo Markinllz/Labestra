@@ -178,10 +178,21 @@ def validate_gold_rows(cases, rows, sources, fragments, corpora, require_reviewe
 def private_report(root, private, require_reviewed=False):
     root, private = Path(root), Path(private)
     public_report(root)
+    from .freeze import PRIVATE_INPUTS
+    seal = read_json(private / "manifest.json")
+    text(seal.get("private_version"), "private_version")
+    check(set(seal["files"]) == set(PRIVATE_INPUTS), "private manifest coverage mismatch")
+    check(seal["public_manifest_sha256"] == hashlib.sha256((root / "data/manifest.json").read_bytes()).hexdigest(),
+          "private gold is bound to different public inputs")
+    for name, expected in seal["files"].items():
+        check(hashlib.sha256((private / name).read_bytes()).hexdigest() == expected, "private file hash mismatch")
+    collection_id = read_json(root / "data/manifest.json")["collection_id"]
     sources = {s.source_id: s for s in load_sources(root / "data/sources.jsonl")}
     fragments = {f.fragment_id: f for f in load_fragments(root / "data/fragments.jsonl")}
     corpora = {c.corpus_revision_id: c for c in load_corpora(root / "data/corpora.jsonl")}
     private_corpora = load_corpora(private / "holdout/corpora.jsonl")
+    for corpus in private_corpora:
+        check(corpus.collection_id == collection_id and set(corpus.source_ids) <= set(sources), "invalid private corpus")
     check(not set(corpora).intersection(c.corpus_revision_id for c in private_corpora), "duplicate private corpus")
     corpora.update({c.corpus_revision_id: c for c in private_corpora})
     groups, ids, result = {}, set(), {}
@@ -191,6 +202,7 @@ def private_report(root, private, require_reviewed=False):
         check(bool(cases), "empty split")
         for case in cases:
             check(case.split == split, "task split mismatch")
+            check(case.collection_id == collection_id, "private task collection mismatch")
             check(case.case_id not in ids, "case ID crosses splits")
             ids.add(case.case_id)
             check(case.group_id not in groups or groups[case.group_id] == split, "group crosses splits")

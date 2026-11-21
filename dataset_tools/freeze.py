@@ -10,6 +10,32 @@ from .validation import read_json
 PUBLIC_INPUTS = ("data/sources.jsonl", "data/fragments.jsonl", "data/corpora.jsonl",
                  "eval/dev/tasks.jsonl", "eval/visible/tasks.jsonl")
 METADATA = ("data/catalog.json", "data/provenance.jsonl", "data/aliases.json", "data/dataset.json")
+PRIVATE_INPUTS = ("gold/dev.jsonl", "gold/visible.jsonl", "gold/holdout.jsonl",
+                  "holdout/tasks.jsonl", "holdout/corpora.jsonl", "annotation_candidates.jsonl")
+
+
+def seal_private(root, private, version):
+    """Store a separate commitment; never copy private bytes into the public seal."""
+    from .validation import private_report
+    root, private = Path(root), Path(private)
+    path = private / "manifest.json"
+    previous = path.read_bytes() if path.exists() else None
+    seal = {"private_version": version,
+            "public_manifest_sha256": sha256((root / "data/manifest.json").read_bytes()),
+            "files": {name: sha256((private / name).read_bytes()) for name in PRIVATE_INPUTS}}
+    if previous is not None:
+        old = read_json(path)
+        if old["private_version"] == version and old != seal:
+            raise ValueError("changed private inputs need a new private version")
+    write_json(path, seal)
+    try:
+        private_report(root, private)
+    except Exception:
+        if previous is None:
+            path.unlink()
+        else:
+            path.write_bytes(previous)
+        raise
 
 
 def freeze(root, dataset_version, collection_id):
@@ -52,9 +78,15 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--root", type=Path, default=Path("."))
     parser.add_argument("--version", required=True)
-    parser.add_argument("--collection", required=True)
+    parser.add_argument("--collection")
+    parser.add_argument("--private", type=Path)
     args = parser.parse_args()
-    freeze(args.root, args.version, args.collection)
+    if args.private:
+        seal_private(args.root, args.private, args.version)
+    else:
+        if not args.collection:
+            parser.error("--collection is required for public inputs")
+        freeze(args.root, args.version, args.collection)
 
 
 if __name__ == "__main__":

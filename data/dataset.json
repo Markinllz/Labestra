@@ -1,5 +1,5 @@
 {
-  "dataset_version": "0.1.0-draft",
+  "dataset_version": "0.1.1-draft",
   "collection_id": "labestra-retrieval-2026-11-v1",
   "prepared_on": "2026-11-22",
   "status": "needs_human_review",
@@ -62,5 +62,6 @@
     "sha": "d9cc92def93b1a0857e6c582085ce0f94eb91a7b"
   },
   "private_custodian": "Arkady; human review not yet recorded",
-  "publication_rule": "Gold remains private until baseline answers are recorded; holdout until KT4."
+  "publication_rule": "Gold remains private until baseline answers are recorded; holdout until KT4.",
+  "dev_calibration": "Only dev-04 query clarified to RocketQA technical contributions after inspecting dev retrieval. Visible queries unchanged; 300/50 chunking unchanged."
 }

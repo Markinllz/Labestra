@@ -47,7 +47,7 @@ class ScientificDatasetTests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 public_report(root)
             with self.assertRaisesRegex(ValueError, "new dataset version"):
-                freeze(root, "0.1.0-draft", "labestra-retrieval-2026-11-v1")
+                freeze(root, "0.1.1-draft", "labestra-retrieval-2026-11-v1")
 
     def test_real_data_search_and_exact_reading(self):
         sources = load_sources(ROOT / "data/sources.jsonl")

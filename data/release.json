@@ -1,12 +1,12 @@
 {
-  "dataset_version": "0.1.0-draft",
+  "dataset_version": "0.1.1-draft",
   "files": {
     "data/aliases.json": "ff7f852f31692d38cc19457ab859f658907f2dfaafd068764845b48fbd308864",
     "data/catalog.json": "f80b1d5947264dc2425331a678e7c775587efc0b559c3117ce20b107e5ae279c",
     "data/corpora.jsonl": "9e784067c71b81cd54359db0057e3cb88d29aac47dbf5251bd1cdec1c681dcfb",
-    "data/dataset.json": "3295bff33246f5fe07d7a111b4432a5e5dc8901054d77be1b1abb1ac4a8208d1",
+    "data/dataset.json": "2e9638810d53cf72110b05a1efd9c3fb9de8df7600a94b98d9d59699f1afd472",
     "data/fragments.jsonl": "3c421a38f86f9d7a4237ee6441696ed51503517cb3c9ec87c170636f797d8c32",
-    "data/manifest.json": "1b52e7a9f9071b49f82f5ff8a83c712ecfb8414c8d597e6e79659aceabc07136",
+    "data/manifest.json": "6a6587f3a98e8197a6c8834beb612970b7d371f7b2bcd05d9a79790b9a36ab9c",
     "data/provenance.jsonl": "9897356f9c84e701a65040adbd3e20dd05a78f5075efebe7eb5c4da5a4508edb",
     "data/snapshots/2020.acl-main.173.txt": "1b460866098e9c4ce0c9fec559d63519aa72e5e7a7cdbb6e3909605fe60c84de",
     "data/snapshots/2020.acl-main.450.txt": "04254fd697762d4328b9bc5ccd9c129538b434887c6f8d624138b2a60ebbbe6b",
@@ -37,7 +37,7 @@
     "data/snapshots/P17-1171.txt": "1af66d4d3c4999e005776d509bd1b0a1d4fe6d2a58b49825f553d0e2ffad7a9b",
     "data/snapshots/Q19-1026.txt": "8728fac530263b46371052c3097563f2bba2af94fcc576d3eb329d510035f3c5",
     "data/sources.jsonl": "0b9fa449181f621ebc6de3704e4ce3620c2127d1b8dd7044bc240f1ed0498d36",
-    "eval/dev/tasks.jsonl": "32d5f4fd5fb86559864fda8f2f30187a0cc88d48d075816e3bd11abd2d954400",
+    "eval/dev/tasks.jsonl": "b337a50f25febc5f35189e68dab0ff1a6f879e7907dd763a36cb87921da4a136",
     "eval/visible/tasks.jsonl": "e9181a838e47c1d19031b7d5b07bed16456599c4b66f56c57777d71e0a43dad1"
   }
 }

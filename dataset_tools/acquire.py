@@ -92,8 +92,6 @@ def acquire(catalog, root, cache):
         doi = normalize_external_id(meta["citation_doi"][0])
         source_id = "acl:" + acl_id
         abstract = "".join(page.abstract).strip()
-        if not abstract:
-            raise ValueError(f"no abstract for {acl_id}")
         mode = item["availability"]
         original_hash = sha256(page_path.read_bytes())
         original_url = url
@@ -111,16 +109,22 @@ def acquire(catalog, root, cache):
             original_hash = sha256(pdf.read_bytes())
             extraction = "pdftotext -enc UTF-8 -nopgbrk; unchanged output bytes"
         elif mode == "abstract":
-            snapshot = (abstract + "\n").encode("utf-8")
+            snapshot = (abstract + "\n").encode("utf-8") if abstract else None
+            if snapshot is None:
+                mode = "metadata"
+                extraction = "No abstract on the landing page; metadata only"
         else:
             raise ValueError("catalog supports abstract/full_text")
-        relative = f"data/snapshots/{acl_id}.txt"
-        target = root / relative
-        target.parent.mkdir(parents=True, exist_ok=True)
-        target.write_bytes(snapshot)
-        source = Source(source_id, title, "ACL Anthology", mode, doi, url, relative, sha256(snapshot))
+        relative = f"data/snapshots/{acl_id}.txt" if snapshot is not None else None
+        if snapshot is not None:
+            target = root / relative
+            target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_bytes(snapshot)
+        source = Source(source_id, title, "ACL Anthology", mode, doi, url, relative,
+                        sha256(snapshot) if snapshot is not None else None)
         sources.append(asdict(source))
-        fragments.extend(asdict(f) for f in chunk_snapshot(source_id, snapshot))
+        if snapshot is not None:
+            fragments.extend(asdict(f) for f in chunk_snapshot(source_id, snapshot))
         provenance.append({
             "source_id": source_id, "authors": meta.get("citation_author", []),
             "publication_date": meta["citation_publication_date"][0],

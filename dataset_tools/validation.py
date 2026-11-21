@@ -59,6 +59,9 @@ def public_report(root):
     root = Path(root)
     validate_dataset(root)
     from .freeze import METADATA
+    # Extra maintainer metadata must not redirect the public validator to gold.
+    for name in (*METADATA, "data/release.json"):
+        check((root / name).resolve() == root.resolve() / name, "public metadata symlink is forbidden")
     manifest = read_json(root / "data/manifest.json")
     release = read_json(root / "data/release.json")
     expected_paths = set(manifest["files"]) | set(METADATA) | {"data/manifest.json"}

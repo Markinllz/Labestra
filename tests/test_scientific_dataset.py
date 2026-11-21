@@ -15,6 +15,23 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 class ScientificDatasetTests(unittest.TestCase):
+    def test_extra_metadata_cannot_point_at_private_labels(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            shutil.copytree(ROOT / "data", root / "data")
+            for split in ("dev", "visible"):
+                shutil.copytree(ROOT / "eval" / split, root / "eval" / split)
+            target = root / "eval/private/secret.json"
+            target.parent.mkdir(parents=True)
+            target.write_text("must not be parsed", encoding="utf-8")
+            alias = root / "data/aliases.json"
+            alias.unlink()
+            alias.symlink_to(target)
+            with self.assertRaisesRegex(ValueError, "symlink"):
+                public_report(root)
+            with self.assertRaisesRegex(ValueError, "symlink"):
+                freeze(root, "new-version", "labestra-retrieval-2026-11-v1")
+
     def test_public_export_works_without_any_private_material(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)

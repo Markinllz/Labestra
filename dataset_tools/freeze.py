@@ -14,6 +14,9 @@ METADATA = ("data/catalog.json", "data/provenance.jsonl", "data/aliases.json", "
 
 def freeze(root, dataset_version, collection_id):
     root = Path(root)
+    for name in (*METADATA, "data/manifest.json", "data/release.json"):
+        if (root / name).resolve() != root.resolve() / name:
+            raise ValueError("public metadata symlink is forbidden")
     paths = set(PUBLIC_INPUTS)
     paths.update(s.snapshot_path for s in load_sources(root / "data/sources.jsonl") if s.snapshot_path)
     manifest = {"manifest_version": "1", "schema_version": "1.1", "dataset_version": dataset_version,

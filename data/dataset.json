@@ -1,0 +1,66 @@
+{
+  "dataset_version": "0.1.0-draft",
+  "collection_id": "labestra-retrieval-2026-11-v1",
+  "prepared_on": "2026-11-22",
+  "status": "needs_human_review",
+  "prepared_by": "codex",
+  "human_annotators": [],
+  "scope": "Retrieval and evidence-grounded QA; ACL collection selected before system runs",
+  "counts": {
+    "sources": 30,
+    "full_text": 8,
+    "abstract": 20,
+    "metadata": 2,
+    "dev": 6,
+    "visible": 24,
+    "holdout_private": 12
+  },
+  "split_groups": {
+    "dev": {
+      "dev-rocket": 2,
+      "dev-bpr": 3,
+      "dev-ambiguity": 1
+    },
+    "visible": {
+      "vis-dpr": 2,
+      "vis-entity": 2,
+      "vis-fid": 1,
+      "vis-ragas": 2,
+      "vis-ares": 2,
+      "vis-lost": 1,
+      "vis-rerank": 1,
+      "vis-kilt": 1,
+      "vis-alce": 1,
+      "vis-selfcheck": 1,
+      "vis-ambiguity": 2,
+      "vis-dense-comparison": 2,
+      "vis-eval-comparison": 2,
+      "vis-context-comparison": 2,
+      "vis-missing-chunks": 1,
+      "vis-missing-clinical": 1
+    }
+  },
+  "split_policy": "No group_id crosses dev/visible/holdout; shared source collection. Related experiment questions stay together. Cases are not statistically independent.",
+  "chunking": {
+    "function": "labestra.data.chunk_snapshot",
+    "chunk_size_words": 300,
+    "overlap_words": 50,
+    "coordinates": "zero-based Unicode characters; end exclusive",
+    "id": "sha256 compact JSON [source_id,snapshot_sha256,start,end]"
+  },
+  "normalization": "DOI lowercase without prefix; OpenAlex W ID uppercase; explicit aliases only",
+  "limitations": [
+    "AI-curated draft; independent human review and B0 sessions pending.",
+    "Selected closed pool, not exhaustive literature search.",
+    "Two missing abstracts retained as metadata, never invented.",
+    "PDF reading order and table layout can be imperfect; numeric conclusions require checking the PDF.",
+    "Public J1 contains several named-method queries; performance cannot establish broad discovery quality.",
+    "Holdout exists locally only; .gitignore is not access control for collaborators."
+  ],
+  "dependency": {
+    "pr": "https://github.com/Markinllz/Labestra/pull/4",
+    "sha": "d9cc92def93b1a0857e6c582085ce0f94eb91a7b"
+  },
+  "private_custodian": "Arkady; human review not yet recorded",
+  "publication_rule": "Gold remains private until baseline answers are recorded; holdout until KT4."
+}

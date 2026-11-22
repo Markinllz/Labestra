@@ -1,0 +1,30 @@
+{
+  "mode": "live",
+  "model": {"provider": "yandex-ai-studio", "model_id": null},
+  "collection_id": "labestra-retrieval-2026-11-v1",
+  "limits": {
+    "max_steps": 20,
+    "max_llm_calls": 10,
+    "max_search_calls": 5,
+    "max_input_tokens": 100000,
+    "max_output_tokens": 15000,
+    "timeout_seconds": 300,
+    "max_cost": null,
+    "currency": "RUB"
+  },
+  "pricing": {
+    "currency": "RUB",
+    "input_per_1000": null,
+    "output_per_1000": null,
+    "verified_on": null
+  },
+  "search": {"top_k": 20, "timeout_seconds": 30},
+  "workflow": {
+    "temperature": 0,
+    "max_input_tokens_per_call": 8000,
+    "max_output_tokens_per_call": 1500,
+    "context_window_tokens": 16000,
+    "llm_timeout_seconds": 30,
+    "token_bound_verified": false
+  }
+}

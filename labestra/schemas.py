@@ -77,8 +77,9 @@ class Claim:
 
 @dataclass(frozen=True)
 class Usage:
-    input_tokens: int = 0
-    output_tokens: int = 0
+    # None means at least one attempted LLM call has unknown usage.
+    input_tokens: int | None = 0
+    output_tokens: int | None = 0
     llm_calls: int = 0
     search_calls: int = 0
     steps: int = 0

@@ -10,3 +10,5 @@ __pycache__/
 eval/private/
 runs/local/
 *.sqlite*
+configs/local*.json
+runs/*.zip

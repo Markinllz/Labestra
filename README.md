@@ -8,7 +8,7 @@
 Реализованы загрузка и проверка данных, нарезка текстов, поиск статей и
 поиск/чтение фрагментов, фиксированный workflow и проверки его поведения.
 Публичный набор подготовлен; независимая разметка, live-прогоны и B0 ещё впереди.
-Общий runner остаётся заглушкой участника 4.
+Общий runner запускает baseline/system, сохраняет результаты и ресурсы. Реальный API и человеческая оценка ещё не выполнены.
 
 Часть Олега (участник 3): [инструкция, код и подключение](docs/WORKFLOW.md).
 Локальный пример без API и ключа:
@@ -18,7 +18,62 @@ python3 -m labestra.workflow_demo
 ```
 
 Это технический fixture с реальными публичными dev-данными и поиском;
-он не заменяет научный ответ модели, общий runner или оценку качества.
+он не заменяет научный ответ модели или оценку качества.
+
+## Запуск для Аркаши и Сабухи
+
+Python 3.11+, macOS/Linux. Сторонних пакетов и Docker не требуется. Из корня
+репозитория выполните `./run.sh check`: скрипт создаст `.venv` и проверит данные
+и тесты. При нескольких Python можно указать `PYTHON=python3.11 ./run.sh check`.
+На Windows используйте WSL; интерактивный ввод использует POSIX select.
+
+**Аркаша — модель.** Конфигурация создаётся без ключа, тариф Qwen3.6 уже указан:
+
+```bash
+./run.sh configure --model-id 'gpt://YOUR_FOLDER_ID/qwen3.6-35b-a3b' --budget 20
+./run.sh system --participant arkady --case-id dev-01 --case-id dev-04 --session-id system-pilot
+./run.sh pack --session runs/local/system-pilot --output runs/system-pilot.zip
+```
+
+Замените YOUR_FOLDER_ID на свой ID каталога. Можно просто вызвать `./run.sh configure`
+и ответить на вопросы. Конфигурация `configs/local.live.json` исключена из Git;
+повторная настройка не перезаписывает её. Ключ будет запрошен скрыто перед запуском
+системы; он живёт только в процессе. В J1 подтвердите план и выберите источники.
+В J2 проверьте ответ и завершите авторскую проверку. Отправьте ZIP результатов.
+
+Тариф проверен 23.11.2026: 0,20 ₽/1000 входных и 0,30 ₽/1000 выходных; кеширование
+считаем консервативно по полной цене. Подключается Chat Completions API, не старый
+Text Generation API. Оценка входа обоснована официальным ByteLevel BPE и шаблоном
+Qwen; хеши/границы применимости записаны в конфигурации. Это верхняя оценка, а
+фактические usage/стоимость берутся из ответа API. Модель и качество live пока не проверены.
+
+Лимит `--budget` действует на **одну сессию**, а `limits.max_cost` — на одно задание
+(не больше 20 ₽). Суммируйте расходы прошлых сессий перед новым прогоном.
+При неизвестном usage сессия останавливается: сначала сверить биллинг провайдера.
+Отмена прекращает ожидание, но не гарантирует отмену обработки/списания у провайдера.
+
+После успешного dev-пилота назначьте согласованный бюджет в локальном config и
+запустите visible, не меняя модель/промпты/поиск в середине сравнения:
+
+```bash
+./run.sh system --participant arkady --cases eval/visible/tasks.jsonl --session-id system-visible
+./run.sh pack --session runs/local/system-visible --output runs/system-visible.zip
+```
+
+**Сабухи — ручной B0.** Не открывайте gold и ответы системы до своей сессии. Выполните
+тот же `configure` и получите у Аркаши идентичный config без ключа; для B0 API не нужен.
+Сначала dev-пилот, затем visible. Инструкция ввода ответа приведена ниже.
+
+```bash
+./run.sh baseline --participant sabukhi --blind-attestation --case-id dev-01 --case-id dev-04 --session-id b0-pilot
+./run.sh baseline --participant sabukhi --blind-attestation --cases eval/visible/tasks.jsonl --session-id b0-visible
+./run.sh pack --session runs/local/b0-visible --output runs/b0-visible.zip
+```
+
+Лимит человека — 240 с/задание; задайте другой после dev, если нужен, но до visible
+и одинаково для обоих вариантов. Последний этап — человеческая проверка gold,
+независимая разметка и оценивание сохранённых ответов. Инструкция хранителя:
+[DATASET.md](docs/DATASET.md). Holdout до КТ4 не запускать.
 
 ## Структура
 
@@ -55,11 +110,74 @@ source .venv/bin/activate
 python -m labestra --help
 ```
 
-`runner.py` пока содержит `NotImplementedError`: основной CLI ещё не выполняет
-сравнение baseline/system. Для нашей части есть `labestra.workflow_demo` и
-`configs/workflow.fixture.json`; будущая live-конфигурация описана в
-`configs/workflow.live.example.json`. Реальный доступ к модели пока не проверен.
-Ключи в Git не добавлять.
+Общий CLI использует `configs/default.json`: это явно обозначенный offline-fixture.
+Для реального API предназначен `configs/workflow.live.example.json`; до настройки
+ключа, модели, тарифа и контекста live-запуск блокируется. `.env` автоматически
+не загружается. Ключ передаётся только через `LABESTRA_API_KEY`, не через аргументы CLI.
+
+### Проверка общего runner без API
+
+```bash
+python -m labestra --variant baseline --cases eval/dev/tasks.jsonl --fixture-actions --session-id baseline-dev
+python -m labestra --variant system --cases eval/dev/tasks.jsonl --fixture-actions --session-id system-dev
+python -m labestra.scenarios --output runs/local/scenarios.json
+```
+
+Один вход и одни реальные данные; ответы модели и действия человека здесь тестовые.
+Флаг `--fixture-actions` разрешён только на dev, научные оценки по таким ответам запрещены.
+Повтор с тем же session-id завершается до API-вызовов и не перезаписывает результаты.
+`runs/local/` исключён из Git. Для нового прогона выберите новый session-id.
+
+### Ручной B0 и реальная система
+
+Сначала выполните dev-пилот, затем зафиксируйте настройки. В конфигурации уже
+выбран лимит человека 240 секунд на задание, общий deadline 300 секунд.
+Это начальный регламент: после dev его можно изменить **до** visible-сравнения.
+Одинаковую итоговую конфигурацию используйте для B0/system. Baseline не обращается
+к модели и не требует ключа. До B0 нельзя читать gold и ответы системы на эти задания.
+
+```bash
+python -m labestra --variant baseline --cases eval/visible/tasks.jsonl --config configs/workflow.live.example.json --participant sabukhi --blind-attestation --session-id b0-visible
+python -m labestra --variant system --cases eval/visible/tasks.jsonl --config configs/workflow.live.example.json --participant sabukhi --session-id system-visible
+```
+
+Эти команды готовы после заполнения live-конфига; сейчас он намеренно незаполнен.
+Для пилота укажите dev-файл и `--case-id dev-01` либо `--case-id dev-04`.
+B0: выберите номера источников, `read 1,2` показывает фрагменты выбранных работ.
+В J2 прочитайте показанные фрагменты и введите собственный JSON ответа, затем
+строку с точкой. `/cancel`, Ctrl-C, EOF и deadline завершают сессию с причиной.
+JSON имеет ту же схему, что и ответ системы:
+
+```json
+{"answer":"Ваш ответ", "claims":[{"claim_id":"c1","text":"Проверяемый вывод","evidence":[{"fragment_id":"ID из показанного фрагмента","relation":"supports"}]}],"limitations":[],"evidence_status":"sufficient"}
+```
+
+При недостатке оснований: `claims: []`, `evidence_status: "insufficient_evidence"`,
+явное объяснение в `answer` и непустой `limitations`. Смысловую корректность код
+не определяет. После ответа системы автор может отметить accept/reject;
+это **не независимая оценка** и не метрика Acceptance Rate.
+
+В папке задания сохраняются input/config/result/manifest/corpora и events.jsonl.
+Manifest содержит модель, полный config без ключа, хеши кода, данных и промптов,
+Python/SQLite, режим, участника и предупреждения загрузки. Версия ответа модели
+и фактический usage находятся также в событиях. Seed API не поддерживается,
+поэтому фиксируются temperature и версия; побайтовое совпадение генераций не обещается.
+
+### Оценка после сохранения B0
+
+Gold остаётся у Аркаши. Сначала получите проверенные людьми эталоны и независимые
+оценки ответов. Пустой шаблон оценок создаётся без автоматического заполнения:
+
+```bash
+python -m labestra.evaluate --session runs/local/system-visible --prepare-ratings --output runs/local/system-ratings.jsonl
+python -m labestra.evaluate --session runs/local/system-visible --gold eval/private/gold/visible.jsonl --ratings runs/local/system-ratings.jsonl --output runs/local/system-report.json
+```
+
+Заполнить шаблон должен независимый проверяющий: корректность каждого claim,
+отношения claim/evidence, покрытые gold_claim_id, accepted и объяснение. Для B0
+команды аналогичны. Пустые метки, оценка собственного ответа и непроверенный gold
+отклоняются. Для отчёта только о ресурсах не передавайте `--gold`/`--ratings`.
+Ошибки и пропуски сохраняются в знаменателях; неизвестный расход не превращается в ноль.
 
 ## Проверка готовой части без модели и научных данных
 
@@ -138,8 +256,8 @@ found = tools.search_fragments(case.search_query, corpus)
 evidence = tools.read_fragments([f.fragment_id for f in found], corpus)
 ```
 
-Это пример подключения к будущему runner для J2, а не готовый CLI-прогон.
-В текущем config `collection_id` ещё `null`: его задаёт команда вместе с набором.
+Это пример подключения к runner для J2, а не готовый CLI-прогон.
+В текущем config задан ID коллекции из manifest.
 `validate_dataset` принимает корень публичной сборки со структурой выше, не папку `data/`.
 Предупреждения Python `warnings` нефатальны: runner сохраняет их в диагностике;
 неоднозначные ошибки данных возвращаются в одном `ValueError`. Файлы при
@@ -169,5 +287,5 @@ evidence = tools.read_fragments([f.fragment_id for f in found], corpus)
 
 [План работы](docs/KT3_PLAN.md) · [Подробный план](docs/KT3_PLAN_DETAILED.md) · [Дедлайны](docs/KT3_DEADLINES.md) · [Design doc](design_doc.md)
 
-Общие интерфейсы закреплены в разделе 3.5 подробного плана: один английский search_query для B0/system, без фильтров; загрузка и общий учёт — runner, поиск/чтение — LocalSearch. Инструменты реализованы; интеграция с runner/workflow ещё предстоит. Gold не передавать решающему варианту,
+Общие интерфейсы закреплены в разделе 3.5 подробного плана: один английский search_query для B0/system, без фильтров; загрузка и общий учёт — runner, поиск/чтение — LocalSearch. Инструменты подключены к общему runner/workflow; реальный API и человеческая оценка ещё впереди. Gold не передавать решающему варианту,
 holdout хранить приватно до КТ4. Подробная расширенная архитектура не обязательна для КТ3.

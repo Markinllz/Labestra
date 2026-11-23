@@ -7,6 +7,7 @@ import socket
 from typing import Protocol
 from urllib.error import HTTPError, URLError
 from urllib.request import HTTPRedirectHandler, Request, build_opener
+from urllib.parse import urlsplit
 
 from .schemas import ToolError, ToolFailure
 
@@ -22,9 +23,11 @@ class Completion:
 class CompletionFailure(ToolFailure):
     """Unknown billing is the conservative default after a request was sent."""
 
-    def __init__(self, code: str, retryable: bool = False, *, usage_known_zero=False):
+    def __init__(self, code: str, retryable: bool = False, *, usage_known_zero=False,
+                 completion: Completion | None = None):
         super().__init__(ToolError(code, code, retryable))
         self.usage_known_zero = usage_known_zero
+        self.completion = completion
 
 
 class LanguageModel(Protocol):
@@ -112,8 +115,6 @@ class YandexModel:
                 raise CompletionFailure('response_too_large')
             result = json.loads(raw)['result']
             alternative = result['alternatives'][0]
-            if alternative.get('status') != 'ALTERNATIVE_STATUS_FINAL':
-                raise CompletionFailure('incomplete_completion')
             usage = result.get('usage', {})
             def tokens(name):
                 value = usage.get(name)
@@ -122,13 +123,95 @@ class YandexModel:
                 if isinstance(value, bool) or not str(value).isdigit():
                     raise ValueError('Invalid usage')
                 return int(value)
-            text = alternative['message']['text']
+            text = alternative.get('message', {}).get('text', '')
             if not isinstance(text, str):
                 raise ValueError('Invalid completion')
-            return Completion(text, tokens('inputTextTokens'), tokens('completionTokens'),
-                              str(result.get('modelVersion', 'unreported')))
+            completion = Completion(text, tokens('inputTextTokens'), tokens('completionTokens'),
+                                    str(result.get('modelVersion', 'unreported')))
+            if alternative.get('status') != 'ALTERNATIVE_STATUS_FINAL':
+                # A paid but truncated/filtered result is not a successful answer.
+                # Preserve returned usage for billing; never regenerate implicitly.
+                raise CompletionFailure('incomplete_completion', completion=completion)
+            return completion
         except HTTPError as exc:
             # Do not log the body, request, headers or exception text.
+            raise CompletionFailure('http_' + str(exc.code),
+                                    exc.code in {429, 500, 502, 503, 504}) from None
+        except (TimeoutError, socket.timeout):
+            raise CompletionFailure('llm_timeout', True) from None
+        except URLError:
+            raise CompletionFailure('transport_error', True) from None
+        except (ValueError, KeyError, IndexError, TypeError):
+            raise CompletionFailure('invalid_provider_response') from None
+
+
+class ChatModel:
+    """OpenAI-compatible Chat Completions, including Qwen in Yandex AI Studio.
+
+    No SDK, redirects, implicit retries or credential persistence. max_tokens
+    includes provider reasoning tokens when they are included in completion usage.
+    Provider-specific reasoning switches are not assumed to be supported.
+    """
+
+    mode = 'live'
+
+    def __init__(self, model_id, base_url='https://ai.api.cloud.yandex.net/v1',
+                 *, folder_id=None):
+        if not isinstance(model_id, str) or not model_id.strip():
+            raise ValueError('Set an explicit model_id or LABESTRA_MODEL_ID')
+        parsed = urlsplit(base_url)
+        if (parsed.scheme != 'https' or not parsed.hostname or parsed.username or
+                parsed.password or parsed.query or parsed.fragment):
+            raise ValueError('API base URL must be HTTPS without credentials/query/fragment')
+        self.model_id, self.base_url = model_id, base_url.rstrip('/')
+        self.is_yandex = parsed.hostname == 'ai.api.cloud.yandex.net'
+        self.folder_id = folder_id
+        if self.is_yandex:
+            model_uri = urlsplit(model_id)
+            if model_uri.scheme != 'gpt' or not model_uri.netloc or not model_uri.path.strip('/'):
+                raise ValueError('Yandex requires gpt://<folder-id>/<model>')
+            if folder_id and folder_id != model_uri.netloc:
+                raise ValueError('Folder ID differs from model URI')
+            self.folder_id = model_uri.netloc
+
+    def complete(self, messages, *, max_tokens, temperature, timeout):
+        key = os.environ.get('LABESTRA_API_KEY')
+        if not key:
+            raise CompletionFailure('credentials_missing', usage_known_zero=True)
+        body = {'model': self.model_id,
+                'messages': [{'role': m['role'], 'content': m['text']} for m in messages],
+                'max_tokens': max_tokens, 'temperature': temperature, 'stream': False,
+                'response_format': {'type': 'json_object'}}
+        headers = {'Authorization': ('Api-Key ' if self.is_yandex else 'Bearer ') + key,
+                   'Content-Type': 'application/json'}
+        if self.is_yandex:
+            headers.update({'OpenAI-Project': self.folder_id, 'x-data-logging-enabled': 'false'})
+        request = Request(self.base_url + '/chat/completions',
+                          data=json.dumps(body, ensure_ascii=False).encode('utf-8'),
+                          method='POST', headers=headers)
+        try:
+            with build_opener(_NoRedirect()).open(request, timeout=timeout) as response:
+                raw = response.read(2_000_001)
+            if len(raw) > 2_000_000:
+                raise CompletionFailure('response_too_large')
+            value = json.loads(raw)
+            choice = value['choices'][0]
+            usage = value.get('usage') or {}
+            def tokens(name):
+                result = usage.get(name)
+                if result is not None and (type(result) is not int or result < 0):
+                    raise ValueError('Invalid usage')
+                return result
+            content = choice.get('message', {}).get('content')
+            completion = Completion(content if isinstance(content, str) else '',
+                                    tokens('prompt_tokens'), tokens('completion_tokens'),
+                                    str(value.get('system_fingerprint') or 'unreported'))
+            if choice.get('finish_reason') != 'stop':
+                raise CompletionFailure('incomplete_completion', completion=completion)
+            if not isinstance(content, str) or not content.strip():
+                raise CompletionFailure('empty_completion', completion=completion)
+            return completion
+        except HTTPError as exc:
             raise CompletionFailure('http_' + str(exc.code),
                                     exc.code in {429, 500, 502, 503, 504}) from None
         except (TimeoutError, socket.timeout):

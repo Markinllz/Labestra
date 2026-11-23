@@ -194,13 +194,23 @@ class Runtime:
                     continue
             if isinstance(reply, Exception):
                 known = isinstance(reply, CompletionFailure) and reply.usage_known_zero
+                measured = reply.completion if isinstance(reply, CompletionFailure) else None
+                if (isinstance(measured, Completion) and
+                    all(type(v) is int and v >= 0 for v in (measured.input_tokens, measured.output_tokens))):
+                    self.input_tokens += measured.input_tokens
+                    self.output_tokens += measured.output_tokens
+                    self.cost += (measured.input_tokens * self.rate_in + measured.output_tokens * self.rate_out) / 1000
+                    self.emit('llm_incomplete_usage', output={
+                        'input_tokens': measured.input_tokens, 'output_tokens': measured.output_tokens,
+                        'model_version': measured.model_version}, kind='measurement')
+                    known = True
                 retryable = isinstance(reply, CompletionFailure) and reply.error.retryable
                 code = reply.error.code if isinstance(reply, CompletionFailure) else 'llm_exception'
                 if not known:
                     self._unknown()
                 error = self._error('llm', code, retryable, start)
                 self.checkpoint()  # Unknown charges forbid another paid attempt.
-                if retryable and attempt < 2:
+                if retryable and attempt < 2 and measured is None:
                     continue
                 raise ToolFailure(error)
             if (not isinstance(reply, Completion) or

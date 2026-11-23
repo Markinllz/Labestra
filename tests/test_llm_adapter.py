@@ -63,3 +63,25 @@ class AdapterTests(unittest.TestCase):
              self.assertRaises(CompletionFailure) as caught:
             YandexModel('gpt://folder/model/version').complete([], max_tokens=10, temperature=0, timeout=1)
         self.assertEqual(caught.exception.error.code, 'incomplete_completion')
+        self.assertEqual(caught.exception.completion.input_tokens, 12)
+        self.assertEqual(caught.exception.completion.output_tokens, 3)
+
+    def test_truncated_result_charges_known_usage_but_never_publishes_partial_text(self):
+        from dataclasses import replace
+        from labestra.llm import Completion
+        from labestra.schemas import Limits, ToolFailure
+        from labestra.workflow_runtime import Runtime
+        runtime = Runtime('truncated', replace(Limits(), currency='RUB', max_cost=1),
+                          mode='live', pricing={'currency': 'RUB', 'input_per_1000': 1,
+                                               'output_per_1000': 2, 'verified_on': '2026-11-23'})
+        model = Mock(mode='live', model_id='gpt://synthetic/model/version')
+        model.complete.side_effect = CompletionFailure('incomplete_completion',
+            completion=Completion('partial invalid JSON', 12, 3, 'synthetic-version'))
+        with self.assertRaises(ToolFailure):
+            runtime.llm(model, [{'role': 'user', 'text': 'JSON'}],
+                        max_tokens=10, temperature=0, timeout=1)
+        model.complete.assert_called_once()
+        self.assertEqual(runtime.usage().input_tokens, 12)
+        self.assertEqual(runtime.usage().output_tokens, 3)
+        self.assertAlmostEqual(runtime.usage().cost, .018)
+        self.assertTrue(runtime.measurement_complete)

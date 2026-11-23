@@ -1,5 +1,5 @@
 {
-  "session_id": "verified-system",
+  "session_id": "final-system",
   "planned": 6,
   "statuses": {
     "completed": 5,
@@ -45,8 +45,8 @@
   },
   "duration_seconds": {
     "n": 6,
-    "median": 0.00047574983909726143,
-    "p95": 0.0017042076215147972
+    "median": 0.00042352057062089443,
+    "p95": 0.001636291854083538
   },
   "human_active_seconds": {
     "n": 0,
@@ -71,7 +71,7 @@
       "status": "completed",
       "stop_reason": "corpus_selected",
       "completion": true,
-      "duration_seconds": 0.0017042076215147972,
+      "duration_seconds": 0.001636291854083538,
       "human_active_seconds": null,
       "usage": {
         "input_tokens": 1735,
@@ -94,7 +94,7 @@
       "status": "completed",
       "stop_reason": "corpus_selected",
       "completion": true,
-      "duration_seconds": 0.0004501659423112869,
+      "duration_seconds": 0.00039737485349178314,
       "human_active_seconds": null,
       "usage": {
         "input_tokens": 1680,
@@ -117,7 +117,7 @@
       "status": "needs_clarification",
       "stop_reason": "search_query_required",
       "completion": false,
-      "duration_seconds": 0.00014483416453003883,
+      "duration_seconds": 0.00011462485417723656,
       "human_active_seconds": null,
       "usage": {
         "input_tokens": 0,
@@ -140,7 +140,7 @@
       "status": "completed",
       "stop_reason": "insufficient_evidence",
       "completion": true,
-      "duration_seconds": 0.000561750028282404,
+      "duration_seconds": 0.00046070897951722145,
       "human_active_seconds": null,
       "usage": {
         "input_tokens": 7166,
@@ -163,7 +163,7 @@
       "status": "completed",
       "stop_reason": "insufficient_evidence",
       "completion": true,
-      "duration_seconds": 0.0005013337358832359,
+      "duration_seconds": 0.0004496662877500057,
       "human_active_seconds": null,
       "usage": {
         "input_tokens": 7264,
@@ -186,7 +186,7 @@
       "status": "completed",
       "stop_reason": "insufficient_evidence",
       "completion": true,
-      "duration_seconds": 0.0004242919385433197,
+      "duration_seconds": 0.0003592921420931816,
       "human_active_seconds": null,
       "usage": {
         "input_tokens": 6653,

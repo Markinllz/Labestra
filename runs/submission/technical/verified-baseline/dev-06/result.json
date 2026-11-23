@@ -1,5 +1,5 @@
 {
-  "run_id": "verified-baseline-dev-06",
+  "run_id": "final-baseline-dev-06",
   "case_id": "dev-06",
   "variant": "baseline",
   "mode": "fixture",
@@ -31,7 +31,7 @@
     "cost": 0.0,
     "currency": "RUB"
   },
-  "duration_seconds": 0.0002864999696612358,
+  "duration_seconds": 0.00020958296954631805,
   "human_active_seconds": null,
   "retrieved_source_ids": [],
   "corpus_revision_id": "dev-corpus-49afd6428c0a"

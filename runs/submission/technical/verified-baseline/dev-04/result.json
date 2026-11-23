@@ -1,5 +1,5 @@
 {
-  "run_id": "verified-baseline-dev-04",
+  "run_id": "final-baseline-dev-04",
   "case_id": "dev-04",
   "variant": "baseline",
   "mode": "fixture",
@@ -31,7 +31,7 @@
     "cost": 0.0,
     "currency": "RUB"
   },
-  "duration_seconds": 0.00035458290949463844,
+  "duration_seconds": 0.00023224996402859688,
   "human_active_seconds": null,
   "retrieved_source_ids": [],
   "corpus_revision_id": "dev-corpus-cbf143f9d311"

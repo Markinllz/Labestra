@@ -1,5 +1,5 @@
 {
-  "session_id": "verified-system",
+  "session_id": "final-system",
   "planned": 6,
   "planned_case_ids": [
     "dev-01",
@@ -14,7 +14,7 @@
   "halt_reason": null,
   "results": [
     {
-      "run_id": "verified-system-dev-01",
+      "run_id": "final-system-dev-01",
       "case_id": "dev-01",
       "variant": "system",
       "mode": "fixture",
@@ -33,7 +33,7 @@
         "cost": 0.0,
         "currency": "RUB"
       },
-      "duration_seconds": 0.0017042076215147972,
+      "duration_seconds": 0.001636291854083538,
       "human_active_seconds": null,
       "retrieved_source_ids": [
         "acl:2021.naacl-main.466",
@@ -52,10 +52,10 @@
         "acl:2021.naacl-main.200",
         "acl:2025.acl-long.1101"
       ],
-      "corpus_revision_id": "corpus-a60b21b799e0a9c09c501d49"
+      "corpus_revision_id": "corpus-979f2748d828e7356db477fe"
     },
     {
-      "run_id": "verified-system-dev-02",
+      "run_id": "final-system-dev-02",
       "case_id": "dev-02",
       "variant": "system",
       "mode": "fixture",
@@ -74,7 +74,7 @@
         "cost": 0.0,
         "currency": "RUB"
       },
-      "duration_seconds": 0.0004501659423112869,
+      "duration_seconds": 0.00039737485349178314,
       "human_active_seconds": null,
       "retrieved_source_ids": [
         "acl:2021.acl-short.123",
@@ -97,10 +97,10 @@
         "acl:2025.emnlp-industry.54",
         "acl:2023.emnlp-main.398"
       ],
-      "corpus_revision_id": "corpus-98df6afc51725dcaa30df46b"
+      "corpus_revision_id": "corpus-4dafe2dceee6fbc66f2cf05c"
     },
     {
-      "run_id": "verified-system-dev-03",
+      "run_id": "final-system-dev-03",
       "case_id": "dev-03",
       "variant": "system",
       "mode": "fixture",
@@ -119,13 +119,13 @@
         "cost": 0.0,
         "currency": "RUB"
       },
-      "duration_seconds": 0.00014483416453003883,
+      "duration_seconds": 0.00011462485417723656,
       "human_active_seconds": null,
       "retrieved_source_ids": [],
       "corpus_revision_id": null
     },
     {
-      "run_id": "verified-system-dev-04",
+      "run_id": "final-system-dev-04",
       "case_id": "dev-04",
       "variant": "system",
       "mode": "fixture",
@@ -158,13 +158,13 @@
         "cost": 0.0,
         "currency": "RUB"
       },
-      "duration_seconds": 0.000561750028282404,
+      "duration_seconds": 0.00046070897951722145,
       "human_active_seconds": null,
       "retrieved_source_ids": [],
       "corpus_revision_id": "dev-corpus-cbf143f9d311"
     },
     {
-      "run_id": "verified-system-dev-05",
+      "run_id": "final-system-dev-05",
       "case_id": "dev-05",
       "variant": "system",
       "mode": "fixture",
@@ -197,13 +197,13 @@
         "cost": 0.0,
         "currency": "RUB"
       },
-      "duration_seconds": 0.0005013337358832359,
+      "duration_seconds": 0.0004496662877500057,
       "human_active_seconds": null,
       "retrieved_source_ids": [],
       "corpus_revision_id": "dev-corpus-49afd6428c0a"
     },
     {
-      "run_id": "verified-system-dev-06",
+      "run_id": "final-system-dev-06",
       "case_id": "dev-06",
       "variant": "system",
       "mode": "fixture",
@@ -236,7 +236,7 @@
         "cost": 0.0,
         "currency": "RUB"
       },
-      "duration_seconds": 0.0004242919385433197,
+      "duration_seconds": 0.0003592921420931816,
       "human_active_seconds": null,
       "retrieved_source_ids": [],
       "corpus_revision_id": "dev-corpus-49afd6428c0a"

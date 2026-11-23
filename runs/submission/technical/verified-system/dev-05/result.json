@@ -1,5 +1,5 @@
 {
-  "run_id": "verified-system-dev-05",
+  "run_id": "final-system-dev-05",
   "case_id": "dev-05",
   "variant": "system",
   "mode": "fixture",
@@ -32,7 +32,7 @@
     "cost": 0.0,
     "currency": "RUB"
   },
-  "duration_seconds": 0.0005013337358832359,
+  "duration_seconds": 0.0004496662877500057,
   "human_active_seconds": null,
   "retrieved_source_ids": [],
   "corpus_revision_id": "dev-corpus-49afd6428c0a"

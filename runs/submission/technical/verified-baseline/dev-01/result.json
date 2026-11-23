@@ -1,5 +1,5 @@
 {
-  "run_id": "verified-baseline-dev-01",
+  "run_id": "final-baseline-dev-01",
   "case_id": "dev-01",
   "variant": "baseline",
   "mode": "fixture",
@@ -18,7 +18,7 @@
     "cost": 0.0,
     "currency": "RUB"
   },
-  "duration_seconds": 0.0022505829110741615,
+  "duration_seconds": 0.0013629589229822159,
   "human_active_seconds": null,
   "retrieved_source_ids": [
     "acl:2021.naacl-main.466",
@@ -37,5 +37,5 @@
     "acl:2021.naacl-main.200",
     "acl:2025.acl-long.1101"
   ],
-  "corpus_revision_id": "b0-4b4335e462929e78cbf6a385"
+  "corpus_revision_id": "b0-0438803f9046bba8a405cae0"
 }

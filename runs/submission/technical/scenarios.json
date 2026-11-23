@@ -18,7 +18,7 @@
           "step_id": 0,
           "event_type": "state",
           "name": "prompt_manifest",
-          "timestamp_utc": "2026-11-23T12:35:28.081018+00:00",
+          "timestamp_utc": "2026-11-23T12:38:36.749121+00:00",
           "input": {},
           "output": {
             "plan": {
@@ -38,7 +38,7 @@
           "step_id": 0,
           "event_type": "state",
           "name": "start_revision",
-          "timestamp_utc": "2026-11-23T12:35:28.081123+00:00",
+          "timestamp_utc": "2026-11-23T12:38:36.749217+00:00",
           "input": {},
           "output": null,
           "error": null,
@@ -49,7 +49,7 @@
           "step_id": 0,
           "event_type": "state",
           "name": "before_search",
-          "timestamp_utc": "2026-11-23T12:35:28.081144+00:00",
+          "timestamp_utc": "2026-11-23T12:38:36.749240+00:00",
           "input": {},
           "output": null,
           "error": null,
@@ -60,7 +60,7 @@
           "step_id": 1,
           "event_type": "started",
           "name": "search_fragments",
-          "timestamp_utc": "2026-11-23T12:35:28.081276+00:00",
+          "timestamp_utc": "2026-11-23T12:38:36.749256+00:00",
           "input": {
             "query": "fixed corpus",
             "corpus": {
@@ -80,7 +80,7 @@
           "step_id": 1,
           "event_type": "succeeded",
           "name": "search_fragments",
-          "timestamp_utc": "2026-11-23T12:35:28.081285+00:00",
+          "timestamp_utc": "2026-11-23T12:38:36.749264+00:00",
           "input": {},
           "output": [
             {
@@ -92,14 +92,14 @@
             }
           ],
           "error": null,
-          "duration_seconds": 9.416602551937103e-06
+          "duration_seconds": 8.249655365943909e-06
         },
         {
           "run_id": "run-test",
           "step_id": 1,
           "event_type": "state",
           "name": "before_read",
-          "timestamp_utc": "2026-11-23T12:35:28.081293+00:00",
+          "timestamp_utc": "2026-11-23T12:38:36.749271+00:00",
           "input": {},
           "output": null,
           "error": null,
@@ -110,7 +110,7 @@
           "step_id": 2,
           "event_type": "started",
           "name": "read_fragments",
-          "timestamp_utc": "2026-11-23T12:35:28.081301+00:00",
+          "timestamp_utc": "2026-11-23T12:38:36.749278+00:00",
           "input": {
             "fragment_ids": [
               "f1"
@@ -132,7 +132,7 @@
           "step_id": 2,
           "event_type": "succeeded",
           "name": "read_fragments",
-          "timestamp_utc": "2026-11-23T12:35:28.081307+00:00",
+          "timestamp_utc": "2026-11-23T12:38:36.749284+00:00",
           "input": {},
           "output": [
             {
@@ -144,14 +144,14 @@
             }
           ],
           "error": null,
-          "duration_seconds": 6.3749030232429504e-06
+          "duration_seconds": 5.9157609939575195e-06
         },
         {
           "run_id": "run-test",
           "step_id": 2,
           "event_type": "state",
           "name": "context_selected",
-          "timestamp_utc": "2026-11-23T12:35:28.081323+00:00",
+          "timestamp_utc": "2026-11-23T12:38:36.749302+00:00",
           "input": {},
           "output": {
             "included": [
@@ -167,7 +167,7 @@
           "step_id": 2,
           "event_type": "state",
           "name": "before_llm",
-          "timestamp_utc": "2026-11-23T12:35:28.081333+00:00",
+          "timestamp_utc": "2026-11-23T12:38:36.749315+00:00",
           "input": {},
           "output": null,
           "error": null,
@@ -178,7 +178,7 @@
           "step_id": 3,
           "event_type": "started",
           "name": "llm",
-          "timestamp_utc": "2026-11-23T12:35:28.081341+00:00",
+          "timestamp_utc": "2026-11-23T12:38:36.749325+00:00",
           "input": {
             "model_id": "fixture/scripted-v1",
             "messages": [
@@ -205,7 +205,7 @@
           "step_id": 3,
           "event_type": "succeeded",
           "name": "llm",
-          "timestamp_utc": "2026-11-23T12:35:28.081444+00:00",
+          "timestamp_utc": "2026-11-23T12:38:36.749413+00:00",
           "input": {},
           "output": {
             "text": "{\"answer\": \"A fixed corpus was used.\", \"claims\": [{\"claim_id\": \"c1\", \"text\": \"The trial used a fixed corpus.\", \"evidence\": [{\"fragment_id\": \"f1\", \"relation\": \"supports\"}]}], \"limitations\": [], \"evidence_status\": \"sufficient\"}",
@@ -214,14 +214,14 @@
             "model_version": "fixture/scripted-v1"
           },
           "error": null,
-          "duration_seconds": 0.00010137539356946945
+          "duration_seconds": 8.862512186169624e-05
         },
         {
           "run_id": "run-test",
           "step_id": 3,
           "event_type": "state",
           "name": "after_llm",
-          "timestamp_utc": "2026-11-23T12:35:28.081465+00:00",
+          "timestamp_utc": "2026-11-23T12:38:36.749420+00:00",
           "input": {},
           "output": null,
           "error": null,
@@ -232,7 +232,7 @@
           "step_id": 3,
           "event_type": "state",
           "name": "before_publish",
-          "timestamp_utc": "2026-11-23T12:35:28.081494+00:00",
+          "timestamp_utc": "2026-11-23T12:38:36.749443+00:00",
           "input": {},
           "output": null,
           "error": null,
@@ -243,7 +243,7 @@
           "step_id": 3,
           "event_type": "state",
           "name": "workflow_finished",
-          "timestamp_utc": "2026-11-23T12:35:28.081506+00:00",
+          "timestamp_utc": "2026-11-23T12:38:36.749452+00:00",
           "input": {},
           "output": {
             "status": "completed",
@@ -272,7 +272,7 @@
           "step_id": 0,
           "event_type": "state",
           "name": "prompt_manifest",
-          "timestamp_utc": "2026-11-23T12:35:28.082015+00:00",
+          "timestamp_utc": "2026-11-23T12:38:36.749864+00:00",
           "input": {},
           "output": {
             "plan": {
@@ -292,7 +292,7 @@
           "step_id": 0,
           "event_type": "state",
           "name": "start_revision",
-          "timestamp_utc": "2026-11-23T12:35:28.082028+00:00",
+          "timestamp_utc": "2026-11-23T12:38:36.749873+00:00",
           "input": {},
           "output": null,
           "error": null,
@@ -303,7 +303,7 @@
           "step_id": 0,
           "event_type": "state",
           "name": "before_search",
-          "timestamp_utc": "2026-11-23T12:35:28.082042+00:00",
+          "timestamp_utc": "2026-11-23T12:38:36.749883+00:00",
           "input": {},
           "output": null,
           "error": null,
@@ -314,7 +314,7 @@
           "step_id": 1,
           "event_type": "started",
           "name": "search_fragments",
-          "timestamp_utc": "2026-11-23T12:35:28.082052+00:00",
+          "timestamp_utc": "2026-11-23T12:38:36.749890+00:00",
           "input": {
             "query": "fixed corpus",
             "corpus": {
@@ -334,7 +334,7 @@
           "step_id": 1,
           "event_type": "error",
           "name": "search_fragments",
-          "timestamp_utc": "2026-11-23T12:35:28.082062+00:00",
+          "timestamp_utc": "2026-11-23T12:38:36.749902+00:00",
           "input": {},
           "output": null,
           "error": {
@@ -343,14 +343,14 @@
             "retryable": true,
             "tool_call_id": "run-test:1"
           },
-          "duration_seconds": 1.020822674036026e-05
+          "duration_seconds": 1.1124648153781891e-05
         },
         {
           "run_id": "run-test",
           "step_id": 2,
           "event_type": "started",
           "name": "search_fragments",
-          "timestamp_utc": "2026-11-23T12:35:28.082070+00:00",
+          "timestamp_utc": "2026-11-23T12:38:36.749908+00:00",
           "input": {
             "query": "fixed corpus",
             "corpus": {
@@ -370,7 +370,7 @@
           "step_id": 2,
           "event_type": "succeeded",
           "name": "search_fragments",
-          "timestamp_utc": "2026-11-23T12:35:28.082076+00:00",
+          "timestamp_utc": "2026-11-23T12:38:36.749913+00:00",
           "input": {},
           "output": [
             {
@@ -382,14 +382,14 @@
             }
           ],
           "error": null,
-          "duration_seconds": 5.458015948534012e-06
+          "duration_seconds": 4.875008016824722e-06
         },
         {
           "run_id": "run-test",
           "step_id": 2,
           "event_type": "state",
           "name": "before_read",
-          "timestamp_utc": "2026-11-23T12:35:28.082082+00:00",
+          "timestamp_utc": "2026-11-23T12:38:36.749919+00:00",
           "input": {},
           "output": null,
           "error": null,
@@ -400,7 +400,7 @@
           "step_id": 3,
           "event_type": "started",
           "name": "read_fragments",
-          "timestamp_utc": "2026-11-23T12:35:28.082088+00:00",
+          "timestamp_utc": "2026-11-23T12:38:36.749924+00:00",
           "input": {
             "fragment_ids": [
               "f1"
@@ -422,7 +422,7 @@
           "step_id": 3,
           "event_type": "succeeded",
           "name": "read_fragments",
-          "timestamp_utc": "2026-11-23T12:35:28.082094+00:00",
+          "timestamp_utc": "2026-11-23T12:38:36.749929+00:00",
           "input": {},
           "output": [
             {
@@ -434,14 +434,14 @@
             }
           ],
           "error": null,
-          "duration_seconds": 5.62518835067749e-06
+          "duration_seconds": 4.916917532682419e-06
         },
         {
           "run_id": "run-test",
           "step_id": 3,
           "event_type": "state",
           "name": "context_selected",
-          "timestamp_utc": "2026-11-23T12:35:28.082113+00:00",
+          "timestamp_utc": "2026-11-23T12:38:36.749940+00:00",
           "input": {},
           "output": {
             "included": [
@@ -457,7 +457,7 @@
           "step_id": 3,
           "event_type": "state",
           "name": "before_llm",
-          "timestamp_utc": "2026-11-23T12:35:28.082144+00:00",
+          "timestamp_utc": "2026-11-23T12:38:36.749947+00:00",
           "input": {},
           "output": null,
           "error": null,
@@ -468,7 +468,7 @@
           "step_id": 4,
           "event_type": "started",
           "name": "llm",
-          "timestamp_utc": "2026-11-23T12:35:28.082159+00:00",
+          "timestamp_utc": "2026-11-23T12:38:36.749954+00:00",
           "input": {
             "model_id": "fixture/scripted-v1",
             "messages": [
@@ -495,7 +495,7 @@
           "step_id": 4,
           "event_type": "succeeded",
           "name": "llm",
-          "timestamp_utc": "2026-11-23T12:35:28.082226+00:00",
+          "timestamp_utc": "2026-11-23T12:38:36.750019+00:00",
           "input": {},
           "output": {
             "text": "{\"answer\": \"A fixed corpus was used.\", \"claims\": [{\"claim_id\": \"c1\", \"text\": \"The trial used a fixed corpus.\", \"evidence\": [{\"fragment_id\": \"f1\", \"relation\": \"supports\"}]}], \"limitations\": [], \"evidence_status\": \"sufficient\"}",
@@ -504,14 +504,14 @@
             "model_version": "fixture/scripted-v1"
           },
           "error": null,
-          "duration_seconds": 6.704125553369522e-05
+          "duration_seconds": 6.433390080928802e-05
         },
         {
           "run_id": "run-test",
           "step_id": 4,
           "event_type": "state",
           "name": "after_llm",
-          "timestamp_utc": "2026-11-23T12:35:28.082234+00:00",
+          "timestamp_utc": "2026-11-23T12:38:36.750030+00:00",
           "input": {},
           "output": null,
           "error": null,
@@ -522,7 +522,7 @@
           "step_id": 4,
           "event_type": "state",
           "name": "before_publish",
-          "timestamp_utc": "2026-11-23T12:35:28.082256+00:00",
+          "timestamp_utc": "2026-11-23T12:38:36.750049+00:00",
           "input": {},
           "output": null,
           "error": null,
@@ -533,7 +533,7 @@
           "step_id": 4,
           "event_type": "state",
           "name": "workflow_finished",
-          "timestamp_utc": "2026-11-23T12:35:28.082265+00:00",
+          "timestamp_utc": "2026-11-23T12:38:36.750058+00:00",
           "input": {},
           "output": {
             "status": "completed",
@@ -548,7 +548,7 @@
           "step_id": 0,
           "event_type": "state",
           "name": "prompt_manifest",
-          "timestamp_utc": "2026-11-23T12:35:28.082369+00:00",
+          "timestamp_utc": "2026-11-23T12:38:36.750161+00:00",
           "input": {},
           "output": {
             "plan": {
@@ -568,7 +568,7 @@
           "step_id": 0,
           "event_type": "state",
           "name": "start_revision",
-          "timestamp_utc": "2026-11-23T12:35:28.082377+00:00",
+          "timestamp_utc": "2026-11-23T12:38:36.750169+00:00",
           "input": {},
           "output": null,
           "error": null,
@@ -579,7 +579,7 @@
           "step_id": 0,
           "event_type": "state",
           "name": "before_search",
-          "timestamp_utc": "2026-11-23T12:35:28.082387+00:00",
+          "timestamp_utc": "2026-11-23T12:38:36.750179+00:00",
           "input": {},
           "output": null,
           "error": null,
@@ -590,7 +590,7 @@
           "step_id": 1,
           "event_type": "started",
           "name": "search_fragments",
-          "timestamp_utc": "2026-11-23T12:35:28.082395+00:00",
+          "timestamp_utc": "2026-11-23T12:38:36.750187+00:00",
           "input": {
             "query": "fixed corpus",
             "corpus": {
@@ -610,7 +610,7 @@
           "step_id": 1,
           "event_type": "error",
           "name": "search_fragments",
-          "timestamp_utc": "2026-11-23T12:35:28.082402+00:00",
+          "timestamp_utc": "2026-11-23T12:38:36.750194+00:00",
           "input": {},
           "output": null,
           "error": {
@@ -619,14 +619,14 @@
             "retryable": true,
             "tool_call_id": "run-test:1"
           },
-          "duration_seconds": 7.541850209236145e-06
+          "duration_seconds": 7.624737918376923e-06
         },
         {
           "run_id": "run-test",
           "step_id": 2,
           "event_type": "started",
           "name": "search_fragments",
-          "timestamp_utc": "2026-11-23T12:35:28.082408+00:00",
+          "timestamp_utc": "2026-11-23T12:38:36.750201+00:00",
           "input": {
             "query": "fixed corpus",
             "corpus": {
@@ -646,7 +646,7 @@
           "step_id": 2,
           "event_type": "error",
           "name": "search_fragments",
-          "timestamp_utc": "2026-11-23T12:35:28.082414+00:00",
+          "timestamp_utc": "2026-11-23T12:38:36.750206+00:00",
           "input": {},
           "output": null,
           "error": {
@@ -655,14 +655,14 @@
             "retryable": true,
             "tool_call_id": "run-test:2"
           },
-          "duration_seconds": 5.499925464391708e-06
+          "duration_seconds": 5.541834980249405e-06
         },
         {
           "run_id": "run-test",
           "step_id": 3,
           "event_type": "started",
           "name": "search_fragments",
-          "timestamp_utc": "2026-11-23T12:35:28.082420+00:00",
+          "timestamp_utc": "2026-11-23T12:38:36.750213+00:00",
           "input": {
             "query": "fixed corpus",
             "corpus": {
@@ -682,7 +682,7 @@
           "step_id": 3,
           "event_type": "error",
           "name": "search_fragments",
-          "timestamp_utc": "2026-11-23T12:35:28.082426+00:00",
+          "timestamp_utc": "2026-11-23T12:38:36.750218+00:00",
           "input": {},
           "output": null,
           "error": {
@@ -691,14 +691,14 @@
             "retryable": true,
             "tool_call_id": "run-test:3"
           },
-          "duration_seconds": 5.166046321392059e-06
+          "duration_seconds": 5.125068128108978e-06
         },
         {
           "run_id": "run-test",
           "step_id": 3,
           "event_type": "state",
           "name": "workflow_finished",
-          "timestamp_utc": "2026-11-23T12:35:28.082435+00:00",
+          "timestamp_utc": "2026-11-23T12:38:36.750227+00:00",
           "input": {},
           "output": {
             "status": "failed",
@@ -713,7 +713,7 @@
           "step_id": 0,
           "event_type": "state",
           "name": "prompt_manifest",
-          "timestamp_utc": "2026-11-23T12:35:28.082523+00:00",
+          "timestamp_utc": "2026-11-23T12:38:36.750301+00:00",
           "input": {},
           "output": {
             "plan": {
@@ -733,7 +733,7 @@
           "step_id": 0,
           "event_type": "state",
           "name": "start_revision",
-          "timestamp_utc": "2026-11-23T12:35:28.082529+00:00",
+          "timestamp_utc": "2026-11-23T12:38:36.750307+00:00",
           "input": {},
           "output": null,
           "error": null,
@@ -744,7 +744,7 @@
           "step_id": 0,
           "event_type": "state",
           "name": "before_search",
-          "timestamp_utc": "2026-11-23T12:35:28.082537+00:00",
+          "timestamp_utc": "2026-11-23T12:38:36.750315+00:00",
           "input": {},
           "output": null,
           "error": null,
@@ -755,7 +755,7 @@
           "step_id": 1,
           "event_type": "started",
           "name": "search_fragments",
-          "timestamp_utc": "2026-11-23T12:35:28.082542+00:00",
+          "timestamp_utc": "2026-11-23T12:38:36.750320+00:00",
           "input": {
             "query": "fixed corpus",
             "corpus": {
@@ -775,7 +775,7 @@
           "step_id": 1,
           "event_type": "error",
           "name": "search_fragments",
-          "timestamp_utc": "2026-11-23T12:35:28.082548+00:00",
+          "timestamp_utc": "2026-11-23T12:38:36.750326+00:00",
           "input": {},
           "output": null,
           "error": {
@@ -784,14 +784,14 @@
             "retryable": false,
             "tool_call_id": "run-test:1"
           },
-          "duration_seconds": 5.62518835067749e-06
+          "duration_seconds": 5.3746625781059265e-06
         },
         {
           "run_id": "run-test",
           "step_id": 1,
           "event_type": "state",
           "name": "workflow_finished",
-          "timestamp_utc": "2026-11-23T12:35:28.082555+00:00",
+          "timestamp_utc": "2026-11-23T12:38:36.750333+00:00",
           "input": {},
           "output": {
             "status": "failed",
@@ -818,7 +818,7 @@
           "step_id": 0,
           "event_type": "state",
           "name": "prompt_manifest",
-          "timestamp_utc": "2026-11-23T12:35:28.082780+00:00",
+          "timestamp_utc": "2026-11-23T12:38:36.750561+00:00",
           "input": {},
           "output": {
             "plan": {
@@ -838,7 +838,7 @@
           "step_id": 0,
           "event_type": "state",
           "name": "start_revision",
-          "timestamp_utc": "2026-11-23T12:35:28.082788+00:00",
+          "timestamp_utc": "2026-11-23T12:38:36.750569+00:00",
           "input": {},
           "output": null,
           "error": null,
@@ -849,7 +849,7 @@
           "step_id": 0,
           "event_type": "state",
           "name": "before_search",
-          "timestamp_utc": "2026-11-23T12:35:28.082799+00:00",
+          "timestamp_utc": "2026-11-23T12:38:36.750578+00:00",
           "input": {},
           "output": null,
           "error": null,
@@ -860,7 +860,7 @@
           "step_id": 1,
           "event_type": "started",
           "name": "search_fragments",
-          "timestamp_utc": "2026-11-23T12:35:28.082806+00:00",
+          "timestamp_utc": "2026-11-23T12:38:36.750586+00:00",
           "input": {
             "query": "fixed corpus",
             "corpus": {
@@ -880,7 +880,7 @@
           "step_id": 1,
           "event_type": "succeeded",
           "name": "search_fragments",
-          "timestamp_utc": "2026-11-23T12:35:28.082811+00:00",
+          "timestamp_utc": "2026-11-23T12:38:36.750592+00:00",
           "input": {},
           "output": [
             {
@@ -892,14 +892,14 @@
             }
           ],
           "error": null,
-          "duration_seconds": 5.417037755250931e-06
+          "duration_seconds": 6.041955202817917e-06
         },
         {
           "run_id": "run-test",
           "step_id": 1,
           "event_type": "state",
           "name": "before_read",
-          "timestamp_utc": "2026-11-23T12:35:28.082817+00:00",
+          "timestamp_utc": "2026-11-23T12:38:36.750597+00:00",
           "input": {},
           "output": null,
           "error": null,
@@ -910,7 +910,7 @@
           "step_id": 2,
           "event_type": "started",
           "name": "read_fragments",
-          "timestamp_utc": "2026-11-23T12:35:28.082822+00:00",
+          "timestamp_utc": "2026-11-23T12:38:36.750603+00:00",
           "input": {
             "fragment_ids": [
               "f1"
@@ -932,7 +932,7 @@
           "step_id": 2,
           "event_type": "succeeded",
           "name": "read_fragments",
-          "timestamp_utc": "2026-11-23T12:35:28.082827+00:00",
+          "timestamp_utc": "2026-11-23T12:38:36.750609+00:00",
           "input": {},
           "output": [
             {
@@ -944,14 +944,14 @@
             }
           ],
           "error": null,
-          "duration_seconds": 4.9578957259655e-06
+          "duration_seconds": 6.58305361866951e-06
         },
         {
           "run_id": "run-test",
           "step_id": 2,
           "event_type": "state",
           "name": "context_selected",
-          "timestamp_utc": "2026-11-23T12:35:28.082838+00:00",
+          "timestamp_utc": "2026-11-23T12:38:36.750621+00:00",
           "input": {},
           "output": {
             "included": [
@@ -967,7 +967,7 @@
           "step_id": 2,
           "event_type": "state",
           "name": "before_llm",
-          "timestamp_utc": "2026-11-23T12:35:28.082846+00:00",
+          "timestamp_utc": "2026-11-23T12:38:36.750629+00:00",
           "input": {},
           "output": null,
           "error": null,
@@ -978,7 +978,7 @@
           "step_id": 2,
           "event_type": "state",
           "name": "workflow_finished",
-          "timestamp_utc": "2026-11-23T12:35:28.082857+00:00",
+          "timestamp_utc": "2026-11-23T12:38:36.750639+00:00",
           "input": {},
           "output": {
             "status": "budget_exceeded",
@@ -1005,7 +1005,7 @@
           "step_id": 0,
           "event_type": "state",
           "name": "prompt_manifest",
-          "timestamp_utc": "2026-11-23T12:35:28.083050+00:00",
+          "timestamp_utc": "2026-11-23T12:38:36.750828+00:00",
           "input": {},
           "output": {
             "plan": {
@@ -1025,7 +1025,7 @@
           "step_id": 0,
           "event_type": "state",
           "name": "start_revision",
-          "timestamp_utc": "2026-11-23T12:35:28.083058+00:00",
+          "timestamp_utc": "2026-11-23T12:38:36.750835+00:00",
           "input": {},
           "output": null,
           "error": null,
@@ -1036,7 +1036,7 @@
           "step_id": 0,
           "event_type": "state",
           "name": "before_search",
-          "timestamp_utc": "2026-11-23T12:35:28.083067+00:00",
+          "timestamp_utc": "2026-11-23T12:38:36.750844+00:00",
           "input": {},
           "output": null,
           "error": null,
@@ -1047,7 +1047,7 @@
           "step_id": 1,
           "event_type": "started",
           "name": "search_fragments",
-          "timestamp_utc": "2026-11-23T12:35:28.083074+00:00",
+          "timestamp_utc": "2026-11-23T12:38:36.750850+00:00",
           "input": {
             "query": "fixed corpus",
             "corpus": {
@@ -1067,7 +1067,7 @@
           "step_id": 1,
           "event_type": "succeeded",
           "name": "search_fragments",
-          "timestamp_utc": "2026-11-23T12:35:28.083079+00:00",
+          "timestamp_utc": "2026-11-23T12:38:36.750855+00:00",
           "input": {},
           "output": [
             {
@@ -1079,14 +1079,14 @@
             }
           ],
           "error": null,
-          "duration_seconds": 5.6247226893901825e-06
+          "duration_seconds": 5.208887159824371e-06
         },
         {
           "run_id": "run-test",
           "step_id": 1,
           "event_type": "state",
           "name": "before_read",
-          "timestamp_utc": "2026-11-23T12:35:28.083085+00:00",
+          "timestamp_utc": "2026-11-23T12:38:36.750861+00:00",
           "input": {},
           "output": null,
           "error": null,
@@ -1097,7 +1097,7 @@
           "step_id": 2,
           "event_type": "started",
           "name": "read_fragments",
-          "timestamp_utc": "2026-11-23T12:35:28.083092+00:00",
+          "timestamp_utc": "2026-11-23T12:38:36.750866+00:00",
           "input": {
             "fragment_ids": [
               "f1"
@@ -1119,7 +1119,7 @@
           "step_id": 2,
           "event_type": "succeeded",
           "name": "read_fragments",
-          "timestamp_utc": "2026-11-23T12:35:28.083097+00:00",
+          "timestamp_utc": "2026-11-23T12:38:36.750870+00:00",
           "input": {},
           "output": [
             {
@@ -1131,14 +1131,14 @@
             }
           ],
           "error": null,
-          "duration_seconds": 5.582813173532486e-06
+          "duration_seconds": 4.7497451305389404e-06
         },
         {
           "run_id": "run-test",
           "step_id": 2,
           "event_type": "state",
           "name": "context_selected",
-          "timestamp_utc": "2026-11-23T12:35:28.083107+00:00",
+          "timestamp_utc": "2026-11-23T12:38:36.750880+00:00",
           "input": {},
           "output": {
             "included": [
@@ -1154,7 +1154,7 @@
           "step_id": 2,
           "event_type": "state",
           "name": "before_llm",
-          "timestamp_utc": "2026-11-23T12:35:28.083115+00:00",
+          "timestamp_utc": "2026-11-23T12:38:36.750888+00:00",
           "input": {},
           "output": null,
           "error": null,
@@ -1165,7 +1165,7 @@
           "step_id": 3,
           "event_type": "started",
           "name": "llm",
-          "timestamp_utc": "2026-11-23T12:35:28.083121+00:00",
+          "timestamp_utc": "2026-11-23T12:38:36.750894+00:00",
           "input": {
             "model_id": "fixture/scripted-v1",
             "messages": [
@@ -1192,7 +1192,7 @@
           "step_id": 3,
           "event_type": "succeeded",
           "name": "llm",
-          "timestamp_utc": "2026-11-23T12:35:28.083174+00:00",
+          "timestamp_utc": "2026-11-23T12:38:36.750949+00:00",
           "input": {},
           "output": {
             "text": "{\"answer\": \"A fixed corpus was used.\", \"claims\": [{\"claim_id\": \"c1\", \"text\": \"The trial used a fixed corpus.\", \"evidence\": [{\"fragment_id\": \"f1\", \"relation\": \"supports\"}]}], \"limitations\": [], \"evidence_status\": \"sufficient\"}",
@@ -1201,14 +1201,14 @@
             "model_version": "fixture/scripted-v1"
           },
           "error": null,
-          "duration_seconds": 5.224999040365219e-05
+          "duration_seconds": 5.4167117923498154e-05
         },
         {
           "run_id": "run-test",
           "step_id": 3,
           "event_type": "state",
           "name": "after_llm",
-          "timestamp_utc": "2026-11-23T12:35:28.083179+00:00",
+          "timestamp_utc": "2026-11-23T12:38:36.750957+00:00",
           "input": {},
           "output": {
             "action": "revise",
@@ -1223,7 +1223,7 @@
           "step_id": 3,
           "event_type": "state",
           "name": "input_revised",
-          "timestamp_utc": "2026-11-23T12:35:28.083188+00:00",
+          "timestamp_utc": "2026-11-23T12:38:36.750965+00:00",
           "input": {},
           "output": {
             "question": "New question",
@@ -1238,7 +1238,7 @@
           "step_id": 3,
           "event_type": "state",
           "name": "start_revision",
-          "timestamp_utc": "2026-11-23T12:35:28.083193+00:00",
+          "timestamp_utc": "2026-11-23T12:38:36.750971+00:00",
           "input": {},
           "output": null,
           "error": null,
@@ -1249,7 +1249,7 @@
           "step_id": 3,
           "event_type": "state",
           "name": "before_search",
-          "timestamp_utc": "2026-11-23T12:35:28.083200+00:00",
+          "timestamp_utc": "2026-11-23T12:38:36.750978+00:00",
           "input": {},
           "output": null,
           "error": null,
@@ -1260,7 +1260,7 @@
           "step_id": 4,
           "event_type": "started",
           "name": "search_fragments",
-          "timestamp_utc": "2026-11-23T12:35:28.083205+00:00",
+          "timestamp_utc": "2026-11-23T12:38:36.750984+00:00",
           "input": {
             "query": "new query",
             "corpus": {
@@ -1280,7 +1280,7 @@
           "step_id": 4,
           "event_type": "succeeded",
           "name": "search_fragments",
-          "timestamp_utc": "2026-11-23T12:35:28.083210+00:00",
+          "timestamp_utc": "2026-11-23T12:38:36.750990+00:00",
           "input": {},
           "output": [
             {
@@ -1292,14 +1292,14 @@
             }
           ],
           "error": null,
-          "duration_seconds": 4.7497451305389404e-06
+          "duration_seconds": 5.1246024668216705e-06
         },
         {
           "run_id": "run-test",
           "step_id": 4,
           "event_type": "state",
           "name": "before_read",
-          "timestamp_utc": "2026-11-23T12:35:28.083215+00:00",
+          "timestamp_utc": "2026-11-23T12:38:36.750994+00:00",
           "input": {},
           "output": null,
           "error": null,
@@ -1310,7 +1310,7 @@
           "step_id": 5,
           "event_type": "started",
           "name": "read_fragments",
-          "timestamp_utc": "2026-11-23T12:35:28.083219+00:00",
+          "timestamp_utc": "2026-11-23T12:38:36.751001+00:00",
           "input": {
             "fragment_ids": [
               "f1"
@@ -1332,7 +1332,7 @@
           "step_id": 5,
           "event_type": "succeeded",
           "name": "read_fragments",
-          "timestamp_utc": "2026-11-23T12:35:28.083229+00:00",
+          "timestamp_utc": "2026-11-23T12:38:36.751006+00:00",
           "input": {},
           "output": [
             {
@@ -1344,14 +1344,14 @@
             }
           ],
           "error": null,
-          "duration_seconds": 9.249895811080933e-06
+          "duration_seconds": 4.875008016824722e-06
         },
         {
           "run_id": "run-test",
           "step_id": 5,
           "event_type": "state",
           "name": "context_selected",
-          "timestamp_utc": "2026-11-23T12:35:28.083238+00:00",
+          "timestamp_utc": "2026-11-23T12:38:36.751015+00:00",
           "input": {},
           "output": {
             "included": [
@@ -1367,7 +1367,7 @@
           "step_id": 5,
           "event_type": "state",
           "name": "before_llm",
-          "timestamp_utc": "2026-11-23T12:35:28.083245+00:00",
+          "timestamp_utc": "2026-11-23T12:38:36.751022+00:00",
           "input": {},
           "output": null,
           "error": null,
@@ -1378,7 +1378,7 @@
           "step_id": 6,
           "event_type": "started",
           "name": "llm",
-          "timestamp_utc": "2026-11-23T12:35:28.083250+00:00",
+          "timestamp_utc": "2026-11-23T12:38:36.751028+00:00",
           "input": {
             "model_id": "fixture/scripted-v1",
             "messages": [
@@ -1405,7 +1405,7 @@
           "step_id": 6,
           "event_type": "succeeded",
           "name": "llm",
-          "timestamp_utc": "2026-11-23T12:35:28.083292+00:00",
+          "timestamp_utc": "2026-11-23T12:38:36.751078+00:00",
           "input": {},
           "output": {
             "text": "{\"answer\": \"New answer\", \"claims\": [{\"claim_id\": \"c1\", \"text\": \"The trial used a fixed corpus.\", \"evidence\": [{\"fragment_id\": \"f1\", \"relation\": \"supports\"}]}], \"limitations\": [], \"evidence_status\": \"sufficient\"}",
@@ -1414,14 +1414,14 @@
             "model_version": "fixture/scripted-v1"
           },
           "error": null,
-          "duration_seconds": 4.104245454072952e-05
+          "duration_seconds": 4.974985495209694e-05
         },
         {
           "run_id": "run-test",
           "step_id": 6,
           "event_type": "state",
           "name": "after_llm",
-          "timestamp_utc": "2026-11-23T12:35:28.083297+00:00",
+          "timestamp_utc": "2026-11-23T12:38:36.751085+00:00",
           "input": {},
           "output": null,
           "error": null,
@@ -1432,7 +1432,7 @@
           "step_id": 6,
           "event_type": "state",
           "name": "before_publish",
-          "timestamp_utc": "2026-11-23T12:35:28.083313+00:00",
+          "timestamp_utc": "2026-11-23T12:38:36.751099+00:00",
           "input": {},
           "output": null,
           "error": null,
@@ -1443,7 +1443,7 @@
           "step_id": 6,
           "event_type": "state",
           "name": "workflow_finished",
-          "timestamp_utc": "2026-11-23T12:35:28.083320+00:00",
+          "timestamp_utc": "2026-11-23T12:38:36.751105+00:00",
           "input": {},
           "output": {
             "status": "completed",
@@ -1475,14 +1475,14 @@
       ],
       "passed": true,
       "checks": 2,
-      "protocol": "test_late_completion_cannot_publish_or_mutate_events (test_workflow.WorkflowTests.test_late_completion_cannot_publish_or_mutate_events) ... ok\ntest_cancellation_before_publication_leaves_no_result (test_runner.RunnerTests.test_cancellation_before_publication_leaves_no_result) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 0.042s\n\nOK\n",
+      "protocol": "test_late_completion_cannot_publish_or_mutate_events (test_workflow.WorkflowTests.test_late_completion_cannot_publish_or_mutate_events) ... ok\ntest_cancellation_before_publication_leaves_no_result (test_runner.RunnerTests.test_cancellation_before_publication_leaves_no_result) ... ok\n\n----------------------------------------------------------------------\nRan 2 tests in 0.041s\n\nOK\n",
       "events": [
         {
           "run_id": "run-test",
           "step_id": 0,
           "event_type": "state",
           "name": "prompt_manifest",
-          "timestamp_utc": "2026-11-23T12:35:28.084861+00:00",
+          "timestamp_utc": "2026-11-23T12:38:36.752426+00:00",
           "input": {},
           "output": {
             "plan": {
@@ -1502,7 +1502,7 @@
           "step_id": 0,
           "event_type": "state",
           "name": "start_revision",
-          "timestamp_utc": "2026-11-23T12:35:28.084869+00:00",
+          "timestamp_utc": "2026-11-23T12:38:36.752434+00:00",
           "input": {},
           "output": null,
           "error": null,
@@ -1513,7 +1513,7 @@
           "step_id": 0,
           "event_type": "state",
           "name": "before_search",
-          "timestamp_utc": "2026-11-23T12:35:28.084878+00:00",
+          "timestamp_utc": "2026-11-23T12:38:36.752443+00:00",
           "input": {},
           "output": null,
           "error": null,
@@ -1524,7 +1524,7 @@
           "step_id": 1,
           "event_type": "started",
           "name": "search_fragments",
-          "timestamp_utc": "2026-11-23T12:35:28.084884+00:00",
+          "timestamp_utc": "2026-11-23T12:38:36.752449+00:00",
           "input": {
             "query": "fixed corpus",
             "corpus": {
@@ -1544,7 +1544,7 @@
           "step_id": 1,
           "event_type": "succeeded",
           "name": "search_fragments",
-          "timestamp_utc": "2026-11-23T12:35:28.084889+00:00",
+          "timestamp_utc": "2026-11-23T12:38:36.752455+00:00",
           "input": {},
           "output": [
             {
@@ -1556,14 +1556,14 @@
             }
           ],
           "error": null,
-          "duration_seconds": 5.2908435463905334e-06
+          "duration_seconds": 5.541369318962097e-06
         },
         {
           "run_id": "run-test",
           "step_id": 1,
           "event_type": "state",
           "name": "before_read",
-          "timestamp_utc": "2026-11-23T12:35:28.084895+00:00",
+          "timestamp_utc": "2026-11-23T12:38:36.752460+00:00",
           "input": {},
           "output": null,
           "error": null,
@@ -1574,7 +1574,7 @@
           "step_id": 2,
           "event_type": "started",
           "name": "read_fragments",
-          "timestamp_utc": "2026-11-23T12:35:28.084900+00:00",
+          "timestamp_utc": "2026-11-23T12:38:36.752465+00:00",
           "input": {
             "fragment_ids": [
               "f1"
@@ -1596,7 +1596,7 @@
           "step_id": 2,
           "event_type": "succeeded",
           "name": "read_fragments",
-          "timestamp_utc": "2026-11-23T12:35:28.084904+00:00",
+          "timestamp_utc": "2026-11-23T12:38:36.752470+00:00",
           "input": {},
           "output": [
             {
@@ -1608,14 +1608,14 @@
             }
           ],
           "error": null,
-          "duration_seconds": 4.791654646396637e-06
+          "duration_seconds": 4.916917532682419e-06
         },
         {
           "run_id": "run-test",
           "step_id": 2,
           "event_type": "state",
           "name": "context_selected",
-          "timestamp_utc": "2026-11-23T12:35:28.084914+00:00",
+          "timestamp_utc": "2026-11-23T12:38:36.752480+00:00",
           "input": {},
           "output": {
             "included": [
@@ -1631,7 +1631,7 @@
           "step_id": 2,
           "event_type": "state",
           "name": "before_llm",
-          "timestamp_utc": "2026-11-23T12:35:28.084922+00:00",
+          "timestamp_utc": "2026-11-23T12:38:36.752487+00:00",
           "input": {},
           "output": null,
           "error": null,
@@ -1642,7 +1642,7 @@
           "step_id": 3,
           "event_type": "started",
           "name": "llm",
-          "timestamp_utc": "2026-11-23T12:35:28.084928+00:00",
+          "timestamp_utc": "2026-11-23T12:38:36.752493+00:00",
           "input": {
             "model_id": "fixture/scripted-v1",
             "messages": [
@@ -1669,7 +1669,7 @@
           "step_id": 3,
           "event_type": "error",
           "name": "llm",
-          "timestamp_utc": "2026-11-23T12:35:28.084971+00:00",
+          "timestamp_utc": "2026-11-23T12:38:36.752531+00:00",
           "input": {},
           "output": null,
           "error": {
@@ -1678,14 +1678,14 @@
             "retryable": false,
             "tool_call_id": "run-test:3"
           },
-          "duration_seconds": 4.2040832340717316e-05
+          "duration_seconds": 3.683334216475487e-05
         },
         {
           "run_id": "run-test",
           "step_id": 3,
           "event_type": "state",
           "name": "workflow_finished",
-          "timestamp_utc": "2026-11-23T12:35:28.084979+00:00",
+          "timestamp_utc": "2026-11-23T12:38:36.752542+00:00",
           "input": {},
           "output": {
             "status": "cancelled",

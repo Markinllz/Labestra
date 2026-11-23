@@ -1,6 +1,6 @@
 {
-  "run_id": "verified-baseline-dev-02",
-  "session_id": "verified-baseline",
+  "run_id": "final-baseline-dev-02",
+  "session_id": "final-baseline",
   "variant": "baseline",
   "mode": "fixture",
   "participant": null,
@@ -9,7 +9,7 @@
   "usage_kind": "synthetic_fixture",
   "dataset_version": "0.1.1-draft",
   "data_manifest_sha256": "6a6587f3a98e8197a6c8834beb612970b7d371f7b2bcd05d9a79790b9a36ab9c",
-  "code_revision": "a4bd7dd5669f09ce6a0110ceba58b0416378d20b",
+  "code_revision": "e7e945aee1e296aecd6135991fb4cf24513d305c",
   "file_sha256": {
     "labestra/__init__.py": "3eb07892eb34551f57fa9dc1ff12e28853f2365be74322b216d5d6e097eae2ef",
     "labestra/__main__.py": "3371e5aefb63db9d4dbf67dcf569ab0f9f9435e3611e63d907de91f7ba9ced77",
@@ -17,7 +17,7 @@
     "labestra/evaluate.py": "c637b024379e96cba15fdcae7bfdaa656d642b7fe643242f5b3adc178070b2e5",
     "labestra/launch.py": "4bf556ff5145c0047a73e19d084fa04f4cf08f7a93b8d23aba1233a8288af003",
     "labestra/llm.py": "21c0d8785d5c119bc76618effae6dbd3105d645d12d546ea47ad7ac111e8f2a6",
-    "labestra/runner.py": "bf4976e241d5543cf9b8fe1c35b032d3625386d21aadd3192f6fbaffcd444fd3",
+    "labestra/runner.py": "df7ece0fb6b4ff7595e259870c0d6769cc34d58b27161e95f2ac0b43073be633",
     "labestra/scenarios.py": "69615463d61e02c2d0a5f78d6323460a529278b692cf4082d7d4c671e0121fb4",
     "labestra/schemas.py": "5716b675687753207a735b2fde0536fa7d67874ecca80021e46480a9e5168bf7",
     "labestra/search.py": "2767047b2105922abb5c6d1be0b08193e8db3501aa42037a3d5360f3af4e0439",

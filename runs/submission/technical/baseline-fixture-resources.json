@@ -1,0 +1,206 @@
+{
+  "session_id": "verified-baseline",
+  "planned": 6,
+  "statuses": {
+    "completed": 5,
+    "needs_clarification": 1
+  },
+  "completion": {
+    "numerator": 5,
+    "denominator": 6,
+    "value": 0.8333333333333334
+  },
+  "scientific_evaluation": false,
+  "gold_sha256": null,
+  "ratings_sha256": null,
+  "quality": {
+    "claim_correctness": {
+      "assessed_cases": 0,
+      "mean": null
+    },
+    "gold_coverage": {
+      "assessed_cases": 0,
+      "mean": null
+    },
+    "accepted": {
+      "assessed_cases": 0,
+      "mean": null
+    },
+    "action_correct": {
+      "assessed_cases": 0,
+      "mean": null
+    },
+    "recall_at_20": {
+      "assessed_cases": 0,
+      "mean": null
+    },
+    "precision_at_k": {
+      "assessed_cases": 0,
+      "mean": null
+    },
+    "evidence_entailment": {
+      "assessed_cases": 0,
+      "mean": null
+    }
+  },
+  "duration_seconds": {
+    "n": 6,
+    "median": 0.00029843742959201336,
+    "p95": 0.0022505829110741615
+  },
+  "human_active_seconds": {
+    "n": 0,
+    "median": null,
+    "p95": null
+  },
+  "total_cost": 0.0,
+  "known_cost_subtotal": 0.0,
+  "unknown_cost_runs": 0,
+  "currency": [
+    "RUB"
+  ],
+  "limitations": [
+    "Unassessed semantic metrics remain null; missing tasks and failures remain in the task list.",
+    "Inspect per-case and per-category results; aggregates do not establish statistical independence."
+  ],
+  "records": [
+    {
+      "case_id": "dev-01",
+      "phase": "J1",
+      "category": "thematic",
+      "status": "completed",
+      "stop_reason": "corpus_selected",
+      "completion": true,
+      "duration_seconds": 0.0022505829110741615,
+      "human_active_seconds": null,
+      "usage": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "llm_calls": 0,
+        "search_calls": 1,
+        "steps": 1,
+        "cost": 0.0,
+        "currency": "RUB"
+      },
+      "config_sha256": "650bd8a8272644600b96cbdbf9d6db590ffe7a7a877bf42a10a2b1d59dec95c1",
+      "input_question": "Найди работу, где совместно применяют cross-batch negatives, denoised hard negatives и augmentation для dense passage retrieval.",
+      "search_query": "cross batch negatives denoised hard negatives data augmentation",
+      "input_corpus_revision_id": null
+    },
+    {
+      "case_id": "dev-02",
+      "phase": "J1",
+      "category": "distinction",
+      "status": "completed",
+      "stop_reason": "corpus_selected",
+      "completion": true,
+      "duration_seconds": 0.00021125003695487976,
+      "human_active_seconds": null,
+      "usage": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "llm_calls": 0,
+        "search_calls": 1,
+        "steps": 1,
+        "cost": 0.0,
+        "currency": "RUB"
+      },
+      "config_sha256": "650bd8a8272644600b96cbdbf9d6db590ffe7a7a877bf42a10a2b1d59dec95c1",
+      "input_question": "Найди метод бинарного хеширования passage index для экономии памяти в open-domain QA.",
+      "search_query": "binary passage retrieval hashing memory",
+      "input_corpus_revision_id": null
+    },
+    {
+      "case_id": "dev-03",
+      "phase": "J1",
+      "category": "ambiguous",
+      "status": "needs_clarification",
+      "stop_reason": "search_query_required",
+      "completion": false,
+      "duration_seconds": 2.0499806851148605e-05,
+      "human_active_seconds": null,
+      "usage": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "llm_calls": 0,
+        "search_calls": 0,
+        "steps": 0,
+        "cost": 0.0,
+        "currency": "RUB"
+      },
+      "config_sha256": "650bd8a8272644600b96cbdbf9d6db590ffe7a7a877bf42a10a2b1d59dec95c1",
+      "input_question": "Какой поиск лучше?",
+      "search_query": "",
+      "input_corpus_revision_id": null
+    },
+    {
+      "case_id": "dev-04",
+      "phase": "J2",
+      "category": "direct",
+      "status": "completed",
+      "stop_reason": "insufficient_evidence",
+      "completion": true,
+      "duration_seconds": 0.00035458290949463844,
+      "human_active_seconds": null,
+      "usage": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "llm_calls": 0,
+        "search_calls": 1,
+        "steps": 2,
+        "cost": 0.0,
+        "currency": "RUB"
+      },
+      "config_sha256": "650bd8a8272644600b96cbdbf9d6db590ffe7a7a877bf42a10a2b1d59dec95c1",
+      "input_question": "Какие три стратегии обучения предлагает RocketQA?",
+      "search_query": "RocketQA technical contributions",
+      "input_corpus_revision_id": "dev-corpus-cbf143f9d311"
+    },
+    {
+      "case_id": "dev-05",
+      "phase": "J2",
+      "category": "direct",
+      "status": "completed",
+      "stop_reason": "insufficient_evidence",
+      "completion": true,
+      "duration_seconds": 0.0003103748895227909,
+      "human_active_seconds": null,
+      "usage": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "llm_calls": 0,
+        "search_calls": 1,
+        "steps": 2,
+        "cost": 0.0,
+        "currency": "RUB"
+      },
+      "config_sha256": "650bd8a8272644600b96cbdbf9d6db590ffe7a7a877bf42a10a2b1d59dec95c1",
+      "input_question": "Как изменяется размер индекса BPR относительно DPR в приведённых экспериментах?",
+      "search_query": "BPR DPR memory index 65GB 2GB",
+      "input_corpus_revision_id": "dev-corpus-49afd6428c0a"
+    },
+    {
+      "case_id": "dev-06",
+      "phase": "J2",
+      "category": "insufficient",
+      "status": "completed",
+      "stop_reason": "insufficient_evidence",
+      "completion": true,
+      "duration_seconds": 0.0002864999696612358,
+      "human_active_seconds": null,
+      "usage": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "llm_calls": 0,
+        "search_calls": 1,
+        "steps": 2,
+        "cost": 0.0,
+        "currency": "RUB"
+      },
+      "config_sha256": "650bd8a8272644600b96cbdbf9d6db590ffe7a7a877bf42a10a2b1d59dec95c1",
+      "input_question": "Каков расход электроэнергии BPR на один запрос на NVIDIA H100?",
+      "search_query": "BPR H100 energy query",
+      "input_corpus_revision_id": "dev-corpus-49afd6428c0a"
+    }
+  ]
+}

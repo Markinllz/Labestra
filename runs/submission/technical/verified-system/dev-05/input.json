@@ -1,0 +1,22 @@
+{
+  "case_id": "dev-05",
+  "phase": "J2",
+  "split": "dev",
+  "category": "direct",
+  "group_id": "dev-bpr",
+  "question": "Как изменяется размер индекса BPR относительно DPR в приведённых экспериментах?",
+  "collection_id": "labestra-retrieval-2026-11-v1",
+  "search_query": "BPR DPR memory index 65GB 2GB",
+  "corpus_revision_id": "dev-corpus-49afd6428c0a",
+  "history": [],
+  "limits": {
+    "max_steps": 20,
+    "max_llm_calls": 10,
+    "max_search_calls": 5,
+    "max_input_tokens": 100000,
+    "max_output_tokens": 15000,
+    "timeout_seconds": 300,
+    "max_cost": 0,
+    "currency": "RUB"
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "run_id": "verified-baseline-dev-06",
+  "session_id": "verified-baseline",
+  "variant": "baseline",
+  "mode": "fixture",
+  "participant": null,
+  "blind_attestation": false,
+  "scientific_evaluation": false,
+  "usage_kind": "synthetic_fixture",
+  "dataset_version": "0.1.1-draft",
+  "data_manifest_sha256": "6a6587f3a98e8197a6c8834beb612970b7d371f7b2bcd05d9a79790b9a36ab9c",
+  "code_revision": "a4bd7dd5669f09ce6a0110ceba58b0416378d20b",
+  "file_sha256": {
+    "labestra/__init__.py": "3eb07892eb34551f57fa9dc1ff12e28853f2365be74322b216d5d6e097eae2ef",
+    "labestra/__main__.py": "3371e5aefb63db9d4dbf67dcf569ab0f9f9435e3611e63d907de91f7ba9ced77",
+    "labestra/data.py": "01615059c528516d36096c459b3f64006d7dda898d06eb18c0f1cb86f4f46d3c",
+    "labestra/evaluate.py": "c637b024379e96cba15fdcae7bfdaa656d642b7fe643242f5b3adc178070b2e5",
+    "labestra/launch.py": "4bf556ff5145c0047a73e19d084fa04f4cf08f7a93b8d23aba1233a8288af003",
+    "labestra/llm.py": "21c0d8785d5c119bc76618effae6dbd3105d645d12d546ea47ad7ac111e8f2a6",
+    "labestra/runner.py": "bf4976e241d5543cf9b8fe1c35b032d3625386d21aadd3192f6fbaffcd444fd3",
+    "labestra/scenarios.py": "69615463d61e02c2d0a5f78d6323460a529278b692cf4082d7d4c671e0121fb4",
+    "labestra/schemas.py": "5716b675687753207a735b2fde0536fa7d67874ecca80021e46480a9e5168bf7",
+    "labestra/search.py": "2767047b2105922abb5c6d1be0b08193e8db3501aa42037a3d5360f3af4e0439",
+    "labestra/workflow.py": "22bace2ee6d624ae7d2e9f5089985da68d2de7546124c908fcdb216f4897e9ce",
+    "labestra/workflow_demo.py": "38b64c742bd5a904f58cbc8c2f3d4a0598b39b2f8d53e07bb52330b6d6afbd1c",
+    "labestra/workflow_runtime.py": "e4ea31553ff13fd4745719446b32bc525bae4077708f76893e341e80bd010b72",
+    "prompts/answer.txt": "d59fd4e4537d8d9f40a9abf37c299561c4ab0e5ea42301b5d7e549c6ea53458e",
+    "prompts/plan.txt": "bf516a60eb4bd229edeae87309bc7bd0172ba91bb118e5efadff43dedd87d23b"
+  },
+  "config_sha256": "650bd8a8272644600b96cbdbf9d6db590ffe7a7a877bf42a10a2b1d59dec95c1",
+  "python": "3.13.15",
+  "sqlite": "3.50.4",
+  "model_id": null,
+  "temperature": 0,
+  "seed": null,
+  "seed_note": "Provider adapter has no seed parameter; exact repeated text is not guaranteed.",
+  "parameters": {
+    "mode": "fixture",
+    "collection_id": "labestra-retrieval-2026-11-v1",
+    "limits": {
+      "max_steps": 20,
+      "max_llm_calls": 10,
+      "max_search_calls": 5,
+      "max_input_tokens": 100000,
+      "max_output_tokens": 15000,
+      "timeout_seconds": 300,
+      "max_cost": 0,
+      "currency": "RUB"
+    },
+    "search": {
+      "top_k": 20,
+      "timeout_seconds": 30
+    },
+    "workflow": {
+      "temperature": 0,
+      "max_input_tokens_per_call": 8000,
+      "max_output_tokens_per_call": 1500,
+      "context_window_tokens": 16000,
+      "llm_timeout_seconds": 30,
+      "token_bound_verified": false
+    },
+    "baseline": {
+      "human_time_limit_seconds": 240,
+      "policy": "fixed English query; no LLM; top 20 sources; top 10 fragments, max 3 per source"
+    },
+    "session_max_cost": 0
+  },
+  "diagnostics": []
+}

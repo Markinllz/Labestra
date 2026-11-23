@@ -1,0 +1,243 @@
+{
+  "session_id": "verified-baseline",
+  "planned": 6,
+  "planned_case_ids": [
+    "dev-01",
+    "dev-02",
+    "dev-03",
+    "dev-04",
+    "dev-05",
+    "dev-06"
+  ],
+  "recorded": 6,
+  "interrupted": false,
+  "halt_reason": null,
+  "results": [
+    {
+      "run_id": "verified-baseline-dev-01",
+      "case_id": "dev-01",
+      "variant": "baseline",
+      "mode": "fixture",
+      "status": "completed",
+      "answer": "Выбрано источников: 3.",
+      "claims": [],
+      "limitations": [],
+      "evidence_status": "not_assessed",
+      "stop_reason": "corpus_selected",
+      "usage": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "llm_calls": 0,
+        "search_calls": 1,
+        "steps": 1,
+        "cost": 0.0,
+        "currency": "RUB"
+      },
+      "duration_seconds": 0.0022505829110741615,
+      "human_active_seconds": null,
+      "retrieved_source_ids": [
+        "acl:2021.naacl-main.466",
+        "acl:2020.emnlp-main.550",
+        "acl:2021.emnlp-main.496",
+        "acl:2021.acl-short.123",
+        "acl:2024.naacl-long.20",
+        "acl:2021.eacl-main.74",
+        "acl:2024.tacl-1.9",
+        "acl:2022.emnlp-main.249",
+        "acl:2020.findings-emnlp.63",
+        "acl:P17-1147",
+        "acl:Q19-1026",
+        "acl:2021.acl-long.475",
+        "acl:2025.emnlp-industry.54",
+        "acl:2021.naacl-main.200",
+        "acl:2025.acl-long.1101"
+      ],
+      "corpus_revision_id": "b0-4b4335e462929e78cbf6a385"
+    },
+    {
+      "run_id": "verified-baseline-dev-02",
+      "case_id": "dev-02",
+      "variant": "baseline",
+      "mode": "fixture",
+      "status": "completed",
+      "answer": "Выбрано источников: 3.",
+      "claims": [],
+      "limitations": [],
+      "evidence_status": "not_assessed",
+      "stop_reason": "corpus_selected",
+      "usage": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "llm_calls": 0,
+        "search_calls": 1,
+        "steps": 1,
+        "cost": 0.0,
+        "currency": "RUB"
+      },
+      "duration_seconds": 0.00021125003695487976,
+      "human_active_seconds": null,
+      "retrieved_source_ids": [
+        "acl:2021.acl-short.123",
+        "acl:P17-1171",
+        "acl:2023.emnlp-main.741",
+        "acl:2024.naacl-long.20",
+        "acl:2021.naacl-main.466",
+        "acl:2020.emnlp-main.550",
+        "acl:2021.emnlp-main.496",
+        "acl:2024.tacl-1.9",
+        "acl:2021.eacl-main.74",
+        "acl:2021.naacl-main.200",
+        "acl:2024.eacl-demo.16",
+        "acl:2022.emnlp-main.249",
+        "acl:2021.findings-acl.191",
+        "acl:2020.findings-emnlp.63",
+        "acl:2023.emnlp-main.557",
+        "acl:2025.findings-naacl.157",
+        "acl:2025.acl-long.1101",
+        "acl:2025.emnlp-industry.54",
+        "acl:2023.emnlp-main.398"
+      ],
+      "corpus_revision_id": "b0-67da466c5996daae21373472"
+    },
+    {
+      "run_id": "verified-baseline-dev-03",
+      "case_id": "dev-03",
+      "variant": "baseline",
+      "mode": "fixture",
+      "status": "needs_clarification",
+      "answer": "Уточните задачу и задайте английскую поисковую фразу.",
+      "claims": [],
+      "limitations": [],
+      "evidence_status": "not_assessed",
+      "stop_reason": "search_query_required",
+      "usage": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "llm_calls": 0,
+        "search_calls": 0,
+        "steps": 0,
+        "cost": 0.0,
+        "currency": "RUB"
+      },
+      "duration_seconds": 2.0499806851148605e-05,
+      "human_active_seconds": null,
+      "retrieved_source_ids": [],
+      "corpus_revision_id": null
+    },
+    {
+      "run_id": "verified-baseline-dev-04",
+      "case_id": "dev-04",
+      "variant": "baseline",
+      "mode": "fixture",
+      "status": "completed",
+      "answer": "Технический fixture: передача фрагмента и проверка ссылки выполнены. Научный ответ модели в этом запуске не получен.",
+      "claims": [
+        {
+          "claim_id": "fixture-quote-1",
+          "text": "RocketQA: An Optimized Training Approach to Dense Passage Retrieval\nfor Open-Domain Question Answering\nYingqi Qu1 , Yuchen Ding1 , Jing Liu1∗, Kai Liu1 , Ruiyang Ren2†\nWayne Xin Zh",
+          "evidence": [
+            {
+              "fragment_id": "23859cbf6ce5c5785b46e96fdfbf722f17530fd0433dee7ac9f6996c548d7a87",
+              "relation": "supports"
+            }
+          ]
+        }
+      ],
+      "limitations": [
+        "Ответ сгенерирован тестовым адаптером; научное качество не измерялось."
+      ],
+      "evidence_status": "insufficient_evidence",
+      "stop_reason": "insufficient_evidence",
+      "usage": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "llm_calls": 0,
+        "search_calls": 1,
+        "steps": 2,
+        "cost": 0.0,
+        "currency": "RUB"
+      },
+      "duration_seconds": 0.00035458290949463844,
+      "human_active_seconds": null,
+      "retrieved_source_ids": [],
+      "corpus_revision_id": "dev-corpus-cbf143f9d311"
+    },
+    {
+      "run_id": "verified-baseline-dev-05",
+      "case_id": "dev-05",
+      "variant": "baseline",
+      "mode": "fixture",
+      "status": "completed",
+      "answer": "Технический fixture: передача фрагмента и проверка ссылки выполнены. Научный ответ модели в этом запуске не получен.",
+      "claims": [
+        {
+          "claim_id": "fixture-quote-1",
+          "text": "integrates\nour learning-to-hash technique into the state-ofthe-art Dense Passage Retriever (DPR) (Karpukhin\net al., 2020) to drastically reduce the size of the\n1\n\nThe passage index",
+          "evidence": [
+            {
+              "fragment_id": "a03d4ddf25ab4dcc316326beffd2394765b20f12fd9cc36dd4482fef2d5ec9ba",
+              "relation": "supports"
+            }
+          ]
+        }
+      ],
+      "limitations": [
+        "Ответ сгенерирован тестовым адаптером; научное качество не измерялось."
+      ],
+      "evidence_status": "insufficient_evidence",
+      "stop_reason": "insufficient_evidence",
+      "usage": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "llm_calls": 0,
+        "search_calls": 1,
+        "steps": 2,
+        "cost": 0.0,
+        "currency": "RUB"
+      },
+      "duration_seconds": 0.0003103748895227909,
+      "human_active_seconds": null,
+      "retrieved_source_ids": [],
+      "corpus_revision_id": "dev-corpus-49afd6428c0a"
+    },
+    {
+      "run_id": "verified-baseline-dev-06",
+      "case_id": "dev-06",
+      "variant": "baseline",
+      "mode": "fixture",
+      "status": "completed",
+      "answer": "Технический fixture: передача фрагмента и проверка ссылки выполнены. Научный ответ модели в этом запуске не получен.",
+      "claims": [
+        {
+          "claim_id": "fixture-quote-1",
+          "text": "the computational cost without losing\naccuracy, BPR splits the task into candidate generation and reranking stages. At the candidate generation stage, we efficiently obtain the top",
+          "evidence": [
+            {
+              "fragment_id": "b09c2c3b23a633b0c9d5d7c494b83a7d285d61c9dc88f0d9633ecda81e9ae4c8",
+              "relation": "supports"
+            }
+          ]
+        }
+      ],
+      "limitations": [
+        "Ответ сгенерирован тестовым адаптером; научное качество не измерялось."
+      ],
+      "evidence_status": "insufficient_evidence",
+      "stop_reason": "insufficient_evidence",
+      "usage": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "llm_calls": 0,
+        "search_calls": 1,
+        "steps": 2,
+        "cost": 0.0,
+        "currency": "RUB"
+      },
+      "duration_seconds": 0.0002864999696612358,
+      "human_active_seconds": null,
+      "retrieved_source_ids": [],
+      "corpus_revision_id": "dev-corpus-49afd6428c0a"
+    }
+  ],
+  "note": "Semantic quality and acceptance require independent human evaluation."
+}

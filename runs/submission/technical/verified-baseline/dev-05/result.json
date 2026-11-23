@@ -1,0 +1,38 @@
+{
+  "run_id": "verified-baseline-dev-05",
+  "case_id": "dev-05",
+  "variant": "baseline",
+  "mode": "fixture",
+  "status": "completed",
+  "answer": "Технический fixture: передача фрагмента и проверка ссылки выполнены. Научный ответ модели в этом запуске не получен.",
+  "claims": [
+    {
+      "claim_id": "fixture-quote-1",
+      "text": "integrates\nour learning-to-hash technique into the state-ofthe-art Dense Passage Retriever (DPR) (Karpukhin\net al., 2020) to drastically reduce the size of the\n1\n\nThe passage index",
+      "evidence": [
+        {
+          "fragment_id": "a03d4ddf25ab4dcc316326beffd2394765b20f12fd9cc36dd4482fef2d5ec9ba",
+          "relation": "supports"
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "Ответ сгенерирован тестовым адаптером; научное качество не измерялось."
+  ],
+  "evidence_status": "insufficient_evidence",
+  "stop_reason": "insufficient_evidence",
+  "usage": {
+    "input_tokens": 0,
+    "output_tokens": 0,
+    "llm_calls": 0,
+    "search_calls": 1,
+    "steps": 2,
+    "cost": 0.0,
+    "currency": "RUB"
+  },
+  "duration_seconds": 0.0003103748895227909,
+  "human_active_seconds": null,
+  "retrieved_source_ids": [],
+  "corpus_revision_id": "dev-corpus-49afd6428c0a"
+}

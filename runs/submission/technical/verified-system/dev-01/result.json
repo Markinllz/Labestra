@@ -1,0 +1,41 @@
+{
+  "run_id": "verified-system-dev-01",
+  "case_id": "dev-01",
+  "variant": "system",
+  "mode": "fixture",
+  "status": "completed",
+  "answer": "Выбрано источников: 3.",
+  "claims": [],
+  "limitations": [],
+  "evidence_status": "not_assessed",
+  "stop_reason": "corpus_selected",
+  "usage": {
+    "input_tokens": 1735,
+    "output_tokens": 102,
+    "llm_calls": 1,
+    "search_calls": 1,
+    "steps": 2,
+    "cost": 0.0,
+    "currency": "RUB"
+  },
+  "duration_seconds": 0.0017042076215147972,
+  "human_active_seconds": null,
+  "retrieved_source_ids": [
+    "acl:2021.naacl-main.466",
+    "acl:2020.emnlp-main.550",
+    "acl:2021.emnlp-main.496",
+    "acl:2021.acl-short.123",
+    "acl:2024.naacl-long.20",
+    "acl:2021.eacl-main.74",
+    "acl:2024.tacl-1.9",
+    "acl:2022.emnlp-main.249",
+    "acl:2020.findings-emnlp.63",
+    "acl:P17-1147",
+    "acl:Q19-1026",
+    "acl:2021.acl-long.475",
+    "acl:2025.emnlp-industry.54",
+    "acl:2021.naacl-main.200",
+    "acl:2025.acl-long.1101"
+  ],
+  "corpus_revision_id": "corpus-a60b21b799e0a9c09c501d49"
+}

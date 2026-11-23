@@ -1,0 +1,22 @@
+{
+  "case_id": "dev-06",
+  "phase": "J2",
+  "split": "dev",
+  "category": "insufficient",
+  "group_id": "dev-bpr",
+  "question": "Каков расход электроэнергии BPR на один запрос на NVIDIA H100?",
+  "collection_id": "labestra-retrieval-2026-11-v1",
+  "search_query": "BPR H100 energy query",
+  "corpus_revision_id": "dev-corpus-49afd6428c0a",
+  "history": [],
+  "limits": {
+    "max_steps": 20,
+    "max_llm_calls": 10,
+    "max_search_calls": 5,
+    "max_input_tokens": 100000,
+    "max_output_tokens": 15000,
+    "timeout_seconds": 300,
+    "max_cost": 0,
+    "currency": "RUB"
+  }
+}

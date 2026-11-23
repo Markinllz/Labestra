@@ -1,0 +1,11 @@
+[
+  {
+    "corpus_revision_id": "b0-4b4335e462929e78cbf6a385",
+    "collection_id": "labestra-retrieval-2026-11-v1",
+    "source_ids": [
+      "acl:2021.naacl-main.466",
+      "acl:2020.emnlp-main.550",
+      "acl:2021.emnlp-main.496"
+    ]
+  }
+]

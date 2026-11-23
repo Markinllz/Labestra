@@ -1,0 +1,22 @@
+{
+  "case_id": "dev-01",
+  "phase": "J1",
+  "split": "dev",
+  "category": "thematic",
+  "group_id": "dev-rocket",
+  "question": "Найди работу, где совместно применяют cross-batch negatives, denoised hard negatives и augmentation для dense passage retrieval.",
+  "collection_id": "labestra-retrieval-2026-11-v1",
+  "search_query": "cross batch negatives denoised hard negatives data augmentation",
+  "corpus_revision_id": null,
+  "history": [],
+  "limits": {
+    "max_steps": 20,
+    "max_llm_calls": 10,
+    "max_search_calls": 5,
+    "max_input_tokens": 100000,
+    "max_output_tokens": 15000,
+    "timeout_seconds": 300,
+    "max_cost": 0,
+    "currency": "RUB"
+  }
+}

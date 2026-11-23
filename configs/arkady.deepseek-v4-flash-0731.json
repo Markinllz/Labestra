@@ -1,0 +1,53 @@
+{
+  "mode": "live",
+  "model": {
+    "provider": "frontierai-openai-compatible",
+    "api_format": "chat_completions",
+    "base_url": "https://klinskoe17.frontierai.ru/v1",
+    "model_id": "DeepSeek-V4-Flash-0731"
+  },
+  "collection_id": "labestra-retrieval-2026-11-v1",
+  "limits": {
+    "max_steps": 20,
+    "max_llm_calls": 10,
+    "max_search_calls": 5,
+    "max_input_tokens": 100000,
+    "max_output_tokens": 15000,
+    "timeout_seconds": 300,
+    "max_cost": 0.1,
+    "currency": "USD"
+  },
+  "pricing": {
+    "currency": "USD",
+    "input_per_1000": 0.0003,
+    "output_per_1000": 0.0012,
+    "verified_on": "2026-11-23",
+    "source": "https://api-docs.deepseek.com/quick_start/pricing/",
+    "basis": "Reference estimate only: current DeepSeek Flash peak cache-miss prices; official page now serves V4.1-Flash, not proof of proxy billing for V4-Flash-0731. No cache discount applied."
+  },
+  "search": {
+    "top_k": 20,
+    "timeout_seconds": 30
+  },
+  "workflow": {
+    "temperature": 0,
+    "max_input_tokens_per_call": 32000,
+    "max_output_tokens_per_call": 6000,
+    "context_window_tokens": 40000,
+    "llm_timeout_seconds": 90,
+    "token_bound_verified": true,
+    "input_bound_policy": "Official DeepSeek-V4-Flash-0731 tokenizer.json: BPE with ByteLevel pretokenizer and empty normalizer. Content token count bounded by UTF-8 bytes. Official encoding README uses short role/BOS/assistant/thinking markers for the two-message, text-only system/user requests; runner reserves 128+32/message. No tools, images or response JSON schema. Official max position embeddings=1048576; local conservative window=40000. Actual provider usage is retained and checked by Runtime. References: https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-0731/tree/main and encoding/README.md."
+  },
+  "baseline": {
+    "human_time_limit_seconds": 240,
+    "policy": "fixed English query; no LLM; top 20 sources; top 10 fragments, max 3 per source"
+  },
+  "session_max_cost": 0.98,
+  "execution_notes": {
+    "operator": "Codex on behalf of Arkady",
+    "author_review": "pending_human_review; agent does not accept on behalf of a human",
+    "human_active_seconds": "CLI interaction time from the agent session; not measured human labor",
+    "gold_access": "No gold supplied to model or consulted for selecting live run answers. Curator agent has prior dataset construction context; independent human scoring remains required.",
+    "prior_attempts": "runs/local/deepseek-dev-20261123: 1 cancelled plan (340/175 tokens), 1 failed call with missing usage; reserved request upper bound separately in reconciliation.json; session allowance reduced."
+  }
+}

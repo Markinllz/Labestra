@@ -1,9 +1,9 @@
 {
   "mode": "live",
   "model": {
-    "provider": "yandex-ai-studio",
+    "provider": "openai-compatible",
     "api_format": "chat_completions",
-    "base_url": "https://ai.api.cloud.yandex.net/v1",
+    "base_url": null,
     "model_id": null
   },
   "collection_id": "labestra-retrieval-2026-11-v1",
@@ -19,12 +19,10 @@
   },
   "pricing": {
     "currency": "RUB",
-    "input_per_1000": 0.2,
-    "output_per_1000": 0.3,
-    "verified_on": "2026-11-23",
-    "source": "https://aistudio.yandex.ru/ru/docs/ai-studio/pricing",
-    "model": "Qwen3.6 35B",
-    "cache_policy": "Conservative uncached rate for all input tokens"
+    "input_per_1000": null,
+    "output_per_1000": null,
+    "verified_on": null,
+    "source": null
   },
   "search": {
     "top_k": 20,
@@ -34,19 +32,10 @@
     "temperature": 0,
     "max_input_tokens_per_call": 32000,
     "max_output_tokens_per_call": 4000,
-    "context_window_tokens": 262144,
+    "context_window_tokens": 40000,
     "llm_timeout_seconds": 30,
-    "token_bound_verified": true,
-    "input_bound_policy": {
-      "type": "UTF-8 byte-level BPE upper bound; 32/message + 128 framing reserve",
-      "verified_on": "2026-11-23",
-      "scope": "Qwen3.6-35B-A3B, text-only system/user messages, no API tools/images",
-      "tokenizer_source": "https://huggingface.co/Qwen/Qwen3.6-35B-A3B/blob/main/tokenizer.json",
-      "tokenizer_sha256": "5f9e4d4901a92b997e463c1f46055088b6cca5ca61a6522d1b9f64c4bb81cb42",
-      "chat_template_source": "https://huggingface.co/Qwen/Qwen3.6-35B-A3B/blob/main/chat_template.jinja",
-      "chat_template_sha256": "1b8361565cc35d47551d342214cff341c0f1a9685ce529c7ce31de0ed3616248",
-      "limitation": "Not measured usage or provider server attestation. Returned usage is authoritative; a reservation overrun fails the run."
-    }
+    "token_bound_verified": false,
+    "input_bound_policy": null
   },
   "baseline": {
     "human_time_limit_seconds": 240,

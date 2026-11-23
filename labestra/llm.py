@@ -159,6 +159,8 @@ class ChatModel:
                  *, folder_id=None):
         if not isinstance(model_id, str) or not model_id.strip():
             raise ValueError('Set an explicit model_id or LABESTRA_MODEL_ID')
+        if not isinstance(base_url, str) or not base_url.strip():
+            raise ValueError('Set an explicit model.base_url for your provider')
         parsed = urlsplit(base_url)
         if (parsed.scheme != 'https' or not parsed.hostname or parsed.username or
                 parsed.password or parsed.query or parsed.fragment):

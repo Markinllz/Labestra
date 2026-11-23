@@ -156,7 +156,7 @@ git switch -c feature/max-search origin/checkpoint-3
 Текущие команды и регламент: раздел «Запуск для Аркаши и Сабухи» в README.
 
 - `./run.sh check` — создать окружение и проверить данные/тесты.
-- `./run.sh configure` — указать URI Qwen и бюджет; ключ на диск не записывается.
+- `./run.sh configure` — создать локальный JSON для самостоятельной настройки API, модели, тарифа и бюджета; ключ на диск не записывается.
 - `./run.sh baseline ...` / `./run.sh system ...` — общий runner.
 - `./run.sh pack ...` — архив результатов без окружения, gold и ключа.
 - `./run.sh scenarios --output runs/local/scenarios.json` — шесть технических цепочек.

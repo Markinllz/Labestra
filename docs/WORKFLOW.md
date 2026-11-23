@@ -7,7 +7,7 @@
 в эту проверку не входят. `runner.py` остаётся задачей участника 4.
 
 **Обновление 23 ноября.** Runtime и WorkflowServices подключены в общем runner.
-Для Qwen добавлен ChatModel (Chat Completions API); YandexModel сохранён для
+Для OpenAI-совместимых провайдеров добавлен ChatModel (Chat Completions API); YandexModel сохранён для
 Text Generation API. Запуск/локальная конфигурация/скрытый ввод ключа/ZIP описаны
 в README. Ниже сохранено описание исходной части участника 3; пункты про будущий
 runner теперь реализованы. При усечении сохраняется известный usage; при неизвестном

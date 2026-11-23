@@ -13,29 +13,20 @@ from .runner import ROOT, encoded, execute
 
 def configure(args):
     config = json.loads((ROOT / 'configs/workflow.live.example.json').read_text(encoding='utf-8'))
-    model_id = args.model_id or input('URI модели (Enter: указать ID каталога для Qwen3.6): ').strip()
-    if not model_id:
-        folder = input('ID каталога Yandex Cloud: ').strip()
-        if not folder or '/' in folder or any(c.isspace() for c in folder):
-            raise ValueError('Нужен ID каталога без пробелов и слешей')
-        model_id = 'gpt://' + folder + '/qwen3.6-35b-a3b'
-    config['model']['model_id'] = model_id
-    config['model']['base_url'] = args.base_url
-    if '/qwen3.6-35b-a3b' not in model_id or args.base_url.rstrip('/') != 'https://ai.api.cloud.yandex.net/v1':
-        raise ValueError('Автонастройка тарифа предназначена для Qwen3.6 в Yandex AI Studio; для другой модели настройте отдельный config')
-    budget = args.budget
-    if budget is None:
-        budget = float(input('Общий предел рублей для этой сессии (например 20 для dev-пилота): '))
-    if not 0 < budget <= 100000:
-        raise ValueError('Нужен положительный конечный бюджет')
-    config['session_max_cost'] = budget
-    config['limits']['max_cost'] = min(20, budget)
-    config['baseline']['human_time_limit_seconds'] = 240
+    if args.model_id is not None:
+        config['model']['model_id'] = args.model_id
+    if args.base_url is not None:
+        config['model']['base_url'] = args.base_url
+    if args.budget is not None:
+        if not 0 < args.budget <= 100000:
+            raise ValueError('Нужен положительный конечный бюджет в валюте pricing.currency')
+        config['session_max_cost'] = args.budget
+        config['limits']['max_cost'] = args.budget
     output = args.output
     output.parent.mkdir(parents=True, exist_ok=True)
     with output.open('x', encoding='utf-8') as stream:
         stream.write(encoded(config))
-    print(f'Конфигурация без ключа: {output}. Запросов к API не было.')
+    print(f'Создан {output}. Отредактируйте модель, адрес API, тариф, валюту и лимиты под своего провайдера. Запросов к API не было.')
 
 
 def package(session, output):
@@ -66,9 +57,9 @@ def package(session, output):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     sub = parser.add_subparsers(dest='command', required=True)
-    conf = sub.add_parser('configure', help='Create ignored local Qwen config, no API calls')
+    conf = sub.add_parser('configure', help='Create editable local API config, no prompts or API calls')
     conf.add_argument('--model-id')
-    conf.add_argument('--base-url', default='https://ai.api.cloud.yandex.net/v1')
+    conf.add_argument('--base-url')
     conf.add_argument('--budget', type=float)
     conf.add_argument('--output', type=Path, default=ROOT / 'configs/local.live.json')
     pack = sub.add_parser('pack', help='ZIP with runner results only')

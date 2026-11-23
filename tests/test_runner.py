@@ -152,6 +152,8 @@ class RunnerTests(unittest.TestCase):
             path = Path(tmp) / 'live.json'
             config = json.loads((runner.ROOT / 'configs/workflow.live.example.json').read_text())
             config['model']['model_id'] = 'gpt://test-folder/qwen3.6-35b-a3b'
+            config['workflow']['token_bound_verified'] = True  # Synthetic test configuration only.
+            config['pricing'].update(input_per_1000=.2, output_per_1000=.3, verified_on='synthetic-test')
             config['session_max_cost'] = 20
             config['limits']['max_cost'] = 20
             path.write_text(runner.encoded(config))

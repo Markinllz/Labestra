@@ -7,8 +7,13 @@
 Учебный проект КТ3: поиск по сохранённым научным источникам и ответ с основаниями.
 Реализованы загрузка и проверка данных, нарезка текстов, поиск статей и
 поиск/чтение фрагментов, фиксированный workflow и проверки его поведения.
-Публичный набор подготовлен; независимая разметка, live-прогоны и B0 ещё впереди.
-Общий runner запускает baseline/system, сохраняет результаты и ресурсы. Реальный API и человеческая оценка ещё не выполнены.
+Публичный набор подготовлен. Аркаша выполнил реальный dev-пилот; visible начат
+и остановлен при неизвестном usage. Макс сохранил подтверждённую им вторую
+разметку. Проверка первичных эталонов, agreement и сравнение с B0 ещё не завершены.
+Общий runner запускает baseline/system, сохраняет результаты и ресурсы.
+Актуальные результаты работы участника 1 и команды B0:
+[статус и передача](docs/DATASET.md#статус-части-аркаши-на-24-ноября-2026),
+[общий конфиг без ключа](configs/arkady.deepseek-v4-flash-0731.json).
 
 Часть Олега (участник 3): [инструкция, код и подключение](docs/WORKFLOW.md).
 Локальный пример без API и ключа:
@@ -72,13 +77,15 @@ workflow и runner остаются общими.
 ./run.sh pack --session runs/local/system-visible --output runs/system-visible.zip
 ```
 
-**Сабухи — ручной B0.** Не открывайте gold и ответы системы до своей сессии. Выполните
-тот же `configure` и получите у Аркаши идентичный config без ключа; для B0 API не нужен.
+**Сабухи — ручной B0.** Не открывайте gold, чужие метки и ответы системы до своей сессии.
+Используйте опубликованный идентичный config без ключа; для B0 API не нужен.
+`--blind-attestation` подтверждает отсутствие такого доступа. Если материалы уже
+просмотрены, сначала согласуйте протокол; нельзя отмечать запуск как слепой.
 Сначала dev-пилот, затем visible. Инструкция ввода ответа приведена ниже.
 
 ```bash
-./run.sh baseline --participant sabukhi --blind-attestation --case-id dev-01 --case-id dev-04 --session-id b0-pilot
-./run.sh baseline --participant sabukhi --blind-attestation --cases eval/visible/tasks.jsonl --session-id b0-visible
+./run.sh baseline --config configs/arkady.deepseek-v4-flash-0731.json --participant sabukhi --blind-attestation --case-id dev-01 --case-id dev-04 --session-id b0-pilot
+./run.sh baseline --config configs/arkady.deepseek-v4-flash-0731.json --participant sabukhi --blind-attestation --cases eval/visible/tasks.jsonl --session-id b0-visible
 ./run.sh pack --session runs/local/b0-visible --output runs/b0-visible.zip
 ```
 
@@ -299,5 +306,5 @@ evidence = tools.read_fragments([f.fragment_id for f in found], corpus)
 
 [План работы](docs/KT3_PLAN.md) · [Подробный план](docs/KT3_PLAN_DETAILED.md) · [Дедлайны](docs/KT3_DEADLINES.md) · [Design doc](design_doc.md)
 
-Общие интерфейсы закреплены в разделе 3.5 подробного плана: один английский search_query для B0/system, без фильтров; загрузка и общий учёт — runner, поиск/чтение — LocalSearch. Инструменты подключены к общему runner/workflow; реальный API и человеческая оценка ещё впереди. Gold не передавать решающему варианту,
+Общие интерфейсы закреплены в разделе 3.5 подробного плана: один английский search_query для B0/system, без фильтров; загрузка и общий учёт — runner, поиск/чтение — LocalSearch. Инструменты подключены к общему runner/workflow; реальный API проверен на dev, полный visible и человеческая оценка ещё не завершены. Gold не передавать решающему варианту,
 holdout хранить приватно до КТ4. Подробная расширенная архитектура не обязательна для КТ3.

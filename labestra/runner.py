@@ -1,6 +1,7 @@
 """Common local baseline/system runner. Gold is never opened here."""
 
 import argparse
+import codecs
 from dataclasses import asdict, replace
 from datetime import datetime, timezone
 import hashlib
@@ -91,6 +92,8 @@ class Console:
         self.sources = {s.source_id: s for s in sources}
         self.human_limit = human_limit
         self.active_seconds = 0.
+        self._pending = ''
+        self._decoder = codecs.getincrementaldecoder('utf-8')()
 
     def read(self, prompt):
         print(prompt, end='', flush=True)
@@ -100,11 +103,14 @@ class Console:
                 self.rt.checkpoint()
                 if self.active_seconds + time.monotonic() - start >= self.human_limit:
                     raise StopRun('budget_exceeded', 'human_time_limit_seconds')
-                if select.select([sys.stdin], [], [], .1)[0]:
-                    value = sys.stdin.readline()
-                    if not value:
+                if '\n' not in self._pending and select.select([sys.stdin], [], [], .1)[0]:
+                    chunk = os.read(sys.stdin.fileno(), 4096)
+                    if not chunk:
                         raise StopRun('cancelled', 'input_closed')
-                    value = value.rstrip('\r\n')
+                    self._pending += self._decoder.decode(chunk)
+                if '\n' in self._pending:
+                    value, self._pending = self._pending.split('\n', 1)
+                    value = value.rstrip('\r')
                     if value == '/cancel':
                         raise StopRun('cancelled', 'user_cancelled')
                     return value

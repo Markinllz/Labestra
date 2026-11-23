@@ -5,6 +5,7 @@ from contextlib import redirect_stdout
 from dataclasses import replace
 import io
 import json
+import os
 from pathlib import Path
 import tempfile
 import unittest
@@ -134,6 +135,16 @@ class RunnerTests(unittest.TestCase):
             with self.assertRaises(StopRun) as exc:
                 console.read('> ')
         self.assertEqual(exc.exception.reason, 'human_time_limit_seconds')
+
+    def test_pasted_multiline_input_is_not_lost_in_stdio_buffer(self):
+        read_fd, write_fd = os.pipe()
+        os.write(write_fd, 'первая\nвторая\n'.encode('utf-8'))
+        os.close(write_fd)
+        runtime = Runtime('paste', make_case().limits)
+        console = runner.Console(runtime, [], None, make_case(), 1)
+        with os.fdopen(read_fd) as stream, patch.object(runner.sys, 'stdin', stream), redirect_stdout(io.StringIO()):
+            self.assertEqual(console.read('> '), 'первая')
+            self.assertEqual(console.read('> '), 'вторая')
 
     def test_unknown_live_billing_stops_whole_session_before_next_case(self):
         from labestra.llm import CompletionFailure

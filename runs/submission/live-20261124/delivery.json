@@ -1,0 +1,35 @@
+{
+  "publication_authorized_by_user": true,
+  "date": "2026-11-24",
+  "archives": [
+    {
+      "file": "experiments-all-attempts.zip",
+      "bytes": 750743,
+      "sha256": "74294bf31fd3c370de7c096e691fa0a00a89985f0a62d081deeb83021eed9f50"
+    },
+    {
+      "file": "gold-dev-visible-draft.zip",
+      "bytes": 12015,
+      "sha256": "ea6063d885dc8dd8c1fc768db2d0be4af791e2207f4eb2f788ee1c12da27a461"
+    },
+    {
+      "file": "second-review-8-cases.zip",
+      "bytes": 347069,
+      "sha256": "b3df35a8aa50d9c522766b2a9d16f6c1668d7910d7d7f1aac9222884a87704b7"
+    }
+  ],
+  "gold_status": "AI_DRAFT_NEEDS_HUMAN_REVIEW",
+  "private_holdout_included": false,
+  "api_key_included": false,
+  "visible": {
+    "recorded": 24,
+    "statuses": {
+      "completed": 21,
+      "needs_clarification": 2,
+      "failed": 1
+    }
+  },
+  "provider_billing_confirmed": false,
+  "reference_known_cost_usd": "0.0557214",
+  "unknown_usage_calls": 2
+}

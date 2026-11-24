@@ -1,0 +1,12 @@
+{
+  "tests": 145,
+  "test_result": "OK",
+  "date": "2026-11-24",
+  "frozen_config_sha256": "89a779ad5520e1b43e26fa0d4e67fcb4fc750f875e5cf73cee7b8b4f49ef4176",
+  "visible_cases": 24,
+  "evidence_ids_checked_in_actual_model_context": 58,
+  "unknown_usage_calls": 2,
+  "gold_opened_by_solver": false,
+  "curator_prior_context": true,
+  "B0_not_run_here": true
+}

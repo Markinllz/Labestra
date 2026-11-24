@@ -1,0 +1,18 @@
+{
+  "verified_on": "2026-11-24",
+  "source": "https://api-docs.deepseek.com/quick_start/pricing/",
+  "called_model": "DeepSeek-V4-Flash-0731",
+  "published_reference_model": "DeepSeek-V4.1-Flash-1017",
+  "currency": "USD",
+  "fixed_comparison_rates_per_million": {
+    "input_cache_miss": "0.30",
+    "output": "1.20"
+  },
+  "site_off_peak_rates_per_million": {
+    "input_cache_miss": "0.15",
+    "output": "0.60"
+  },
+  "actual_proxy_tariff_confirmed": false,
+  "provider_confirmed_charge_usd": null,
+  "note": "All money in runner cost and reports is calculated reference cost at fixed peak cache-miss rates. It is not an invoice, cache-adjusted or time-of-day charge for this proxy. Provider confirmed token usage only for successful and truncated responses; two earlier failed calls have no recovered usage."
+}

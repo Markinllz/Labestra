@@ -1,0 +1,358 @@
+{
+  "planned": 24,
+  "recorded": 24,
+  "source_sessions": [
+    "deepseek-visible-20261123",
+    "deepseek-visible-20261124-continuation"
+  ],
+  "selection_policy": "Keep original visible-01..20; use the single continuation attempt for visible-21..24. Original visible-21 failure remains in attempts and accounting. No successful-result cherry picking.",
+  "statuses": {
+    "completed": 21,
+    "needs_clarification": 2,
+    "failed": 1
+  },
+  "stop_reasons": {
+    "corpus_selected": 10,
+    "search_query_required": 2,
+    "insufficient_evidence": 4,
+    "draft_ready": 7,
+    "incomplete_completion": 1
+  },
+  "cases": [
+    {
+      "case_id": "visible-01",
+      "session": "deepseek-visible-20261123",
+      "result_path": "attempts/deepseek-visible-20261123/visible-01/result.json",
+      "result_sha256": "094fcacee27bc1377549b72c7bc5447df9d67142643a46a52e4a76f9f8a30fe7",
+      "status": "completed",
+      "stop_reason": "corpus_selected"
+    },
+    {
+      "case_id": "visible-02",
+      "session": "deepseek-visible-20261123",
+      "result_path": "attempts/deepseek-visible-20261123/visible-02/result.json",
+      "result_sha256": "b2764b3416e3e16de34983cbf2e09b6e48bf41c178e03d1aba4085228e9f61f6",
+      "status": "completed",
+      "stop_reason": "corpus_selected"
+    },
+    {
+      "case_id": "visible-03",
+      "session": "deepseek-visible-20261123",
+      "result_path": "attempts/deepseek-visible-20261123/visible-03/result.json",
+      "result_sha256": "119955aa49bf7fc7b90b802db216223193728c8f327332b79bc174e2a581986a",
+      "status": "completed",
+      "stop_reason": "corpus_selected"
+    },
+    {
+      "case_id": "visible-04",
+      "session": "deepseek-visible-20261123",
+      "result_path": "attempts/deepseek-visible-20261123/visible-04/result.json",
+      "result_sha256": "594ec9d05c21f98eec2954d22ea96336d486a45b96bdc5a83e458c725677aef8",
+      "status": "completed",
+      "stop_reason": "corpus_selected"
+    },
+    {
+      "case_id": "visible-05",
+      "session": "deepseek-visible-20261123",
+      "result_path": "attempts/deepseek-visible-20261123/visible-05/result.json",
+      "result_sha256": "0944e28b925d4c36bc459087ea466eb40fbf02801dbf882db2f3f7fe958216c5",
+      "status": "completed",
+      "stop_reason": "corpus_selected"
+    },
+    {
+      "case_id": "visible-06",
+      "session": "deepseek-visible-20261123",
+      "result_path": "attempts/deepseek-visible-20261123/visible-06/result.json",
+      "result_sha256": "79e3bbabd3cd67d0a24a52ad185b8c61f7f3d42daff833b68e842f69703d5935",
+      "status": "completed",
+      "stop_reason": "corpus_selected"
+    },
+    {
+      "case_id": "visible-07",
+      "session": "deepseek-visible-20261123",
+      "result_path": "attempts/deepseek-visible-20261123/visible-07/result.json",
+      "result_sha256": "6476c6233cb5a4518d5b4017ef5ac3da8c315891857b8e8f072cb7d692179531",
+      "status": "completed",
+      "stop_reason": "corpus_selected"
+    },
+    {
+      "case_id": "visible-08",
+      "session": "deepseek-visible-20261123",
+      "result_path": "attempts/deepseek-visible-20261123/visible-08/result.json",
+      "result_sha256": "f87231bc793218e1e7a8d7ad2a0e5e4fdc85cb9dad16e6578696235247079bf7",
+      "status": "completed",
+      "stop_reason": "corpus_selected"
+    },
+    {
+      "case_id": "visible-09",
+      "session": "deepseek-visible-20261123",
+      "result_path": "attempts/deepseek-visible-20261123/visible-09/result.json",
+      "result_sha256": "26117ae7a87cd9a93c829076c23f9269c540e33189b403c5fd8a900151916cac",
+      "status": "completed",
+      "stop_reason": "corpus_selected"
+    },
+    {
+      "case_id": "visible-10",
+      "session": "deepseek-visible-20261123",
+      "result_path": "attempts/deepseek-visible-20261123/visible-10/result.json",
+      "result_sha256": "65f155e2f397f37e5e0fcc7c5653a1e9a362b7db7f62acc048a0309def4f11ac",
+      "status": "completed",
+      "stop_reason": "corpus_selected"
+    },
+    {
+      "case_id": "visible-11",
+      "session": "deepseek-visible-20261123",
+      "result_path": "attempts/deepseek-visible-20261123/visible-11/result.json",
+      "result_sha256": "117fcee6a878515190c0a66d33f8f3591ed8ce9013739ef8afe61ee124456e5d",
+      "status": "needs_clarification",
+      "stop_reason": "search_query_required"
+    },
+    {
+      "case_id": "visible-12",
+      "session": "deepseek-visible-20261123",
+      "result_path": "attempts/deepseek-visible-20261123/visible-12/result.json",
+      "result_sha256": "e83846da6a237771a28f00ba9ad84c595fa24635bead6aafab73ecad64ff6487",
+      "status": "needs_clarification",
+      "stop_reason": "search_query_required"
+    },
+    {
+      "case_id": "visible-13",
+      "session": "deepseek-visible-20261123",
+      "result_path": "attempts/deepseek-visible-20261123/visible-13/result.json",
+      "result_sha256": "f8bb777368460d37d2dcb0b4c8c31badcf8d17e63b150220ef2b228d4c34e6e0",
+      "status": "completed",
+      "stop_reason": "insufficient_evidence"
+    },
+    {
+      "case_id": "visible-14",
+      "session": "deepseek-visible-20261123",
+      "result_path": "attempts/deepseek-visible-20261123/visible-14/result.json",
+      "result_sha256": "86cd9cc8e2c0c0b9c42c08c5f448a12265f696f77e1d9ca335025e2d039214cb",
+      "status": "completed",
+      "stop_reason": "draft_ready"
+    },
+    {
+      "case_id": "visible-15",
+      "session": "deepseek-visible-20261123",
+      "result_path": "attempts/deepseek-visible-20261123/visible-15/result.json",
+      "result_sha256": "cb2e38c18d6fbbef9ed198a212163cb6023d781fc036a7e59c3bd9d85178f32e",
+      "status": "completed",
+      "stop_reason": "draft_ready"
+    },
+    {
+      "case_id": "visible-16",
+      "session": "deepseek-visible-20261123",
+      "result_path": "attempts/deepseek-visible-20261123/visible-16/result.json",
+      "result_sha256": "e9e63bcff1d22d45cbe4e665d3e19798a621c5d6dd6e85170d5a4997cd1091ac",
+      "status": "completed",
+      "stop_reason": "draft_ready"
+    },
+    {
+      "case_id": "visible-17",
+      "session": "deepseek-visible-20261123",
+      "result_path": "attempts/deepseek-visible-20261123/visible-17/result.json",
+      "result_sha256": "d44c0ca2029da18f9062c198f18301af7464737d6d6d46142dcf4e8742413504",
+      "status": "completed",
+      "stop_reason": "draft_ready"
+    },
+    {
+      "case_id": "visible-18",
+      "session": "deepseek-visible-20261123",
+      "result_path": "attempts/deepseek-visible-20261123/visible-18/result.json",
+      "result_sha256": "d6794a1a18e7341eb756de10e6d764760c88964721429b9f9ed655dfab07c6de",
+      "status": "completed",
+      "stop_reason": "draft_ready"
+    },
+    {
+      "case_id": "visible-19",
+      "session": "deepseek-visible-20261123",
+      "result_path": "attempts/deepseek-visible-20261123/visible-19/result.json",
+      "result_sha256": "824d04f3396132e95855aadd906bd8a40f0f20786a40c6713426fc1c36bf74da",
+      "status": "completed",
+      "stop_reason": "draft_ready"
+    },
+    {
+      "case_id": "visible-20",
+      "session": "deepseek-visible-20261123",
+      "result_path": "attempts/deepseek-visible-20261123/visible-20/result.json",
+      "result_sha256": "48beaf3133a7a9a71031fafb4e5d3e3b784598ab812d61bd05548b92c23aa4d7",
+      "status": "completed",
+      "stop_reason": "insufficient_evidence"
+    },
+    {
+      "case_id": "visible-21",
+      "session": "deepseek-visible-20261124-continuation",
+      "result_path": "attempts/deepseek-visible-20261124-continuation/visible-21/result.json",
+      "result_sha256": "ffefeeb4459811829f19bdaaa99e023a8d101b5d6c942fdac57c971ceba62ed1",
+      "status": "failed",
+      "stop_reason": "incomplete_completion"
+    },
+    {
+      "case_id": "visible-22",
+      "session": "deepseek-visible-20261124-continuation",
+      "result_path": "attempts/deepseek-visible-20261124-continuation/visible-22/result.json",
+      "result_sha256": "464930a4539ff61b5a3f9aa3d7eb0d668c2eb876eefab06bc633082f09c1246e",
+      "status": "completed",
+      "stop_reason": "draft_ready"
+    },
+    {
+      "case_id": "visible-23",
+      "session": "deepseek-visible-20261124-continuation",
+      "result_path": "attempts/deepseek-visible-20261124-continuation/visible-23/result.json",
+      "result_sha256": "e30c26a43cea94a1197a5b642ab8cba9e82d34e63c812eb50dee052e1a8e9977",
+      "status": "completed",
+      "stop_reason": "insufficient_evidence"
+    },
+    {
+      "case_id": "visible-24",
+      "session": "deepseek-visible-20261124-continuation",
+      "result_path": "attempts/deepseek-visible-20261124-continuation/visible-24/result.json",
+      "result_sha256": "d5f1dd72fa62ebe2ea131f2390eda4f2c78c09783800c866c339a1a7157ec162",
+      "status": "completed",
+      "stop_reason": "insufficient_evidence"
+    }
+  ],
+  "original_attempt_statuses": [
+    {
+      "case_id": "visible-01",
+      "status": "completed",
+      "stop_reason": "corpus_selected",
+      "result_path": "attempts/deepseek-visible-20261123/visible-01/result.json"
+    },
+    {
+      "case_id": "visible-02",
+      "status": "completed",
+      "stop_reason": "corpus_selected",
+      "result_path": "attempts/deepseek-visible-20261123/visible-02/result.json"
+    },
+    {
+      "case_id": "visible-03",
+      "status": "completed",
+      "stop_reason": "corpus_selected",
+      "result_path": "attempts/deepseek-visible-20261123/visible-03/result.json"
+    },
+    {
+      "case_id": "visible-04",
+      "status": "completed",
+      "stop_reason": "corpus_selected",
+      "result_path": "attempts/deepseek-visible-20261123/visible-04/result.json"
+    },
+    {
+      "case_id": "visible-05",
+      "status": "completed",
+      "stop_reason": "corpus_selected",
+      "result_path": "attempts/deepseek-visible-20261123/visible-05/result.json"
+    },
+    {
+      "case_id": "visible-06",
+      "status": "completed",
+      "stop_reason": "corpus_selected",
+      "result_path": "attempts/deepseek-visible-20261123/visible-06/result.json"
+    },
+    {
+      "case_id": "visible-07",
+      "status": "completed",
+      "stop_reason": "corpus_selected",
+      "result_path": "attempts/deepseek-visible-20261123/visible-07/result.json"
+    },
+    {
+      "case_id": "visible-08",
+      "status": "completed",
+      "stop_reason": "corpus_selected",
+      "result_path": "attempts/deepseek-visible-20261123/visible-08/result.json"
+    },
+    {
+      "case_id": "visible-09",
+      "status": "completed",
+      "stop_reason": "corpus_selected",
+      "result_path": "attempts/deepseek-visible-20261123/visible-09/result.json"
+    },
+    {
+      "case_id": "visible-10",
+      "status": "completed",
+      "stop_reason": "corpus_selected",
+      "result_path": "attempts/deepseek-visible-20261123/visible-10/result.json"
+    },
+    {
+      "case_id": "visible-11",
+      "status": "needs_clarification",
+      "stop_reason": "search_query_required",
+      "result_path": "attempts/deepseek-visible-20261123/visible-11/result.json"
+    },
+    {
+      "case_id": "visible-12",
+      "status": "needs_clarification",
+      "stop_reason": "search_query_required",
+      "result_path": "attempts/deepseek-visible-20261123/visible-12/result.json"
+    },
+    {
+      "case_id": "visible-13",
+      "status": "completed",
+      "stop_reason": "insufficient_evidence",
+      "result_path": "attempts/deepseek-visible-20261123/visible-13/result.json"
+    },
+    {
+      "case_id": "visible-14",
+      "status": "completed",
+      "stop_reason": "draft_ready",
+      "result_path": "attempts/deepseek-visible-20261123/visible-14/result.json"
+    },
+    {
+      "case_id": "visible-15",
+      "status": "completed",
+      "stop_reason": "draft_ready",
+      "result_path": "attempts/deepseek-visible-20261123/visible-15/result.json"
+    },
+    {
+      "case_id": "visible-16",
+      "status": "completed",
+      "stop_reason": "draft_ready",
+      "result_path": "attempts/deepseek-visible-20261123/visible-16/result.json"
+    },
+    {
+      "case_id": "visible-17",
+      "status": "completed",
+      "stop_reason": "draft_ready",
+      "result_path": "attempts/deepseek-visible-20261123/visible-17/result.json"
+    },
+    {
+      "case_id": "visible-18",
+      "status": "completed",
+      "stop_reason": "draft_ready",
+      "result_path": "attempts/deepseek-visible-20261123/visible-18/result.json"
+    },
+    {
+      "case_id": "visible-19",
+      "status": "completed",
+      "stop_reason": "draft_ready",
+      "result_path": "attempts/deepseek-visible-20261123/visible-19/result.json"
+    },
+    {
+      "case_id": "visible-20",
+      "status": "completed",
+      "stop_reason": "insufficient_evidence",
+      "result_path": "attempts/deepseek-visible-20261123/visible-20/result.json"
+    },
+    {
+      "case_id": "visible-21",
+      "status": "failed",
+      "stop_reason": "usage_unknown",
+      "result_path": "attempts/deepseek-visible-20261123/visible-21/result.json"
+    },
+    {
+      "case_id": "visible-22",
+      "status": "not_run_in_original_session"
+    },
+    {
+      "case_id": "visible-23",
+      "status": "not_run_in_original_session"
+    },
+    {
+      "case_id": "visible-24",
+      "status": "not_run_in_original_session"
+    }
+  ],
+  "scientific_quality_assessed": false,
+  "human_time_valid": false,
+  "semantic_notes": "Codex operated CLI; no independent human output ratings; durations include agent waiting. needs_clarification and insufficient_evidence are recorded behavior, not proven correctness."
+}

@@ -9,20 +9,23 @@ dev/visible передан отдельным архивом; holdout остаё
 Реализованы загрузка и проверка данных, нарезка текстов, поиск статей и
 поиск/чтение фрагментов, фиксированный workflow и проверки его поведения.
 Публичный набор подготовлен. Аркаша выполнил реальный dev-пилот и сохранил
-результаты всех 24 visible-заданий: 21 completed, 2 needs_clarification и 1 failed.
+полный повторный visible-прогон v2: 22 completed, 2 needs_clarification, без failed
+и неизвестного usage в новой сессии. Процесс завершился с кодом 0.
 Все ошибки и прерванные попытки включены в передачу. Макс сохранил подтверждённую им вторую
 разметку. Проверка первичных эталонов, agreement и сравнение с B0 ещё не завершены.
 Общий runner запускает baseline/system, сохраняет результаты и ресурсы.
 Актуальные результаты работы участника 1 и команды B0:
 [статус и передача](docs/DATASET.md#статус-части-аркаши-на-24-ноября-2026),
-[общий конфиг без ключа](configs/arkady.deepseek-v4-flash-0731.json).
+[общий конфиг v2 без ключа](configs/arkady.deepseek-v4-flash-0731.v2.json).
 
-Передача 24 ноября: [эксперименты со всеми попытками](runs/submission/live-20261124/experiments-all-attempts.zip),
+Передача 24 ноября: [полный v2 и все предыдущие попытки](runs/submission/live-20261124-v2/experiments-all-attempts-v2.zip),
 [черновой gold dev/visible](runs/submission/live-20261124/gold-dev-visible-draft.zip),
 [8 кейсов для независимой разметки без меток и gold](runs/submission/live-20261124/second-review-8-cases.zip).
 Для независимой разметки сначала скачайте только третий архив и сохраните свои
 метки до просмотра других материалов. Полный usage двух старых сбоев неизвестен;
-вся стоимость справочная, а не подтверждённый счёт прокси.
+вся стоимость справочная, а не подтверждённый счёт прокси. Для v2 увеличен бюджет
+ответа после ошибки на visible, поэтому это повторный прогон с пересмотренными
+лимитами, а не новая независимая проверка. Все 24 задания v2 выполнены с одним config.
 
 Часть Олега (участник 3): [инструкция, код и подключение](docs/WORKFLOW.md).
 Локальный пример без API и ключа:
@@ -93,9 +96,9 @@ workflow и runner остаются общими.
 Сначала dev-пилот, затем visible. Инструкция ввода ответа приведена ниже.
 
 ```bash
-./run.sh baseline --config configs/arkady.deepseek-v4-flash-0731.json --participant sabukhi --blind-attestation --case-id dev-01 --case-id dev-04 --session-id b0-pilot
-./run.sh baseline --config configs/arkady.deepseek-v4-flash-0731.json --participant sabukhi --blind-attestation --cases eval/visible/tasks.jsonl --session-id b0-visible
-./run.sh pack --session runs/local/b0-visible --output runs/b0-visible.zip
+./run.sh baseline --config configs/arkady.deepseek-v4-flash-0731.v2.json --participant sabukhi --blind-attestation --case-id dev-01 --case-id dev-04 --session-id b0-v2-pilot
+./run.sh baseline --config configs/arkady.deepseek-v4-flash-0731.v2.json --participant sabukhi --blind-attestation --cases eval/visible/tasks.jsonl --session-id b0-v2-visible
+./run.sh pack --session runs/local/b0-v2-visible --output runs/b0-v2-visible.zip
 ```
 
 Лимит человека — 240 с/задание; задайте другой после dev, если нужен, но до visible

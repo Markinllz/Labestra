@@ -1,0 +1,652 @@
+{
+  "method": "One terminal API usage measurement per started call; result and summary used only for cross-checks. Reasoning is included in output, never added twice.",
+  "pricing": {
+    "kind": "reference_only_not_proxy_invoice",
+    "source": "https://api-docs.deepseek.com/quick_start/pricing/",
+    "reference_model": "DeepSeek-V4.1-Flash-1017",
+    "called_model": "DeepSeek-V4-Flash-0731",
+    "basis": "Fixed peak cache-miss rates for conservative comparison, not time-specific billing",
+    "input_usd_per_million": "0.30",
+    "output_usd_per_million": "1.20"
+  },
+  "sessions": [
+    {
+      "session": "deepseek-dev-20261123",
+      "planned": 2,
+      "recorded": 2,
+      "statuses": {
+        "cancelled": 1,
+        "failed": 1
+      },
+      "measured_input_tokens": 340,
+      "measured_output_tokens": 175,
+      "unknown_usage_calls": 1,
+      "reference_cost_known_usd": "0.0003120",
+      "cases": [
+        {
+          "case_id": "dev-01",
+          "status": "cancelled",
+          "stop_reason": "input_closed",
+          "measured_input_tokens": 340,
+          "measured_output_tokens": 175,
+          "unknown_usage_calls": 0,
+          "reference_cost_known_usd": "0.0003120"
+        },
+        {
+          "case_id": "dev-04",
+          "status": "failed",
+          "stop_reason": "usage_unknown",
+          "measured_input_tokens": 0,
+          "measured_output_tokens": 0,
+          "unknown_usage_calls": 1,
+          "reference_cost_known_usd": "0E-7"
+        }
+      ]
+    },
+    {
+      "session": "deepseek-dev-20261123-r2",
+      "planned": 2,
+      "recorded": 2,
+      "statuses": {
+        "completed": 2
+      },
+      "measured_input_tokens": 2656,
+      "measured_output_tokens": 1711,
+      "unknown_usage_calls": 0,
+      "reference_cost_known_usd": "0.0028500",
+      "cases": [
+        {
+          "case_id": "dev-01",
+          "status": "completed",
+          "stop_reason": "corpus_selected",
+          "measured_input_tokens": 340,
+          "measured_output_tokens": 218,
+          "unknown_usage_calls": 0,
+          "reference_cost_known_usd": "0.0003636"
+        },
+        {
+          "case_id": "dev-04",
+          "status": "completed",
+          "stop_reason": "draft_ready",
+          "measured_input_tokens": 2316,
+          "measured_output_tokens": 1493,
+          "unknown_usage_calls": 0,
+          "reference_cost_known_usd": "0.0024864"
+        }
+      ]
+    },
+    {
+      "session": "deepseek-visible-20261123",
+      "planned": 24,
+      "recorded": 21,
+      "statuses": {
+        "completed": 18,
+        "needs_clarification": 2,
+        "failed": 1,
+        "missing": 3
+      },
+      "measured_input_tokens": 29132,
+      "measured_output_tokens": 20161,
+      "unknown_usage_calls": 1,
+      "reference_cost_known_usd": "0.0329328",
+      "cases": [
+        {
+          "case_id": "visible-01",
+          "status": "completed",
+          "stop_reason": "corpus_selected",
+          "measured_input_tokens": 340,
+          "measured_output_tokens": 181,
+          "unknown_usage_calls": 0,
+          "reference_cost_known_usd": "0.0003192"
+        },
+        {
+          "case_id": "visible-02",
+          "status": "completed",
+          "stop_reason": "corpus_selected",
+          "measured_input_tokens": 330,
+          "measured_output_tokens": 297,
+          "unknown_usage_calls": 0,
+          "reference_cost_known_usd": "0.0004554"
+        },
+        {
+          "case_id": "visible-03",
+          "status": "completed",
+          "stop_reason": "corpus_selected",
+          "measured_input_tokens": 338,
+          "measured_output_tokens": 205,
+          "unknown_usage_calls": 0,
+          "reference_cost_known_usd": "0.0003474"
+        },
+        {
+          "case_id": "visible-04",
+          "status": "completed",
+          "stop_reason": "corpus_selected",
+          "measured_input_tokens": 337,
+          "measured_output_tokens": 237,
+          "unknown_usage_calls": 0,
+          "reference_cost_known_usd": "0.0003855"
+        },
+        {
+          "case_id": "visible-05",
+          "status": "completed",
+          "stop_reason": "corpus_selected",
+          "measured_input_tokens": 329,
+          "measured_output_tokens": 182,
+          "unknown_usage_calls": 0,
+          "reference_cost_known_usd": "0.0003171"
+        },
+        {
+          "case_id": "visible-06",
+          "status": "completed",
+          "stop_reason": "corpus_selected",
+          "measured_input_tokens": 334,
+          "measured_output_tokens": 243,
+          "unknown_usage_calls": 0,
+          "reference_cost_known_usd": "0.0003918"
+        },
+        {
+          "case_id": "visible-07",
+          "status": "completed",
+          "stop_reason": "corpus_selected",
+          "measured_input_tokens": 342,
+          "measured_output_tokens": 220,
+          "unknown_usage_calls": 0,
+          "reference_cost_known_usd": "0.0003666"
+        },
+        {
+          "case_id": "visible-08",
+          "status": "completed",
+          "stop_reason": "corpus_selected",
+          "measured_input_tokens": 333,
+          "measured_output_tokens": 288,
+          "unknown_usage_calls": 0,
+          "reference_cost_known_usd": "0.0004455"
+        },
+        {
+          "case_id": "visible-09",
+          "status": "completed",
+          "stop_reason": "corpus_selected",
+          "measured_input_tokens": 334,
+          "measured_output_tokens": 173,
+          "unknown_usage_calls": 0,
+          "reference_cost_known_usd": "0.0003078"
+        },
+        {
+          "case_id": "visible-10",
+          "status": "completed",
+          "stop_reason": "corpus_selected",
+          "measured_input_tokens": 338,
+          "measured_output_tokens": 180,
+          "unknown_usage_calls": 0,
+          "reference_cost_known_usd": "0.0003174"
+        },
+        {
+          "case_id": "visible-11",
+          "status": "needs_clarification",
+          "stop_reason": "search_query_required",
+          "measured_input_tokens": 0,
+          "measured_output_tokens": 0,
+          "unknown_usage_calls": 0,
+          "reference_cost_known_usd": "0E-7"
+        },
+        {
+          "case_id": "visible-12",
+          "status": "needs_clarification",
+          "stop_reason": "search_query_required",
+          "measured_input_tokens": 0,
+          "measured_output_tokens": 0,
+          "unknown_usage_calls": 0,
+          "reference_cost_known_usd": "0E-7"
+        },
+        {
+          "case_id": "visible-13",
+          "status": "completed",
+          "stop_reason": "insufficient_evidence",
+          "measured_input_tokens": 2436,
+          "measured_output_tokens": 1047,
+          "unknown_usage_calls": 0,
+          "reference_cost_known_usd": "0.0019872"
+        },
+        {
+          "case_id": "visible-14",
+          "status": "completed",
+          "stop_reason": "draft_ready",
+          "measured_input_tokens": 2426,
+          "measured_output_tokens": 1585,
+          "unknown_usage_calls": 0,
+          "reference_cost_known_usd": "0.0026298"
+        },
+        {
+          "case_id": "visible-15",
+          "status": "completed",
+          "stop_reason": "draft_ready",
+          "measured_input_tokens": 2166,
+          "measured_output_tokens": 2615,
+          "unknown_usage_calls": 0,
+          "reference_cost_known_usd": "0.0037878"
+        },
+        {
+          "case_id": "visible-16",
+          "status": "completed",
+          "stop_reason": "draft_ready",
+          "measured_input_tokens": 2183,
+          "measured_output_tokens": 700,
+          "unknown_usage_calls": 0,
+          "reference_cost_known_usd": "0.0014949"
+        },
+        {
+          "case_id": "visible-17",
+          "status": "completed",
+          "stop_reason": "draft_ready",
+          "measured_input_tokens": 4498,
+          "measured_output_tokens": 3535,
+          "unknown_usage_calls": 0,
+          "reference_cost_known_usd": "0.0055914"
+        },
+        {
+          "case_id": "visible-18",
+          "status": "completed",
+          "stop_reason": "draft_ready",
+          "measured_input_tokens": 4009,
+          "measured_output_tokens": 2473,
+          "unknown_usage_calls": 0,
+          "reference_cost_known_usd": "0.0041703"
+        },
+        {
+          "case_id": "visible-19",
+          "status": "completed",
+          "stop_reason": "draft_ready",
+          "measured_input_tokens": 4125,
+          "measured_output_tokens": 3874,
+          "unknown_usage_calls": 0,
+          "reference_cost_known_usd": "0.0058863"
+        },
+        {
+          "case_id": "visible-20",
+          "status": "completed",
+          "stop_reason": "insufficient_evidence",
+          "measured_input_tokens": 3934,
+          "measured_output_tokens": 2126,
+          "unknown_usage_calls": 0,
+          "reference_cost_known_usd": "0.0037314"
+        },
+        {
+          "case_id": "visible-21",
+          "status": "failed",
+          "stop_reason": "usage_unknown",
+          "measured_input_tokens": 0,
+          "measured_output_tokens": 0,
+          "unknown_usage_calls": 1,
+          "reference_cost_known_usd": "0E-7"
+        },
+        {
+          "case_id": "visible-22",
+          "status": "missing"
+        },
+        {
+          "case_id": "visible-23",
+          "status": "missing"
+        },
+        {
+          "case_id": "visible-24",
+          "status": "missing"
+        }
+      ]
+    },
+    {
+      "session": "deepseek-visible-20261124-continuation",
+      "planned": 4,
+      "recorded": 4,
+      "statuses": {
+        "failed": 1,
+        "completed": 3
+      },
+      "measured_input_tokens": 14890,
+      "measured_output_tokens": 11083,
+      "unknown_usage_calls": 0,
+      "reference_cost_known_usd": "0.0177666",
+      "cases": [
+        {
+          "case_id": "visible-21",
+          "status": "failed",
+          "stop_reason": "incomplete_completion",
+          "measured_input_tokens": 4438,
+          "measured_output_tokens": 6000,
+          "unknown_usage_calls": 0,
+          "reference_cost_known_usd": "0.0085314"
+        },
+        {
+          "case_id": "visible-22",
+          "status": "completed",
+          "stop_reason": "draft_ready",
+          "measured_input_tokens": 4141,
+          "measured_output_tokens": 3369,
+          "unknown_usage_calls": 0,
+          "reference_cost_known_usd": "0.0052851"
+        },
+        {
+          "case_id": "visible-23",
+          "status": "completed",
+          "stop_reason": "insufficient_evidence",
+          "measured_input_tokens": 3990,
+          "measured_output_tokens": 700,
+          "unknown_usage_calls": 0,
+          "reference_cost_known_usd": "0.0020370"
+        },
+        {
+          "case_id": "visible-24",
+          "status": "completed",
+          "stop_reason": "insufficient_evidence",
+          "measured_input_tokens": 2321,
+          "measured_output_tokens": 1014,
+          "unknown_usage_calls": 0,
+          "reference_cost_known_usd": "0.0019131"
+        }
+      ]
+    }
+  ],
+  "calls": [
+    {
+      "session": "deepseek-dev-20261123",
+      "case_id": "dev-01",
+      "step_id": 1,
+      "timestamp_utc": "2026-11-23T16:07:07.290891+00:00",
+      "input_tokens": 340,
+      "output_tokens": 175,
+      "usage_known": true,
+      "reference_cost_usd": "0.0003120"
+    },
+    {
+      "session": "deepseek-dev-20261123",
+      "case_id": "dev-04",
+      "step_id": 3,
+      "timestamp_utc": "2026-11-23T16:07:10.309908+00:00",
+      "input_tokens": null,
+      "output_tokens": null,
+      "usage_known": false,
+      "reference_cost_usd": null,
+      "reserved_input_bound": 9465,
+      "reserved_output_cap": 6000,
+      "reference_reservation_usd": "0.0100395"
+    },
+    {
+      "session": "deepseek-dev-20261123-r2",
+      "case_id": "dev-01",
+      "step_id": 1,
+      "timestamp_utc": "2026-11-23T16:09:33.310478+00:00",
+      "input_tokens": 340,
+      "output_tokens": 218,
+      "usage_known": true,
+      "reference_cost_usd": "0.0003636"
+    },
+    {
+      "session": "deepseek-dev-20261123-r2",
+      "case_id": "dev-04",
+      "step_id": 3,
+      "timestamp_utc": "2026-11-23T16:10:25.861239+00:00",
+      "input_tokens": 2316,
+      "output_tokens": 1493,
+      "usage_known": true,
+      "reference_cost_usd": "0.0024864"
+    },
+    {
+      "session": "deepseek-visible-20261123",
+      "case_id": "visible-01",
+      "step_id": 1,
+      "timestamp_utc": "2026-11-23T16:11:24.522275+00:00",
+      "input_tokens": 340,
+      "output_tokens": 181,
+      "usage_known": true,
+      "reference_cost_usd": "0.0003192"
+    },
+    {
+      "session": "deepseek-visible-20261123",
+      "case_id": "visible-02",
+      "step_id": 1,
+      "timestamp_utc": "2026-11-23T16:12:24.091785+00:00",
+      "input_tokens": 330,
+      "output_tokens": 297,
+      "usage_known": true,
+      "reference_cost_usd": "0.0004554"
+    },
+    {
+      "session": "deepseek-visible-20261123",
+      "case_id": "visible-03",
+      "step_id": 1,
+      "timestamp_utc": "2026-11-23T16:12:56.186520+00:00",
+      "input_tokens": 338,
+      "output_tokens": 205,
+      "usage_known": true,
+      "reference_cost_usd": "0.0003474"
+    },
+    {
+      "session": "deepseek-visible-20261123",
+      "case_id": "visible-04",
+      "step_id": 1,
+      "timestamp_utc": "2026-11-23T16:13:38.088737+00:00",
+      "input_tokens": 337,
+      "output_tokens": 237,
+      "usage_known": true,
+      "reference_cost_usd": "0.0003855"
+    },
+    {
+      "session": "deepseek-visible-20261123",
+      "case_id": "visible-05",
+      "step_id": 1,
+      "timestamp_utc": "2026-11-23T16:16:07.711206+00:00",
+      "input_tokens": 329,
+      "output_tokens": 182,
+      "usage_known": true,
+      "reference_cost_usd": "0.0003171"
+    },
+    {
+      "session": "deepseek-visible-20261123",
+      "case_id": "visible-06",
+      "step_id": 1,
+      "timestamp_utc": "2026-11-23T16:16:47.720881+00:00",
+      "input_tokens": 334,
+      "output_tokens": 243,
+      "usage_known": true,
+      "reference_cost_usd": "0.0003918"
+    },
+    {
+      "session": "deepseek-visible-20261123",
+      "case_id": "visible-07",
+      "step_id": 1,
+      "timestamp_utc": "2026-11-23T16:17:11.027535+00:00",
+      "input_tokens": 342,
+      "output_tokens": 220,
+      "usage_known": true,
+      "reference_cost_usd": "0.0003666"
+    },
+    {
+      "session": "deepseek-visible-20261123",
+      "case_id": "visible-08",
+      "step_id": 1,
+      "timestamp_utc": "2026-11-23T16:17:42.789360+00:00",
+      "input_tokens": 333,
+      "output_tokens": 288,
+      "usage_known": true,
+      "reference_cost_usd": "0.0004455"
+    },
+    {
+      "session": "deepseek-visible-20261123",
+      "case_id": "visible-09",
+      "step_id": 1,
+      "timestamp_utc": "2026-11-23T16:18:06.303057+00:00",
+      "input_tokens": 334,
+      "output_tokens": 173,
+      "usage_known": true,
+      "reference_cost_usd": "0.0003078"
+    },
+    {
+      "session": "deepseek-visible-20261123",
+      "case_id": "visible-10",
+      "step_id": 1,
+      "timestamp_utc": "2026-11-23T16:18:43.342953+00:00",
+      "input_tokens": 338,
+      "output_tokens": 180,
+      "usage_known": true,
+      "reference_cost_usd": "0.0003174"
+    },
+    {
+      "session": "deepseek-visible-20261123",
+      "case_id": "visible-13",
+      "step_id": 3,
+      "timestamp_utc": "2026-11-23T16:19:41.880110+00:00",
+      "input_tokens": 2436,
+      "output_tokens": 1047,
+      "usage_known": true,
+      "reference_cost_usd": "0.0019872"
+    },
+    {
+      "session": "deepseek-visible-20261123",
+      "case_id": "visible-14",
+      "step_id": 3,
+      "timestamp_utc": "2026-11-23T16:20:09.195847+00:00",
+      "input_tokens": 2426,
+      "output_tokens": 1585,
+      "usage_known": true,
+      "reference_cost_usd": "0.0026298"
+    },
+    {
+      "session": "deepseek-visible-20261123",
+      "case_id": "visible-15",
+      "step_id": 3,
+      "timestamp_utc": "2026-11-23T16:20:51.489077+00:00",
+      "input_tokens": 2166,
+      "output_tokens": 2615,
+      "usage_known": true,
+      "reference_cost_usd": "0.0037878"
+    },
+    {
+      "session": "deepseek-visible-20261123",
+      "case_id": "visible-16",
+      "step_id": 3,
+      "timestamp_utc": "2026-11-23T16:21:38.980429+00:00",
+      "input_tokens": 2183,
+      "output_tokens": 700,
+      "usage_known": true,
+      "reference_cost_usd": "0.0014949"
+    },
+    {
+      "session": "deepseek-visible-20261123",
+      "case_id": "visible-17",
+      "step_id": 3,
+      "timestamp_utc": "2026-11-23T16:22:05.852393+00:00",
+      "input_tokens": 4498,
+      "output_tokens": 3535,
+      "usage_known": true,
+      "reference_cost_usd": "0.0055914"
+    },
+    {
+      "session": "deepseek-visible-20261123",
+      "case_id": "visible-18",
+      "step_id": 3,
+      "timestamp_utc": "2026-11-23T16:22:56.667011+00:00",
+      "input_tokens": 4009,
+      "output_tokens": 2473,
+      "usage_known": true,
+      "reference_cost_usd": "0.0041703"
+    },
+    {
+      "session": "deepseek-visible-20261123",
+      "case_id": "visible-19",
+      "step_id": 3,
+      "timestamp_utc": "2026-11-23T16:23:35.177675+00:00",
+      "input_tokens": 4125,
+      "output_tokens": 3874,
+      "usage_known": true,
+      "reference_cost_usd": "0.0058863"
+    },
+    {
+      "session": "deepseek-visible-20261123",
+      "case_id": "visible-20",
+      "step_id": 3,
+      "timestamp_utc": "2026-11-23T16:24:42.226874+00:00",
+      "input_tokens": 3934,
+      "output_tokens": 2126,
+      "usage_known": true,
+      "reference_cost_usd": "0.0037314"
+    },
+    {
+      "session": "deepseek-visible-20261123",
+      "case_id": "visible-21",
+      "step_id": 3,
+      "timestamp_utc": "2026-11-23T16:25:22.518248+00:00",
+      "input_tokens": null,
+      "output_tokens": null,
+      "usage_known": false,
+      "reference_cost_usd": null,
+      "reserved_input_bound": 16094,
+      "reserved_output_cap": 6000,
+      "reference_reservation_usd": "0.0120282"
+    },
+    {
+      "session": "deepseek-visible-20261124-continuation",
+      "case_id": "visible-21",
+      "step_id": 3,
+      "timestamp_utc": "2026-11-24T08:58:45.669690+00:00",
+      "input_tokens": 4438,
+      "output_tokens": 6000,
+      "usage_known": true,
+      "reference_cost_usd": "0.0085314"
+    },
+    {
+      "session": "deepseek-visible-20261124-continuation",
+      "case_id": "visible-22",
+      "step_id": 3,
+      "timestamp_utc": "2026-11-24T08:59:32.879241+00:00",
+      "input_tokens": 4141,
+      "output_tokens": 3369,
+      "usage_known": true,
+      "reference_cost_usd": "0.0052851"
+    },
+    {
+      "session": "deepseek-visible-20261124-continuation",
+      "case_id": "visible-23",
+      "step_id": 3,
+      "timestamp_utc": "2026-11-24T09:00:41.869109+00:00",
+      "input_tokens": 3990,
+      "output_tokens": 700,
+      "usage_known": true,
+      "reference_cost_usd": "0.0020370"
+    },
+    {
+      "session": "deepseek-visible-20261124-continuation",
+      "case_id": "visible-24",
+      "step_id": 3,
+      "timestamp_utc": "2026-11-24T09:01:22.048113+00:00",
+      "input_tokens": 2321,
+      "output_tokens": 1014,
+      "usage_known": true,
+      "reference_cost_usd": "0.0019131"
+    },
+    {
+      "session": "diagnostic",
+      "case_id": "dev-04",
+      "request_id": "chatcmpl-bfac2637535fdf35",
+      "input_tokens": 2316,
+      "output_tokens": 971,
+      "usage_known": true,
+      "reasoning_tokens_included_in_output": 418,
+      "reference_cost_usd": "0.0018600"
+    }
+  ],
+  "total": {
+    "measured_calls": 26,
+    "unknown_usage_calls": 2,
+    "measured_input_tokens": 49334,
+    "measured_output_tokens": 34101,
+    "measured_total_tokens": 83435,
+    "reference_cost_known_usd": "0.0557214",
+    "unknown_reference_reservation_usd": "0.0220677",
+    "complete_actual_token_total": null,
+    "actual_proxy_charge_usd": null
+  },
+  "evaluation_notes": [
+    "Independent human evaluation of these model outputs is pending; published annotation labels are not output ratings.",
+    "CLI actions were performed by Codex; human_active_seconds is not measured human labor.",
+    "Failed first attempt and diagnostic are included, not hidden as retries."
+  ]
+}

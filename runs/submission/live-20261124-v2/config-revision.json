@@ -1,0 +1,57 @@
+{
+  "v1_sha256": "89a779ad5520e1b43e26fa0d4e67fcb4fc750f875e5cf73cee7b8b4f49ef4176",
+  "v2_sha256": "fd670fb420426cb4bae1b327cd5b0819ac084338568c27142a8c0395f9f73348",
+  "reason": "User requested a technically successful run after visible-21 hit the 6000 completion-token limit. The entire visible set was rerun after raising the budget; v2 must be reported as a post-visible configuration revision, not an untouched evaluation.",
+  "changes": [
+    {
+      "field": "workflow.context_window_tokens",
+      "before": 40000,
+      "after": 48000
+    },
+    {
+      "field": "workflow.input_bound_policy",
+      "before": "Official DeepSeek-V4-Flash-0731 tokenizer.json: BPE with ByteLevel pretokenizer and empty normalizer. Content token count bounded by UTF-8 bytes. Official encoding README uses short role/BOS/assistant/thinking markers for the two-message, text-only system/user requests; runner reserves 128+32/message. No tools, images or response JSON schema. Official max position embeddings=1048576; local conservative window=40000. Actual provider usage is retained and checked by Runtime. References: https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-0731/tree/main and encoding/README.md.",
+      "after": "Official DeepSeek-V4-Flash-0731 tokenizer.json: BPE with ByteLevel pretokenizer and empty normalizer. Content token count bounded by UTF-8 bytes. Official encoding README uses short role/BOS/assistant/thinking markers for the two-message, text-only system/user requests; runner reserves 128+32/message. No tools, images or response JSON schema. Official max position embeddings=1048576; local conservative window=48000. Actual provider usage is retained and checked by Runtime. References: https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-0731/tree/main and encoding/README.md."
+    },
+    {
+      "field": "workflow.llm_timeout_seconds",
+      "before": 90,
+      "after": 180
+    },
+    {
+      "field": "workflow.max_output_tokens_per_call",
+      "before": 6000,
+      "after": 12000
+    },
+    {
+      "field": "limits.max_output_tokens",
+      "before": 15000,
+      "after": 30000
+    },
+    {
+      "field": "execution_notes.prior_attempts",
+      "before": "runs/local/deepseek-dev-20261123: 1 cancelled plan (340/175 tokens), 1 failed call with missing usage; reserved request upper bound separately in reconciliation.json; session allowance reduced.",
+      "after": "All original and continuation sessions retained in runs/submission/live-20261124. Two old requests have unknown usage, with a separate conservative reserve. visible-21 hit the 6000 output limit; v2 raises it to 12000 and reruns the entire visible set, preserving v1 failures."
+    },
+    {
+      "field": "execution_notes.revision",
+      "before": null,
+      "after": "v2 output budget only: input/model/temperature/prompts/search/data unchanged. Baseline comparisons must use this v2 config or explicitly report config differences. Changes selected after seeing v1 visible failure; v2 is a post-visible diagnostic run, not an untouched holdout result."
+    },
+    {
+      "field": "session_max_cost",
+      "before": 0.98,
+      "after": 0.8
+    }
+  ],
+  "unchanged": [
+    "model",
+    "temperature",
+    "search",
+    "baseline",
+    "all prompts",
+    "all code modules",
+    "public inputs"
+  ],
+  "B0": "Use config-v2.json for identical settings, or report any v1/v2 budget differences explicitly."
+}

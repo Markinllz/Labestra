@@ -1,0 +1,14 @@
+{
+  "runner_exit_code": 0,
+  "cases": 24,
+  "failed": 0,
+  "cancelled": 0,
+  "budget_exceeded": 0,
+  "missing_cases": 0,
+  "unknown_usage_in_v2": 0,
+  "identical_config_in_all_cases": true,
+  "code_prompts_and_data_unchanged": true,
+  "evidence_ids_checked_in_actual_context": 64,
+  "semantic_human_evaluation": "pending",
+  "independently_assessed_human_time": false
+}

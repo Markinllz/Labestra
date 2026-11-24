@@ -1,0 +1,51 @@
+{
+  "date": "2026-11-24",
+  "primary_cohort": "deepseek-visible-20261124-v2",
+  "runner_exit_code": 0,
+  "visible_statuses": {
+    "completed": 22,
+    "needs_clarification": 2
+  },
+  "primary_usage": {
+    "session": "deepseek-visible-20261124-v2",
+    "planned": 24,
+    "recorded": 24,
+    "statuses": {
+      "completed": 22,
+      "needs_clarification": 2
+    },
+    "measured_input_tokens": 44022,
+    "measured_output_tokens": 30622,
+    "unknown_usage_calls": 0,
+    "reference_cost_known_usd": "0.0499530"
+  },
+  "all_attempt_usage": {
+    "measured_calls": 48,
+    "unknown_usage_calls": 2,
+    "measured_input_tokens": 93356,
+    "measured_output_tokens": 64723,
+    "measured_total_tokens": 158079,
+    "reference_cost_known_usd": "0.1056744",
+    "unknown_reference_reservation_usd": "0.0220677",
+    "complete_actual_token_total": null,
+    "actual_proxy_charge_usd": null
+  },
+  "archives": [
+    {
+      "file": "experiments-all-attempts-v2.zip",
+      "bytes": 1105191,
+      "sha256": "57be40849cb773e5bfe226d8b4d76195fb953ad3d8aef95f89db7724cea0ce43"
+    },
+    {
+      "file": "../live-20261124/gold-dev-visible-draft.zip",
+      "sha256": "ea6063d885dc8dd8c1fc768db2d0be4af791e2207f4eb2f788ee1c12da27a461"
+    },
+    {
+      "file": "../live-20261124/second-review-8-cases.zip",
+      "sha256": "b3df35a8aa50d9c522766b2a9d16f6c1668d7910d7d7f1aac9222884a87704b7"
+    }
+  ],
+  "post_visible_revision": true,
+  "provider_money_confirmed": false,
+  "gold_status": "needs_review"
+}

@@ -273,8 +273,13 @@ def run_baseline(case, tools, config, run_id, *, services):
         return finish('failed', 'invalid_human_answer')
 
 
-def run_case(case, tools, config, run_id, variant, *, services):
+def run_case(case, tools, config, run_id, variant, *, services, baseline_policy='manual'):
     if variant == 'baseline':
+        if baseline_policy == 'extractive-v1':
+            from .baseline import run_extractive
+            return run_extractive(case, tools, config, run_id, services=services)
+        if baseline_policy != 'manual':
+            raise ValueError('Unknown baseline policy')
         return run_baseline(case, tools, config, run_id, services=services)
     if variant == 'system':
         return run_system(case, tools, config, run_id, services=services)
@@ -326,14 +331,20 @@ def execute(args, *, root=ROOT):
         raise ValueError('Explicit mode live|fixture is required')
     if args.fixture_actions and config['mode'] != 'fixture':
         raise ValueError('Scripted actions are only allowed in fixture mode')
-    if not args.fixture_actions and not args.participant:
+    policy = getattr(args, 'baseline_policy', 'manual')
+    automatic = args.variant == 'baseline' and policy == 'extractive-v1'
+    if policy not in ('manual', 'extractive-v1') or (args.variant != 'baseline' and policy != 'manual'):
+        raise ValueError('Extractive policy applies only to baseline')
+    if automatic and (args.fixture_actions or args.blind_attestation or getattr(args, 'prior_reference_access', False)):
+        raise ValueError('Automatic baseline does not use scripted fixtures or human attestations')
+    if not args.fixture_actions and not args.participant and not automatic:
         raise ValueError('Human sessions require --participant')
     reference_access = bool(getattr(args, 'prior_reference_access', False))
     if reference_access and args.blind_attestation:
         raise ValueError('Reference access and blind attestation are mutually exclusive')
     if reference_access and args.variant != 'baseline':
         raise ValueError('--prior-reference-access applies only to manual baseline')
-    if args.variant == 'baseline' and not args.fixture_actions and not (args.blind_attestation or reference_access):
+    if args.variant == 'baseline' and not automatic and not args.fixture_actions and not (args.blind_attestation or reference_access):
         raise ValueError('B0 requires --blind-attestation or --prior-reference-access; record the actual protocol')
     human_limit = config.get('baseline', {}).get('human_time_limit_seconds')
     if type(human_limit) not in (int, float) or not math.isfinite(human_limit) or human_limit <= 0:
@@ -400,7 +411,7 @@ def execute(args, *, root=ROOT):
             model = make_model(config, case.phase) if args.variant == 'system' else None
             services = WorkflowServices(rt, model, corpora, interact)
             print(f'\n{case.case_id} [{case.phase}] {case.question}\nsearch_query: {case.search_query}', flush=True)
-            result = run_case(case, tools, config, run_id, args.variant, services=services)
+            result = run_case(case, tools, config, run_id, args.variant, services=services, baseline_policy=policy)
             if args.variant == 'system' and not args.fixture_actions and result.status == 'completed':
                 try:
                     review = console('review_answer', {'result': asdict(result)})
@@ -409,13 +420,14 @@ def execute(args, *, root=ROOT):
                     result = replace(result, status=stop.status, stop_reason=stop.reason)
             result_mode = 'fixture' if args.fixture_actions else ('live' if args.variant == 'baseline' else config['mode'])
             result = replace(result, mode=result_mode, duration_seconds=rt.duration,
-                             human_active_seconds=None if args.fixture_actions else console.active_seconds)
+                             human_active_seconds=None if args.fixture_actions or automatic else console.active_seconds)
             run_manifest = {
                 'run_id': run_id, 'session_id': session_id, 'variant': args.variant, 'mode': result_mode,
-                'participant': args.participant, 'blind_attestation': bool(args.blind_attestation),
+                'participant': args.participant or 'automatic-extractive', 'blind_attestation': bool(args.blind_attestation),
+                'baseline_policy': policy if args.variant == 'baseline' else None,
                 'prior_reference_access': reference_access,
                 'comparison_limitation': 'Manual run after reference review; not blind, learning effects possible' if reference_access else None,
-                'interaction_interface': 'scripted-fixture' if args.fixture_actions else 'guided-console-v1',
+                'interaction_interface': 'scripted-fixture' if args.fixture_actions else ('extractive-v1' if automatic else 'guided-console-v1'),
                 'scientific_evaluation': not args.fixture_actions and (args.variant == 'baseline' or config['mode'] == 'live'),
                 'usage_kind': 'synthetic_fixture' if args.fixture_actions or (args.variant == 'system' and config['mode'] == 'fixture') else 'measured',
                 'dataset_version': manifest['dataset_version'], 'data_manifest_sha256': digest(root / 'data/manifest.json'),
@@ -470,6 +482,7 @@ def main():
     parser.add_argument('--session-id')
     parser.add_argument('--case-id', action='append')
     parser.add_argument('--participant')
+    parser.add_argument('--baseline-policy', choices=('manual', 'extractive-v1'), default='manual')
     parser.add_argument('--blind-attestation', action='store_true')
     parser.add_argument('--prior-reference-access', action='store_true', help='Manual B0 after reviewing reference materials; records a non-blind protocol')
     parser.add_argument('--fixture-actions', action='store_true', help='Technical dev-only scripts; no scientific scores')

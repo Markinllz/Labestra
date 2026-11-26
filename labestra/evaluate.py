@@ -61,6 +61,8 @@ def score(session, *, gold_path=None, ratings_path=None, root=ROOT):
     if len(ratings) != len(ratings_rows):
         raise ValueError('Duplicate human assessment')
     used_ratings, records = set(), []
+    public_fragments = {f.fragment_id: f for f in load_fragments(root / 'data/fragments.jsonl')}
+    public_corpora = {c.corpus_revision_id: c for c in load_corpora(root / 'data/corpora.jsonl')}
     all_real = True
     for cid in expected:
         directory = session / cid
@@ -104,6 +106,22 @@ def score(session, *, gold_path=None, ratings_path=None, root=ROOT):
                   'config_sha256': manifest['config_sha256'],
                   'input_question': case_input['question'], 'search_query': case_input['search_query'],
                   'input_corpus_revision_id': case_input['corpus_revision_id']}
+        if cases[cid].phase == 'J2':
+            claims = result['claims']
+            corpus = public_corpora.get(case_input['corpus_revision_id'])
+            allowed_sources = set(corpus.source_ids) if corpus else set()
+            links = [e for c in claims for e in c['evidence']]
+            valid = [e for e in links if e['fragment_id'] in public_fragments and
+                     public_fragments[e['fragment_id']].source_id in allowed_sources]
+            record['emitted_claim_count'] = len(claims)
+            record['valid_reference_fraction'] = fraction(len(valid), len(links))
+            record['structural_evidence_coverage'] = fraction(sum(bool(c['evidence']) and all(
+                e['fragment_id'] in public_fragments and public_fragments[e['fragment_id']].source_id in allowed_sources
+                for e in c['evidence']) for c in claims), len(claims))
+            if manifest.get('baseline_policy') == 'extractive-v1':
+                record['literal_quote_validity'] = fraction(sum(bool(c['text']) and any(
+                    e['fragment_id'] in public_fragments and c['text'] in public_fragments[e['fragment_id']].text
+                    for e in c['evidence']) for c in claims), len(claims))
         if gold:
             reference = gold[cid]
             action = ('clarify' if result['status'] == 'needs_clarification' else
@@ -123,6 +141,19 @@ def score(session, *, gold_path=None, ratings_path=None, root=ROOT):
                                             'empty_result': not ranked}
                 if not ranked:
                     record['precision_at_k']['value'] = 0.
+                selected_corpora = json.loads((directory / 'corpora.json').read_text(encoding='utf-8'))
+                if not isinstance(selected_corpora, list):
+                    raise ValueError('Corpora artifact must be an array')
+                selected = next((c['source_ids'] for c in selected_corpora
+                                 if c['corpus_revision_id'] == result['corpus_revision_id']), [])
+                if len(selected) != len(set(selected)) or not set(selected) <= set(ranked):
+                    raise ValueError('Selected corpus contains repeated or unranked sources')
+                selected_matches = len(set(selected) & relevant)
+                record['selected_source_recall'] = fraction(selected_matches, len(relevant))
+                record['selected_source_precision'] = fraction(selected_matches, len(selected))
+                if not selected:
+                    record['selected_source_precision']['value'] = 0.
+
             if cases[cid].phase == 'J2':
                 answerable = reference['expected_action'] == 'answer'
                 claims = result['claims']
@@ -162,10 +193,12 @@ def score(session, *, gold_path=None, ratings_path=None, root=ROOT):
     if set(ratings) != used_ratings:
         raise ValueError('Ratings contain unknown or non-J2 run IDs')
     metrics = {}
-    for key in ('claim_correctness', 'gold_coverage', 'accepted', 'action_correct'):
+    for key in ('claim_correctness', 'gold_coverage', 'accepted', 'action_correct', 'emitted_claim_count'):
         values = [r[key] for r in records if r.get(key) is not None]
         metrics[key] = {'assessed_cases': len(values), 'mean': statistics.mean(values) if values else None}
-    for key in ('recall_at_20', 'precision_at_k', 'evidence_entailment'):
+    for key in ('recall_at_20', 'precision_at_k', 'evidence_entailment', 'selected_source_recall',
+                'selected_source_precision', 'valid_reference_fraction', 'structural_evidence_coverage',
+                'literal_quote_validity'):
         values = [r[key]['value'] for r in records if key in r and r[key]['value'] is not None]
         metrics[key] = {'assessed_cases': len(values), 'mean': statistics.mean(values) if values else None}
     costs = [r['usage']['cost'] for r in records if 'usage' in r]

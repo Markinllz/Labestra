@@ -72,7 +72,8 @@ def main():
     run.add_argument('--output', default='runs/local')
     run.add_argument('--session-id')
     run.add_argument('--case-id', action='append')
-    run.add_argument('--participant', required=True)
+    run.add_argument('--participant')
+    run.add_argument('--baseline-policy', choices=('manual', 'extractive-v1'))
     run.add_argument('--blind-attestation', action='store_true')
     run.add_argument('--prior-reference-access', action='store_true')
     args = parser.parse_args()
@@ -87,6 +88,7 @@ def main():
                     raise ValueError('Нет LABESTRA_API_KEY; скрытый ввод ключа требует интерактивного терминала')
                 os.environ['LABESTRA_API_KEY'] = getpass.getpass('API-ключ (ввод скрыт, на диск не сохраняется): ')
             args.fixture_actions = False
+            args.baseline_policy = args.baseline_policy or ('extractive-v1' if args.variant == 'baseline' else 'manual')
             return execute(args)
         return 0
     except (ValueError, OSError, KeyError, TypeError) as exc:

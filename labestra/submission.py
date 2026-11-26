@@ -14,6 +14,7 @@ from .workflow import strict_json
 
 ARCHIVE = 'runs/submission/live-20261124-v2/experiments-all-attempts-v2.zip'
 PREFIX = 'experiments-v2/attempts/deepseek-visible-20261124-v2/'
+BASELINE_ARCHIVE = 'runs/submission/baseline-20261126/extractive-visible.zip'
 
 
 def extract_cohort(archive, output):
@@ -65,19 +66,46 @@ def build(root=ROOT, *, baseline_session=None, baseline_ratings=None):
     report['reproducibility'] = {'source_archive': ARCHIVE, 'source_archive_sha256': digest(archive),
                                  'cohort_prefix': PREFIX}
     reports = {'system-v2-quality.json': report, 'agreement.sabukhi-max.json': agreed}
+    baseline = None
     if baseline_session:
-        reports['baseline-quality.json'] = score(baseline_session, gold_path=review / 'gold.visible.jsonl',
-                                                 ratings_path=baseline_ratings, root=root)
+        baseline = score(baseline_session, gold_path=review / 'gold.visible.jsonl',
+                         ratings_path=baseline_ratings, root=root)
+    elif (root / BASELINE_ARCHIVE).is_file():
+        with tempfile.TemporaryDirectory(prefix='labestra-baseline-') as temporary:
+            with zipfile.ZipFile(root / BASELINE_ARCHIVE) as bundle:
+                for entry in bundle.infolist():
+                    rel = Path(entry.filename)
+                    if rel.is_absolute() or '..' in rel.parts:
+                        raise ValueError('Invalid baseline archive member')
+                    if not entry.is_dir():
+                        target = Path(temporary) / rel
+                        target.parent.mkdir(parents=True, exist_ok=True)
+                        target.write_bytes(bundle.read(entry))
+            sessions = list(Path(temporary).glob('*/summary.json'))
+            if len(sessions) != 1:
+                raise ValueError('Expected one baseline session')
+            baseline = score(sessions[0].parent, gold_path=review / 'gold.visible.jsonl',
+                             ratings_path=baseline_ratings, root=root)
+        baseline['reproducibility'] = {'source_archive': BASELINE_ARCHIVE,
+                                       'source_archive_sha256': digest(root / BASELINE_ARCHIVE)}
+    if baseline:
+        from .comparison import compare
+        reports['baseline-quality.json'] = baseline
+        reports['comparison.json'] = compare(report, baseline)
+        report['baseline_comparison'] = 'comparison.json'
     reports['readiness.json'] = {
         'public_dataset_valid': True, 'visible_system_cases': report['planned'],
         'reviewed_public_gold_cases': len(rows(review / 'gold.dev.jsonl')) + len(rows(review / 'gold.visible.jsonl')),
         'annotation_objects_per_reviewer': sum(v['total'] for v in agreed['by_kind'].values()),
-        'manual_baseline_supplied': bool(baseline_session),
+        'baseline_measured': baseline is not None,
+        'paired_comparison_available': baseline is not None,
+        'baseline_semantic_ratings_complete': bool(baseline and baseline['quality']['accepted']['assessed_cases'] == 10),
         'fully_independent_blind_annotation_established': False,
         'coursework_complete': False,
-        'remaining': ['Measured manual B0 and paired comparison',
-                      'Resolve annotation independence limitation',
-                      'Teacher review request and submission form'],
+        'remaining': (['Measure baseline'] if baseline is None else []) + [
+            'Complete semantic review of baseline answers',
+            'Resolve annotation independence limitation',
+            'Teacher review request and submission form'],
     }
     return reports
 
@@ -94,7 +122,7 @@ def main():
         for name, report in reports.items():
             (args.output / name).write_text(encoded(report), encoding='utf-8')
         print(f'Пересчитано {len(reports)} отчёта: {args.output.resolve()}; запросов к модели нет.')
-        print('Наличие отчётов не подтверждает завершение ручного B0 или отправку работы.')
+        print('Непроверенные смысловые оценки остаются null; статусы подготовки — в readiness.json.')
         return 0
     except (OSError, ValueError, KeyError, zipfile.BadZipFile) as exc:
         parser.exit(2, f'Проверка сдачи остановлена: {exc}\n')

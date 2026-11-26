@@ -15,10 +15,42 @@ from unittest.mock import patch
 from labestra import runner
 from labestra.workflow import WorkflowServices
 from labestra.workflow_runtime import Runtime, StopRun
-from test_workflow import Tools, CORPUS, draft, make_case
+from test_workflow import Tools, CORPUS, FRAGMENT, draft, make_case
 
 
 class RunnerTests(unittest.TestCase):
+    def test_guided_answer_builds_valid_claims_without_json_or_fragment_ids(self):
+        case = make_case()
+        console = runner.Console(Runtime('guided', case.limits), [], None, case, 240)
+        values = ['1', 'Мой ответ', '.', '1', 'Проверяемый вывод', '.', '99', '1', '1', '.']
+        with patch.object(console, 'read', side_effect=values), redirect_stdout(io.StringIO()):
+            value = console.guided_answer([FRAGMENT])
+        claims = runner.validate_draft(value, [FRAGMENT])
+        self.assertEqual(value['answer'], 'Мой ответ')
+        self.assertEqual(claims[0].evidence[0].fragment_id, FRAGMENT.fragment_id)
+        self.assertEqual(claims[0].evidence[0].relation, 'supports')
+
+    def test_guided_insufficiency_keeps_human_reason_without_claims(self):
+        case = make_case()
+        console = runner.Console(Runtime('guided', case.limits), [], None, case, 240)
+        with patch.object(console, 'read', side_effect=['2', 'Недостаёт нужных данных', '.']), redirect_stdout(io.StringIO()):
+            value = console.guided_answer([FRAGMENT])
+        self.assertEqual(runner.validate_draft(value, [FRAGMENT]), [])
+        self.assertEqual(value['evidence_status'], 'insufficient_evidence')
+        self.assertEqual(value['limitations'], ['Недостаёт нужных данных'])
+
+    def test_guided_clarification_is_preserved_by_baseline_runner(self):
+        case = make_case()
+        runtime = Runtime('guided', case.limits)
+        tools = runtime.wrap_search(Tools())
+        console = runner.Console(runtime, [], tools, case, 240)
+        services = WorkflowServices(runtime, None, {CORPUS.corpus_revision_id: CORPUS}, console)
+        with patch.object(console, 'read', side_effect=['3', 'Уточните условия сравнения', '.']), redirect_stdout(io.StringIO()):
+            result = runner.run_case(case, tools, {}, runtime.run_id, 'baseline', services=services)
+        self.assertEqual(result.status, 'needs_clarification')
+        self.assertEqual(result.answer, 'Уточните условия сравнения')
+        self.assertEqual(result.usage.llm_calls, 0)
+
     def test_saved_config_must_not_contain_credentials(self):
         with self.assertRaises(ValueError):
             runner.check_public_config({'model': {'api_key': 'synthetic-secret'}})

@@ -23,7 +23,14 @@ class GoldValidationTests(unittest.TestCase):
 
     def test_draft_is_structurally_valid_but_not_reviewed(self):
         self.assertEqual(self.validate(), {"cases": 1, "reviewed": 0})
-        with self.assertRaisesRegex(ValueError, "two human reviews"):
+        with self.assertRaisesRegex(ValueError, "human review required"):
+            self.validate(require_reviewed=True)
+
+    def test_one_recorded_human_review_approves_gold_not_annotation_agreement(self):
+        self.row.update(status="reviewed", reviewed_by=["person1"])
+        self.assertEqual(self.validate(require_reviewed=True), {"cases": 1, "reviewed": 1})
+        self.row["reviewed_by"] = []
+        with self.assertRaisesRegex(ValueError, "human review required"):
             self.validate(require_reviewed=True)
 
     def test_bad_evidence(self):

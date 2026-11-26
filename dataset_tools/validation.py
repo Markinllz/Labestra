@@ -115,7 +115,9 @@ def validate_gold_rows(cases, rows, sources, fragments, corpora, require_reviewe
         check(row["status"] in ("needs_review", "reviewed"), "invalid review status")
         reviewers = unique(row["reviewed_by"], "reviewers")
         if row["status"] == "reviewed" or require_reviewed:
-            check(row["status"] == "reviewed" and len(reviewers) >= 2, "two human reviews required")
+            # Gold approval and double annotation of a selected subset are
+            # separate checks. The latter is validated by dataset_tools.review.
+            check(row["status"] == "reviewed" and len(reviewers) >= 1, "human review required")
             check(not reviewers.intersection({row["prepared_by"], "codex", "assistant"}), "review must be independent")
         action = row["expected_action"]
         if case.phase == "J1":

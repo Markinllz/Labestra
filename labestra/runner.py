@@ -122,6 +122,7 @@ class Console:
             print(payload['plan'])
             return {'action': 'confirm'} if self.read('Подтвердить план? [yes/no]: ') == 'yes' else None
         if event == 'select_sources':
+            print('Задача: выбери статьи, которые отвечают вопросу. Для чтения введи read и номера; для завершения — только номера.')
             ids = payload['source_ids']
             for i, sid in enumerate(ids, 1):
                 source = self.sources[sid]
@@ -143,15 +144,7 @@ class Console:
                 hits = self.tools.search_fragments(self.case.search_query, corpus)
                 self.show_fragments(self.tools.read_fragments([f.fragment_id for f in hits], corpus))
         if event == 'baseline_answer':
-            self.show_fragments(payload['fragments'])
-            print('Введите JSON: answer, claims [{claim_id,text,evidence [{fragment_id,relation}]}],')
-            print('limitations [], evidence_status sufficient|insufficient_evidence. Завершите строкой с точкой.')
-            lines = []
-            while True:
-                line = self.read('> ')
-                if line == '.':
-                    return strict_json('\n'.join(lines))
-                lines.append(line)
+            return self.guided_answer(payload['fragments'])
         if event == 'review_answer':
             print(encoded(payload['result']))
             return {'decision': self.read('Проверка автором: accept/reject (не независимая оценка): ')}
@@ -159,8 +152,62 @@ class Console:
 
     @staticmethod
     def show_fragments(fragments):
-        for fragment in fragments:
-            print(f'\n[{fragment.fragment_id}] source={fragment.source_id} {fragment.location}\n{fragment.text}\n')
+        for number, fragment in enumerate(fragments, 1):
+            print(f'\nФРАГМЕНТ {number} [{fragment.fragment_id}] source={fragment.source_id} {fragment.location}\n{fragment.text}\n')
+
+    def text(self, prompt, *, optional=False):
+        print(prompt + ' Заверши текст отдельной строкой с точкой (.).')
+        while True:
+            lines = []
+            while True:
+                line = self.read('> ')
+                if line == '.':
+                    break
+                lines.append(line)
+            value = '\n'.join(lines).strip()
+            if value or optional:
+                return value
+            print('Нужно написать текст или отменить задание командой /cancel.')
+
+    def choice(self, prompt, allowed):
+        while True:
+            value = self.read(prompt).strip()
+            if value in allowed:
+                return value
+            print('Допустимые варианты: ' + ', '.join(allowed))
+
+    def guided_answer(self, fragments):
+        print('Задача: прочитай вопрос и отрывки, затем ответь своими словами. JSON и длинные ID вводить не нужно.')
+        self.show_fragments(fragments)
+        state = self.choice('Есть ли основания для ответа? 1 — да; 2 — недостаточно; 3 — нужно уточнить вопрос: ', ('1', '2', '3'))
+        if state == '3':
+            return {'action': 'clarify', 'text': self.text('Какое уточнение нужно спросить?')}
+        answer = self.text('Напиши ответ' if state == '1' else 'Объясни, почему материалов недостаточно')
+        if state == '2':
+            return {'answer': answer, 'claims': [], 'limitations': [answer], 'evidence_status': 'insufficient_evidence'}
+        count = int(self.choice('Сколько отдельных проверяемых выводов в ответе? Введи число от 1 до 50: ', tuple(str(n) for n in range(1, 51))))
+        claims = []
+        for number in range(1, count + 1):
+            statement = self.text(f'Вывод {number}: одна проверяемая мысль из твоего ответа')
+            while True:
+                value = self.read('Номера подтверждающих фрагментов через запятую (например 1,3): ')
+                try:
+                    indexes = list(dict.fromkeys(int(v.strip()) for v in value.split(',')))
+                    if not indexes or any(n < 1 or n > len(fragments) for n in indexes):
+                        raise ValueError
+                    break
+                except ValueError:
+                    print(f'Нужны номера от 1 до {len(fragments)}.')
+            evidence = []
+            for index in indexes:
+                relation = self.choice(f'Фрагмент {index}: 1 — подтверждает вывод; 2 — противоречит; 3 — связь неясна: ', ('1', '2', '3'))
+                evidence.append({'fragment_id': fragments[index - 1].fragment_id,
+                                 'relation': {'1': 'supports', '2': 'contradicts', '3': 'uncertain'}[relation]})
+            claims.append({'claim_id': f'c{number}', 'text': statement, 'evidence': evidence})
+        limitation = self.text('Какие ограничения есть у ответа? Если нечего добавить, введи только точку', optional=True)
+        value = {'answer': answer, 'claims': claims, 'limitations': [limitation] if limitation else [], 'evidence_status': 'sufficient'}
+        print('Ответ и ссылки собраны автоматически из твоего ввода. Сохраняем результат.')
+        return value
 
 
 def run_baseline(case, tools, config, run_id, *, services):
@@ -208,6 +255,12 @@ def run_baseline(case, tools, config, run_id, *, services):
             return finish('completed', 'insufficient_evidence')
         value = services.interact('baseline_answer', {'fragments': exact})
         rt.checkpoint()
+        if isinstance(value, dict) and value.get('action') == 'clarify':
+            answer = value.get('text', '')
+            if not isinstance(answer, str) or not answer.strip():
+                raise ValueError('Clarification text is required')
+            rt.emit('human_clarification', output={'text': answer})
+            return finish('needs_clarification', 'human_requested_clarification')
         claims = validate_draft(value, exact)
         answer, limitations, evidence = value['answer'], value['limitations'], value['evidence_status']
         rt.emit('human_answer', output=value)
@@ -355,6 +408,7 @@ def execute(args, *, root=ROOT):
             run_manifest = {
                 'run_id': run_id, 'session_id': session_id, 'variant': args.variant, 'mode': result_mode,
                 'participant': args.participant, 'blind_attestation': bool(args.blind_attestation),
+                'interaction_interface': 'scripted-fixture' if args.fixture_actions else 'guided-console-v1',
                 'scientific_evaluation': not args.fixture_actions and (args.variant == 'baseline' or config['mode'] == 'live'),
                 'usage_kind': 'synthetic_fixture' if args.fixture_actions or (args.variant == 'system' and config['mode'] == 'fixture') else 'measured',
                 'dataset_version': manifest['dataset_version'], 'data_manifest_sha256': digest(root / 'data/manifest.json'),

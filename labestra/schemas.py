@@ -1,4 +1,4 @@
-"""Начальные типы данных. Проверки и окончательные поля добавит команда."""
+"""Общие контракты данных, результатов, ресурсов и ошибок Labestra."""
 
 from dataclasses import dataclass, field
 from typing import Any, Literal

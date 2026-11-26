@@ -51,6 +51,24 @@ class RunnerTests(unittest.TestCase):
         self.assertEqual(result.answer, 'Уточните условия сравнения')
         self.assertEqual(result.usage.llm_calls, 0)
 
+    def test_manual_reference_access_is_recorded_without_false_blind_attestation(self):
+        with tempfile.TemporaryDirectory() as temporary, patch.object(runner, 'make_model') as model:
+            args = self.args(temporary, 'baseline')
+            args.fixture_actions = False
+            args.participant = 'test-operator'
+            args.prior_reference_access = True
+            args.case_id = ['dev-03']
+            with patch.object(runner.Console, '__call__', side_effect=StopRun('cancelled', 'test_cancel')), redirect_stdout(io.StringIO()):
+                runner.execute(args)
+            manifest = json.loads((Path(temporary) / 'test-session/dev-03/manifest.json').read_text())
+            self.assertFalse(manifest['blind_attestation'])
+            self.assertTrue(manifest['prior_reference_access'])
+            self.assertIn('not blind', manifest['comparison_limitation'])
+            model.assert_not_called()
+            args.blind_attestation = True
+            with self.assertRaisesRegex(ValueError, 'mutually exclusive'):
+                runner.execute(args)
+
     def test_saved_config_must_not_contain_credentials(self):
         with self.assertRaises(ValueError):
             runner.check_public_config({'model': {'api_key': 'synthetic-secret'}})

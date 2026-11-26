@@ -1,0 +1,57 @@
+{
+  "annotators": [
+    "sabukhi",
+    "chelush"
+  ],
+  "packet_sha256": "06a11d42545e918749ee5ba1d3ffee5745bc56c63448afc554153778649554ec",
+  "by_kind": {
+    "action": {
+      "matched": 8,
+      "total": 8,
+      "agreement": 1.0,
+      "cohen_kappa": 1.0,
+      "kappa_limitation": null,
+      "observed_labels": [
+        "answer",
+        "clarify",
+        "search"
+      ],
+      "disagreements": []
+    },
+    "entailment": {
+      "matched": 11,
+      "total": 11,
+      "agreement": 1.0,
+      "cohen_kappa": 1.0,
+      "kappa_limitation": null,
+      "observed_labels": [
+        "contradicts",
+        "supports",
+        "uncertain"
+      ],
+      "disagreements": []
+    },
+    "relevance": {
+      "matched": 119,
+      "total": 120,
+      "agreement": 0.9916666666666667,
+      "cohen_kappa": 0.980806142034549,
+      "kappa_limitation": null,
+      "observed_labels": [
+        "not_relevant",
+        "relevant",
+        "uncertain"
+      ],
+      "disagreements": [
+        {
+          "case_id": "visible-07",
+          "object_id": "acl:D16-1264",
+          "first": "uncertain",
+          "second": "not_relevant"
+        }
+      ]
+    }
+  },
+  "note": "Compute before reconciliation; no gold approval or answer-quality score is implied.",
+  "interpretation": "Descriptive agreement of confirmed labels before reconciliation; full independence and blinding are not established."
+}

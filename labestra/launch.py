@@ -74,6 +74,7 @@ def main():
     run.add_argument('--case-id', action='append')
     run.add_argument('--participant', required=True)
     run.add_argument('--blind-attestation', action='store_true')
+    run.add_argument('--prior-reference-access', action='store_true')
     args = parser.parse_args()
     try:
         if args.command == 'configure':

@@ -328,8 +328,13 @@ def execute(args, *, root=ROOT):
         raise ValueError('Scripted actions are only allowed in fixture mode')
     if not args.fixture_actions and not args.participant:
         raise ValueError('Human sessions require --participant')
-    if args.variant == 'baseline' and not args.fixture_actions and not args.blind_attestation:
-        raise ValueError('B0 requires --blind-attestation: confirm no prior gold access')
+    reference_access = bool(getattr(args, 'prior_reference_access', False))
+    if reference_access and args.blind_attestation:
+        raise ValueError('Reference access and blind attestation are mutually exclusive')
+    if reference_access and args.variant != 'baseline':
+        raise ValueError('--prior-reference-access applies only to manual baseline')
+    if args.variant == 'baseline' and not args.fixture_actions and not (args.blind_attestation or reference_access):
+        raise ValueError('B0 requires --blind-attestation or --prior-reference-access; record the actual protocol')
     human_limit = config.get('baseline', {}).get('human_time_limit_seconds')
     if type(human_limit) not in (int, float) or not math.isfinite(human_limit) or human_limit <= 0:
         raise ValueError('Set a positive baseline.human_time_limit_seconds before comparison')
@@ -408,6 +413,8 @@ def execute(args, *, root=ROOT):
             run_manifest = {
                 'run_id': run_id, 'session_id': session_id, 'variant': args.variant, 'mode': result_mode,
                 'participant': args.participant, 'blind_attestation': bool(args.blind_attestation),
+                'prior_reference_access': reference_access,
+                'comparison_limitation': 'Manual run after reference review; not blind, learning effects possible' if reference_access else None,
                 'interaction_interface': 'scripted-fixture' if args.fixture_actions else 'guided-console-v1',
                 'scientific_evaluation': not args.fixture_actions and (args.variant == 'baseline' or config['mode'] == 'live'),
                 'usage_kind': 'synthetic_fixture' if args.fixture_actions or (args.variant == 'system' and config['mode'] == 'fixture') else 'measured',
@@ -464,6 +471,7 @@ def main():
     parser.add_argument('--case-id', action='append')
     parser.add_argument('--participant')
     parser.add_argument('--blind-attestation', action='store_true')
+    parser.add_argument('--prior-reference-access', action='store_true', help='Manual B0 after reviewing reference materials; records a non-blind protocol')
     parser.add_argument('--fixture-actions', action='store_true', help='Technical dev-only scripts; no scientific scores')
     args = parser.parse_args()
     try:

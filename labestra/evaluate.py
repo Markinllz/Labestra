@@ -94,6 +94,10 @@ def score(session, *, gold_path=None, ratings_path=None, root=ROOT):
             raise ValueError('Revised inputs need a separately frozen task and gold')
         record = {'case_id': cid, 'phase': cases[cid].phase, 'category': cases[cid].category,
                   'status': result['status'], 'stop_reason': result['stop_reason'],
+                  'variant': result['variant'],
+                  'blind_attestation': manifest.get('blind_attestation', False),
+                  'prior_reference_access': manifest.get('prior_reference_access', False),
+                  'comparison_limitation': manifest.get('comparison_limitation'),
                   'completion': result['status'] == 'completed',
                   'duration_seconds': result['duration_seconds'],
                   'human_active_seconds': result['human_active_seconds'], 'usage': result['usage'],

@@ -1,0 +1,14 @@
+{
+  "public_dataset_valid": true,
+  "visible_system_cases": 24,
+  "reviewed_public_gold_cases": 30,
+  "annotation_objects_per_reviewer": 139,
+  "manual_baseline_supplied": false,
+  "fully_independent_blind_annotation_established": false,
+  "coursework_complete": false,
+  "remaining": [
+    "Measured manual B0 and paired comparison",
+    "Resolve annotation independence limitation",
+    "Teacher review request and submission form"
+  ]
+}

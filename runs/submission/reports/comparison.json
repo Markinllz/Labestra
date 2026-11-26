@@ -1,0 +1,463 @@
+{
+  "system_session_id": "deepseek-visible-20261124-v2",
+  "baseline_session_id": "extractive-visible-20261126-r2",
+  "paired_cases": 24,
+  "same_inputs_and_config": true,
+  "gold_sha256": "a2c2ed0f68f3aec4301260cb8cf3d3834e8cc82334674b38560f900d92851708",
+  "quality": {
+    "claim_correctness": {
+      "baseline": {
+        "assessed_cases": 10,
+        "mean": 1.0
+      },
+      "system": {
+        "assessed_cases": 10,
+        "mean": 0.875
+      }
+    },
+    "gold_coverage": {
+      "baseline": {
+        "assessed_cases": 10,
+        "mean": 0.5833333333333334
+      },
+      "system": {
+        "assessed_cases": 10,
+        "mean": 0.6666666666666666
+      }
+    },
+    "accepted": {
+      "baseline": {
+        "assessed_cases": 10,
+        "mean": 0.4
+      },
+      "system": {
+        "assessed_cases": 10,
+        "mean": 0.5
+      }
+    },
+    "action_correct": {
+      "baseline": {
+        "assessed_cases": 24,
+        "mean": 0.9166666666666666
+      },
+      "system": {
+        "assessed_cases": 24,
+        "mean": 0.9166666666666666
+      }
+    },
+    "emitted_claim_count": {
+      "baseline": {
+        "assessed_cases": 12,
+        "mean": 3
+      },
+      "system": {
+        "assessed_cases": 12,
+        "mean": 3.5833333333333335
+      }
+    },
+    "recall_at_20": {
+      "baseline": {
+        "assessed_cases": 10,
+        "mean": 1.0
+      },
+      "system": {
+        "assessed_cases": 10,
+        "mean": 1.0
+      }
+    },
+    "precision_at_k": {
+      "baseline": {
+        "assessed_cases": 10,
+        "mean": 0.07782679738562091
+      },
+      "system": {
+        "assessed_cases": 10,
+        "mean": 0.07782679738562091
+      }
+    },
+    "evidence_entailment": {
+      "baseline": {
+        "assessed_cases": 12,
+        "mean": 1.0
+      },
+      "system": {
+        "assessed_cases": 9,
+        "mean": 0.9777777777777777
+      }
+    },
+    "selected_source_recall": {
+      "baseline": {
+        "assessed_cases": 10,
+        "mean": 0.95
+      },
+      "system": {
+        "assessed_cases": 10,
+        "mean": 1.0
+      }
+    },
+    "selected_source_precision": {
+      "baseline": {
+        "assessed_cases": 10,
+        "mean": 0.3333333333333333
+      },
+      "system": {
+        "assessed_cases": 10,
+        "mean": 1.0
+      }
+    },
+    "valid_reference_fraction": {
+      "baseline": {
+        "assessed_cases": 12,
+        "mean": 1.0
+      },
+      "system": {
+        "assessed_cases": 9,
+        "mean": 1.0
+      }
+    },
+    "structural_evidence_coverage": {
+      "baseline": {
+        "assessed_cases": 12,
+        "mean": 1.0
+      },
+      "system": {
+        "assessed_cases": 9,
+        "mean": 1.0
+      }
+    },
+    "literal_quote_validity": {
+      "baseline": {
+        "assessed_cases": 12,
+        "mean": 1.0
+      },
+      "system": {
+        "assessed_cases": 0,
+        "mean": null
+      }
+    }
+  },
+  "duration_seconds": {
+    "baseline": {
+      "n": 24,
+      "median": 0.00043147900214535184,
+      "p95": 0.0007983749965205789
+    },
+    "system": {
+      "n": 24,
+      "median": 21.61438524944242,
+      "p95": 50.856452166917734
+    },
+    "paired_delta": {
+      "n": 24,
+      "median": 21.6139039159425,
+      "p95": 50.85565516691713
+    }
+  },
+  "reference_cost": {
+    "baseline": 0.0,
+    "system": 0.049953,
+    "currency": [
+      "USD"
+    ],
+    "provider_invoice_confirmed": false
+  },
+  "semantic_baseline_assessments": 10,
+  "limitations": [
+    "Baseline method selected after visible system results; descriptive comparison, not untouched evaluation.",
+    "Technical completion, valid citations and literal quotation do not establish answer correctness or coverage.",
+    "Semantic ratings are supplied; review procedures and reading aids are recorded with the ratings.",
+    "System duration includes operator interaction and is not human labor; no labor-saving claim is made.",
+    "Recorded durations are from separate sessions; timing differences are not controlled causal estimates.",
+    "Cost uses reference token prices, not a verified proxy invoice; old unknown-usage attempts remain archived."
+  ],
+  "pairs": [
+    {
+      "case_id": "visible-01",
+      "phase": "J1",
+      "category": "thematic",
+      "system_status": "completed",
+      "baseline_status": "completed",
+      "system_action_correct": true,
+      "baseline_action_correct": true,
+      "system_seconds": 39.766521833022125,
+      "baseline_seconds": 0.000726416998077184,
+      "duration_delta_system_minus_baseline": 39.76579541602405
+    },
+    {
+      "case_id": "visible-02",
+      "phase": "J1",
+      "category": "thematic",
+      "system_status": "completed",
+      "baseline_status": "completed",
+      "system_action_correct": true,
+      "baseline_action_correct": true,
+      "system_seconds": 51.60171287506819,
+      "baseline_seconds": 0.00017504200513940305,
+      "duration_delta_system_minus_baseline": 51.60153783306305
+    },
+    {
+      "case_id": "visible-03",
+      "phase": "J1",
+      "category": "thematic",
+      "system_status": "completed",
+      "baseline_status": "completed",
+      "system_action_correct": true,
+      "baseline_action_correct": true,
+      "system_seconds": 19.709656791994348,
+      "baseline_seconds": 0.00015870799688855186,
+      "duration_delta_system_minus_baseline": 19.70949808399746
+    },
+    {
+      "case_id": "visible-04",
+      "phase": "J1",
+      "category": "thematic",
+      "system_status": "completed",
+      "baseline_status": "completed",
+      "system_action_correct": true,
+      "baseline_action_correct": true,
+      "system_seconds": 16.00734949996695,
+      "baseline_seconds": 0.00021795799693791196,
+      "duration_delta_system_minus_baseline": 16.00713154197001
+    },
+    {
+      "case_id": "visible-05",
+      "phase": "J1",
+      "category": "thematic",
+      "system_status": "completed",
+      "baseline_status": "completed",
+      "system_action_correct": true,
+      "baseline_action_correct": true,
+      "system_seconds": 19.59937724994961,
+      "baseline_seconds": 0.0001249999986612238,
+      "duration_delta_system_minus_baseline": 19.59925224995095
+    },
+    {
+      "case_id": "visible-06",
+      "phase": "J1",
+      "category": "thematic",
+      "system_status": "completed",
+      "baseline_status": "completed",
+      "system_action_correct": true,
+      "baseline_action_correct": true,
+      "system_seconds": 19.05652987502981,
+      "baseline_seconds": 0.00014133300282992423,
+      "duration_delta_system_minus_baseline": 19.05638854202698
+    },
+    {
+      "case_id": "visible-07",
+      "phase": "J1",
+      "category": "distinction",
+      "system_status": "completed",
+      "baseline_status": "completed",
+      "system_action_correct": true,
+      "baseline_action_correct": true,
+      "system_seconds": 20.757133916951716,
+      "baseline_seconds": 0.00014699999883305281,
+      "duration_delta_system_minus_baseline": 20.756986916952883
+    },
+    {
+      "case_id": "visible-08",
+      "phase": "J1",
+      "category": "distinction",
+      "system_status": "completed",
+      "baseline_status": "completed",
+      "system_action_correct": true,
+      "baseline_action_correct": true,
+      "system_seconds": 16.968403875012882,
+      "baseline_seconds": 0.00014079199900152162,
+      "duration_delta_system_minus_baseline": 16.96826308301388
+    },
+    {
+      "case_id": "visible-09",
+      "phase": "J1",
+      "category": "distinction",
+      "system_status": "completed",
+      "baseline_status": "completed",
+      "system_action_correct": true,
+      "baseline_action_correct": true,
+      "system_seconds": 25.62781525007449,
+      "baseline_seconds": 0.00011658400035230443,
+      "duration_delta_system_minus_baseline": 25.62769866607414
+    },
+    {
+      "case_id": "visible-10",
+      "phase": "J1",
+      "category": "distinction",
+      "system_status": "completed",
+      "baseline_status": "completed",
+      "system_action_correct": true,
+      "baseline_action_correct": true,
+      "system_seconds": 20.02418087492697,
+      "baseline_seconds": 0.00010804199700942263,
+      "duration_delta_system_minus_baseline": 20.02407283292996
+    },
+    {
+      "case_id": "visible-11",
+      "phase": "J1",
+      "category": "ambiguous",
+      "system_status": "needs_clarification",
+      "baseline_status": "needs_clarification",
+      "system_action_correct": true,
+      "baseline_action_correct": true,
+      "system_seconds": 0.0007269158959388733,
+      "baseline_seconds": 1.562500256113708e-05,
+      "duration_delta_system_minus_baseline": 0.0007112908933777362
+    },
+    {
+      "case_id": "visible-12",
+      "phase": "J1",
+      "category": "ambiguous",
+      "system_status": "needs_clarification",
+      "baseline_status": "needs_clarification",
+      "system_action_correct": true,
+      "baseline_action_correct": true,
+      "system_seconds": 0.00024804205168038607,
+      "baseline_seconds": 1.4875004126224667e-05,
+      "duration_delta_system_minus_baseline": 0.0002331670475541614
+    },
+    {
+      "case_id": "visible-13",
+      "phase": "J2",
+      "category": "direct",
+      "system_status": "completed",
+      "baseline_status": "completed",
+      "system_action_correct": false,
+      "baseline_action_correct": true,
+      "system_seconds": 38.407051583053544,
+      "baseline_seconds": 0.0007538749996456318,
+      "duration_delta_system_minus_baseline": 38.4062977080539
+    },
+    {
+      "case_id": "visible-14",
+      "phase": "J2",
+      "category": "direct",
+      "system_status": "completed",
+      "baseline_status": "completed",
+      "system_action_correct": true,
+      "baseline_action_correct": true,
+      "system_seconds": 21.8021927078953,
+      "baseline_seconds": 0.0004745839978568256,
+      "duration_delta_system_minus_baseline": 21.801718123897444
+    },
+    {
+      "case_id": "visible-15",
+      "phase": "J2",
+      "category": "direct",
+      "system_status": "completed",
+      "baseline_status": "completed",
+      "system_action_correct": true,
+      "baseline_action_correct": true,
+      "system_seconds": 23.137384500005282,
+      "baseline_seconds": 0.00043008300417568535,
+      "duration_delta_system_minus_baseline": 23.136954417001107
+    },
+    {
+      "case_id": "visible-16",
+      "phase": "J2",
+      "category": "direct",
+      "system_status": "completed",
+      "baseline_status": "completed",
+      "system_action_correct": true,
+      "baseline_action_correct": true,
+      "system_seconds": 21.000501708011143,
+      "baseline_seconds": 0.00043287500011501834,
+      "duration_delta_system_minus_baseline": 21.000068833011028
+    },
+    {
+      "case_id": "visible-17",
+      "phase": "J2",
+      "category": "comparative",
+      "system_status": "completed",
+      "baseline_status": "completed",
+      "system_action_correct": true,
+      "baseline_action_correct": true,
+      "system_seconds": 43.59391604200937,
+      "baseline_seconds": 0.0007699169946135953,
+      "duration_delta_system_minus_baseline": 43.593146125014755
+    },
+    {
+      "case_id": "visible-18",
+      "phase": "J2",
+      "category": "comparative",
+      "system_status": "completed",
+      "baseline_status": "completed",
+      "system_action_correct": true,
+      "baseline_action_correct": true,
+      "system_seconds": 28.918247791938484,
+      "baseline_seconds": 0.0007005840016063303,
+      "duration_delta_system_minus_baseline": 28.917547207936877
+    },
+    {
+      "case_id": "visible-19",
+      "phase": "J2",
+      "category": "comparative",
+      "system_status": "completed",
+      "baseline_status": "completed",
+      "system_action_correct": true,
+      "baseline_action_correct": true,
+      "system_seconds": 31.826578250038438,
+      "baseline_seconds": 0.0008309159966302104,
+      "duration_delta_system_minus_baseline": 31.825747334041807
+    },
+    {
+      "case_id": "visible-20",
+      "phase": "J2",
+      "category": "comparative",
+      "system_status": "completed",
+      "baseline_status": "completed",
+      "system_action_correct": false,
+      "baseline_action_correct": true,
+      "system_seconds": 35.803640875034034,
+      "baseline_seconds": 0.0007864170038374141,
+      "duration_delta_system_minus_baseline": 35.8028544580302
+    },
+    {
+      "case_id": "visible-21",
+      "phase": "J2",
+      "category": "conflicting_results",
+      "system_status": "completed",
+      "baseline_status": "completed",
+      "system_action_correct": true,
+      "baseline_action_correct": true,
+      "system_seconds": 50.856452166917734,
+      "baseline_seconds": 0.0007970000006025657,
+      "duration_delta_system_minus_baseline": 50.85565516691713
+    },
+    {
+      "case_id": "visible-22",
+      "phase": "J2",
+      "category": "conflicting_results",
+      "system_status": "completed",
+      "baseline_status": "completed",
+      "system_action_correct": true,
+      "baseline_action_correct": true,
+      "system_seconds": 35.91536329197697,
+      "baseline_seconds": 0.0007983749965205789,
+      "duration_delta_system_minus_baseline": 35.91456491698045
+    },
+    {
+      "case_id": "visible-23",
+      "phase": "J2",
+      "category": "insufficient",
+      "system_status": "completed",
+      "baseline_status": "completed",
+      "system_action_correct": true,
+      "baseline_action_correct": false,
+      "system_seconds": 16.437270665890537,
+      "baseline_seconds": 0.0006780830008210614,
+      "duration_delta_system_minus_baseline": 16.436592582889716
+    },
+    {
+      "case_id": "visible-24",
+      "phase": "J2",
+      "category": "insufficient",
+      "system_status": "completed",
+      "baseline_status": "completed",
+      "system_action_correct": true,
+      "baseline_action_correct": false,
+      "system_seconds": 21.42657779098954,
+      "baseline_seconds": 0.00048808300198288634,
+      "duration_delta_system_minus_baseline": 21.426089707987558
+    }
+  ]
+}

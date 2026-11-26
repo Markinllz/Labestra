@@ -1,0 +1,17 @@
+{
+  "date": "2026-11-27",
+  "primary_annotation_file": "eval/annotations/chelush-20261123/annotations.max.jsonl",
+  "source_annotations_sha256": "d15b2b8f12385f236f75ef0f0936538f549ca9ef7b95c9ca4e607c369e8b1134",
+  "source_packet_sha256": "06a11d42545e918749ee5ba1d3ffee5745bc56c63448afc554153778649554ec",
+  "derived_packet_sha256": "b8acf7e62788ddbfcaf73fdeaa637b3f0dd40b52144b75a739f8c11e531fcb90",
+  "selection": "8 action, 8 relevance, 8 entailment objects stratified by existing primary labels; all objects taken from the original 139-object packet.",
+  "primary_method": "Subset of previously confirmed primary labels; only packet linkage changed. No new primary annotation is claimed.",
+  "secondary_method": "Manual completion of the unlabelled form, reported by the reviewer.",
+  "blinding": "Reviewer reported no prior access to gold/other labels; form requires confirmation before export. Self-reported, not independently observed.",
+  "reading_aid": "Russian reading translations with English originals; no proposed labels.",
+  "files": {
+    "packet.json": "139745eef1a7864fcf55b8b373df59abb7648db7564ec6b190d5215dab05c469",
+    "annotations.secondary.jsonl": "42beed55af3342f1a96b46bf86442ed1fd9e548f1d244f201bb9b950ac0aee69",
+    "annotations.primary.jsonl": "f64a3ab91fb254d1064831343f44ddcbcc07c1e1095ee280efe05e2f2b910cdf"
+  }
+}

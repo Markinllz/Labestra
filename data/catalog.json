@@ -1,0 +1,182 @@
+[
+  {
+    "anthology_id": "2020.emnlp-main.550",
+    "availability": "full_text",
+    "license": "CC-BY-4.0",
+    "license_basis": "https://aclanthology.org/faq/#what-is-the-copyright-for-materials-in-the-anthology"
+  },
+  {
+    "anthology_id": "2021.emnlp-main.496",
+    "availability": "full_text",
+    "license": "CC-BY-4.0",
+    "license_basis": "https://aclanthology.org/faq/#what-is-the-copyright-for-materials-in-the-anthology"
+  },
+  {
+    "anthology_id": "2021.eacl-main.74",
+    "availability": "full_text",
+    "license": "CC-BY-4.0",
+    "license_basis": "https://aclanthology.org/faq/#what-is-the-copyright-for-materials-in-the-anthology"
+  },
+  {
+    "anthology_id": "2024.naacl-long.20",
+    "availability": "full_text",
+    "license": "CC-BY-4.0",
+    "license_basis": "https://aclanthology.org/faq/#what-is-the-copyright-for-materials-in-the-anthology"
+  },
+  {
+    "anthology_id": "2024.eacl-demo.16",
+    "availability": "full_text",
+    "license": "CC-BY-4.0",
+    "license_basis": "https://aclanthology.org/faq/#what-is-the-copyright-for-materials-in-the-anthology"
+  },
+  {
+    "anthology_id": "2024.tacl-1.9",
+    "availability": "full_text",
+    "license": "CC-BY-4.0",
+    "license_basis": "https://aclanthology.org/faq/#what-is-the-copyright-for-materials-in-the-anthology"
+  },
+  {
+    "anthology_id": "2021.naacl-main.466",
+    "availability": "full_text",
+    "license": "CC-BY-4.0",
+    "license_basis": "https://aclanthology.org/faq/#what-is-the-copyright-for-materials-in-the-anthology"
+  },
+  {
+    "anthology_id": "2021.acl-short.123",
+    "availability": "full_text",
+    "license": "CC-BY-4.0",
+    "license_basis": "https://aclanthology.org/faq/#what-is-the-copyright-for-materials-in-the-anthology"
+  },
+  {
+    "anthology_id": "N19-1423",
+    "availability": "abstract",
+    "license": "CC-BY-4.0",
+    "license_basis": "https://aclanthology.org/faq/#what-is-the-copyright-for-materials-in-the-anthology"
+  },
+  {
+    "anthology_id": "2020.acl-main.703",
+    "availability": "abstract",
+    "license": "CC-BY-4.0",
+    "license_basis": "https://aclanthology.org/faq/#what-is-the-copyright-for-materials-in-the-anthology"
+  },
+  {
+    "anthology_id": "P17-1171",
+    "availability": "abstract",
+    "license": "CC-BY-4.0",
+    "license_basis": "https://aclanthology.org/faq/#what-is-the-copyright-for-materials-in-the-anthology"
+  },
+  {
+    "anthology_id": "D16-1264",
+    "availability": "abstract",
+    "license": "CC-BY-4.0",
+    "license_basis": "https://aclanthology.org/faq/#what-is-the-copyright-for-materials-in-the-anthology"
+  },
+  {
+    "anthology_id": "D18-1259",
+    "availability": "abstract",
+    "license": "CC-BY-4.0",
+    "license_basis": "https://aclanthology.org/faq/#what-is-the-copyright-for-materials-in-the-anthology"
+  },
+  {
+    "anthology_id": "P17-1147",
+    "availability": "abstract",
+    "license": "CC-BY-4.0",
+    "license_basis": "https://aclanthology.org/faq/#what-is-the-copyright-for-materials-in-the-anthology"
+  },
+  {
+    "anthology_id": "Q19-1026",
+    "availability": "abstract",
+    "license": "CC-BY-4.0",
+    "license_basis": "https://aclanthology.org/faq/#what-is-the-copyright-for-materials-in-the-anthology"
+  },
+  {
+    "anthology_id": "N18-1074",
+    "availability": "abstract",
+    "license": "CC-BY-4.0",
+    "license_basis": "https://aclanthology.org/faq/#what-is-the-copyright-for-materials-in-the-anthology"
+  },
+  {
+    "anthology_id": "2023.emnlp-main.741",
+    "availability": "abstract",
+    "license": "CC-BY-4.0",
+    "license_basis": "https://aclanthology.org/faq/#what-is-the-copyright-for-materials-in-the-anthology"
+  },
+  {
+    "anthology_id": "2023.emnlp-main.398",
+    "availability": "abstract",
+    "license": "CC-BY-4.0",
+    "license_basis": "https://aclanthology.org/faq/#what-is-the-copyright-for-materials-in-the-anthology"
+  },
+  {
+    "anthology_id": "2023.emnlp-main.557",
+    "availability": "abstract",
+    "license": "CC-BY-4.0",
+    "license_basis": "https://aclanthology.org/faq/#what-is-the-copyright-for-materials-in-the-anthology"
+  },
+  {
+    "anthology_id": "2020.acl-main.173",
+    "availability": "abstract",
+    "license": "CC-BY-4.0",
+    "license_basis": "https://aclanthology.org/faq/#what-is-the-copyright-for-materials-in-the-anthology"
+  },
+  {
+    "anthology_id": "2020.acl-main.450",
+    "availability": "abstract",
+    "license": "CC-BY-4.0",
+    "license_basis": "https://aclanthology.org/faq/#what-is-the-copyright-for-materials-in-the-anthology"
+  },
+  {
+    "anthology_id": "2023.acl-long.910",
+    "availability": "abstract",
+    "license": "CC-BY-4.0",
+    "license_basis": "https://aclanthology.org/faq/#what-is-the-copyright-for-materials-in-the-anthology"
+  },
+  {
+    "anthology_id": "2021.acl-long.475",
+    "availability": "abstract",
+    "license": "CC-BY-4.0",
+    "license_basis": "https://aclanthology.org/faq/#what-is-the-copyright-for-materials-in-the-anthology"
+  },
+  {
+    "anthology_id": "2021.findings-acl.191",
+    "availability": "abstract",
+    "license": "CC-BY-4.0",
+    "license_basis": "https://aclanthology.org/faq/#what-is-the-copyright-for-materials-in-the-anthology"
+  },
+  {
+    "anthology_id": "2021.naacl-main.200",
+    "availability": "abstract",
+    "license": "CC-BY-4.0",
+    "license_basis": "https://aclanthology.org/faq/#what-is-the-copyright-for-materials-in-the-anthology"
+  },
+  {
+    "anthology_id": "2022.emnlp-main.249",
+    "availability": "abstract",
+    "license": "CC-BY-4.0",
+    "license_basis": "https://aclanthology.org/faq/#what-is-the-copyright-for-materials-in-the-anthology"
+  },
+  {
+    "anthology_id": "2020.findings-emnlp.63",
+    "availability": "abstract",
+    "license": "CC-BY-4.0",
+    "license_basis": "https://aclanthology.org/faq/#what-is-the-copyright-for-materials-in-the-anthology"
+  },
+  {
+    "anthology_id": "2025.findings-naacl.157",
+    "availability": "abstract",
+    "license": "CC-BY-4.0",
+    "license_basis": "https://aclanthology.org/faq/#what-is-the-copyright-for-materials-in-the-anthology"
+  },
+  {
+    "anthology_id": "2025.acl-long.1101",
+    "availability": "abstract",
+    "license": "CC-BY-4.0",
+    "license_basis": "https://aclanthology.org/faq/#what-is-the-copyright-for-materials-in-the-anthology"
+  },
+  {
+    "anthology_id": "2025.emnlp-industry.54",
+    "availability": "abstract",
+    "license": "CC-BY-4.0",
+    "license_basis": "https://aclanthology.org/faq/#what-is-the-copyright-for-materials-in-the-anthology"
+  }
+]

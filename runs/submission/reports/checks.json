@@ -1,0 +1,85 @@
+{
+  "date": "2026-11-27",
+  "command": "./run.sh check",
+  "python": "3.13.15",
+  "tests": 161,
+  "passed": true,
+  "third_party_dependencies": [],
+  "model_calls": 0,
+  "scenario_count": 6,
+  "scenarios_passed": true,
+  "review_form_checks": "Blank export blocked; bulk rates only claims/evidence; all 12 rows export in memory; incomplete acceptance blocked. Synthetic UI check, not human ratings.",
+  "file_sha256": {
+    "labestra/__init__.py": "3eb07892eb34551f57fa9dc1ff12e28853f2365be74322b216d5d6e097eae2ef",
+    "labestra/__main__.py": "3371e5aefb63db9d4dbf67dcf569ab0f9f9435e3611e63d907de91f7ba9ced77",
+    "labestra/baseline.py": "51872e061c50e2cdacdf7845a902d16c6189001e468d5c06afc91049e2e8c2c6",
+    "labestra/comparison.py": "783192f1139bdcf66a069e48ec9683e1b5b50973301ad7b91518e2bfab1a1fd6",
+    "labestra/data.py": "01615059c528516d36096c459b3f64006d7dda898d06eb18c0f1cb86f4f46d3c",
+    "labestra/evaluate.py": "e61030dc9630b54af52b8d79436d93cfb0e9541811c4b2d23149459316d93a3d",
+    "labestra/launch.py": "e3488df702deff7f63b73623b60ea28f6806e42d0c6c64105b3e68c528e88985",
+    "labestra/llm.py": "a6a424be021e7ae44f0f41658f4628acd8bfa99b01ce0f298f0961278c17a0c2",
+    "labestra/review_ui.py": "c7eafaa64d12d42da9e42b3d0bafa6d18808e7529b1386cf8688eafb729ce154",
+    "labestra/runner.py": "23a96df8f43269d849c6bdf48a189bd82ec9a608cb13e0feeab4a7927d76430d",
+    "labestra/scenarios.py": "69615463d61e02c2d0a5f78d6323460a529278b692cf4082d7d4c671e0121fb4",
+    "labestra/schemas.py": "5311fefb675ee0b1e4010b496b2ad92381883be6a31e89a0bca479c840b8aefc",
+    "labestra/search.py": "2767047b2105922abb5c6d1be0b08193e8db3501aa42037a3d5360f3af4e0439",
+    "labestra/submission.py": "7749fda89577d656d6786da7f4438b9622d60a7814d111ba44c8c9fece5e7561",
+    "labestra/workflow.py": "22bace2ee6d624ae7d2e9f5089985da68d2de7546124c908fcdb216f4897e9ce",
+    "labestra/workflow_demo.py": "38b64c742bd5a904f58cbc8c2f3d4a0598b39b2f8d53e07bb52330b6d6afbd1c",
+    "labestra/workflow_runtime.py": "e4ea31553ff13fd4745719446b32bc525bae4077708f76893e341e80bd010b72",
+    "dataset_tools/__init__.py": "42b9c8118fea18c882be537f855609c3ba8e5f70ec29bab28a0d90cd3bc089ae",
+    "dataset_tools/acquire.py": "5432777ce4e1c745ec66c3c74ab494af2e3ffe99e6d34892933cd1bab393fd3d",
+    "dataset_tools/freeze.py": "0a90410403307d122d4eb089688fa31afa9c25905ca02e6a50a5dd79d45efc8a",
+    "dataset_tools/identifiers.py": "b7fade161708f3abafe94217ea2feed2ebdefdd3fce488cadb91f1663ba614f5",
+    "dataset_tools/review.py": "18135b227534318f6b33e2635b36baf90e0e0949c2b2353f4f6befdb9b9a3d68",
+    "dataset_tools/validation.py": "2e5b19eb1940ff64f28752cdc59add22b1bc40619cc23821e16e5ab4b8969420",
+    "tests/test_acquisition.py": "1d2cf1d27d09954d074151c3ea91575f4f0e24d4a9cc8cfda8b4f54ee2cf2052",
+    "tests/test_baseline.py": "875b27b00a88e6497ae77a84b4482ea4795135a55fd1a49925327b6b330b4e04",
+    "tests/test_chat_model.py": "14cb4588c8c5f1430ad76646a6848766735bc7ecd884c126268d7b98e834f462",
+    "tests/test_chunking.py": "e84e558d4ebd44c98ae9b58392ce8f1aab5da4bfa7befafa3c7e3bc0aa6431ad",
+    "tests/test_comparison.py": "6bb2067156b7ff9e7d7c48d3c6708da49617abe17e6cf5644912174935f20235",
+    "tests/test_data.py": "6b06398af2e24fc3cbfc2c04d48a1a7f3b74f081b657c9d25bb9908da58f8f43",
+    "tests/test_data_search_integration.py": "ac10cfca4eedb88661ea9dd9329d95efd93b1119e4fbd39c7c67510e4e50195c",
+    "tests/test_evaluate.py": "c0afb5a11df0ed91d937a22a811998a7c1c4047829cc53777df68a8aa8d89a62",
+    "tests/test_fragment_search.py": "f2cf4acece42b36e1711d8bef18955384f0cf75685192689c3a797b60fe4b930",
+    "tests/test_gold_validation.py": "96f9af8851c838592244be357b925a5af1e928d0c47b9a43c08c3f1515f27ec5",
+    "tests/test_identifiers.py": "f34d329c24b1899ca98a5436afaa5421bfa5fec8de11be3243b03b0591f143c3",
+    "tests/test_launch.py": "d926c6a2b280af2b1f1dde67156f0d96be62f75411ca19563193c0941158c600",
+    "tests/test_llm_adapter.py": "38843c754ddb752d8378bf322b205ace83eca0c68bbc34c30ff8eac6d058eaa8",
+    "tests/test_private_dataset.py": "d1690b2a36f69425ec0507c47302200219bd00e2c02cbe9a0d808f81198a5b4d",
+    "tests/test_review.py": "dda3087f0f2eac22df92ca9254b1432ab41cef02855c90687bdc9c65dd7d88ce",
+    "tests/test_review_ui.py": "63314d99a171a40358e822d48e4c614399aa22f225755785c85df9282fe4b2f2",
+    "tests/test_runner.py": "189698c5fdcdc27c8651062214628c9088ddacd30f845d286d03cea16fd4d1bb",
+    "tests/test_scientific_dataset.py": "2c4a722e55c4d6b843604da7388340952a5290ee3e3b64cb2ea0f2c8264cc38a",
+    "tests/test_search.py": "d347b50ab1371971c4086330fd98cf4ddd6087ea895a3342b529d61c0b7d4560",
+    "tests/test_submission.py": "3494b09434d7e618f7bb533b7f865cf0a09d986a3e3ecf4eb03c7e02fc297149",
+    "tests/test_workflow.py": "e5e641e3be87db041738c141229a02a97502e89800ecc6b29c325641cac9facd",
+    "tests/test_workflow_integration.py": "12b7566e8e7ff2052cfc0f0e0c27efd9e8433a80259183a3b58ead761b78fcba"
+  },
+  "documentation_checks": {
+    "numbered_template_headings": 45,
+    "checklist_items": 16,
+    "active_file_links_valid": true,
+    "original_ai4s_unchanged": true
+  },
+  "independent_review_form": "Blank labels, 24-row in-memory export and confirmation gate checked; no human annotation generated.",
+  "clean_working_copy": {
+    "source": "Tracked and non-ignored pending files; no pre-existing venv/local files",
+    "base_commit": "5f43f9a8ffa73ff01bca21774dcc478689e8eb5c",
+    "includes_uncommitted_changes": true,
+    "commands": {
+      "tests": {
+        "exit_code": 0,
+        "seconds": 3.1384282919898396
+      },
+      "scenarios": {
+        "exit_code": 0,
+        "seconds": 0.10720662500534672
+      },
+      "reports": {
+        "exit_code": 0,
+        "seconds": 0.13813174999086186
+      }
+    }
+  }
+}

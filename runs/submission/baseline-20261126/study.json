@@ -1,0 +1,16 @@
+{
+  "policy": "extractive-v1",
+  "primary_session": "extractive-visible-20261126-r2",
+  "code_revision": "681606e86dfe360342c385889a9b6a7ac3273a62",
+  "baseline_module_sha256": "51872e061c50e2cdacdf7845a902d16c6189001e468d5c06afc91049e2e8c2c6",
+  "config_sha256": "fd670fb420426cb4bae1b327cd5b0819ac084338568c27142a8c0395f9f73348",
+  "data_manifest_sha256": "6a6587f3a98e8197a6c8834beb612970b7d371f7b2bcd05d9a79790b9a36ab9c",
+  "archive_sha256": "07e9cbdde4c85e5961b35d24efa187c3792b3655eed0c54f9dea296df3b18303",
+  "post_visible_method_selection": true,
+  "model_calls": 0,
+  "gold_available_to_solver": false,
+  "prior_session": "prior-extractive-visible.zip",
+  "revision_reason": "Sort query terms before floating-point summation to remove Python hash-seed dependence; rerun all cases, not best-of selection.",
+  "human_semantic_ratings": "pending",
+  "literal_quote_check": "36/36 exact source spans, not semantic correctness"
+}

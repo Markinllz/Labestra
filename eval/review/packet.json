@@ -1,0 +1,2296 @@
+{
+  "rubric_version": "1",
+  "packet_sha256": "06a11d42545e918749ee5ba1d3ffee5745bc56c63448afc554153778649554ec",
+  "case_ids": [
+    "visible-01",
+    "visible-04",
+    "visible-07",
+    "visible-11",
+    "visible-13",
+    "visible-17",
+    "visible-18",
+    "visible-22"
+  ],
+  "objects": [
+    {
+      "case_id": "visible-01",
+      "object_id": "action",
+      "kind": "action",
+      "question": "Найди исходную работу DPR с dual-encoder для dense passage retrieval и сравнением с Lucene-BM25.",
+      "source_ids": [
+        "acl:2020.emnlp-main.550",
+        "acl:2021.emnlp-main.496",
+        "acl:2021.eacl-main.74",
+        "acl:2024.naacl-long.20",
+        "acl:2024.eacl-demo.16",
+        "acl:2024.tacl-1.9",
+        "acl:2021.naacl-main.466",
+        "acl:2021.acl-short.123",
+        "acl:N19-1423",
+        "acl:2020.acl-main.703",
+        "acl:P17-1171",
+        "acl:D16-1264",
+        "acl:D18-1259",
+        "acl:P17-1147",
+        "acl:Q19-1026",
+        "acl:N18-1074",
+        "acl:2023.emnlp-main.741",
+        "acl:2023.emnlp-main.398",
+        "acl:2023.emnlp-main.557",
+        "acl:2020.acl-main.173",
+        "acl:2020.acl-main.450",
+        "acl:2023.acl-long.910",
+        "acl:2021.acl-long.475",
+        "acl:2021.findings-acl.191",
+        "acl:2021.naacl-main.200",
+        "acl:2022.emnlp-main.249",
+        "acl:2020.findings-emnlp.63",
+        "acl:2025.findings-naacl.157",
+        "acl:2025.acl-long.1101",
+        "acl:2025.emnlp-industry.54"
+      ],
+      "label_options": [
+        "search",
+        "clarify",
+        "refuse"
+      ]
+    },
+    {
+      "case_id": "visible-01",
+      "object_id": "acl:2020.emnlp-main.550",
+      "kind": "relevance",
+      "question": "Найди исходную работу DPR с dual-encoder для dense passage retrieval и сравнением с Lucene-BM25.",
+      "title": "Dense Passage Retrieval for Open-Domain Question Answering",
+      "url": "https://aclanthology.org/2020.emnlp-main.550/",
+      "availability": "full_text",
+      "snapshot_path": "data/snapshots/2020.emnlp-main.550.txt",
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-01",
+      "object_id": "acl:2021.emnlp-main.496",
+      "kind": "relevance",
+      "question": "Найди исходную работу DPR с dual-encoder для dense passage retrieval и сравнением с Lucene-BM25.",
+      "title": "Simple Entity-Centric Questions Challenge Dense Retrievers",
+      "url": "https://aclanthology.org/2021.emnlp-main.496/",
+      "availability": "full_text",
+      "snapshot_path": "data/snapshots/2021.emnlp-main.496.txt",
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-01",
+      "object_id": "acl:2021.eacl-main.74",
+      "kind": "relevance",
+      "question": "Найди исходную работу DPR с dual-encoder для dense passage retrieval и сравнением с Lucene-BM25.",
+      "title": "Leveraging Passage Retrieval with Generative Models for Open Domain Question Answering",
+      "url": "https://aclanthology.org/2021.eacl-main.74/",
+      "availability": "full_text",
+      "snapshot_path": "data/snapshots/2021.eacl-main.74.txt",
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-01",
+      "object_id": "acl:2024.naacl-long.20",
+      "kind": "relevance",
+      "question": "Найди исходную работу DPR с dual-encoder для dense passage retrieval и сравнением с Lucene-BM25.",
+      "title": "ARES: An Automated Evaluation Framework for Retrieval-Augmented Generation Systems",
+      "url": "https://aclanthology.org/2024.naacl-long.20/",
+      "availability": "full_text",
+      "snapshot_path": "data/snapshots/2024.naacl-long.20.txt",
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-01",
+      "object_id": "acl:2024.eacl-demo.16",
+      "kind": "relevance",
+      "question": "Найди исходную работу DPR с dual-encoder для dense passage retrieval и сравнением с Lucene-BM25.",
+      "title": "RAGAs: Automated Evaluation of Retrieval Augmented Generation",
+      "url": "https://aclanthology.org/2024.eacl-demo.16/",
+      "availability": "full_text",
+      "snapshot_path": "data/snapshots/2024.eacl-demo.16.txt",
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-01",
+      "object_id": "acl:2024.tacl-1.9",
+      "kind": "relevance",
+      "question": "Найди исходную работу DPR с dual-encoder для dense passage retrieval и сравнением с Lucene-BM25.",
+      "title": "Lost in the Middle: How Language Models Use Long Contexts",
+      "url": "https://aclanthology.org/2024.tacl-1.9/",
+      "availability": "full_text",
+      "snapshot_path": "data/snapshots/2024.tacl-1.9.txt",
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-01",
+      "object_id": "acl:2021.naacl-main.466",
+      "kind": "relevance",
+      "question": "Найди исходную работу DPR с dual-encoder для dense passage retrieval и сравнением с Lucene-BM25.",
+      "title": "RocketQA: An Optimized Training Approach to Dense Passage Retrieval for Open-Domain Question Answering",
+      "url": "https://aclanthology.org/2021.naacl-main.466/",
+      "availability": "full_text",
+      "snapshot_path": "data/snapshots/2021.naacl-main.466.txt",
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-01",
+      "object_id": "acl:2021.acl-short.123",
+      "kind": "relevance",
+      "question": "Найди исходную работу DPR с dual-encoder для dense passage retrieval и сравнением с Lucene-BM25.",
+      "title": "Efficient Passage Retrieval with Hashing for Open-domain Question Answering",
+      "url": "https://aclanthology.org/2021.acl-short.123/",
+      "availability": "full_text",
+      "snapshot_path": "data/snapshots/2021.acl-short.123.txt",
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-01",
+      "object_id": "acl:N19-1423",
+      "kind": "relevance",
+      "question": "Найди исходную работу DPR с dual-encoder для dense passage retrieval и сравнением с Lucene-BM25.",
+      "title": "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding",
+      "url": "https://aclanthology.org/N19-1423/",
+      "availability": "abstract",
+      "snapshot_path": "data/snapshots/N19-1423.txt",
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-01",
+      "object_id": "acl:2020.acl-main.703",
+      "kind": "relevance",
+      "question": "Найди исходную работу DPR с dual-encoder для dense passage retrieval и сравнением с Lucene-BM25.",
+      "title": "BART: Denoising Sequence-to-Sequence Pre-training for Natural Language Generation, Translation, and Comprehension",
+      "url": "https://aclanthology.org/2020.acl-main.703/",
+      "availability": "abstract",
+      "snapshot_path": "data/snapshots/2020.acl-main.703.txt",
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-01",
+      "object_id": "acl:P17-1171",
+      "kind": "relevance",
+      "question": "Найди исходную работу DPR с dual-encoder для dense passage retrieval и сравнением с Lucene-BM25.",
+      "title": "Reading Wikipedia to Answer Open-Domain Questions",
+      "url": "https://aclanthology.org/P17-1171/",
+      "availability": "abstract",
+      "snapshot_path": "data/snapshots/P17-1171.txt",
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-01",
+      "object_id": "acl:D16-1264",
+      "kind": "relevance",
+      "question": "Найди исходную работу DPR с dual-encoder для dense passage retrieval и сравнением с Lucene-BM25.",
+      "title": "SQuAD: 100,000+ Questions for Machine Comprehension of Text",
+      "url": "https://aclanthology.org/D16-1264/",
+      "availability": "metadata",
+      "snapshot_path": null,
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-01",
+      "object_id": "acl:D18-1259",
+      "kind": "relevance",
+      "question": "Найди исходную работу DPR с dual-encoder для dense passage retrieval и сравнением с Lucene-BM25.",
+      "title": "HotpotQA: A Dataset for Diverse, Explainable Multi-hop Question Answering",
+      "url": "https://aclanthology.org/D18-1259/",
+      "availability": "abstract",
+      "snapshot_path": "data/snapshots/D18-1259.txt",
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-01",
+      "object_id": "acl:P17-1147",
+      "kind": "relevance",
+      "question": "Найди исходную работу DPR с dual-encoder для dense passage retrieval и сравнением с Lucene-BM25.",
+      "title": "TriviaQA: A Large Scale Distantly Supervised Challenge Dataset for Reading Comprehension",
+      "url": "https://aclanthology.org/P17-1147/",
+      "availability": "abstract",
+      "snapshot_path": "data/snapshots/P17-1147.txt",
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-01",
+      "object_id": "acl:Q19-1026",
+      "kind": "relevance",
+      "question": "Найди исходную работу DPR с dual-encoder для dense passage retrieval и сравнением с Lucene-BM25.",
+      "title": "Natural Questions: A Benchmark for Question Answering Research",
+      "url": "https://aclanthology.org/Q19-1026/",
+      "availability": "abstract",
+      "snapshot_path": "data/snapshots/Q19-1026.txt",
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-01",
+      "object_id": "acl:N18-1074",
+      "kind": "relevance",
+      "question": "Найди исходную работу DPR с dual-encoder для dense passage retrieval и сравнением с Lucene-BM25.",
+      "title": "FEVER: a Large-scale Dataset for Fact Extraction and VERification",
+      "url": "https://aclanthology.org/N18-1074/",
+      "availability": "abstract",
+      "snapshot_path": "data/snapshots/N18-1074.txt",
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-01",
+      "object_id": "acl:2023.emnlp-main.741",
+      "kind": "relevance",
+      "question": "Найди исходную работу DPR с dual-encoder для dense passage retrieval и сравнением с Lucene-BM25.",
+      "title": "FActScore: Fine-grained Atomic Evaluation of Factual Precision in Long Form Text Generation",
+      "url": "https://aclanthology.org/2023.emnlp-main.741/",
+      "availability": "abstract",
+      "snapshot_path": "data/snapshots/2023.emnlp-main.741.txt",
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-01",
+      "object_id": "acl:2023.emnlp-main.398",
+      "kind": "relevance",
+      "question": "Найди исходную работу DPR с dual-encoder для dense passage retrieval и сравнением с Lucene-BM25.",
+      "title": "Enabling Large Language Models to Generate Text with Citations",
+      "url": "https://aclanthology.org/2023.emnlp-main.398/",
+      "availability": "abstract",
+      "snapshot_path": "data/snapshots/2023.emnlp-main.398.txt",
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-01",
+      "object_id": "acl:2023.emnlp-main.557",
+      "kind": "relevance",
+      "question": "Найди исходную работу DPR с dual-encoder для dense passage retrieval и сравнением с Lucene-BM25.",
+      "title": "SelfCheckGPT: Zero-Resource Black-Box Hallucination Detection for Generative Large Language Models",
+      "url": "https://aclanthology.org/2023.emnlp-main.557/",
+      "availability": "abstract",
+      "snapshot_path": "data/snapshots/2023.emnlp-main.557.txt",
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-01",
+      "object_id": "acl:2020.acl-main.173",
+      "kind": "relevance",
+      "question": "Найди исходную работу DPR с dual-encoder для dense passage retrieval и сравнением с Lucene-BM25.",
+      "title": "On Faithfulness and Factuality in Abstractive Summarization",
+      "url": "https://aclanthology.org/2020.acl-main.173/",
+      "availability": "abstract",
+      "snapshot_path": "data/snapshots/2020.acl-main.173.txt",
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-01",
+      "object_id": "acl:2020.acl-main.450",
+      "kind": "relevance",
+      "question": "Найди исходную работу DPR с dual-encoder для dense passage retrieval и сравнением с Lucene-BM25.",
+      "title": "Asking and Answering Questions to Evaluate the Factual Consistency of Summaries",
+      "url": "https://aclanthology.org/2020.acl-main.450/",
+      "availability": "abstract",
+      "snapshot_path": "data/snapshots/2020.acl-main.450.txt",
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-01",
+      "object_id": "acl:2023.acl-long.910",
+      "kind": "relevance",
+      "question": "Найди исходную работу DPR с dual-encoder для dense passage retrieval и сравнением с Lucene-BM25.",
+      "title": "RARR: Researching and Revising What Language Models Say, Using Language Models",
+      "url": "https://aclanthology.org/2023.acl-long.910/",
+      "availability": "abstract",
+      "snapshot_path": "data/snapshots/2023.acl-long.910.txt",
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-01",
+      "object_id": "acl:2021.acl-long.475",
+      "kind": "relevance",
+      "question": "Найди исходную работу DPR с dual-encoder для dense passage retrieval и сравнением с Lucene-BM25.",
+      "title": "Generating Query Focused Summaries from Query-Free Resources",
+      "url": "https://aclanthology.org/2021.acl-long.475/",
+      "availability": "abstract",
+      "snapshot_path": "data/snapshots/2021.acl-long.475.txt",
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-01",
+      "object_id": "acl:2021.findings-acl.191",
+      "kind": "relevance",
+      "question": "Найди исходную работу DPR с dual-encoder для dense passage retrieval и сравнением с Lucene-BM25.",
+      "title": "PAIR: Leveraging Passage-Centric Similarity Relation for Improving Dense Passage Retrieval",
+      "url": "https://aclanthology.org/2021.findings-acl.191/",
+      "availability": "metadata",
+      "snapshot_path": null,
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-01",
+      "object_id": "acl:2021.naacl-main.200",
+      "kind": "relevance",
+      "question": "Найди исходную работу DPR с dual-encoder для dense passage retrieval и сравнением с Lucene-BM25.",
+      "title": "KILT: a Benchmark for Knowledge Intensive Language Tasks",
+      "url": "https://aclanthology.org/2021.naacl-main.200/",
+      "availability": "abstract",
+      "snapshot_path": "data/snapshots/2021.naacl-main.200.txt",
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-01",
+      "object_id": "acl:2022.emnlp-main.249",
+      "kind": "relevance",
+      "question": "Найди исходную работу DPR с dual-encoder для dense passage retrieval и сравнением с Lucene-BM25.",
+      "title": "Improving Passage Retrieval with Zero-Shot Question Generation",
+      "url": "https://aclanthology.org/2022.emnlp-main.249/",
+      "availability": "abstract",
+      "snapshot_path": "data/snapshots/2022.emnlp-main.249.txt",
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-01",
+      "object_id": "acl:2020.findings-emnlp.63",
+      "kind": "relevance",
+      "question": "Найди исходную работу DPR с dual-encoder для dense passage retrieval и сравнением с Lucene-BM25.",
+      "title": "Document Ranking with a Pretrained Sequence-to-Sequence Model",
+      "url": "https://aclanthology.org/2020.findings-emnlp.63/",
+      "availability": "abstract",
+      "snapshot_path": "data/snapshots/2020.findings-emnlp.63.txt",
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-01",
+      "object_id": "acl:2025.findings-naacl.157",
+      "kind": "relevance",
+      "question": "Найди исходную работу DPR с dual-encoder для dense passage retrieval и сравнением с Lucene-BM25.",
+      "title": "MIRAGE: A Metric-Intensive Benchmark for Retrieval-Augmented Generation Evaluation",
+      "url": "https://aclanthology.org/2025.findings-naacl.157/",
+      "availability": "abstract",
+      "snapshot_path": "data/snapshots/2025.findings-naacl.157.txt",
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-01",
+      "object_id": "acl:2025.acl-long.1101",
+      "kind": "relevance",
+      "question": "Найди исходную работу DPR с dual-encoder для dense passage retrieval и сравнением с Lucene-BM25.",
+      "title": "MEMERAG: A Multilingual End-to-End Meta-Evaluation Benchmark for Retrieval Augmented Generation",
+      "url": "https://aclanthology.org/2025.acl-long.1101/",
+      "availability": "abstract",
+      "snapshot_path": "data/snapshots/2025.acl-long.1101.txt",
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-01",
+      "object_id": "acl:2025.emnlp-industry.54",
+      "kind": "relevance",
+      "question": "Найди исходную работу DPR с dual-encoder для dense passage retrieval и сравнением с Lucene-BM25.",
+      "title": "Benchmarking LLM Faithfulness in RAG with Evolving Leaderboards",
+      "url": "https://aclanthology.org/2025.emnlp-industry.54/",
+      "availability": "abstract",
+      "snapshot_path": "data/snapshots/2025.emnlp-industry.54.txt",
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-04",
+      "object_id": "action",
+      "kind": "action",
+      "question": "Найди RAGAs: reference-free оценку RAG без эталонных человеческих ответов при вычислении метрик.",
+      "source_ids": [
+        "acl:2020.emnlp-main.550",
+        "acl:2021.emnlp-main.496",
+        "acl:2021.eacl-main.74",
+        "acl:2024.naacl-long.20",
+        "acl:2024.eacl-demo.16",
+        "acl:2024.tacl-1.9",
+        "acl:2021.naacl-main.466",
+        "acl:2021.acl-short.123",
+        "acl:N19-1423",
+        "acl:2020.acl-main.703",
+        "acl:P17-1171",
+        "acl:D16-1264",
+        "acl:D18-1259",
+        "acl:P17-1147",
+        "acl:Q19-1026",
+        "acl:N18-1074",
+        "acl:2023.emnlp-main.741",
+        "acl:2023.emnlp-main.398",
+        "acl:2023.emnlp-main.557",
+        "acl:2020.acl-main.173",
+        "acl:2020.acl-main.450",
+        "acl:2023.acl-long.910",
+        "acl:2021.acl-long.475",
+        "acl:2021.findings-acl.191",
+        "acl:2021.naacl-main.200",
+        "acl:2022.emnlp-main.249",
+        "acl:2020.findings-emnlp.63",
+        "acl:2025.findings-naacl.157",
+        "acl:2025.acl-long.1101",
+        "acl:2025.emnlp-industry.54"
+      ],
+      "label_options": [
+        "search",
+        "clarify",
+        "refuse"
+      ]
+    },
+    {
+      "case_id": "visible-04",
+      "object_id": "acl:2020.emnlp-main.550",
+      "kind": "relevance",
+      "question": "Найди RAGAs: reference-free оценку RAG без эталонных человеческих ответов при вычислении метрик.",
+      "title": "Dense Passage Retrieval for Open-Domain Question Answering",
+      "url": "https://aclanthology.org/2020.emnlp-main.550/",
+      "availability": "full_text",
+      "snapshot_path": "data/snapshots/2020.emnlp-main.550.txt",
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-04",
+      "object_id": "acl:2021.emnlp-main.496",
+      "kind": "relevance",
+      "question": "Найди RAGAs: reference-free оценку RAG без эталонных человеческих ответов при вычислении метрик.",
+      "title": "Simple Entity-Centric Questions Challenge Dense Retrievers",
+      "url": "https://aclanthology.org/2021.emnlp-main.496/",
+      "availability": "full_text",
+      "snapshot_path": "data/snapshots/2021.emnlp-main.496.txt",
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-04",
+      "object_id": "acl:2021.eacl-main.74",
+      "kind": "relevance",
+      "question": "Найди RAGAs: reference-free оценку RAG без эталонных человеческих ответов при вычислении метрик.",
+      "title": "Leveraging Passage Retrieval with Generative Models for Open Domain Question Answering",
+      "url": "https://aclanthology.org/2021.eacl-main.74/",
+      "availability": "full_text",
+      "snapshot_path": "data/snapshots/2021.eacl-main.74.txt",
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-04",
+      "object_id": "acl:2024.naacl-long.20",
+      "kind": "relevance",
+      "question": "Найди RAGAs: reference-free оценку RAG без эталонных человеческих ответов при вычислении метрик.",
+      "title": "ARES: An Automated Evaluation Framework for Retrieval-Augmented Generation Systems",
+      "url": "https://aclanthology.org/2024.naacl-long.20/",
+      "availability": "full_text",
+      "snapshot_path": "data/snapshots/2024.naacl-long.20.txt",
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-04",
+      "object_id": "acl:2024.eacl-demo.16",
+      "kind": "relevance",
+      "question": "Найди RAGAs: reference-free оценку RAG без эталонных человеческих ответов при вычислении метрик.",
+      "title": "RAGAs: Automated Evaluation of Retrieval Augmented Generation",
+      "url": "https://aclanthology.org/2024.eacl-demo.16/",
+      "availability": "full_text",
+      "snapshot_path": "data/snapshots/2024.eacl-demo.16.txt",
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-04",
+      "object_id": "acl:2024.tacl-1.9",
+      "kind": "relevance",
+      "question": "Найди RAGAs: reference-free оценку RAG без эталонных человеческих ответов при вычислении метрик.",
+      "title": "Lost in the Middle: How Language Models Use Long Contexts",
+      "url": "https://aclanthology.org/2024.tacl-1.9/",
+      "availability": "full_text",
+      "snapshot_path": "data/snapshots/2024.tacl-1.9.txt",
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-04",
+      "object_id": "acl:2021.naacl-main.466",
+      "kind": "relevance",
+      "question": "Найди RAGAs: reference-free оценку RAG без эталонных человеческих ответов при вычислении метрик.",
+      "title": "RocketQA: An Optimized Training Approach to Dense Passage Retrieval for Open-Domain Question Answering",
+      "url": "https://aclanthology.org/2021.naacl-main.466/",
+      "availability": "full_text",
+      "snapshot_path": "data/snapshots/2021.naacl-main.466.txt",
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-04",
+      "object_id": "acl:2021.acl-short.123",
+      "kind": "relevance",
+      "question": "Найди RAGAs: reference-free оценку RAG без эталонных человеческих ответов при вычислении метрик.",
+      "title": "Efficient Passage Retrieval with Hashing for Open-domain Question Answering",
+      "url": "https://aclanthology.org/2021.acl-short.123/",
+      "availability": "full_text",
+      "snapshot_path": "data/snapshots/2021.acl-short.123.txt",
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-04",
+      "object_id": "acl:N19-1423",
+      "kind": "relevance",
+      "question": "Найди RAGAs: reference-free оценку RAG без эталонных человеческих ответов при вычислении метрик.",
+      "title": "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding",
+      "url": "https://aclanthology.org/N19-1423/",
+      "availability": "abstract",
+      "snapshot_path": "data/snapshots/N19-1423.txt",
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-04",
+      "object_id": "acl:2020.acl-main.703",
+      "kind": "relevance",
+      "question": "Найди RAGAs: reference-free оценку RAG без эталонных человеческих ответов при вычислении метрик.",
+      "title": "BART: Denoising Sequence-to-Sequence Pre-training for Natural Language Generation, Translation, and Comprehension",
+      "url": "https://aclanthology.org/2020.acl-main.703/",
+      "availability": "abstract",
+      "snapshot_path": "data/snapshots/2020.acl-main.703.txt",
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-04",
+      "object_id": "acl:P17-1171",
+      "kind": "relevance",
+      "question": "Найди RAGAs: reference-free оценку RAG без эталонных человеческих ответов при вычислении метрик.",
+      "title": "Reading Wikipedia to Answer Open-Domain Questions",
+      "url": "https://aclanthology.org/P17-1171/",
+      "availability": "abstract",
+      "snapshot_path": "data/snapshots/P17-1171.txt",
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-04",
+      "object_id": "acl:D16-1264",
+      "kind": "relevance",
+      "question": "Найди RAGAs: reference-free оценку RAG без эталонных человеческих ответов при вычислении метрик.",
+      "title": "SQuAD: 100,000+ Questions for Machine Comprehension of Text",
+      "url": "https://aclanthology.org/D16-1264/",
+      "availability": "metadata",
+      "snapshot_path": null,
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-04",
+      "object_id": "acl:D18-1259",
+      "kind": "relevance",
+      "question": "Найди RAGAs: reference-free оценку RAG без эталонных человеческих ответов при вычислении метрик.",
+      "title": "HotpotQA: A Dataset for Diverse, Explainable Multi-hop Question Answering",
+      "url": "https://aclanthology.org/D18-1259/",
+      "availability": "abstract",
+      "snapshot_path": "data/snapshots/D18-1259.txt",
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-04",
+      "object_id": "acl:P17-1147",
+      "kind": "relevance",
+      "question": "Найди RAGAs: reference-free оценку RAG без эталонных человеческих ответов при вычислении метрик.",
+      "title": "TriviaQA: A Large Scale Distantly Supervised Challenge Dataset for Reading Comprehension",
+      "url": "https://aclanthology.org/P17-1147/",
+      "availability": "abstract",
+      "snapshot_path": "data/snapshots/P17-1147.txt",
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-04",
+      "object_id": "acl:Q19-1026",
+      "kind": "relevance",
+      "question": "Найди RAGAs: reference-free оценку RAG без эталонных человеческих ответов при вычислении метрик.",
+      "title": "Natural Questions: A Benchmark for Question Answering Research",
+      "url": "https://aclanthology.org/Q19-1026/",
+      "availability": "abstract",
+      "snapshot_path": "data/snapshots/Q19-1026.txt",
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-04",
+      "object_id": "acl:N18-1074",
+      "kind": "relevance",
+      "question": "Найди RAGAs: reference-free оценку RAG без эталонных человеческих ответов при вычислении метрик.",
+      "title": "FEVER: a Large-scale Dataset for Fact Extraction and VERification",
+      "url": "https://aclanthology.org/N18-1074/",
+      "availability": "abstract",
+      "snapshot_path": "data/snapshots/N18-1074.txt",
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-04",
+      "object_id": "acl:2023.emnlp-main.741",
+      "kind": "relevance",
+      "question": "Найди RAGAs: reference-free оценку RAG без эталонных человеческих ответов при вычислении метрик.",
+      "title": "FActScore: Fine-grained Atomic Evaluation of Factual Precision in Long Form Text Generation",
+      "url": "https://aclanthology.org/2023.emnlp-main.741/",
+      "availability": "abstract",
+      "snapshot_path": "data/snapshots/2023.emnlp-main.741.txt",
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-04",
+      "object_id": "acl:2023.emnlp-main.398",
+      "kind": "relevance",
+      "question": "Найди RAGAs: reference-free оценку RAG без эталонных человеческих ответов при вычислении метрик.",
+      "title": "Enabling Large Language Models to Generate Text with Citations",
+      "url": "https://aclanthology.org/2023.emnlp-main.398/",
+      "availability": "abstract",
+      "snapshot_path": "data/snapshots/2023.emnlp-main.398.txt",
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-04",
+      "object_id": "acl:2023.emnlp-main.557",
+      "kind": "relevance",
+      "question": "Найди RAGAs: reference-free оценку RAG без эталонных человеческих ответов при вычислении метрик.",
+      "title": "SelfCheckGPT: Zero-Resource Black-Box Hallucination Detection for Generative Large Language Models",
+      "url": "https://aclanthology.org/2023.emnlp-main.557/",
+      "availability": "abstract",
+      "snapshot_path": "data/snapshots/2023.emnlp-main.557.txt",
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-04",
+      "object_id": "acl:2020.acl-main.173",
+      "kind": "relevance",
+      "question": "Найди RAGAs: reference-free оценку RAG без эталонных человеческих ответов при вычислении метрик.",
+      "title": "On Faithfulness and Factuality in Abstractive Summarization",
+      "url": "https://aclanthology.org/2020.acl-main.173/",
+      "availability": "abstract",
+      "snapshot_path": "data/snapshots/2020.acl-main.173.txt",
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-04",
+      "object_id": "acl:2020.acl-main.450",
+      "kind": "relevance",
+      "question": "Найди RAGAs: reference-free оценку RAG без эталонных человеческих ответов при вычислении метрик.",
+      "title": "Asking and Answering Questions to Evaluate the Factual Consistency of Summaries",
+      "url": "https://aclanthology.org/2020.acl-main.450/",
+      "availability": "abstract",
+      "snapshot_path": "data/snapshots/2020.acl-main.450.txt",
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-04",
+      "object_id": "acl:2023.acl-long.910",
+      "kind": "relevance",
+      "question": "Найди RAGAs: reference-free оценку RAG без эталонных человеческих ответов при вычислении метрик.",
+      "title": "RARR: Researching and Revising What Language Models Say, Using Language Models",
+      "url": "https://aclanthology.org/2023.acl-long.910/",
+      "availability": "abstract",
+      "snapshot_path": "data/snapshots/2023.acl-long.910.txt",
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-04",
+      "object_id": "acl:2021.acl-long.475",
+      "kind": "relevance",
+      "question": "Найди RAGAs: reference-free оценку RAG без эталонных человеческих ответов при вычислении метрик.",
+      "title": "Generating Query Focused Summaries from Query-Free Resources",
+      "url": "https://aclanthology.org/2021.acl-long.475/",
+      "availability": "abstract",
+      "snapshot_path": "data/snapshots/2021.acl-long.475.txt",
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-04",
+      "object_id": "acl:2021.findings-acl.191",
+      "kind": "relevance",
+      "question": "Найди RAGAs: reference-free оценку RAG без эталонных человеческих ответов при вычислении метрик.",
+      "title": "PAIR: Leveraging Passage-Centric Similarity Relation for Improving Dense Passage Retrieval",
+      "url": "https://aclanthology.org/2021.findings-acl.191/",
+      "availability": "metadata",
+      "snapshot_path": null,
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-04",
+      "object_id": "acl:2021.naacl-main.200",
+      "kind": "relevance",
+      "question": "Найди RAGAs: reference-free оценку RAG без эталонных человеческих ответов при вычислении метрик.",
+      "title": "KILT: a Benchmark for Knowledge Intensive Language Tasks",
+      "url": "https://aclanthology.org/2021.naacl-main.200/",
+      "availability": "abstract",
+      "snapshot_path": "data/snapshots/2021.naacl-main.200.txt",
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-04",
+      "object_id": "acl:2022.emnlp-main.249",
+      "kind": "relevance",
+      "question": "Найди RAGAs: reference-free оценку RAG без эталонных человеческих ответов при вычислении метрик.",
+      "title": "Improving Passage Retrieval with Zero-Shot Question Generation",
+      "url": "https://aclanthology.org/2022.emnlp-main.249/",
+      "availability": "abstract",
+      "snapshot_path": "data/snapshots/2022.emnlp-main.249.txt",
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-04",
+      "object_id": "acl:2020.findings-emnlp.63",
+      "kind": "relevance",
+      "question": "Найди RAGAs: reference-free оценку RAG без эталонных человеческих ответов при вычислении метрик.",
+      "title": "Document Ranking with a Pretrained Sequence-to-Sequence Model",
+      "url": "https://aclanthology.org/2020.findings-emnlp.63/",
+      "availability": "abstract",
+      "snapshot_path": "data/snapshots/2020.findings-emnlp.63.txt",
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-04",
+      "object_id": "acl:2025.findings-naacl.157",
+      "kind": "relevance",
+      "question": "Найди RAGAs: reference-free оценку RAG без эталонных человеческих ответов при вычислении метрик.",
+      "title": "MIRAGE: A Metric-Intensive Benchmark for Retrieval-Augmented Generation Evaluation",
+      "url": "https://aclanthology.org/2025.findings-naacl.157/",
+      "availability": "abstract",
+      "snapshot_path": "data/snapshots/2025.findings-naacl.157.txt",
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-04",
+      "object_id": "acl:2025.acl-long.1101",
+      "kind": "relevance",
+      "question": "Найди RAGAs: reference-free оценку RAG без эталонных человеческих ответов при вычислении метрик.",
+      "title": "MEMERAG: A Multilingual End-to-End Meta-Evaluation Benchmark for Retrieval Augmented Generation",
+      "url": "https://aclanthology.org/2025.acl-long.1101/",
+      "availability": "abstract",
+      "snapshot_path": "data/snapshots/2025.acl-long.1101.txt",
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-04",
+      "object_id": "acl:2025.emnlp-industry.54",
+      "kind": "relevance",
+      "question": "Найди RAGAs: reference-free оценку RAG без эталонных человеческих ответов при вычислении метрик.",
+      "title": "Benchmarking LLM Faithfulness in RAG with Evolving Leaderboards",
+      "url": "https://aclanthology.org/2025.emnlp-industry.54/",
+      "availability": "abstract",
+      "snapshot_path": "data/snapshots/2025.emnlp-industry.54.txt",
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-07",
+      "object_id": "action",
+      "kind": "action",
+      "question": "Найди методы reranking с zero-shot question generation или генерацией relevance labels sequence-to-sequence моделью. Не включай обычную генерацию ответа.",
+      "source_ids": [
+        "acl:2020.emnlp-main.550",
+        "acl:2021.emnlp-main.496",
+        "acl:2021.eacl-main.74",
+        "acl:2024.naacl-long.20",
+        "acl:2024.eacl-demo.16",
+        "acl:2024.tacl-1.9",
+        "acl:2021.naacl-main.466",
+        "acl:2021.acl-short.123",
+        "acl:N19-1423",
+        "acl:2020.acl-main.703",
+        "acl:P17-1171",
+        "acl:D16-1264",
+        "acl:D18-1259",
+        "acl:P17-1147",
+        "acl:Q19-1026",
+        "acl:N18-1074",
+        "acl:2023.emnlp-main.741",
+        "acl:2023.emnlp-main.398",
+        "acl:2023.emnlp-main.557",
+        "acl:2020.acl-main.173",
+        "acl:2020.acl-main.450",
+        "acl:2023.acl-long.910",
+        "acl:2021.acl-long.475",
+        "acl:2021.findings-acl.191",
+        "acl:2021.naacl-main.200",
+        "acl:2022.emnlp-main.249",
+        "acl:2020.findings-emnlp.63",
+        "acl:2025.findings-naacl.157",
+        "acl:2025.acl-long.1101",
+        "acl:2025.emnlp-industry.54"
+      ],
+      "label_options": [
+        "search",
+        "clarify",
+        "refuse"
+      ]
+    },
+    {
+      "case_id": "visible-07",
+      "object_id": "acl:2020.emnlp-main.550",
+      "kind": "relevance",
+      "question": "Найди методы reranking с zero-shot question generation или генерацией relevance labels sequence-to-sequence моделью. Не включай обычную генерацию ответа.",
+      "title": "Dense Passage Retrieval for Open-Domain Question Answering",
+      "url": "https://aclanthology.org/2020.emnlp-main.550/",
+      "availability": "full_text",
+      "snapshot_path": "data/snapshots/2020.emnlp-main.550.txt",
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-07",
+      "object_id": "acl:2021.emnlp-main.496",
+      "kind": "relevance",
+      "question": "Найди методы reranking с zero-shot question generation или генерацией relevance labels sequence-to-sequence моделью. Не включай обычную генерацию ответа.",
+      "title": "Simple Entity-Centric Questions Challenge Dense Retrievers",
+      "url": "https://aclanthology.org/2021.emnlp-main.496/",
+      "availability": "full_text",
+      "snapshot_path": "data/snapshots/2021.emnlp-main.496.txt",
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-07",
+      "object_id": "acl:2021.eacl-main.74",
+      "kind": "relevance",
+      "question": "Найди методы reranking с zero-shot question generation или генерацией relevance labels sequence-to-sequence моделью. Не включай обычную генерацию ответа.",
+      "title": "Leveraging Passage Retrieval with Generative Models for Open Domain Question Answering",
+      "url": "https://aclanthology.org/2021.eacl-main.74/",
+      "availability": "full_text",
+      "snapshot_path": "data/snapshots/2021.eacl-main.74.txt",
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-07",
+      "object_id": "acl:2024.naacl-long.20",
+      "kind": "relevance",
+      "question": "Найди методы reranking с zero-shot question generation или генерацией relevance labels sequence-to-sequence моделью. Не включай обычную генерацию ответа.",
+      "title": "ARES: An Automated Evaluation Framework for Retrieval-Augmented Generation Systems",
+      "url": "https://aclanthology.org/2024.naacl-long.20/",
+      "availability": "full_text",
+      "snapshot_path": "data/snapshots/2024.naacl-long.20.txt",
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-07",
+      "object_id": "acl:2024.eacl-demo.16",
+      "kind": "relevance",
+      "question": "Найди методы reranking с zero-shot question generation или генерацией relevance labels sequence-to-sequence моделью. Не включай обычную генерацию ответа.",
+      "title": "RAGAs: Automated Evaluation of Retrieval Augmented Generation",
+      "url": "https://aclanthology.org/2024.eacl-demo.16/",
+      "availability": "full_text",
+      "snapshot_path": "data/snapshots/2024.eacl-demo.16.txt",
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-07",
+      "object_id": "acl:2024.tacl-1.9",
+      "kind": "relevance",
+      "question": "Найди методы reranking с zero-shot question generation или генерацией relevance labels sequence-to-sequence моделью. Не включай обычную генерацию ответа.",
+      "title": "Lost in the Middle: How Language Models Use Long Contexts",
+      "url": "https://aclanthology.org/2024.tacl-1.9/",
+      "availability": "full_text",
+      "snapshot_path": "data/snapshots/2024.tacl-1.9.txt",
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-07",
+      "object_id": "acl:2021.naacl-main.466",
+      "kind": "relevance",
+      "question": "Найди методы reranking с zero-shot question generation или генерацией relevance labels sequence-to-sequence моделью. Не включай обычную генерацию ответа.",
+      "title": "RocketQA: An Optimized Training Approach to Dense Passage Retrieval for Open-Domain Question Answering",
+      "url": "https://aclanthology.org/2021.naacl-main.466/",
+      "availability": "full_text",
+      "snapshot_path": "data/snapshots/2021.naacl-main.466.txt",
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-07",
+      "object_id": "acl:2021.acl-short.123",
+      "kind": "relevance",
+      "question": "Найди методы reranking с zero-shot question generation или генерацией relevance labels sequence-to-sequence моделью. Не включай обычную генерацию ответа.",
+      "title": "Efficient Passage Retrieval with Hashing for Open-domain Question Answering",
+      "url": "https://aclanthology.org/2021.acl-short.123/",
+      "availability": "full_text",
+      "snapshot_path": "data/snapshots/2021.acl-short.123.txt",
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-07",
+      "object_id": "acl:N19-1423",
+      "kind": "relevance",
+      "question": "Найди методы reranking с zero-shot question generation или генерацией relevance labels sequence-to-sequence моделью. Не включай обычную генерацию ответа.",
+      "title": "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding",
+      "url": "https://aclanthology.org/N19-1423/",
+      "availability": "abstract",
+      "snapshot_path": "data/snapshots/N19-1423.txt",
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-07",
+      "object_id": "acl:2020.acl-main.703",
+      "kind": "relevance",
+      "question": "Найди методы reranking с zero-shot question generation или генерацией relevance labels sequence-to-sequence моделью. Не включай обычную генерацию ответа.",
+      "title": "BART: Denoising Sequence-to-Sequence Pre-training for Natural Language Generation, Translation, and Comprehension",
+      "url": "https://aclanthology.org/2020.acl-main.703/",
+      "availability": "abstract",
+      "snapshot_path": "data/snapshots/2020.acl-main.703.txt",
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-07",
+      "object_id": "acl:P17-1171",
+      "kind": "relevance",
+      "question": "Найди методы reranking с zero-shot question generation или генерацией relevance labels sequence-to-sequence моделью. Не включай обычную генерацию ответа.",
+      "title": "Reading Wikipedia to Answer Open-Domain Questions",
+      "url": "https://aclanthology.org/P17-1171/",
+      "availability": "abstract",
+      "snapshot_path": "data/snapshots/P17-1171.txt",
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-07",
+      "object_id": "acl:D16-1264",
+      "kind": "relevance",
+      "question": "Найди методы reranking с zero-shot question generation или генерацией relevance labels sequence-to-sequence моделью. Не включай обычную генерацию ответа.",
+      "title": "SQuAD: 100,000+ Questions for Machine Comprehension of Text",
+      "url": "https://aclanthology.org/D16-1264/",
+      "availability": "metadata",
+      "snapshot_path": null,
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-07",
+      "object_id": "acl:D18-1259",
+      "kind": "relevance",
+      "question": "Найди методы reranking с zero-shot question generation или генерацией relevance labels sequence-to-sequence моделью. Не включай обычную генерацию ответа.",
+      "title": "HotpotQA: A Dataset for Diverse, Explainable Multi-hop Question Answering",
+      "url": "https://aclanthology.org/D18-1259/",
+      "availability": "abstract",
+      "snapshot_path": "data/snapshots/D18-1259.txt",
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-07",
+      "object_id": "acl:P17-1147",
+      "kind": "relevance",
+      "question": "Найди методы reranking с zero-shot question generation или генерацией relevance labels sequence-to-sequence моделью. Не включай обычную генерацию ответа.",
+      "title": "TriviaQA: A Large Scale Distantly Supervised Challenge Dataset for Reading Comprehension",
+      "url": "https://aclanthology.org/P17-1147/",
+      "availability": "abstract",
+      "snapshot_path": "data/snapshots/P17-1147.txt",
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-07",
+      "object_id": "acl:Q19-1026",
+      "kind": "relevance",
+      "question": "Найди методы reranking с zero-shot question generation или генерацией relevance labels sequence-to-sequence моделью. Не включай обычную генерацию ответа.",
+      "title": "Natural Questions: A Benchmark for Question Answering Research",
+      "url": "https://aclanthology.org/Q19-1026/",
+      "availability": "abstract",
+      "snapshot_path": "data/snapshots/Q19-1026.txt",
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-07",
+      "object_id": "acl:N18-1074",
+      "kind": "relevance",
+      "question": "Найди методы reranking с zero-shot question generation или генерацией relevance labels sequence-to-sequence моделью. Не включай обычную генерацию ответа.",
+      "title": "FEVER: a Large-scale Dataset for Fact Extraction and VERification",
+      "url": "https://aclanthology.org/N18-1074/",
+      "availability": "abstract",
+      "snapshot_path": "data/snapshots/N18-1074.txt",
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-07",
+      "object_id": "acl:2023.emnlp-main.741",
+      "kind": "relevance",
+      "question": "Найди методы reranking с zero-shot question generation или генерацией relevance labels sequence-to-sequence моделью. Не включай обычную генерацию ответа.",
+      "title": "FActScore: Fine-grained Atomic Evaluation of Factual Precision in Long Form Text Generation",
+      "url": "https://aclanthology.org/2023.emnlp-main.741/",
+      "availability": "abstract",
+      "snapshot_path": "data/snapshots/2023.emnlp-main.741.txt",
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-07",
+      "object_id": "acl:2023.emnlp-main.398",
+      "kind": "relevance",
+      "question": "Найди методы reranking с zero-shot question generation или генерацией relevance labels sequence-to-sequence моделью. Не включай обычную генерацию ответа.",
+      "title": "Enabling Large Language Models to Generate Text with Citations",
+      "url": "https://aclanthology.org/2023.emnlp-main.398/",
+      "availability": "abstract",
+      "snapshot_path": "data/snapshots/2023.emnlp-main.398.txt",
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-07",
+      "object_id": "acl:2023.emnlp-main.557",
+      "kind": "relevance",
+      "question": "Найди методы reranking с zero-shot question generation или генерацией relevance labels sequence-to-sequence моделью. Не включай обычную генерацию ответа.",
+      "title": "SelfCheckGPT: Zero-Resource Black-Box Hallucination Detection for Generative Large Language Models",
+      "url": "https://aclanthology.org/2023.emnlp-main.557/",
+      "availability": "abstract",
+      "snapshot_path": "data/snapshots/2023.emnlp-main.557.txt",
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-07",
+      "object_id": "acl:2020.acl-main.173",
+      "kind": "relevance",
+      "question": "Найди методы reranking с zero-shot question generation или генерацией relevance labels sequence-to-sequence моделью. Не включай обычную генерацию ответа.",
+      "title": "On Faithfulness and Factuality in Abstractive Summarization",
+      "url": "https://aclanthology.org/2020.acl-main.173/",
+      "availability": "abstract",
+      "snapshot_path": "data/snapshots/2020.acl-main.173.txt",
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-07",
+      "object_id": "acl:2020.acl-main.450",
+      "kind": "relevance",
+      "question": "Найди методы reranking с zero-shot question generation или генерацией relevance labels sequence-to-sequence моделью. Не включай обычную генерацию ответа.",
+      "title": "Asking and Answering Questions to Evaluate the Factual Consistency of Summaries",
+      "url": "https://aclanthology.org/2020.acl-main.450/",
+      "availability": "abstract",
+      "snapshot_path": "data/snapshots/2020.acl-main.450.txt",
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-07",
+      "object_id": "acl:2023.acl-long.910",
+      "kind": "relevance",
+      "question": "Найди методы reranking с zero-shot question generation или генерацией relevance labels sequence-to-sequence моделью. Не включай обычную генерацию ответа.",
+      "title": "RARR: Researching and Revising What Language Models Say, Using Language Models",
+      "url": "https://aclanthology.org/2023.acl-long.910/",
+      "availability": "abstract",
+      "snapshot_path": "data/snapshots/2023.acl-long.910.txt",
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-07",
+      "object_id": "acl:2021.acl-long.475",
+      "kind": "relevance",
+      "question": "Найди методы reranking с zero-shot question generation или генерацией relevance labels sequence-to-sequence моделью. Не включай обычную генерацию ответа.",
+      "title": "Generating Query Focused Summaries from Query-Free Resources",
+      "url": "https://aclanthology.org/2021.acl-long.475/",
+      "availability": "abstract",
+      "snapshot_path": "data/snapshots/2021.acl-long.475.txt",
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-07",
+      "object_id": "acl:2021.findings-acl.191",
+      "kind": "relevance",
+      "question": "Найди методы reranking с zero-shot question generation или генерацией relevance labels sequence-to-sequence моделью. Не включай обычную генерацию ответа.",
+      "title": "PAIR: Leveraging Passage-Centric Similarity Relation for Improving Dense Passage Retrieval",
+      "url": "https://aclanthology.org/2021.findings-acl.191/",
+      "availability": "metadata",
+      "snapshot_path": null,
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-07",
+      "object_id": "acl:2021.naacl-main.200",
+      "kind": "relevance",
+      "question": "Найди методы reranking с zero-shot question generation или генерацией relevance labels sequence-to-sequence моделью. Не включай обычную генерацию ответа.",
+      "title": "KILT: a Benchmark for Knowledge Intensive Language Tasks",
+      "url": "https://aclanthology.org/2021.naacl-main.200/",
+      "availability": "abstract",
+      "snapshot_path": "data/snapshots/2021.naacl-main.200.txt",
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-07",
+      "object_id": "acl:2022.emnlp-main.249",
+      "kind": "relevance",
+      "question": "Найди методы reranking с zero-shot question generation или генерацией relevance labels sequence-to-sequence моделью. Не включай обычную генерацию ответа.",
+      "title": "Improving Passage Retrieval with Zero-Shot Question Generation",
+      "url": "https://aclanthology.org/2022.emnlp-main.249/",
+      "availability": "abstract",
+      "snapshot_path": "data/snapshots/2022.emnlp-main.249.txt",
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-07",
+      "object_id": "acl:2020.findings-emnlp.63",
+      "kind": "relevance",
+      "question": "Найди методы reranking с zero-shot question generation или генерацией relevance labels sequence-to-sequence моделью. Не включай обычную генерацию ответа.",
+      "title": "Document Ranking with a Pretrained Sequence-to-Sequence Model",
+      "url": "https://aclanthology.org/2020.findings-emnlp.63/",
+      "availability": "abstract",
+      "snapshot_path": "data/snapshots/2020.findings-emnlp.63.txt",
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-07",
+      "object_id": "acl:2025.findings-naacl.157",
+      "kind": "relevance",
+      "question": "Найди методы reranking с zero-shot question generation или генерацией relevance labels sequence-to-sequence моделью. Не включай обычную генерацию ответа.",
+      "title": "MIRAGE: A Metric-Intensive Benchmark for Retrieval-Augmented Generation Evaluation",
+      "url": "https://aclanthology.org/2025.findings-naacl.157/",
+      "availability": "abstract",
+      "snapshot_path": "data/snapshots/2025.findings-naacl.157.txt",
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-07",
+      "object_id": "acl:2025.acl-long.1101",
+      "kind": "relevance",
+      "question": "Найди методы reranking с zero-shot question generation или генерацией relevance labels sequence-to-sequence моделью. Не включай обычную генерацию ответа.",
+      "title": "MEMERAG: A Multilingual End-to-End Meta-Evaluation Benchmark for Retrieval Augmented Generation",
+      "url": "https://aclanthology.org/2025.acl-long.1101/",
+      "availability": "abstract",
+      "snapshot_path": "data/snapshots/2025.acl-long.1101.txt",
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-07",
+      "object_id": "acl:2025.emnlp-industry.54",
+      "kind": "relevance",
+      "question": "Найди методы reranking с zero-shot question generation или генерацией relevance labels sequence-to-sequence моделью. Не включай обычную генерацию ответа.",
+      "title": "Benchmarking LLM Faithfulness in RAG with Evolving Leaderboards",
+      "url": "https://aclanthology.org/2025.emnlp-industry.54/",
+      "availability": "abstract",
+      "snapshot_path": "data/snapshots/2025.emnlp-industry.54.txt",
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-11",
+      "object_id": "action",
+      "kind": "action",
+      "question": "Какая модель самая хорошая?",
+      "source_ids": [
+        "acl:2020.emnlp-main.550",
+        "acl:2021.emnlp-main.496",
+        "acl:2021.eacl-main.74",
+        "acl:2024.naacl-long.20",
+        "acl:2024.eacl-demo.16",
+        "acl:2024.tacl-1.9",
+        "acl:2021.naacl-main.466",
+        "acl:2021.acl-short.123",
+        "acl:N19-1423",
+        "acl:2020.acl-main.703",
+        "acl:P17-1171",
+        "acl:D16-1264",
+        "acl:D18-1259",
+        "acl:P17-1147",
+        "acl:Q19-1026",
+        "acl:N18-1074",
+        "acl:2023.emnlp-main.741",
+        "acl:2023.emnlp-main.398",
+        "acl:2023.emnlp-main.557",
+        "acl:2020.acl-main.173",
+        "acl:2020.acl-main.450",
+        "acl:2023.acl-long.910",
+        "acl:2021.acl-long.475",
+        "acl:2021.findings-acl.191",
+        "acl:2021.naacl-main.200",
+        "acl:2022.emnlp-main.249",
+        "acl:2020.findings-emnlp.63",
+        "acl:2025.findings-naacl.157",
+        "acl:2025.acl-long.1101",
+        "acl:2025.emnlp-industry.54"
+      ],
+      "label_options": [
+        "search",
+        "clarify",
+        "refuse"
+      ]
+    },
+    {
+      "case_id": "visible-11",
+      "object_id": "acl:2020.emnlp-main.550",
+      "kind": "relevance",
+      "question": "Какая модель самая хорошая?",
+      "title": "Dense Passage Retrieval for Open-Domain Question Answering",
+      "url": "https://aclanthology.org/2020.emnlp-main.550/",
+      "availability": "full_text",
+      "snapshot_path": "data/snapshots/2020.emnlp-main.550.txt",
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-11",
+      "object_id": "acl:2021.emnlp-main.496",
+      "kind": "relevance",
+      "question": "Какая модель самая хорошая?",
+      "title": "Simple Entity-Centric Questions Challenge Dense Retrievers",
+      "url": "https://aclanthology.org/2021.emnlp-main.496/",
+      "availability": "full_text",
+      "snapshot_path": "data/snapshots/2021.emnlp-main.496.txt",
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-11",
+      "object_id": "acl:2021.eacl-main.74",
+      "kind": "relevance",
+      "question": "Какая модель самая хорошая?",
+      "title": "Leveraging Passage Retrieval with Generative Models for Open Domain Question Answering",
+      "url": "https://aclanthology.org/2021.eacl-main.74/",
+      "availability": "full_text",
+      "snapshot_path": "data/snapshots/2021.eacl-main.74.txt",
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-11",
+      "object_id": "acl:2024.naacl-long.20",
+      "kind": "relevance",
+      "question": "Какая модель самая хорошая?",
+      "title": "ARES: An Automated Evaluation Framework for Retrieval-Augmented Generation Systems",
+      "url": "https://aclanthology.org/2024.naacl-long.20/",
+      "availability": "full_text",
+      "snapshot_path": "data/snapshots/2024.naacl-long.20.txt",
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-11",
+      "object_id": "acl:2024.eacl-demo.16",
+      "kind": "relevance",
+      "question": "Какая модель самая хорошая?",
+      "title": "RAGAs: Automated Evaluation of Retrieval Augmented Generation",
+      "url": "https://aclanthology.org/2024.eacl-demo.16/",
+      "availability": "full_text",
+      "snapshot_path": "data/snapshots/2024.eacl-demo.16.txt",
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-11",
+      "object_id": "acl:2024.tacl-1.9",
+      "kind": "relevance",
+      "question": "Какая модель самая хорошая?",
+      "title": "Lost in the Middle: How Language Models Use Long Contexts",
+      "url": "https://aclanthology.org/2024.tacl-1.9/",
+      "availability": "full_text",
+      "snapshot_path": "data/snapshots/2024.tacl-1.9.txt",
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-11",
+      "object_id": "acl:2021.naacl-main.466",
+      "kind": "relevance",
+      "question": "Какая модель самая хорошая?",
+      "title": "RocketQA: An Optimized Training Approach to Dense Passage Retrieval for Open-Domain Question Answering",
+      "url": "https://aclanthology.org/2021.naacl-main.466/",
+      "availability": "full_text",
+      "snapshot_path": "data/snapshots/2021.naacl-main.466.txt",
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-11",
+      "object_id": "acl:2021.acl-short.123",
+      "kind": "relevance",
+      "question": "Какая модель самая хорошая?",
+      "title": "Efficient Passage Retrieval with Hashing for Open-domain Question Answering",
+      "url": "https://aclanthology.org/2021.acl-short.123/",
+      "availability": "full_text",
+      "snapshot_path": "data/snapshots/2021.acl-short.123.txt",
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-11",
+      "object_id": "acl:N19-1423",
+      "kind": "relevance",
+      "question": "Какая модель самая хорошая?",
+      "title": "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding",
+      "url": "https://aclanthology.org/N19-1423/",
+      "availability": "abstract",
+      "snapshot_path": "data/snapshots/N19-1423.txt",
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-11",
+      "object_id": "acl:2020.acl-main.703",
+      "kind": "relevance",
+      "question": "Какая модель самая хорошая?",
+      "title": "BART: Denoising Sequence-to-Sequence Pre-training for Natural Language Generation, Translation, and Comprehension",
+      "url": "https://aclanthology.org/2020.acl-main.703/",
+      "availability": "abstract",
+      "snapshot_path": "data/snapshots/2020.acl-main.703.txt",
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-11",
+      "object_id": "acl:P17-1171",
+      "kind": "relevance",
+      "question": "Какая модель самая хорошая?",
+      "title": "Reading Wikipedia to Answer Open-Domain Questions",
+      "url": "https://aclanthology.org/P17-1171/",
+      "availability": "abstract",
+      "snapshot_path": "data/snapshots/P17-1171.txt",
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-11",
+      "object_id": "acl:D16-1264",
+      "kind": "relevance",
+      "question": "Какая модель самая хорошая?",
+      "title": "SQuAD: 100,000+ Questions for Machine Comprehension of Text",
+      "url": "https://aclanthology.org/D16-1264/",
+      "availability": "metadata",
+      "snapshot_path": null,
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-11",
+      "object_id": "acl:D18-1259",
+      "kind": "relevance",
+      "question": "Какая модель самая хорошая?",
+      "title": "HotpotQA: A Dataset for Diverse, Explainable Multi-hop Question Answering",
+      "url": "https://aclanthology.org/D18-1259/",
+      "availability": "abstract",
+      "snapshot_path": "data/snapshots/D18-1259.txt",
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-11",
+      "object_id": "acl:P17-1147",
+      "kind": "relevance",
+      "question": "Какая модель самая хорошая?",
+      "title": "TriviaQA: A Large Scale Distantly Supervised Challenge Dataset for Reading Comprehension",
+      "url": "https://aclanthology.org/P17-1147/",
+      "availability": "abstract",
+      "snapshot_path": "data/snapshots/P17-1147.txt",
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-11",
+      "object_id": "acl:Q19-1026",
+      "kind": "relevance",
+      "question": "Какая модель самая хорошая?",
+      "title": "Natural Questions: A Benchmark for Question Answering Research",
+      "url": "https://aclanthology.org/Q19-1026/",
+      "availability": "abstract",
+      "snapshot_path": "data/snapshots/Q19-1026.txt",
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-11",
+      "object_id": "acl:N18-1074",
+      "kind": "relevance",
+      "question": "Какая модель самая хорошая?",
+      "title": "FEVER: a Large-scale Dataset for Fact Extraction and VERification",
+      "url": "https://aclanthology.org/N18-1074/",
+      "availability": "abstract",
+      "snapshot_path": "data/snapshots/N18-1074.txt",
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-11",
+      "object_id": "acl:2023.emnlp-main.741",
+      "kind": "relevance",
+      "question": "Какая модель самая хорошая?",
+      "title": "FActScore: Fine-grained Atomic Evaluation of Factual Precision in Long Form Text Generation",
+      "url": "https://aclanthology.org/2023.emnlp-main.741/",
+      "availability": "abstract",
+      "snapshot_path": "data/snapshots/2023.emnlp-main.741.txt",
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-11",
+      "object_id": "acl:2023.emnlp-main.398",
+      "kind": "relevance",
+      "question": "Какая модель самая хорошая?",
+      "title": "Enabling Large Language Models to Generate Text with Citations",
+      "url": "https://aclanthology.org/2023.emnlp-main.398/",
+      "availability": "abstract",
+      "snapshot_path": "data/snapshots/2023.emnlp-main.398.txt",
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-11",
+      "object_id": "acl:2023.emnlp-main.557",
+      "kind": "relevance",
+      "question": "Какая модель самая хорошая?",
+      "title": "SelfCheckGPT: Zero-Resource Black-Box Hallucination Detection for Generative Large Language Models",
+      "url": "https://aclanthology.org/2023.emnlp-main.557/",
+      "availability": "abstract",
+      "snapshot_path": "data/snapshots/2023.emnlp-main.557.txt",
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-11",
+      "object_id": "acl:2020.acl-main.173",
+      "kind": "relevance",
+      "question": "Какая модель самая хорошая?",
+      "title": "On Faithfulness and Factuality in Abstractive Summarization",
+      "url": "https://aclanthology.org/2020.acl-main.173/",
+      "availability": "abstract",
+      "snapshot_path": "data/snapshots/2020.acl-main.173.txt",
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-11",
+      "object_id": "acl:2020.acl-main.450",
+      "kind": "relevance",
+      "question": "Какая модель самая хорошая?",
+      "title": "Asking and Answering Questions to Evaluate the Factual Consistency of Summaries",
+      "url": "https://aclanthology.org/2020.acl-main.450/",
+      "availability": "abstract",
+      "snapshot_path": "data/snapshots/2020.acl-main.450.txt",
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-11",
+      "object_id": "acl:2023.acl-long.910",
+      "kind": "relevance",
+      "question": "Какая модель самая хорошая?",
+      "title": "RARR: Researching and Revising What Language Models Say, Using Language Models",
+      "url": "https://aclanthology.org/2023.acl-long.910/",
+      "availability": "abstract",
+      "snapshot_path": "data/snapshots/2023.acl-long.910.txt",
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-11",
+      "object_id": "acl:2021.acl-long.475",
+      "kind": "relevance",
+      "question": "Какая модель самая хорошая?",
+      "title": "Generating Query Focused Summaries from Query-Free Resources",
+      "url": "https://aclanthology.org/2021.acl-long.475/",
+      "availability": "abstract",
+      "snapshot_path": "data/snapshots/2021.acl-long.475.txt",
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-11",
+      "object_id": "acl:2021.findings-acl.191",
+      "kind": "relevance",
+      "question": "Какая модель самая хорошая?",
+      "title": "PAIR: Leveraging Passage-Centric Similarity Relation for Improving Dense Passage Retrieval",
+      "url": "https://aclanthology.org/2021.findings-acl.191/",
+      "availability": "metadata",
+      "snapshot_path": null,
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-11",
+      "object_id": "acl:2021.naacl-main.200",
+      "kind": "relevance",
+      "question": "Какая модель самая хорошая?",
+      "title": "KILT: a Benchmark for Knowledge Intensive Language Tasks",
+      "url": "https://aclanthology.org/2021.naacl-main.200/",
+      "availability": "abstract",
+      "snapshot_path": "data/snapshots/2021.naacl-main.200.txt",
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-11",
+      "object_id": "acl:2022.emnlp-main.249",
+      "kind": "relevance",
+      "question": "Какая модель самая хорошая?",
+      "title": "Improving Passage Retrieval with Zero-Shot Question Generation",
+      "url": "https://aclanthology.org/2022.emnlp-main.249/",
+      "availability": "abstract",
+      "snapshot_path": "data/snapshots/2022.emnlp-main.249.txt",
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-11",
+      "object_id": "acl:2020.findings-emnlp.63",
+      "kind": "relevance",
+      "question": "Какая модель самая хорошая?",
+      "title": "Document Ranking with a Pretrained Sequence-to-Sequence Model",
+      "url": "https://aclanthology.org/2020.findings-emnlp.63/",
+      "availability": "abstract",
+      "snapshot_path": "data/snapshots/2020.findings-emnlp.63.txt",
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-11",
+      "object_id": "acl:2025.findings-naacl.157",
+      "kind": "relevance",
+      "question": "Какая модель самая хорошая?",
+      "title": "MIRAGE: A Metric-Intensive Benchmark for Retrieval-Augmented Generation Evaluation",
+      "url": "https://aclanthology.org/2025.findings-naacl.157/",
+      "availability": "abstract",
+      "snapshot_path": "data/snapshots/2025.findings-naacl.157.txt",
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-11",
+      "object_id": "acl:2025.acl-long.1101",
+      "kind": "relevance",
+      "question": "Какая модель самая хорошая?",
+      "title": "MEMERAG: A Multilingual End-to-End Meta-Evaluation Benchmark for Retrieval Augmented Generation",
+      "url": "https://aclanthology.org/2025.acl-long.1101/",
+      "availability": "abstract",
+      "snapshot_path": "data/snapshots/2025.acl-long.1101.txt",
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-11",
+      "object_id": "acl:2025.emnlp-industry.54",
+      "kind": "relevance",
+      "question": "Какая модель самая хорошая?",
+      "title": "Benchmarking LLM Faithfulness in RAG with Evolving Leaderboards",
+      "url": "https://aclanthology.org/2025.emnlp-industry.54/",
+      "availability": "abstract",
+      "snapshot_path": "data/snapshots/2025.emnlp-industry.54.txt",
+      "label_options": [
+        "relevant",
+        "not_relevant",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-13",
+      "object_id": "action",
+      "kind": "action",
+      "question": "Какую retrieval-метрику и какой диапазон улучшения относительно Lucene-BM25 авторы DPR указывают в abstract? Обозначь границы утверждения.",
+      "source_ids": [
+        "acl:2020.emnlp-main.550"
+      ],
+      "label_options": [
+        "answer",
+        "insufficient_evidence",
+        "clarify"
+      ]
+    },
+    {
+      "case_id": "visible-13",
+      "object_id": "claim-1/c2cecb31a387cc2e12b3ebcb2225045b56d4800ee525dfe0bbbc98b212f7bc08",
+      "kind": "entailment",
+      "question": "Какую retrieval-метрику и какой диапазон улучшения относительно Lucene-BM25 авторы DPR указывают в abstract? Обозначь границы утверждения.",
+      "claim": "Авторы DPR сообщают выигрыш 9–19 процентных пунктов top-20 passage retrieval accuracy относительно Lucene-BM25 на описанных QA-оценках.",
+      "conditions": {
+        "comparison": "Lucene-BM25",
+        "dataset": "наборы QA в эксперименте DPR; не все возможные распределения",
+        "method": "DPR",
+        "metric": "top-20 passage retrieval accuracy; absolute percentage points",
+        "scope": "Сводка abstract; Table 2 и section 5.1 явно исключают SQuAD из утверждения о превосходстве. Не универсальный выигрыш.",
+        "task": "open-domain QA retrieval"
+      },
+      "fragment_id": "c2cecb31a387cc2e12b3ebcb2225045b56d4800ee525dfe0bbbc98b212f7bc08",
+      "source_id": "acl:2020.emnlp-main.550",
+      "fragment_text": "Dense Passage Retrieval for Open-Domain Question Answering\nVladimir Karpukhin∗, Barlas Oğuz∗, Sewon Min† , Patrick Lewis,\nLedell Wu, Sergey Edunov, Danqi Chen‡ , Wen-tau Yih\n†\n‡\nFacebook AI\nUniversity of Washington\nPrinceton University\n{vladk, barlaso, plewis, ledell, edunov, scottyih}@fb.com\nsewon@cs.washington.edu\ndanqic@cs.princeton.edu\n\nAbstract\nOpen-domain question answering relies on efficient passage retrieval to select candidate\ncontexts, where traditional sparse vector space\nmodels, such as TF-IDF or BM25, are the de\nfacto method. In this work, we show that\nretrieval can be practically implemented using dense representations alone, where embeddings are learned from a small number\nof questions and passages by a simple dualencoder framework. When evaluated on a\nwide range of open-domain QA datasets, our\ndense retriever outperforms a strong LuceneBM25 system greatly by 9%-19% absolute in\nterms of top-20 passage retrieval accuracy, and\nhelps our end-to-end QA system establish new\nstate-of-the-art on multiple open-domain QA\nbenchmarks.1\n\n1\n\nIntroduction\n\nOpen-domain question answering (QA) (Voorhees,\n1999) is a task that answers factoid questions using a large collection of documents. While early\nQA systems are often complicated and consist of\nmultiple components (Ferrucci (2012); Moldovan\net al. (2003), inter alia), the advances of reading\ncomprehension models suggest a much simplified\ntwo-stage framework: (1) a context retriever first\nselects a small subset of passages where some\nof them contain the answer to the question, and\nthen (2) a machine reader can thoroughly examine the retrieved contexts and identify the correct\nanswer (Chen et al., 2017). Although reducing\nopen-domain QA to machine reading is a very reasonable strategy, a huge performance degradation\nis often observed in practice2 , indicating the needs\nof improving retrieval.\n∗\n\nEqual contribution\nThe code and trained models have been released at\nhttps://github.com/facebookresearch/DPR.\n2\nFor instance, the exact match score on SQuAD v1.1 drops\nfrom above 80% to less than 40%",
+      "location": "chars:0:2079",
+      "label_options": [
+        "supports",
+        "contradicts",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-13",
+      "object_id": "claim-2/526f66497d80c7d89ae9e66e5d3d05c0aec037e0db6bedf1463373b55e8eaa2e",
+      "kind": "entailment",
+      "question": "Какую retrieval-метрику и какой диапазон улучшения относительно Lucene-BM25 авторы DPR указывают в abstract? Обозначь границы утверждения.",
+      "claim": "В section 5.1 авторы исключают SQuAD из вывода о преимуществе DPR над BM25.",
+      "conditions": {
+        "comparison": "BM25",
+        "dataset": "five QA test datasets in Table 2",
+        "method": "DPR",
+        "metric": "top-k accuracy k=20,100",
+        "scope": "Исключение SQuAD относится к Table 2; не утверждение, что DPR никогда не работает на SQuAD.",
+        "task": "passage retrieval"
+      },
+      "fragment_id": "526f66497d80c7d89ae9e66e5d3d05c0aec037e0db6bedf1463373b55e8eaa2e",
+      "source_id": "acl:2020.emnlp-main.550",
+      "fragment_text": "75.0\n74.7\n\n89.1\n88.5\n\n51.6\n66.2\n\n86.0\n83.9\n\n84.7\n84.4\n\n82.9\n82.3\n\n93.9\n94.1\n\n67.6\n78.6\n\nTable 2: Top-20 & Top-100 retrieval accuracy on test sets, measured as the percentage of top 20/100 retrieved\npassages that contain the answer. Single and Multi denote that our Dense Passage Retriever (DPR) was trained\nusing individial or combined training datasets (all the datasets excluding SQuAD). See text for more details.\n\n5.1\n\nMain Results\n\nTable 2 compares different passage retrieval systems on five QA datasets, using the top-k accuracy\n(k ∈ {20, 100}). With the exception of SQuAD,\nDPR performs consistently better than BM25 on\nall datasets. The gap is especially large when k is\nsmall (e.g., 78.4% vs. 59.1% for top-20 accuracy\non Natural Questions). When training with mul8\nSQuAD is limited to a small set of Wikipedia documents\nand thus introduces unwanted bias. We will discuss this issue\nmore in Section 5.1.\n9\nLucene implementation. BM25 parameters b = 0.4 (document length normalization) and k1 = 0.9 (term frequency\nscaling) are tuned using development sets.\n\n90\n\nTop-k accuracy (%)\n\ntraditional retrieval methods, the effects of different\ntraining schemes and the run-time efficiency.\nThe DPR model used in our main experiments\nis trained using the in-batch negative setting (Section 3.2) with a batch size of 128 and one additional\nBM25 negative passage per question. We trained\nthe question and passage encoders for up to 40\nepochs for large datasets (NQ, TriviaQA, SQuAD)\nand 100 epochs for small datasets (TREC, WQ),\nwith a learning rate of 10−5 using Adam, linear\nscheduling with warm-up and dropout rate 0.1.\nWhile it is good to have the flexibility to adapt\nthe retriever to each dataset, it would also be desirable to obtain a single retriever that works well\nacross the board. To this end, we train a",
+      "location": "chars:18497:20315",
+      "label_options": [
+        "supports",
+        "contradicts",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-17",
+      "object_id": "action",
+      "kind": "action",
+      "question": "Сопоставь направления результатов DPR и EntityQuestions. Можно ли перенести вывод между наборами без проверки?",
+      "source_ids": [
+        "acl:2020.emnlp-main.550",
+        "acl:2021.emnlp-main.496"
+      ],
+      "label_options": [
+        "answer",
+        "insufficient_evidence",
+        "clarify"
+      ]
+    },
+    {
+      "case_id": "visible-17",
+      "object_id": "claim-1/c2cecb31a387cc2e12b3ebcb2225045b56d4800ee525dfe0bbbc98b212f7bc08",
+      "kind": "entailment",
+      "question": "Сопоставь направления результатов DPR и EntityQuestions. Можно ли перенести вывод между наборами без проверки?",
+      "claim": "Авторы DPR сообщают выигрыш 9–19 процентных пунктов top-20 passage retrieval accuracy относительно Lucene-BM25 на описанных QA-оценках.",
+      "conditions": {
+        "comparison": "Lucene-BM25",
+        "dataset": "наборы QA в эксперименте DPR; не все возможные распределения",
+        "method": "DPR",
+        "metric": "top-20 passage retrieval accuracy; absolute percentage points",
+        "scope": "Сводка abstract; Table 2 и section 5.1 явно исключают SQuAD из утверждения о превосходстве. Не универсальный выигрыш.",
+        "task": "open-domain QA retrieval"
+      },
+      "fragment_id": "c2cecb31a387cc2e12b3ebcb2225045b56d4800ee525dfe0bbbc98b212f7bc08",
+      "source_id": "acl:2020.emnlp-main.550",
+      "fragment_text": "Dense Passage Retrieval for Open-Domain Question Answering\nVladimir Karpukhin∗, Barlas Oğuz∗, Sewon Min† , Patrick Lewis,\nLedell Wu, Sergey Edunov, Danqi Chen‡ , Wen-tau Yih\n†\n‡\nFacebook AI\nUniversity of Washington\nPrinceton University\n{vladk, barlaso, plewis, ledell, edunov, scottyih}@fb.com\nsewon@cs.washington.edu\ndanqic@cs.princeton.edu\n\nAbstract\nOpen-domain question answering relies on efficient passage retrieval to select candidate\ncontexts, where traditional sparse vector space\nmodels, such as TF-IDF or BM25, are the de\nfacto method. In this work, we show that\nretrieval can be practically implemented using dense representations alone, where embeddings are learned from a small number\nof questions and passages by a simple dualencoder framework. When evaluated on a\nwide range of open-domain QA datasets, our\ndense retriever outperforms a strong LuceneBM25 system greatly by 9%-19% absolute in\nterms of top-20 passage retrieval accuracy, and\nhelps our end-to-end QA system establish new\nstate-of-the-art on multiple open-domain QA\nbenchmarks.1\n\n1\n\nIntroduction\n\nOpen-domain question answering (QA) (Voorhees,\n1999) is a task that answers factoid questions using a large collection of documents. While early\nQA systems are often complicated and consist of\nmultiple components (Ferrucci (2012); Moldovan\net al. (2003), inter alia), the advances of reading\ncomprehension models suggest a much simplified\ntwo-stage framework: (1) a context retriever first\nselects a small subset of passages where some\nof them contain the answer to the question, and\nthen (2) a machine reader can thoroughly examine the retrieved contexts and identify the correct\nanswer (Chen et al., 2017). Although reducing\nopen-domain QA to machine reading is a very reasonable strategy, a huge performance degradation\nis often observed in practice2 , indicating the needs\nof improving retrieval.\n∗\n\nEqual contribution\nThe code and trained models have been released at\nhttps://github.com/facebookresearch/DPR.\n2\nFor instance, the exact match score on SQuAD v1.1 drops\nfrom above 80% to less than 40%",
+      "location": "chars:0:2079",
+      "label_options": [
+        "supports",
+        "contradicts",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-17",
+      "object_id": "claim-2/526f66497d80c7d89ae9e66e5d3d05c0aec037e0db6bedf1463373b55e8eaa2e",
+      "kind": "entailment",
+      "question": "Сопоставь направления результатов DPR и EntityQuestions. Можно ли перенести вывод между наборами без проверки?",
+      "claim": "В section 5.1 авторы исключают SQuAD из вывода о преимуществе DPR над BM25.",
+      "conditions": {
+        "comparison": "BM25",
+        "dataset": "five QA test datasets in Table 2",
+        "method": "DPR",
+        "metric": "top-k accuracy k=20,100",
+        "scope": "Исключение SQuAD относится к Table 2; не утверждение, что DPR никогда не работает на SQuAD.",
+        "task": "passage retrieval"
+      },
+      "fragment_id": "526f66497d80c7d89ae9e66e5d3d05c0aec037e0db6bedf1463373b55e8eaa2e",
+      "source_id": "acl:2020.emnlp-main.550",
+      "fragment_text": "75.0\n74.7\n\n89.1\n88.5\n\n51.6\n66.2\n\n86.0\n83.9\n\n84.7\n84.4\n\n82.9\n82.3\n\n93.9\n94.1\n\n67.6\n78.6\n\nTable 2: Top-20 & Top-100 retrieval accuracy on test sets, measured as the percentage of top 20/100 retrieved\npassages that contain the answer. Single and Multi denote that our Dense Passage Retriever (DPR) was trained\nusing individial or combined training datasets (all the datasets excluding SQuAD). See text for more details.\n\n5.1\n\nMain Results\n\nTable 2 compares different passage retrieval systems on five QA datasets, using the top-k accuracy\n(k ∈ {20, 100}). With the exception of SQuAD,\nDPR performs consistently better than BM25 on\nall datasets. The gap is especially large when k is\nsmall (e.g., 78.4% vs. 59.1% for top-20 accuracy\non Natural Questions). When training with mul8\nSQuAD is limited to a small set of Wikipedia documents\nand thus introduces unwanted bias. We will discuss this issue\nmore in Section 5.1.\n9\nLucene implementation. BM25 parameters b = 0.4 (document length normalization) and k1 = 0.9 (term frequency\nscaling) are tuned using development sets.\n\n90\n\nTop-k accuracy (%)\n\ntraditional retrieval methods, the effects of different\ntraining schemes and the run-time efficiency.\nThe DPR model used in our main experiments\nis trained using the in-batch negative setting (Section 3.2) with a batch size of 128 and one additional\nBM25 negative passage per question. We trained\nthe question and passage encoders for up to 40\nepochs for large datasets (NQ, TriviaQA, SQuAD)\nand 100 epochs for small datasets (TREC, WQ),\nwith a learning rate of 10−5 using Adam, linear\nscheduling with warm-up and dropout rate 0.1.\nWhile it is good to have the flexibility to adapt\nthe retriever to each dataset, it would also be desirable to obtain a single retriever that works well\nacross the board. To this end, we train a",
+      "location": "chars:18497:20315",
+      "label_options": [
+        "supports",
+        "contradicts",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-17",
+      "object_id": "claim-3/a3647346f5b8e092f2cc9af57b625a6a69282fe8d842cd7804f412c1be6ce830",
+      "kind": "entailment",
+      "question": "Сопоставь направления результатов DPR и EntityQuestions. Можно ли перенести вывод между наборами без проверки?",
+      "claim": "На EntityQuestions исследованные dense retrievers уступают sparse retrieval.",
+      "conditions": {
+        "comparison": "sparse retrieval / BM25",
+        "dataset": "EntityQuestions based on Wikidata",
+        "method": "tested DPR models",
+        "metric": "top-20 retrieval accuracy",
+        "scope": "Результат при переносе на entity-rich вопросы; не при одинаковых данных обучения всех возможных моделей.",
+        "task": "entity-centric open-domain QA retrieval"
+      },
+      "fragment_id": "a3647346f5b8e092f2cc9af57b625a6a69282fe8d842cd7804f412c1be6ce830",
+      "source_id": "acl:2021.emnlp-main.496",
+      "fragment_text": "Simple Entity-Centric Questions Challenge Dense Retrievers\nChristopher Sciavolino∗ Zexuan Zhong∗ Jinhyuk Lee Danqi Chen\nDepartment of Computer Science, Princeton University\n{cds3,zzhong,jinhyuklee,danqic}@cs.princeton.edu\n\nAbstract\n\nDPR DPR BM25\n(NQ) (multi)\n-\n\nOpen-domain question answering has exploded in popularity recently due to the success of dense retrieval models, which have surpassed sparse models using only a few supervised training examples. However, in this paper, we demonstrate current dense models are\nnot yet the holy grail of retrieval. We first construct EntityQuestions, a set of simple, entityrich questions based on facts from Wikidata\n(e.g., “Where was Arve Furset born?”), and\nobserve that dense retrievers drastically underperform sparse methods. We investigate this\nissue and uncover that dense retrievers can\nonly generalize to common entities unless the\nquestion pattern is explicitly observed during\ntraining. We discuss two simple solutions towards addressing this critical problem. First,\nwe demonstrate that data augmentation is unable to fix the generalization problem. Second,\nwe argue a more robust passage encoder helps\nfacilitate better question adaptation using specialized question encoders. We hope our work\ncan shed light on the challenges in creating\na robust, universal dense retriever that works\nwell across different input distributions.1\n\n1\n\nNatural Questions\n\n80.1\n\n79.4\n\n64.5\n\nEntityQuestions (this work)\nWhat is the capital of [E]?\nWho is [E] married to?\nWhere is the headquarter of [E]?\nWhere was [E] born?\nWhere was [E] educated?\nWho was [E] created by?\nWho is [E]’s child?\n(17 more types of questions)\n\n49.7\n77.3\n35.6\n70.0\n25.4\n26.4\n54.1\n19.2\n...\n\n56.7\n78.9\n48.1\n72.0\n41.8\n41.8\n57.7\n33.8\n...\n\n71.2\n90.0\n85.9\n85.0\n75.2\n73.0\n71.7\n82.9\n...\n\nTable 1: Top-20 retrieval accuracy for dense and sparse\nretrieval models on Natural Questions (Kwiatkowski\net al., 2019) and our EntityQuestions along with a set of\nsampled questions (full results in Appendix A). We",
+      "location": "chars:0:2008",
+      "label_options": [
+        "supports",
+        "contradicts",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-18",
+      "object_id": "action",
+      "kind": "action",
+      "question": "Сравни роль человеческих эталонов при вычислении RAGAs и при PPI в ARES.",
+      "source_ids": [
+        "acl:2024.eacl-demo.16",
+        "acl:2024.naacl-long.20"
+      ],
+      "label_options": [
+        "answer",
+        "insufficient_evidence",
+        "clarify"
+      ]
+    },
+    {
+      "case_id": "visible-18",
+      "object_id": "claim-1/0e9d6126d00adb225ceee49abc54b69e22f48db80516db37ef7590a5346356ae",
+      "kind": "entailment",
+      "question": "Сравни роль человеческих эталонов при вычислении RAGAs и при PPI в ARES.",
+      "claim": "Предложенные метрики RAGAs не требуют эталонных человеческих ответов при вычислении.",
+      "conditions": {
+        "comparison": "human reference annotations",
+        "dataset": "вычисление метрик RAGAs",
+        "method": "RAGAs",
+        "metric": "reference-free metric design",
+        "scope": "Это не отсутствие человеческой оценки самих метрик и не гарантия их безошибочности.",
+        "task": "RAG evaluation"
+      },
+      "fragment_id": "0e9d6126d00adb225ceee49abc54b69e22f48db80516db37ef7590a5346356ae",
+      "source_id": "acl:2024.eacl-demo.16",
+      "fragment_text": "RAGA S: Automated Evaluation of Retrieval Augmented Generation\nShahul Es† , Jithin James† , Luis Espinosa-Anke∗♢ , Steven Schockaert∗\n†\nExploding Gradients\n∗\nCardiffNLP, Cardiff University, United Kingdom\n♢\nAMPLYFI, United Kingdom\n{shahules786,jamesjithin97}@gmail.com\n{espinosa-ankel,schockaerts1}@cardiff.ac.uk\nAbstract\nWe introduce RAGA S1 (Retrieval Augmented\nGeneration Assessment), a framework for\nreference-free evaluation of Retrieval Augmented Generation (RAG) pipelines. RAG systems are composed of a retrieval module and an\nLLM based generation module. They provide\nLLMs with knowledge from a reference corpus,\nwhich can help to keep LLM based systems\nup-to-date and can reduce the risk of hallucinations, among others. However, evaluating\nRAG architectures is challenging because there\nare several dimensions to consider: the ability of the retrieval system to identify relevant\nand focused context passages, the ability of the\nLLM to exploit such passages in a faithful way,\nand the quality of the generation itself. With\nRAGA S, we put forward a suite of metrics\nwhich can be used to evaluate these different\ndimensions without having to rely on ground\ntruth human annotations. We posit that such\na framework can crucially contribute to faster\nevaluation cycles of RAG architectures, which\nis especially important given the fast adoption\nof LLMs.\n\n1\n\nIntroduction\n\nLanguage Models (LMs) capture a vast amount\nof knowledge about the world, which allows them\nto answer questions without accessing any external sources. This idea of LMs as repositories of\nknowledge emerged shortly after the introduction\nof BERT (Devlin et al., 2019) and became more\nfirmly established with the introduction of ever\nlarger LMs (Roberts et al., 2020). While the most\nrecent Large Language Models (LLMs) capture\nenough knowledge to rival human performance\nacross a wide variety of question answering benchmarks (Bubeck et al., 2023), the idea of using\nLLMs as knowledge bases still has two fundamental limitations. First, LLMs are not able",
+      "location": "chars:0:2032",
+      "label_options": [
+        "supports",
+        "contradicts",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-18",
+      "object_id": "claim-2/50ead66e7a161581fa85e76bb965c3aabf531b62122b1ef02598d6c44264299e",
+      "kind": "entailment",
+      "question": "Сравни роль человеческих эталонов при вычислении RAGAs и при PPI в ARES.",
+      "claim": "ARES использует небольшую человеческую разметку для prediction-powered inference.",
+      "conditions": {
+        "comparison": "uncalibrated LM judge",
+        "dataset": "эксперименты ARES",
+        "method": "ARES with PPI",
+        "metric": "калибровка оценки, не отдельная QA accuracy",
+        "scope": "Human labels нужны для PPI; synthetic training data не заменяют эту разметку.",
+        "task": "RAG evaluation calibration"
+      },
+      "fragment_id": "50ead66e7a161581fa85e76bb965c3aabf531b62122b1ef02598d6c44264299e",
+      "source_id": "acl:2024.naacl-long.20",
+      "fragment_text": "ARES: An Automated Evaluation Framework for Retrieval-Augmented\nGeneration Systems\nJon Saad-Falcon\nStanford University ∗\njonsaadfalcon@stanford.edu\n\nOmar Khattab\nStanford University\nokhattab@stanford.edu\n\nChristopher Potts\nStanford University\ncgpotts@stanford.edu\n\nMatei Zaharia\nDatabricks and UC Berkeley\nmatei@databricks.com\n\nAbstract\nEvaluating retrieval-augmented generation\n(RAG) systems traditionally relies on hand\nannotations for input queries, passages to retrieve, and responses to generate. We introduce ARES, an Automated RAG Evaluation\nSystem, for evaluating RAG systems along\nthe dimensions of context relevance, answer\nfaithfulness, and answer relevance. By creating its own synthetic training data, ARES\nfinetunes lightweight LM judges to assess the\nquality of individual RAG components. To\nmitigate potential prediction errors, ARES utilizes a small set of human-annotated datapoints\nfor prediction-powered inference (PPI). Across\neight different knowledge-intensive tasks in\nKILT, SuperGLUE, and AIS, ARES accurately\nevaluates RAG systems while using only a few\nhundred human annotations during evaluation.\nFurthermore, ARES judges remain effective\nacross domain shifts, proving accurate even\nafter changing the type of queries and/or documents used in the evaluated RAG systems. We\nmake our code and datasets publicly available\non Github.\n\n1\n\nIntroduction\n\nRetrieval-augmented generation (RAG) has become a prominent approach for building userfacing NLP applications, such as systems for question answering (QA), fact-checking, and customer\nsupport (Petroni et al., 2021; Wang et al., 2019).\nTypically, a RAG system consists of a retriever and\na downstream language model (LM). Given a user\nquestion, the retriever finds relevant passages from\na corpus and the LM uses these passages to generate a response. This formulation admits a multitude\nof choices: what retrieval model to use, how to divide the documents into retrieval chunks, and how\nto prompt or finetune the LM to use the retrieved\ninformation, to name only a few of the simplest\ndesign decisions.\n∗\n\nProject started during research internship at Databricks\n\nThe best design for a RAG",
+      "location": "chars:0:2165",
+      "label_options": [
+        "supports",
+        "contradicts",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-22",
+      "object_id": "action",
+      "kind": "action",
+      "question": "FiD выигрывает от большего числа passages, а long-context LLM теряют информацию в середине. Можно ли на этом основании объявить статьи противоречащими друг другу?",
+      "source_ids": [
+        "acl:2021.eacl-main.74",
+        "acl:2024.tacl-1.9"
+      ],
+      "label_options": [
+        "answer",
+        "insufficient_evidence",
+        "clarify"
+      ]
+    },
+    {
+      "case_id": "visible-22",
+      "object_id": "claim-1/f96a5ad84cf37e331b5885b95ec5b2c6ea497119c0a99acf74733ec2502e9078",
+      "kind": "entailment",
+      "question": "FiD выигрывает от большего числа passages, а long-context LLM теряют информацию в середине. Можно ли на этом основании объявить статьи противоречащими друг другу?",
+      "claim": "В описанном FiD-подходе качество продолжает улучшаться при увеличении числа извлечённых passages до ста.",
+      "conditions": {
+        "comparison": "число retrieved passages в исследованном диапазоне",
+        "dataset": "Natural Questions and TriviaQA",
+        "method": "Fusion-in-Decoder",
+        "metric": "QA performance",
+        "scope": "Описание Figure 1 и эксперименты FiD; не произвольный LLM и не бесконечное увеличение контекста.",
+        "task": "generative open-domain QA"
+      },
+      "fragment_id": "f96a5ad84cf37e331b5885b95ec5b2c6ea497119c0a99acf74733ec2502e9078",
+      "source_id": "acl:2021.eacl-main.74",
+      "fragment_text": "Leveraging Passage Retrieval with Generative Models\nfor Open Domain Question Answering\nGautier Izacard1,2,3\nEdouard Grave1\n1\nFacebook AI Research, Paris\n2\nENS, PSL University, Paris\n3\nInria, Paris\ngizacard|egrave@fb.com\n\nAbstract\n\nWhere was Alan\nTuring born?\n\nGenerative models for open domain question\nanswering have proven to be competitive, without resorting to external knowledge. While\npromising, this approach requires to use models with billions of parameters, which are expensive to train and query. In this paper, we\ninvestigate how much these models can benefit from retrieving text passages, potentially\ncontaining evidence. We obtain state-of-theart results on the Natural Questions and TriviaQA open benchmarks. Interestingly, we observe that the performance of this method significantly improves when increasing the number of retrieved passages. This is evidence that\nsequence-to-sequence models offers a flexible\nframework to efficiently aggregate and combine evidence from multiple passages.\n\n1\n\nGenerative\nseq2seq model\nAlan Turing\nwas a British\ncomputer\nscientist.\nBorn in Maida\nVale, London…\n\nMaida Vale,\nLondon\n\nFigure 1: A simple approach to open domain question\nanswering. First, it retrieves support text passages from\nan external source of knowledge such as Wikipedia.\nThen, a generative encoder-decoder model produces\nthe answer, conditioned on the question and the retrieved passages. This approach scales well with the\nnumber of retrieved passages, as the performance keeps\nimproving when retrieving up to one hundred passages.\n\nIntroduction\n\nRecently, several works have shown that factual\ninformation can be extracted from large scale\nlanguage models trained on vast quantities of\ndata (Radford et al., 2019; Petroni et al., 2019;\nJiang et al., 2019; Talmor et al., 2019). Building\non that observation and the advances in pretraining of natural language processing models, Roberts\net al. (2020) introduced a generative model for open\ndomain question answering. Without relying on\nexternal knowledge, this method obtained competitive results on several benchmarks. However,",
+      "location": "chars:0:2101",
+      "label_options": [
+        "supports",
+        "contradicts",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-22",
+      "object_id": "claim-2/de25ea57e238de9a5f77c19a0fbee046f4a64bd849af89fb636da07e2ef453f9",
+      "kind": "entailment",
+      "question": "FiD выигрывает от большего числа passages, а long-context LLM теряют информацию в середине. Можно ли на этом основании объявить статьи противоречащими друг другу?",
+      "claim": "В изученных long-context моделях качество часто выше в начале/конце контекста и хуже при расположении релевантных данных в середине.",
+      "conditions": {
+        "comparison": "beginning/end versus middle",
+        "dataset": "controlled position/context-length experiments in paper",
+        "method": "tested open and closed language models",
+        "metric": "task performance",
+        "scope": "Эффект положения при заданных моделях; не доказательство отрицательного эффекта любого увеличения числа документов.",
+        "task": "multi-document QA and key-value retrieval"
+      },
+      "fragment_id": "de25ea57e238de9a5f77c19a0fbee046f4a64bd849af89fb636da07e2ef453f9",
+      "source_id": "acl:2024.tacl-1.9",
+      "fragment_text": "context. In particular, our experiments make controlled changes to the input\ncontext size and the position of the relevant\ninformation within the input context and study\ntheir effects on language model performance. If\nlanguage models can robustly use information\nwithin long input contexts, then their performance\nshould be minimally affected by the position of\nthe relevant information in the input context.\n\nWhile recent language models have the ability to take long contexts as input, relatively\nlittle is known about how well they use\nlonger context. We analyze the performance\nof language models on two tasks that require identifying relevant information in their\ninput contexts: multi-document question answering and key-value retrieval. We find that\nperformance can degrade significantly when\nchanging the position of relevant information,\nindicating that current language models do not\nrobustly make use of information in long input contexts. In particular, we observe that\nperformance is often highest when relevant information occurs at the beginning or end of the\ninput context, and significantly degrades when\nmodels must access relevant information in\nthe middle of long contexts, even for explicitly\nlong-context models. Our analysis provides a\nbetter understanding of how language models use their input context and provides new\nevaluation protocols for future long-context\nlanguage models.\n\n1\n\nAshwin Paranjape3,4\nPercy Liang1\n\nIntroduction\n\nLanguage models have become an important and\nflexible building block in a variety of user-facing\nlanguage technologies, including conversational\ninterfaces, search and summarization, and collaborative writing (Shuster et al., 2022; Thoppilan\net al., 2022; Lee et al., 2022, inter alia). These\nmodels perform downstream tasks primarily via\nprompting: all relevant task specification and data\nto process is formatted as a textual input context,\nand the model returns a generated text completion. These input contexts can contain thousands\nof tokens, especially when language models are\n∗\n\nWork partially completed",
+      "location": "chars:1719:3788",
+      "label_options": [
+        "supports",
+        "contradicts",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-17",
+      "claim": "На EntityQuestions исследованные DPR-модели превосходят BM25.",
+      "fragment_id": "a3647346f5b8e092f2cc9af57b625a6a69282fe8d842cd7804f412c1be6ce830",
+      "object_id": "candidate-dense-universal/a3647346f5b8e092f2cc9af57b625a6a69282fe8d842cd7804f412c1be6ce830",
+      "kind": "entailment",
+      "question": "Сопоставь направления результатов DPR и EntityQuestions. Можно ли перенести вывод между наборами без проверки?",
+      "source_id": "acl:2021.emnlp-main.496",
+      "fragment_text": "Simple Entity-Centric Questions Challenge Dense Retrievers\nChristopher Sciavolino∗ Zexuan Zhong∗ Jinhyuk Lee Danqi Chen\nDepartment of Computer Science, Princeton University\n{cds3,zzhong,jinhyuklee,danqic}@cs.princeton.edu\n\nAbstract\n\nDPR DPR BM25\n(NQ) (multi)\n-\n\nOpen-domain question answering has exploded in popularity recently due to the success of dense retrieval models, which have surpassed sparse models using only a few supervised training examples. However, in this paper, we demonstrate current dense models are\nnot yet the holy grail of retrieval. We first construct EntityQuestions, a set of simple, entityrich questions based on facts from Wikidata\n(e.g., “Where was Arve Furset born?”), and\nobserve that dense retrievers drastically underperform sparse methods. We investigate this\nissue and uncover that dense retrievers can\nonly generalize to common entities unless the\nquestion pattern is explicitly observed during\ntraining. We discuss two simple solutions towards addressing this critical problem. First,\nwe demonstrate that data augmentation is unable to fix the generalization problem. Second,\nwe argue a more robust passage encoder helps\nfacilitate better question adaptation using specialized question encoders. We hope our work\ncan shed light on the challenges in creating\na robust, universal dense retriever that works\nwell across different input distributions.1\n\n1\n\nNatural Questions\n\n80.1\n\n79.4\n\n64.5\n\nEntityQuestions (this work)\nWhat is the capital of [E]?\nWho is [E] married to?\nWhere is the headquarter of [E]?\nWhere was [E] born?\nWhere was [E] educated?\nWho was [E] created by?\nWho is [E]’s child?\n(17 more types of questions)\n\n49.7\n77.3\n35.6\n70.0\n25.4\n26.4\n54.1\n19.2\n...\n\n56.7\n78.9\n48.1\n72.0\n41.8\n41.8\n57.7\n33.8\n...\n\n71.2\n90.0\n85.9\n85.0\n75.2\n73.0\n71.7\n82.9\n...\n\nTable 1: Top-20 retrieval accuracy for dense and sparse\nretrieval models on Natural Questions (Kwiatkowski\net al., 2019) and our EntityQuestions along with a set of\nsampled questions (full results in Appendix A). We",
+      "location": "chars:0:2008",
+      "label_options": [
+        "supports",
+        "contradicts",
+        "uncertain"
+      ]
+    },
+    {
+      "case_id": "visible-17",
+      "claim": "DPR потребляет меньше электроэнергии на один запрос, чем BM25.",
+      "fragment_id": "a3647346f5b8e092f2cc9af57b625a6a69282fe8d842cd7804f412c1be6ce830",
+      "object_id": "candidate-energy/a3647346f5b8e092f2cc9af57b625a6a69282fe8d842cd7804f412c1be6ce830",
+      "kind": "entailment",
+      "question": "Сопоставь направления результатов DPR и EntityQuestions. Можно ли перенести вывод между наборами без проверки?",
+      "source_id": "acl:2021.emnlp-main.496",
+      "fragment_text": "Simple Entity-Centric Questions Challenge Dense Retrievers\nChristopher Sciavolino∗ Zexuan Zhong∗ Jinhyuk Lee Danqi Chen\nDepartment of Computer Science, Princeton University\n{cds3,zzhong,jinhyuklee,danqic}@cs.princeton.edu\n\nAbstract\n\nDPR DPR BM25\n(NQ) (multi)\n-\n\nOpen-domain question answering has exploded in popularity recently due to the success of dense retrieval models, which have surpassed sparse models using only a few supervised training examples. However, in this paper, we demonstrate current dense models are\nnot yet the holy grail of retrieval. We first construct EntityQuestions, a set of simple, entityrich questions based on facts from Wikidata\n(e.g., “Where was Arve Furset born?”), and\nobserve that dense retrievers drastically underperform sparse methods. We investigate this\nissue and uncover that dense retrievers can\nonly generalize to common entities unless the\nquestion pattern is explicitly observed during\ntraining. We discuss two simple solutions towards addressing this critical problem. First,\nwe demonstrate that data augmentation is unable to fix the generalization problem. Second,\nwe argue a more robust passage encoder helps\nfacilitate better question adaptation using specialized question encoders. We hope our work\ncan shed light on the challenges in creating\na robust, universal dense retriever that works\nwell across different input distributions.1\n\n1\n\nNatural Questions\n\n80.1\n\n79.4\n\n64.5\n\nEntityQuestions (this work)\nWhat is the capital of [E]?\nWho is [E] married to?\nWhere is the headquarter of [E]?\nWhere was [E] born?\nWhere was [E] educated?\nWho was [E] created by?\nWho is [E]’s child?\n(17 more types of questions)\n\n49.7\n77.3\n35.6\n70.0\n25.4\n26.4\n54.1\n19.2\n...\n\n56.7\n78.9\n48.1\n72.0\n41.8\n41.8\n57.7\n33.8\n...\n\n71.2\n90.0\n85.9\n85.0\n75.2\n73.0\n71.7\n82.9\n...\n\nTable 1: Top-20 retrieval accuracy for dense and sparse\nretrieval models on Natural Questions (Kwiatkowski\net al., 2019) and our EntityQuestions along with a set of\nsampled questions (full results in Appendix A). We",
+      "location": "chars:0:2008",
+      "label_options": [
+        "supports",
+        "contradicts",
+        "uncertain"
+      ]
+    }
+  ],
+  "notice": "Unlabelled candidate claims, not approved facts. Assess independently using the whole cited source."
+}

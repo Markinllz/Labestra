@@ -1,0 +1,16 @@
+{
+  "public_dataset_valid": true,
+  "visible_system_cases": 24,
+  "reviewed_public_gold_cases": 30,
+  "annotation_objects_per_reviewer": 139,
+  "baseline_measured": true,
+  "paired_comparison_available": true,
+  "baseline_semantic_ratings_complete": true,
+  "supplementary_annotation_audit_complete": true,
+  "supplementary_annotation_objects": 24,
+  "annotation_blinding_basis": "self-reported",
+  "coursework_complete": false,
+  "remaining": [
+    "Teacher review request and submission form"
+  ]
+}

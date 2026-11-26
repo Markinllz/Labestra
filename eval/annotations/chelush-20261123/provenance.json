@@ -1,0 +1,17 @@
+{
+  "annotator_id": "chelush",
+  "status": "human_review_confirmed",
+  "confirmation_date": "2026-11-23",
+  "confirmation_timezone": "Europe/Moscow",
+  "human_confirmation": "User explicitly confirmed reviewing all 139 labels and rationales and requested attribution to chelush.",
+  "ai_assistance": "Initial labels and rationales prepared by Codex; subsequently reviewed and accepted by chelush without changes.",
+  "annotation_count": 139,
+  "packet_sha256": "06a11d42545e918749ee5ba1d3ffee5745bc56c63448afc554153778649554ec",
+  "rubric_version": "1",
+  "annotation_file": "annotations.max.jsonl",
+  "annotation_sha256": "d15b2b8f12385f236f75ef0f0936538f549ca9ef7b95c9ca4e607c369e8b1134",
+  "draft_sha256": "0e054a784acb144d0791f9f66e6ea525ba21a288d4637f4ee1457882fbb384fc",
+  "primary_annotations_accessed": false,
+  "gold_accessed": false,
+  "agreement_computed": false
+}

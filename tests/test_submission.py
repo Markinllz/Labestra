@@ -32,6 +32,30 @@ class SubmissionTests(unittest.TestCase):
         self.assertEqual(reports['comparison.json']['paired_cases'],24)
         self.assertEqual(before, digest(ROOT / 'data/manifest.json'))
 
+    def test_completed_semantic_review_updates_readiness_without_creating_human_results(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            directory=Path(temporary)
+            with zipfile.ZipFile(ROOT/submission.BASELINE_ARCHIVE) as archive:
+                archive.extractall(directory)
+            session=next(directory.glob('*/summary.json')).parent
+            ratings=[]
+            for path in sorted(session.glob('*/result.json')):
+                case=json.loads((path.parent/'input.json').read_text())
+                if case['phase']!='J2':continue
+                result=json.loads(path.read_text())
+                ratings.append({'run_id':result['run_id'],'reviewer_id':'synthetic-test',
+                    'rationale':'Synthetic test labels, never published as human assessment.',
+                    'claim_correct':{c['claim_id']:True for c in result['claims']},
+                    'evidence_entailed':{c['claim_id']+'/'+e['fragment_id']:True for c in result['claims'] for e in c['evidence']},
+                    'covered_gold_claim_ids':[],'accepted':False})
+            path=directory/'synthetic-ratings.jsonl'
+            path.write_text(''.join(json.dumps(r)+'\n' for r in ratings))
+            with patch('socket.socket.connect',side_effect=AssertionError('Network forbidden')):
+                reports=submission.build(baseline_ratings=path)
+            self.assertTrue(reports['readiness.json']['baseline_semantic_ratings_complete'])
+            self.assertNotIn('Complete semantic review of baseline answers',reports['readiness.json']['remaining'])
+            self.assertFalse(reports['readiness.json']['coursework_complete'])
+
     def test_archive_path_traversal_is_rejected_before_extraction(self):
         with tempfile.TemporaryDirectory() as temporary:
             directory = Path(temporary)

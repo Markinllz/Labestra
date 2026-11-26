@@ -30,6 +30,10 @@
       "assessed_cases": 24,
       "mean": 0.9166666666666666
     },
+    "emitted_claim_count": {
+      "assessed_cases": 12,
+      "mean": 3.5833333333333335
+    },
     "recall_at_20": {
       "assessed_cases": 10,
       "mean": 1.0
@@ -41,6 +45,26 @@
     "evidence_entailment": {
       "assessed_cases": 9,
       "mean": 0.9777777777777777
+    },
+    "selected_source_recall": {
+      "assessed_cases": 10,
+      "mean": 1.0
+    },
+    "selected_source_precision": {
+      "assessed_cases": 10,
+      "mean": 1.0
+    },
+    "valid_reference_fraction": {
+      "assessed_cases": 9,
+      "mean": 1.0
+    },
+    "structural_evidence_coverage": {
+      "assessed_cases": 9,
+      "mean": 1.0
+    },
+    "literal_quote_validity": {
+      "assessed_cases": 0,
+      "mean": null
     }
   },
   "duration_seconds": {
@@ -102,6 +126,16 @@
         "value": 0.05,
         "k": 20,
         "empty_result": false
+      },
+      "selected_source_recall": {
+        "numerator": 1,
+        "denominator": 1,
+        "value": 1.0
+      },
+      "selected_source_precision": {
+        "numerator": 1,
+        "denominator": 1,
+        "value": 1.0
       }
     },
     {
@@ -142,6 +176,16 @@
         "value": 0.05555555555555555,
         "k": 18,
         "empty_result": false
+      },
+      "selected_source_recall": {
+        "numerator": 1,
+        "denominator": 1,
+        "value": 1.0
+      },
+      "selected_source_precision": {
+        "numerator": 1,
+        "denominator": 1,
+        "value": 1.0
       }
     },
     {
@@ -182,6 +226,16 @@
         "value": 0.05,
         "k": 20,
         "empty_result": false
+      },
+      "selected_source_recall": {
+        "numerator": 1,
+        "denominator": 1,
+        "value": 1.0
+      },
+      "selected_source_precision": {
+        "numerator": 1,
+        "denominator": 1,
+        "value": 1.0
       }
     },
     {
@@ -222,6 +276,16 @@
         "value": 0.06666666666666667,
         "k": 15,
         "empty_result": false
+      },
+      "selected_source_recall": {
+        "numerator": 1,
+        "denominator": 1,
+        "value": 1.0
+      },
+      "selected_source_precision": {
+        "numerator": 1,
+        "denominator": 1,
+        "value": 1.0
       }
     },
     {
@@ -262,6 +326,16 @@
         "value": 0.125,
         "k": 8,
         "empty_result": false
+      },
+      "selected_source_recall": {
+        "numerator": 1,
+        "denominator": 1,
+        "value": 1.0
+      },
+      "selected_source_precision": {
+        "numerator": 1,
+        "denominator": 1,
+        "value": 1.0
       }
     },
     {
@@ -302,6 +376,16 @@
         "value": 0.058823529411764705,
         "k": 17,
         "empty_result": false
+      },
+      "selected_source_recall": {
+        "numerator": 1,
+        "denominator": 1,
+        "value": 1.0
+      },
+      "selected_source_precision": {
+        "numerator": 1,
+        "denominator": 1,
+        "value": 1.0
       }
     },
     {
@@ -342,6 +426,16 @@
         "value": 0.1,
         "k": 20,
         "empty_result": false
+      },
+      "selected_source_recall": {
+        "numerator": 2,
+        "denominator": 2,
+        "value": 1.0
+      },
+      "selected_source_precision": {
+        "numerator": 2,
+        "denominator": 2,
+        "value": 1.0
       }
     },
     {
@@ -382,6 +476,16 @@
         "value": 0.05,
         "k": 20,
         "empty_result": false
+      },
+      "selected_source_recall": {
+        "numerator": 1,
+        "denominator": 1,
+        "value": 1.0
+      },
+      "selected_source_precision": {
+        "numerator": 1,
+        "denominator": 1,
+        "value": 1.0
       }
     },
     {
@@ -422,6 +526,16 @@
         "value": 0.1111111111111111,
         "k": 9,
         "empty_result": false
+      },
+      "selected_source_recall": {
+        "numerator": 1,
+        "denominator": 1,
+        "value": 1.0
+      },
+      "selected_source_precision": {
+        "numerator": 1,
+        "denominator": 1,
+        "value": 1.0
       }
     },
     {
@@ -462,6 +576,16 @@
         "value": 0.1111111111111111,
         "k": 9,
         "empty_result": false
+      },
+      "selected_source_recall": {
+        "numerator": 1,
+        "denominator": 1,
+        "value": 1.0
+      },
+      "selected_source_precision": {
+        "numerator": 1,
+        "denominator": 1,
+        "value": 1.0
       }
     },
     {
@@ -546,6 +670,17 @@
       "input_question": "Какую retrieval-метрику и какой диапазон улучшения относительно Lucene-BM25 авторы DPR указывают в abstract? Обозначь границы утверждения.",
       "search_query": "DPR Lucene BM25 top 20 accuracy",
       "input_corpus_revision_id": "visible-corpus-9a484e0b5b25",
+      "emitted_claim_count": 0,
+      "valid_reference_fraction": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "structural_evidence_coverage": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
       "action_correct": false,
       "claim_correctness": 0.0,
       "gold_coverage": 0.0,
@@ -583,6 +718,17 @@
       "input_question": "Каков результат сравнения dense и sparse retrieval на EntityQuestions?",
       "search_query": "EntityQuestions dense sparse underperform",
       "input_corpus_revision_id": "visible-corpus-f730929a7083",
+      "emitted_claim_count": 5,
+      "valid_reference_fraction": {
+        "numerator": 7,
+        "denominator": 7,
+        "value": 1.0
+      },
+      "structural_evidence_coverage": {
+        "numerator": 5,
+        "denominator": 5,
+        "value": 1.0
+      },
       "action_correct": true,
       "claim_correctness": 1.0,
       "gold_coverage": 1.0,
@@ -620,6 +766,17 @@
       "input_question": "Что означает faithfulness в статье RAGAs?",
       "search_query": "faithfulness claims inferred context",
       "input_corpus_revision_id": "visible-corpus-f45d50bdd5ab",
+      "emitted_claim_count": 5,
+      "valid_reference_fraction": {
+        "numerator": 5,
+        "denominator": 5,
+        "value": 1.0
+      },
+      "structural_evidence_coverage": {
+        "numerator": 5,
+        "denominator": 5,
+        "value": 1.0
+      },
       "action_correct": true,
       "claim_correctness": 1.0,
       "gold_coverage": 1.0,
@@ -657,6 +814,17 @@
       "input_question": "Какие три измерения качества RAG оценивает ARES?",
       "search_query": "context relevance answer faithfulness answer relevance",
       "input_corpus_revision_id": "visible-corpus-ac4933dbbdde",
+      "emitted_claim_count": 4,
+      "valid_reference_fraction": {
+        "numerator": 8,
+        "denominator": 8,
+        "value": 1.0
+      },
+      "structural_evidence_coverage": {
+        "numerator": 4,
+        "denominator": 4,
+        "value": 1.0
+      },
       "action_correct": true,
       "claim_correctness": 1.0,
       "gold_coverage": 1.0,
@@ -694,6 +862,17 @@
       "input_question": "Сопоставь направления результатов DPR и EntityQuestions. Можно ли перенести вывод между наборами без проверки?",
       "search_query": "DPR BM25 EntityQuestions dense sparse",
       "input_corpus_revision_id": "visible-corpus-cb073f4cb86a",
+      "emitted_claim_count": 4,
+      "valid_reference_fraction": {
+        "numerator": 7,
+        "denominator": 7,
+        "value": 1.0
+      },
+      "structural_evidence_coverage": {
+        "numerator": 4,
+        "denominator": 4,
+        "value": 1.0
+      },
       "action_correct": true,
       "claim_correctness": 1.0,
       "gold_coverage": 0.3333333333333333,
@@ -731,6 +910,17 @@
       "input_question": "Сравни роль человеческих эталонов при вычислении RAGAs и при PPI в ARES.",
       "search_query": "human annotations reference free prediction powered inference",
       "input_corpus_revision_id": "visible-corpus-49c4c3939152",
+      "emitted_claim_count": 4,
+      "valid_reference_fraction": {
+        "numerator": 8,
+        "denominator": 8,
+        "value": 1.0
+      },
+      "structural_evidence_coverage": {
+        "numerator": 4,
+        "denominator": 4,
+        "value": 1.0
+      },
       "action_correct": true,
       "claim_correctness": 1.0,
       "gold_coverage": 1.0,
@@ -768,6 +958,17 @@
       "input_question": "Сопоставь наблюдения FiD об увеличении числа passages и Lost in the Middle о позиции информации. Это одинаковые эксперименты?",
       "search_query": "passages number relevant position middle",
       "input_corpus_revision_id": "visible-corpus-dc3b31a73c09",
+      "emitted_claim_count": 5,
+      "valid_reference_fraction": {
+        "numerator": 9,
+        "denominator": 9,
+        "value": 1.0
+      },
+      "structural_evidence_coverage": {
+        "numerator": 5,
+        "denominator": 5,
+        "value": 1.0
+      },
       "action_correct": true,
       "claim_correctness": 1.0,
       "gold_coverage": 1.0,
@@ -805,6 +1006,17 @@
       "input_question": "Как RAGAs определяет faithfulness и какие измерения в дополнение к нему перечислены у ARES?",
       "search_query": "faithfulness context relevance answer relevance",
       "input_corpus_revision_id": "visible-corpus-49c4c3939152",
+      "emitted_claim_count": 4,
+      "valid_reference_fraction": {
+        "numerator": 5,
+        "denominator": 5,
+        "value": 1.0
+      },
+      "structural_evidence_coverage": {
+        "numerator": 4,
+        "denominator": 4,
+        "value": 1.0
+      },
       "action_correct": false,
       "claim_correctness": 0.75,
       "gold_coverage": 0.5,
@@ -842,6 +1054,17 @@
       "input_question": "Один исследователь говорит, что dense retrieval лучше sparse, другой ссылается на EntityQuestions. Разбери основания обеих позиций по корпусу.",
       "search_query": "dense sparse DPR EntityQuestions",
       "input_corpus_revision_id": "visible-corpus-cb073f4cb86a",
+      "emitted_claim_count": 10,
+      "valid_reference_fraction": {
+        "numerator": 11,
+        "denominator": 11,
+        "value": 1.0
+      },
+      "structural_evidence_coverage": {
+        "numerator": 10,
+        "denominator": 10,
+        "value": 1.0
+      },
       "action_correct": true,
       "claim_correctness": 1.0,
       "gold_coverage": 0.3333333333333333,
@@ -879,6 +1102,17 @@
       "input_question": "FiD выигрывает от большего числа passages, а long-context LLM теряют информацию в середине. Можно ли на этом основании объявить статьи противоречащими друг другу?",
       "search_query": "passages context position middle",
       "input_corpus_revision_id": "visible-corpus-dc3b31a73c09",
+      "emitted_claim_count": 2,
+      "valid_reference_fraction": {
+        "numerator": 4,
+        "denominator": 4,
+        "value": 1.0
+      },
+      "structural_evidence_coverage": {
+        "numerator": 2,
+        "denominator": 2,
+        "value": 1.0
+      },
       "action_correct": true,
       "claim_correctness": 1.0,
       "gold_coverage": 0.5,
@@ -916,6 +1150,17 @@
       "input_question": "Какой chunk size в токенах оптимален для любого RAG на основании только этого корпуса?",
       "search_query": "optimal chunk size tokens",
       "input_corpus_revision_id": "visible-corpus-f6df0bff3f9c",
+      "emitted_claim_count": 0,
+      "valid_reference_fraction": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "structural_evidence_coverage": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
       "action_correct": true,
       "evidence_entailment": {
         "numerator": 0,
@@ -950,6 +1195,17 @@
       "input_question": "На сколько процентов ARES улучшает выживаемость пациентов в клиническом испытании?",
       "search_query": "ARES randomized clinical survival patients",
       "input_corpus_revision_id": "visible-corpus-ac4933dbbdde",
+      "emitted_claim_count": 0,
+      "valid_reference_fraction": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "structural_evidence_coverage": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
       "action_correct": true,
       "evidence_entailment": {
         "numerator": 0,
@@ -962,7 +1218,7 @@
   "assessment_basis": "Reviewer confirmed proposed assessments without changes on 2026-11-26. No inference of human labor savings from operator interaction time.",
   "reference_cost_only": true,
   "billed_proxy_cost": null,
-  "baseline_comparison": "pending: no completed B0",
+  "baseline_comparison": "comparison.json",
   "reproducibility": {
     "source_archive": "runs/submission/live-20261124-v2/experiments-all-attempts-v2.zip",
     "source_archive_sha256": "57be40849cb773e5bfe226d8b4d76195fb953ad3d8aef95f89db7724cea0ce43",

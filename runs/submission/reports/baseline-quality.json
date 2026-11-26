@@ -1,0 +1,1180 @@
+{
+  "session_id": "extractive-visible-20261126-r2",
+  "planned": 24,
+  "statuses": {
+    "completed": 22,
+    "needs_clarification": 2
+  },
+  "completion": {
+    "numerator": 22,
+    "denominator": 24,
+    "value": 0.9166666666666666
+  },
+  "scientific_evaluation": true,
+  "gold_sha256": "a2c2ed0f68f3aec4301260cb8cf3d3834e8cc82334674b38560f900d92851708",
+  "ratings_sha256": null,
+  "quality": {
+    "claim_correctness": {
+      "assessed_cases": 0,
+      "mean": null
+    },
+    "gold_coverage": {
+      "assessed_cases": 0,
+      "mean": null
+    },
+    "accepted": {
+      "assessed_cases": 0,
+      "mean": null
+    },
+    "action_correct": {
+      "assessed_cases": 24,
+      "mean": 0.9166666666666666
+    },
+    "emitted_claim_count": {
+      "assessed_cases": 12,
+      "mean": 3
+    },
+    "recall_at_20": {
+      "assessed_cases": 10,
+      "mean": 1.0
+    },
+    "precision_at_k": {
+      "assessed_cases": 10,
+      "mean": 0.07782679738562091
+    },
+    "evidence_entailment": {
+      "assessed_cases": 0,
+      "mean": null
+    },
+    "selected_source_recall": {
+      "assessed_cases": 10,
+      "mean": 0.95
+    },
+    "selected_source_precision": {
+      "assessed_cases": 10,
+      "mean": 0.3333333333333333
+    },
+    "valid_reference_fraction": {
+      "assessed_cases": 12,
+      "mean": 1.0
+    },
+    "structural_evidence_coverage": {
+      "assessed_cases": 12,
+      "mean": 1.0
+    },
+    "literal_quote_validity": {
+      "assessed_cases": 12,
+      "mean": 1.0
+    }
+  },
+  "duration_seconds": {
+    "n": 24,
+    "median": 0.00043147900214535184,
+    "p95": 0.0007983749965205789
+  },
+  "human_active_seconds": {
+    "n": 0,
+    "median": null,
+    "p95": null
+  },
+  "total_cost": 0.0,
+  "known_cost_subtotal": 0.0,
+  "unknown_cost_runs": 0,
+  "currency": [
+    "USD"
+  ],
+  "limitations": [
+    "Unassessed semantic metrics remain null; missing tasks and failures remain in the task list.",
+    "Inspect per-case and per-category results; aggregates do not establish statistical independence."
+  ],
+  "records": [
+    {
+      "case_id": "visible-01",
+      "phase": "J1",
+      "category": "thematic",
+      "status": "completed",
+      "stop_reason": "corpus_selected",
+      "variant": "baseline",
+      "blind_attestation": false,
+      "prior_reference_access": false,
+      "comparison_limitation": null,
+      "completion": true,
+      "duration_seconds": 0.000726416998077184,
+      "human_active_seconds": null,
+      "usage": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "llm_calls": 0,
+        "search_calls": 1,
+        "steps": 1,
+        "cost": 0.0,
+        "currency": "USD"
+      },
+      "config_sha256": "fd670fb420426cb4bae1b327cd5b0819ac084338568c27142a8c0395f9f73348",
+      "input_question": "Найди исходную работу DPR с dual-encoder для dense passage retrieval и сравнением с Lucene-BM25.",
+      "search_query": "dense passage retrieval dual encoder Lucene BM25",
+      "input_corpus_revision_id": null,
+      "action_correct": true,
+      "recall_at_20": {
+        "numerator": 1,
+        "denominator": 1,
+        "value": 1.0
+      },
+      "precision_at_k": {
+        "numerator": 1,
+        "denominator": 20,
+        "value": 0.05,
+        "k": 20,
+        "empty_result": false
+      },
+      "selected_source_recall": {
+        "numerator": 1,
+        "denominator": 1,
+        "value": 1.0
+      },
+      "selected_source_precision": {
+        "numerator": 1,
+        "denominator": 3,
+        "value": 0.3333333333333333
+      }
+    },
+    {
+      "case_id": "visible-02",
+      "phase": "J1",
+      "category": "thematic",
+      "status": "completed",
+      "stop_reason": "corpus_selected",
+      "variant": "baseline",
+      "blind_attestation": false,
+      "prior_reference_access": false,
+      "comparison_limitation": null,
+      "completion": true,
+      "duration_seconds": 0.00017504200513940305,
+      "human_active_seconds": null,
+      "usage": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "llm_calls": 0,
+        "search_calls": 1,
+        "steps": 1,
+        "cost": 0.0,
+        "currency": "USD"
+      },
+      "config_sha256": "fd670fb420426cb4bae1b327cd5b0819ac084338568c27142a8c0395f9f73348",
+      "input_question": "Найди исследование переноса dense retrievers на простые entity-centric вопросы из Wikidata.",
+      "search_query": "entity centric questions Wikidata dense sparse",
+      "input_corpus_revision_id": null,
+      "action_correct": true,
+      "recall_at_20": {
+        "numerator": 1,
+        "denominator": 1,
+        "value": 1.0
+      },
+      "precision_at_k": {
+        "numerator": 1,
+        "denominator": 18,
+        "value": 0.05555555555555555,
+        "k": 18,
+        "empty_result": false
+      },
+      "selected_source_recall": {
+        "numerator": 1,
+        "denominator": 1,
+        "value": 1.0
+      },
+      "selected_source_precision": {
+        "numerator": 1,
+        "denominator": 3,
+        "value": 0.3333333333333333
+      }
+    },
+    {
+      "case_id": "visible-03",
+      "phase": "J1",
+      "category": "thematic",
+      "status": "completed",
+      "stop_reason": "corpus_selected",
+      "variant": "baseline",
+      "blind_attestation": false,
+      "prior_reference_access": false,
+      "comparison_limitation": null,
+      "completion": true,
+      "duration_seconds": 0.00015870799688855186,
+      "human_active_seconds": null,
+      "usage": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "llm_calls": 0,
+        "search_calls": 1,
+        "steps": 1,
+        "cost": 0.0,
+        "currency": "USD"
+      },
+      "config_sha256": "fd670fb420426cb4bae1b327cd5b0819ac084338568c27142a8c0395f9f73348",
+      "input_question": "Найди FiD-подход к объединению извлечённых passages генеративным encoder-decoder в open-domain QA.",
+      "search_query": "fusion decoder generative passages question answering",
+      "input_corpus_revision_id": null,
+      "action_correct": true,
+      "recall_at_20": {
+        "numerator": 1,
+        "denominator": 1,
+        "value": 1.0
+      },
+      "precision_at_k": {
+        "numerator": 1,
+        "denominator": 20,
+        "value": 0.05,
+        "k": 20,
+        "empty_result": false
+      },
+      "selected_source_recall": {
+        "numerator": 1,
+        "denominator": 1,
+        "value": 1.0
+      },
+      "selected_source_precision": {
+        "numerator": 1,
+        "denominator": 3,
+        "value": 0.3333333333333333
+      }
+    },
+    {
+      "case_id": "visible-04",
+      "phase": "J1",
+      "category": "thematic",
+      "status": "completed",
+      "stop_reason": "corpus_selected",
+      "variant": "baseline",
+      "blind_attestation": false,
+      "prior_reference_access": false,
+      "comparison_limitation": null,
+      "completion": true,
+      "duration_seconds": 0.00021795799693791196,
+      "human_active_seconds": null,
+      "usage": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "llm_calls": 0,
+        "search_calls": 1,
+        "steps": 1,
+        "cost": 0.0,
+        "currency": "USD"
+      },
+      "config_sha256": "fd670fb420426cb4bae1b327cd5b0819ac084338568c27142a8c0395f9f73348",
+      "input_question": "Найди RAGAs: reference-free оценку RAG без эталонных человеческих ответов при вычислении метрик.",
+      "search_query": "RAGAs reference free evaluation faithfulness",
+      "input_corpus_revision_id": null,
+      "action_correct": true,
+      "recall_at_20": {
+        "numerator": 1,
+        "denominator": 1,
+        "value": 1.0
+      },
+      "precision_at_k": {
+        "numerator": 1,
+        "denominator": 15,
+        "value": 0.06666666666666667,
+        "k": 15,
+        "empty_result": false
+      },
+      "selected_source_recall": {
+        "numerator": 1,
+        "denominator": 1,
+        "value": 1.0
+      },
+      "selected_source_precision": {
+        "numerator": 1,
+        "denominator": 3,
+        "value": 0.3333333333333333
+      }
+    },
+    {
+      "case_id": "visible-05",
+      "phase": "J1",
+      "category": "thematic",
+      "status": "completed",
+      "stop_reason": "corpus_selected",
+      "variant": "baseline",
+      "blind_attestation": false,
+      "prior_reference_access": false,
+      "comparison_limitation": null,
+      "completion": true,
+      "duration_seconds": 0.0001249999986612238,
+      "human_active_seconds": null,
+      "usage": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "llm_calls": 0,
+        "search_calls": 1,
+        "steps": 1,
+        "cost": 0.0,
+        "currency": "USD"
+      },
+      "config_sha256": "fd670fb420426cb4bae1b327cd5b0819ac084338568c27142a8c0395f9f73348",
+      "input_question": "Найди ARES: оценку RAG с synthetic training data и prediction-powered inference.",
+      "search_query": "ARES prediction powered inference synthetic judges",
+      "input_corpus_revision_id": null,
+      "action_correct": true,
+      "recall_at_20": {
+        "numerator": 1,
+        "denominator": 1,
+        "value": 1.0
+      },
+      "precision_at_k": {
+        "numerator": 1,
+        "denominator": 8,
+        "value": 0.125,
+        "k": 8,
+        "empty_result": false
+      },
+      "selected_source_recall": {
+        "numerator": 1,
+        "denominator": 1,
+        "value": 1.0
+      },
+      "selected_source_precision": {
+        "numerator": 1,
+        "denominator": 3,
+        "value": 0.3333333333333333
+      }
+    },
+    {
+      "case_id": "visible-06",
+      "phase": "J1",
+      "category": "thematic",
+      "status": "completed",
+      "stop_reason": "corpus_selected",
+      "variant": "baseline",
+      "blind_attestation": false,
+      "prior_reference_access": false,
+      "comparison_limitation": null,
+      "completion": true,
+      "duration_seconds": 0.00014133300282992423,
+      "human_active_seconds": null,
+      "usage": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "llm_calls": 0,
+        "search_calls": 1,
+        "steps": 1,
+        "cost": 0.0,
+        "currency": "USD"
+      },
+      "config_sha256": "fd670fb420426cb4bae1b327cd5b0819ac084338568c27142a8c0395f9f73348",
+      "input_question": "Найди исследование зависимости качества LLM от позиции релевантной информации в длинном контексте.",
+      "search_query": "long context relevant information position middle",
+      "input_corpus_revision_id": null,
+      "action_correct": true,
+      "recall_at_20": {
+        "numerator": 1,
+        "denominator": 1,
+        "value": 1.0
+      },
+      "precision_at_k": {
+        "numerator": 1,
+        "denominator": 17,
+        "value": 0.058823529411764705,
+        "k": 17,
+        "empty_result": false
+      },
+      "selected_source_recall": {
+        "numerator": 1,
+        "denominator": 1,
+        "value": 1.0
+      },
+      "selected_source_precision": {
+        "numerator": 1,
+        "denominator": 3,
+        "value": 0.3333333333333333
+      }
+    },
+    {
+      "case_id": "visible-07",
+      "phase": "J1",
+      "category": "distinction",
+      "status": "completed",
+      "stop_reason": "corpus_selected",
+      "variant": "baseline",
+      "blind_attestation": false,
+      "prior_reference_access": false,
+      "comparison_limitation": null,
+      "completion": true,
+      "duration_seconds": 0.00014699999883305281,
+      "human_active_seconds": null,
+      "usage": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "llm_calls": 0,
+        "search_calls": 1,
+        "steps": 1,
+        "cost": 0.0,
+        "currency": "USD"
+      },
+      "config_sha256": "fd670fb420426cb4bae1b327cd5b0819ac084338568c27142a8c0395f9f73348",
+      "input_question": "Найди методы reranking с zero-shot question generation или генерацией relevance labels sequence-to-sequence моделью. Не включай обычную генерацию ответа.",
+      "search_query": "reranking question generation relevance target tokens",
+      "input_corpus_revision_id": null,
+      "action_correct": true,
+      "recall_at_20": {
+        "numerator": 2,
+        "denominator": 2,
+        "value": 1.0
+      },
+      "precision_at_k": {
+        "numerator": 2,
+        "denominator": 20,
+        "value": 0.1,
+        "k": 20,
+        "empty_result": false
+      },
+      "selected_source_recall": {
+        "numerator": 1,
+        "denominator": 2,
+        "value": 0.5
+      },
+      "selected_source_precision": {
+        "numerator": 1,
+        "denominator": 3,
+        "value": 0.3333333333333333
+      }
+    },
+    {
+      "case_id": "visible-08",
+      "phase": "J1",
+      "category": "distinction",
+      "status": "completed",
+      "stop_reason": "corpus_selected",
+      "variant": "baseline",
+      "blind_attestation": false,
+      "prior_reference_access": false,
+      "comparison_limitation": null,
+      "completion": true,
+      "duration_seconds": 0.00014079199900152162,
+      "human_active_seconds": null,
+      "usage": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "llm_calls": 0,
+        "search_calls": 1,
+        "steps": 1,
+        "cost": 0.0,
+        "currency": "USD"
+      },
+      "config_sha256": "fd670fb420426cb4bae1b327cd5b0819ac084338568c27142a8c0395f9f73348",
+      "input_question": "Найди benchmark, объединяющий knowledge-intensive задачи одним снимком Wikipedia и оценкой provenance.",
+      "search_query": "benchmark shared Wikipedia snapshot provenance knowledge intensive",
+      "input_corpus_revision_id": null,
+      "action_correct": true,
+      "recall_at_20": {
+        "numerator": 1,
+        "denominator": 1,
+        "value": 1.0
+      },
+      "precision_at_k": {
+        "numerator": 1,
+        "denominator": 20,
+        "value": 0.05,
+        "k": 20,
+        "empty_result": false
+      },
+      "selected_source_recall": {
+        "numerator": 1,
+        "denominator": 1,
+        "value": 1.0
+      },
+      "selected_source_precision": {
+        "numerator": 1,
+        "denominator": 3,
+        "value": 0.3333333333333333
+      }
+    },
+    {
+      "case_id": "visible-09",
+      "phase": "J1",
+      "category": "distinction",
+      "status": "completed",
+      "stop_reason": "corpus_selected",
+      "variant": "baseline",
+      "blind_attestation": false,
+      "prior_reference_access": false,
+      "comparison_limitation": null,
+      "completion": true,
+      "duration_seconds": 0.00011658400035230443,
+      "human_active_seconds": null,
+      "usage": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "llm_calls": 0,
+        "search_calls": 1,
+        "steps": 1,
+        "cost": 0.0,
+        "currency": "USD"
+      },
+      "config_sha256": "fd670fb420426cb4bae1b327cd5b0819ac084338568c27142a8c0395f9f73348",
+      "input_question": "Найди ALCE: end-to-end benchmark генерации ответов с цитатами и оценкой citation quality.",
+      "search_query": "ALCE citations fluency correctness citation quality",
+      "input_corpus_revision_id": null,
+      "action_correct": true,
+      "recall_at_20": {
+        "numerator": 1,
+        "denominator": 1,
+        "value": 1.0
+      },
+      "precision_at_k": {
+        "numerator": 1,
+        "denominator": 9,
+        "value": 0.1111111111111111,
+        "k": 9,
+        "empty_result": false
+      },
+      "selected_source_recall": {
+        "numerator": 1,
+        "denominator": 1,
+        "value": 1.0
+      },
+      "selected_source_precision": {
+        "numerator": 1,
+        "denominator": 3,
+        "value": 0.3333333333333333
+      }
+    },
+    {
+      "case_id": "visible-10",
+      "phase": "J1",
+      "category": "distinction",
+      "status": "completed",
+      "stop_reason": "corpus_selected",
+      "variant": "baseline",
+      "blind_attestation": false,
+      "prior_reference_access": false,
+      "comparison_limitation": null,
+      "completion": true,
+      "duration_seconds": 0.00010804199700942263,
+      "human_active_seconds": null,
+      "usage": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "llm_calls": 0,
+        "search_calls": 1,
+        "steps": 1,
+        "cost": 0.0,
+        "currency": "USD"
+      },
+      "config_sha256": "fd670fb420426cb4bae1b327cd5b0819ac084338568c27142a8c0395f9f73348",
+      "input_question": "Найди SelfCheckGPT: проверку hallucinations по согласованности выборок black-box модели без внешней базы.",
+      "search_query": "SelfCheckGPT sampling consistency black box hallucination",
+      "input_corpus_revision_id": null,
+      "action_correct": true,
+      "recall_at_20": {
+        "numerator": 1,
+        "denominator": 1,
+        "value": 1.0
+      },
+      "precision_at_k": {
+        "numerator": 1,
+        "denominator": 9,
+        "value": 0.1111111111111111,
+        "k": 9,
+        "empty_result": false
+      },
+      "selected_source_recall": {
+        "numerator": 1,
+        "denominator": 1,
+        "value": 1.0
+      },
+      "selected_source_precision": {
+        "numerator": 1,
+        "denominator": 3,
+        "value": 0.3333333333333333
+      }
+    },
+    {
+      "case_id": "visible-11",
+      "phase": "J1",
+      "category": "ambiguous",
+      "status": "needs_clarification",
+      "stop_reason": "search_query_required",
+      "variant": "baseline",
+      "blind_attestation": false,
+      "prior_reference_access": false,
+      "comparison_limitation": null,
+      "completion": false,
+      "duration_seconds": 1.562500256113708e-05,
+      "human_active_seconds": null,
+      "usage": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "llm_calls": 0,
+        "search_calls": 0,
+        "steps": 0,
+        "cost": 0.0,
+        "currency": "USD"
+      },
+      "config_sha256": "fd670fb420426cb4bae1b327cd5b0819ac084338568c27142a8c0395f9f73348",
+      "input_question": "Какая модель самая хорошая?",
+      "search_query": "",
+      "input_corpus_revision_id": null,
+      "action_correct": true
+    },
+    {
+      "case_id": "visible-12",
+      "phase": "J1",
+      "category": "ambiguous",
+      "status": "needs_clarification",
+      "stop_reason": "search_query_required",
+      "variant": "baseline",
+      "blind_attestation": false,
+      "prior_reference_access": false,
+      "comparison_limitation": null,
+      "completion": false,
+      "duration_seconds": 1.4875004126224667e-05,
+      "human_active_seconds": null,
+      "usage": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "llm_calls": 0,
+        "search_calls": 0,
+        "steps": 0,
+        "cost": 0.0,
+        "currency": "USD"
+      },
+      "config_sha256": "fd670fb420426cb4bae1b327cd5b0819ac084338568c27142a8c0395f9f73348",
+      "input_question": "Найди лучший метод для моей задачи.",
+      "search_query": "",
+      "input_corpus_revision_id": null,
+      "action_correct": true
+    },
+    {
+      "case_id": "visible-13",
+      "phase": "J2",
+      "category": "direct",
+      "status": "completed",
+      "stop_reason": "draft_ready",
+      "variant": "baseline",
+      "blind_attestation": false,
+      "prior_reference_access": false,
+      "comparison_limitation": null,
+      "completion": true,
+      "duration_seconds": 0.0007538749996456318,
+      "human_active_seconds": null,
+      "usage": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "llm_calls": 0,
+        "search_calls": 1,
+        "steps": 2,
+        "cost": 0.0,
+        "currency": "USD"
+      },
+      "config_sha256": "fd670fb420426cb4bae1b327cd5b0819ac084338568c27142a8c0395f9f73348",
+      "input_question": "Какую retrieval-метрику и какой диапазон улучшения относительно Lucene-BM25 авторы DPR указывают в abstract? Обозначь границы утверждения.",
+      "search_query": "DPR Lucene BM25 top 20 accuracy",
+      "input_corpus_revision_id": "visible-corpus-9a484e0b5b25",
+      "emitted_claim_count": 3,
+      "valid_reference_fraction": {
+        "numerator": 3,
+        "denominator": 3,
+        "value": 1.0
+      },
+      "structural_evidence_coverage": {
+        "numerator": 3,
+        "denominator": 3,
+        "value": 1.0
+      },
+      "literal_quote_validity": {
+        "numerator": 3,
+        "denominator": 3,
+        "value": 1.0
+      },
+      "action_correct": true
+    },
+    {
+      "case_id": "visible-14",
+      "phase": "J2",
+      "category": "direct",
+      "status": "completed",
+      "stop_reason": "draft_ready",
+      "variant": "baseline",
+      "blind_attestation": false,
+      "prior_reference_access": false,
+      "comparison_limitation": null,
+      "completion": true,
+      "duration_seconds": 0.0004745839978568256,
+      "human_active_seconds": null,
+      "usage": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "llm_calls": 0,
+        "search_calls": 1,
+        "steps": 2,
+        "cost": 0.0,
+        "currency": "USD"
+      },
+      "config_sha256": "fd670fb420426cb4bae1b327cd5b0819ac084338568c27142a8c0395f9f73348",
+      "input_question": "Каков результат сравнения dense и sparse retrieval на EntityQuestions?",
+      "search_query": "EntityQuestions dense sparse underperform",
+      "input_corpus_revision_id": "visible-corpus-f730929a7083",
+      "emitted_claim_count": 3,
+      "valid_reference_fraction": {
+        "numerator": 3,
+        "denominator": 3,
+        "value": 1.0
+      },
+      "structural_evidence_coverage": {
+        "numerator": 3,
+        "denominator": 3,
+        "value": 1.0
+      },
+      "literal_quote_validity": {
+        "numerator": 3,
+        "denominator": 3,
+        "value": 1.0
+      },
+      "action_correct": true
+    },
+    {
+      "case_id": "visible-15",
+      "phase": "J2",
+      "category": "direct",
+      "status": "completed",
+      "stop_reason": "draft_ready",
+      "variant": "baseline",
+      "blind_attestation": false,
+      "prior_reference_access": false,
+      "comparison_limitation": null,
+      "completion": true,
+      "duration_seconds": 0.00043008300417568535,
+      "human_active_seconds": null,
+      "usage": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "llm_calls": 0,
+        "search_calls": 1,
+        "steps": 2,
+        "cost": 0.0,
+        "currency": "USD"
+      },
+      "config_sha256": "fd670fb420426cb4bae1b327cd5b0819ac084338568c27142a8c0395f9f73348",
+      "input_question": "Что означает faithfulness в статье RAGAs?",
+      "search_query": "faithfulness claims inferred context",
+      "input_corpus_revision_id": "visible-corpus-f45d50bdd5ab",
+      "emitted_claim_count": 3,
+      "valid_reference_fraction": {
+        "numerator": 3,
+        "denominator": 3,
+        "value": 1.0
+      },
+      "structural_evidence_coverage": {
+        "numerator": 3,
+        "denominator": 3,
+        "value": 1.0
+      },
+      "literal_quote_validity": {
+        "numerator": 3,
+        "denominator": 3,
+        "value": 1.0
+      },
+      "action_correct": true
+    },
+    {
+      "case_id": "visible-16",
+      "phase": "J2",
+      "category": "direct",
+      "status": "completed",
+      "stop_reason": "draft_ready",
+      "variant": "baseline",
+      "blind_attestation": false,
+      "prior_reference_access": false,
+      "comparison_limitation": null,
+      "completion": true,
+      "duration_seconds": 0.00043287500011501834,
+      "human_active_seconds": null,
+      "usage": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "llm_calls": 0,
+        "search_calls": 1,
+        "steps": 2,
+        "cost": 0.0,
+        "currency": "USD"
+      },
+      "config_sha256": "fd670fb420426cb4bae1b327cd5b0819ac084338568c27142a8c0395f9f73348",
+      "input_question": "Какие три измерения качества RAG оценивает ARES?",
+      "search_query": "context relevance answer faithfulness answer relevance",
+      "input_corpus_revision_id": "visible-corpus-ac4933dbbdde",
+      "emitted_claim_count": 3,
+      "valid_reference_fraction": {
+        "numerator": 3,
+        "denominator": 3,
+        "value": 1.0
+      },
+      "structural_evidence_coverage": {
+        "numerator": 3,
+        "denominator": 3,
+        "value": 1.0
+      },
+      "literal_quote_validity": {
+        "numerator": 3,
+        "denominator": 3,
+        "value": 1.0
+      },
+      "action_correct": true
+    },
+    {
+      "case_id": "visible-17",
+      "phase": "J2",
+      "category": "comparative",
+      "status": "completed",
+      "stop_reason": "draft_ready",
+      "variant": "baseline",
+      "blind_attestation": false,
+      "prior_reference_access": false,
+      "comparison_limitation": null,
+      "completion": true,
+      "duration_seconds": 0.0007699169946135953,
+      "human_active_seconds": null,
+      "usage": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "llm_calls": 0,
+        "search_calls": 1,
+        "steps": 2,
+        "cost": 0.0,
+        "currency": "USD"
+      },
+      "config_sha256": "fd670fb420426cb4bae1b327cd5b0819ac084338568c27142a8c0395f9f73348",
+      "input_question": "Сопоставь направления результатов DPR и EntityQuestions. Можно ли перенести вывод между наборами без проверки?",
+      "search_query": "DPR BM25 EntityQuestions dense sparse",
+      "input_corpus_revision_id": "visible-corpus-cb073f4cb86a",
+      "emitted_claim_count": 3,
+      "valid_reference_fraction": {
+        "numerator": 3,
+        "denominator": 3,
+        "value": 1.0
+      },
+      "structural_evidence_coverage": {
+        "numerator": 3,
+        "denominator": 3,
+        "value": 1.0
+      },
+      "literal_quote_validity": {
+        "numerator": 3,
+        "denominator": 3,
+        "value": 1.0
+      },
+      "action_correct": true
+    },
+    {
+      "case_id": "visible-18",
+      "phase": "J2",
+      "category": "comparative",
+      "status": "completed",
+      "stop_reason": "draft_ready",
+      "variant": "baseline",
+      "blind_attestation": false,
+      "prior_reference_access": false,
+      "comparison_limitation": null,
+      "completion": true,
+      "duration_seconds": 0.0007005840016063303,
+      "human_active_seconds": null,
+      "usage": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "llm_calls": 0,
+        "search_calls": 1,
+        "steps": 2,
+        "cost": 0.0,
+        "currency": "USD"
+      },
+      "config_sha256": "fd670fb420426cb4bae1b327cd5b0819ac084338568c27142a8c0395f9f73348",
+      "input_question": "Сравни роль человеческих эталонов при вычислении RAGAs и при PPI в ARES.",
+      "search_query": "human annotations reference free prediction powered inference",
+      "input_corpus_revision_id": "visible-corpus-49c4c3939152",
+      "emitted_claim_count": 3,
+      "valid_reference_fraction": {
+        "numerator": 3,
+        "denominator": 3,
+        "value": 1.0
+      },
+      "structural_evidence_coverage": {
+        "numerator": 3,
+        "denominator": 3,
+        "value": 1.0
+      },
+      "literal_quote_validity": {
+        "numerator": 3,
+        "denominator": 3,
+        "value": 1.0
+      },
+      "action_correct": true
+    },
+    {
+      "case_id": "visible-19",
+      "phase": "J2",
+      "category": "comparative",
+      "status": "completed",
+      "stop_reason": "draft_ready",
+      "variant": "baseline",
+      "blind_attestation": false,
+      "prior_reference_access": false,
+      "comparison_limitation": null,
+      "completion": true,
+      "duration_seconds": 0.0008309159966302104,
+      "human_active_seconds": null,
+      "usage": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "llm_calls": 0,
+        "search_calls": 1,
+        "steps": 2,
+        "cost": 0.0,
+        "currency": "USD"
+      },
+      "config_sha256": "fd670fb420426cb4bae1b327cd5b0819ac084338568c27142a8c0395f9f73348",
+      "input_question": "Сопоставь наблюдения FiD об увеличении числа passages и Lost in the Middle о позиции информации. Это одинаковые эксперименты?",
+      "search_query": "passages number relevant position middle",
+      "input_corpus_revision_id": "visible-corpus-dc3b31a73c09",
+      "emitted_claim_count": 3,
+      "valid_reference_fraction": {
+        "numerator": 3,
+        "denominator": 3,
+        "value": 1.0
+      },
+      "structural_evidence_coverage": {
+        "numerator": 3,
+        "denominator": 3,
+        "value": 1.0
+      },
+      "literal_quote_validity": {
+        "numerator": 3,
+        "denominator": 3,
+        "value": 1.0
+      },
+      "action_correct": true
+    },
+    {
+      "case_id": "visible-20",
+      "phase": "J2",
+      "category": "comparative",
+      "status": "completed",
+      "stop_reason": "draft_ready",
+      "variant": "baseline",
+      "blind_attestation": false,
+      "prior_reference_access": false,
+      "comparison_limitation": null,
+      "completion": true,
+      "duration_seconds": 0.0007864170038374141,
+      "human_active_seconds": null,
+      "usage": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "llm_calls": 0,
+        "search_calls": 1,
+        "steps": 2,
+        "cost": 0.0,
+        "currency": "USD"
+      },
+      "config_sha256": "fd670fb420426cb4bae1b327cd5b0819ac084338568c27142a8c0395f9f73348",
+      "input_question": "Как RAGAs определяет faithfulness и какие измерения в дополнение к нему перечислены у ARES?",
+      "search_query": "faithfulness context relevance answer relevance",
+      "input_corpus_revision_id": "visible-corpus-49c4c3939152",
+      "emitted_claim_count": 3,
+      "valid_reference_fraction": {
+        "numerator": 3,
+        "denominator": 3,
+        "value": 1.0
+      },
+      "structural_evidence_coverage": {
+        "numerator": 3,
+        "denominator": 3,
+        "value": 1.0
+      },
+      "literal_quote_validity": {
+        "numerator": 3,
+        "denominator": 3,
+        "value": 1.0
+      },
+      "action_correct": true
+    },
+    {
+      "case_id": "visible-21",
+      "phase": "J2",
+      "category": "conflicting_results",
+      "status": "completed",
+      "stop_reason": "draft_ready",
+      "variant": "baseline",
+      "blind_attestation": false,
+      "prior_reference_access": false,
+      "comparison_limitation": null,
+      "completion": true,
+      "duration_seconds": 0.0007970000006025657,
+      "human_active_seconds": null,
+      "usage": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "llm_calls": 0,
+        "search_calls": 1,
+        "steps": 2,
+        "cost": 0.0,
+        "currency": "USD"
+      },
+      "config_sha256": "fd670fb420426cb4bae1b327cd5b0819ac084338568c27142a8c0395f9f73348",
+      "input_question": "Один исследователь говорит, что dense retrieval лучше sparse, другой ссылается на EntityQuestions. Разбери основания обеих позиций по корпусу.",
+      "search_query": "dense sparse DPR EntityQuestions",
+      "input_corpus_revision_id": "visible-corpus-cb073f4cb86a",
+      "emitted_claim_count": 3,
+      "valid_reference_fraction": {
+        "numerator": 3,
+        "denominator": 3,
+        "value": 1.0
+      },
+      "structural_evidence_coverage": {
+        "numerator": 3,
+        "denominator": 3,
+        "value": 1.0
+      },
+      "literal_quote_validity": {
+        "numerator": 3,
+        "denominator": 3,
+        "value": 1.0
+      },
+      "action_correct": true
+    },
+    {
+      "case_id": "visible-22",
+      "phase": "J2",
+      "category": "conflicting_results",
+      "status": "completed",
+      "stop_reason": "draft_ready",
+      "variant": "baseline",
+      "blind_attestation": false,
+      "prior_reference_access": false,
+      "comparison_limitation": null,
+      "completion": true,
+      "duration_seconds": 0.0007983749965205789,
+      "human_active_seconds": null,
+      "usage": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "llm_calls": 0,
+        "search_calls": 1,
+        "steps": 2,
+        "cost": 0.0,
+        "currency": "USD"
+      },
+      "config_sha256": "fd670fb420426cb4bae1b327cd5b0819ac084338568c27142a8c0395f9f73348",
+      "input_question": "FiD выигрывает от большего числа passages, а long-context LLM теряют информацию в середине. Можно ли на этом основании объявить статьи противоречащими друг другу?",
+      "search_query": "passages context position middle",
+      "input_corpus_revision_id": "visible-corpus-dc3b31a73c09",
+      "emitted_claim_count": 3,
+      "valid_reference_fraction": {
+        "numerator": 3,
+        "denominator": 3,
+        "value": 1.0
+      },
+      "structural_evidence_coverage": {
+        "numerator": 3,
+        "denominator": 3,
+        "value": 1.0
+      },
+      "literal_quote_validity": {
+        "numerator": 3,
+        "denominator": 3,
+        "value": 1.0
+      },
+      "action_correct": true
+    },
+    {
+      "case_id": "visible-23",
+      "phase": "J2",
+      "category": "insufficient",
+      "status": "completed",
+      "stop_reason": "draft_ready",
+      "variant": "baseline",
+      "blind_attestation": false,
+      "prior_reference_access": false,
+      "comparison_limitation": null,
+      "completion": true,
+      "duration_seconds": 0.0006780830008210614,
+      "human_active_seconds": null,
+      "usage": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "llm_calls": 0,
+        "search_calls": 1,
+        "steps": 2,
+        "cost": 0.0,
+        "currency": "USD"
+      },
+      "config_sha256": "fd670fb420426cb4bae1b327cd5b0819ac084338568c27142a8c0395f9f73348",
+      "input_question": "Какой chunk size в токенах оптимален для любого RAG на основании только этого корпуса?",
+      "search_query": "optimal chunk size tokens",
+      "input_corpus_revision_id": "visible-corpus-f6df0bff3f9c",
+      "emitted_claim_count": 3,
+      "valid_reference_fraction": {
+        "numerator": 3,
+        "denominator": 3,
+        "value": 1.0
+      },
+      "structural_evidence_coverage": {
+        "numerator": 3,
+        "denominator": 3,
+        "value": 1.0
+      },
+      "literal_quote_validity": {
+        "numerator": 3,
+        "denominator": 3,
+        "value": 1.0
+      },
+      "action_correct": false
+    },
+    {
+      "case_id": "visible-24",
+      "phase": "J2",
+      "category": "insufficient",
+      "status": "completed",
+      "stop_reason": "draft_ready",
+      "variant": "baseline",
+      "blind_attestation": false,
+      "prior_reference_access": false,
+      "comparison_limitation": null,
+      "completion": true,
+      "duration_seconds": 0.00048808300198288634,
+      "human_active_seconds": null,
+      "usage": {
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "llm_calls": 0,
+        "search_calls": 1,
+        "steps": 2,
+        "cost": 0.0,
+        "currency": "USD"
+      },
+      "config_sha256": "fd670fb420426cb4bae1b327cd5b0819ac084338568c27142a8c0395f9f73348",
+      "input_question": "На сколько процентов ARES улучшает выживаемость пациентов в клиническом испытании?",
+      "search_query": "ARES randomized clinical survival patients",
+      "input_corpus_revision_id": "visible-corpus-ac4933dbbdde",
+      "emitted_claim_count": 3,
+      "valid_reference_fraction": {
+        "numerator": 3,
+        "denominator": 3,
+        "value": 1.0
+      },
+      "structural_evidence_coverage": {
+        "numerator": 3,
+        "denominator": 3,
+        "value": 1.0
+      },
+      "literal_quote_validity": {
+        "numerator": 3,
+        "denominator": 3,
+        "value": 1.0
+      },
+      "action_correct": false
+    }
+  ],
+  "reproducibility": {
+    "source_archive": "runs/submission/baseline-20261126/extractive-visible.zip",
+    "source_archive_sha256": "07e9cbdde4c85e5961b35d24efa187c3792b3655eed0c54f9dea296df3b18303"
+  }
+}

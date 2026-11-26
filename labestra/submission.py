@@ -102,8 +102,9 @@ def build(root=ROOT, *, baseline_session=None, baseline_ratings=None):
         'baseline_semantic_ratings_complete': bool(baseline and baseline['quality']['accepted']['assessed_cases'] == 10),
         'fully_independent_blind_annotation_established': False,
         'coursework_complete': False,
-        'remaining': (['Measure baseline'] if baseline is None else []) + [
-            'Complete semantic review of baseline answers',
+        'remaining': (['Measure baseline'] if baseline is None else []) +
+            ([] if baseline and baseline['quality']['accepted']['assessed_cases'] == 10 else
+             ['Complete semantic review of baseline answers']) + [
             'Resolve annotation independence limitation',
             'Teacher review request and submission form'],
     }

@@ -28,6 +28,23 @@ class ExtractiveBaselineTests(unittest.TestCase):
             self.assertLessEqual(len(q['text']), MAX_QUOTE_CHARS)
         self.assertEqual(extract_quotes('nonmatchingtoken', [a]), [])
 
+    def test_scores_and_selection_are_stable_across_hash_seeds(self):
+        import os
+        import subprocess
+        import sys
+        script = """import json
+from labestra.baseline import extract_quotes
+from labestra.schemas import Fragment
+f=Fragment('f','s','Retrieval questions evidence context. Retrieval context queries.','0:100','hash')
+print(json.dumps([(q['start'],q['end'],q['score']) for q in extract_quotes('retrieval questions evidence context queries',[f])]))
+"""
+        outputs=[]
+        for seed in ['1','27','123']:
+            result=subprocess.run([sys.executable,'-c',script],cwd=runner.ROOT,
+                env={**os.environ,'PYTHONHASHSEED':seed},capture_output=True,text=True,check=True)
+            outputs.append(json.loads(result.stdout))
+        self.assertTrue(all(v==outputs[0] for v in outputs))
+
     def test_tool_failure_and_step_limit_produce_normal_results(self):
         case = make_case()
         rt = Runtime('extract', replace(case.limits, max_steps=0))

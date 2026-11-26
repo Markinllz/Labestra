@@ -47,7 +47,7 @@ def extract_quotes(query, fragments):
     frequencies = Counter(t for candidate in candidates for t in candidate['terms'])
     for candidate in candidates:
         candidate['score'] = sum(math.log(1 + (len(candidates) + 1) / (frequencies[t] + 1))
-                                 for t in query_terms & candidate['terms'])
+                                 for t in sorted(query_terms & candidate['terms']))
     candidates.sort(key=lambda c: (-c['score'], c['rank'], c['start']))
     # Deduplicate overlapping passage text before reserving one quote per source.
     unique, texts = [], set()

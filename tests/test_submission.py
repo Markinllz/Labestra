@@ -22,6 +22,14 @@ class SubmissionTests(unittest.TestCase):
         self.assertAlmostEqual(report['total_cost'], .049953)
         self.assertEqual(reports['agreement.sabukhi-max.json']['by_kind']['relevance']['matched'], 119)
         self.assertFalse(reports['readiness.json']['coursework_complete'])
+        baseline=reports['baseline-quality.json']
+        self.assertEqual(baseline['planned'],24)
+        self.assertEqual(baseline['total_cost'],0.)
+        self.assertEqual(baseline['quality']['accepted']['assessed_cases'],0)
+        self.assertIsNone(baseline['quality']['accepted']['mean'])
+        self.assertAlmostEqual(baseline['quality']['selected_source_recall']['mean'],.95)
+        self.assertTrue(reports['comparison.json']['same_inputs_and_config'])
+        self.assertEqual(reports['comparison.json']['paired_cases'],24)
         self.assertEqual(before, digest(ROOT / 'data/manifest.json'))
 
     def test_archive_path_traversal_is_rejected_before_extraction(self):

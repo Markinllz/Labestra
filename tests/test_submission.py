@@ -25,11 +25,14 @@ class SubmissionTests(unittest.TestCase):
         baseline=reports['baseline-quality.json']
         self.assertEqual(baseline['planned'],24)
         self.assertEqual(baseline['total_cost'],0.)
-        self.assertEqual(baseline['quality']['accepted']['assessed_cases'],0)
-        self.assertIsNone(baseline['quality']['accepted']['mean'])
+        self.assertEqual(baseline['quality']['accepted']['assessed_cases'],10)
+        self.assertEqual(baseline['quality']['accepted']['mean'],.4)
         self.assertAlmostEqual(baseline['quality']['selected_source_recall']['mean'],.95)
         self.assertTrue(reports['comparison.json']['same_inputs_and_config'])
         self.assertEqual(reports['comparison.json']['paired_cases'],24)
+        self.assertTrue(reports['readiness.json']['supplementary_annotation_audit_complete'])
+        self.assertEqual(reports['readiness.json']['supplementary_annotation_objects'],24)
+        self.assertTrue(all(v['matched']==v['total'] for v in reports['agreement.audit-24.json']['by_kind'].values()))
         self.assertEqual(before, digest(ROOT / 'data/manifest.json'))
 
     def test_completed_semantic_review_updates_readiness_without_creating_human_results(self):
@@ -55,6 +58,23 @@ class SubmissionTests(unittest.TestCase):
             self.assertTrue(reports['readiness.json']['baseline_semantic_ratings_complete'])
             self.assertNotIn('Complete semantic review of baseline answers',reports['readiness.json']['remaining'])
             self.assertFalse(reports['readiness.json']['coursework_complete'])
+
+    def test_audit_rejects_modified_primary_labels(self):
+        from shutil import copytree
+        from labestra.runner import encoded
+        with tempfile.TemporaryDirectory() as temporary:
+            root=Path(temporary)
+            copytree(ROOT/'eval/review',root/'eval/review')
+            copytree(ROOT/'eval/annotations',root/'eval/annotations')
+            path=root/'eval/review/audit-24/annotations.primary.jsonl'
+            values=[json.loads(line) for line in path.read_text().splitlines()]
+            values[0]['label']='clarify' if values[0]['label']!='clarify' else 'search'
+            path.write_text(''.join(json.dumps(r)+'\n' for r in values))
+            provenance=root/'eval/review/audit-24/provenance.json'
+            value=json.loads(provenance.read_text());value['files'][path.name]=digest(path)
+            provenance.write_text(encoded(value))
+            with self.assertRaisesRegex(ValueError,'primary annotation'):
+                submission.supplementary_audit(root)
 
     def test_archive_path_traversal_is_rejected_before_extraction(self):
         with tempfile.TemporaryDirectory() as temporary:

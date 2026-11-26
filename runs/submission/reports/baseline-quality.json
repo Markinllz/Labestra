@@ -12,19 +12,19 @@
   },
   "scientific_evaluation": true,
   "gold_sha256": "a2c2ed0f68f3aec4301260cb8cf3d3834e8cc82334674b38560f900d92851708",
-  "ratings_sha256": null,
+  "ratings_sha256": "374d5011c8d7bab72b6a428d92396fa1006650727a39f24c21906440511d1832",
   "quality": {
     "claim_correctness": {
-      "assessed_cases": 0,
-      "mean": null
+      "assessed_cases": 10,
+      "mean": 1.0
     },
     "gold_coverage": {
-      "assessed_cases": 0,
-      "mean": null
+      "assessed_cases": 10,
+      "mean": 0.5833333333333334
     },
     "accepted": {
-      "assessed_cases": 0,
-      "mean": null
+      "assessed_cases": 10,
+      "mean": 0.4
     },
     "action_correct": {
       "assessed_cases": 24,
@@ -43,8 +43,8 @@
       "mean": 0.07782679738562091
     },
     "evidence_entailment": {
-      "assessed_cases": 0,
-      "mean": null
+      "assessed_cases": 12,
+      "mean": 1.0
     },
     "selected_source_recall": {
       "assessed_cases": 10,
@@ -686,7 +686,16 @@
         "denominator": 3,
         "value": 1.0
       },
-      "action_correct": true
+      "action_correct": true,
+      "claim_correctness": 1.0,
+      "gold_coverage": 0.0,
+      "accepted": false,
+      "evidence_entailment": {
+        "numerator": 3,
+        "denominator": 3,
+        "value": 1.0
+      },
+      "reviewer_id": "sabukhi"
     },
     {
       "case_id": "visible-14",
@@ -730,7 +739,16 @@
         "denominator": 3,
         "value": 1.0
       },
-      "action_correct": true
+      "action_correct": true,
+      "claim_correctness": 1.0,
+      "gold_coverage": 1.0,
+      "accepted": true,
+      "evidence_entailment": {
+        "numerator": 3,
+        "denominator": 3,
+        "value": 1.0
+      },
+      "reviewer_id": "sabukhi"
     },
     {
       "case_id": "visible-15",
@@ -774,7 +792,16 @@
         "denominator": 3,
         "value": 1.0
       },
-      "action_correct": true
+      "action_correct": true,
+      "claim_correctness": 1.0,
+      "gold_coverage": 1.0,
+      "accepted": true,
+      "evidence_entailment": {
+        "numerator": 3,
+        "denominator": 3,
+        "value": 1.0
+      },
+      "reviewer_id": "sabukhi"
     },
     {
       "case_id": "visible-16",
@@ -818,7 +845,16 @@
         "denominator": 3,
         "value": 1.0
       },
-      "action_correct": true
+      "action_correct": true,
+      "claim_correctness": 1.0,
+      "gold_coverage": 1.0,
+      "accepted": true,
+      "evidence_entailment": {
+        "numerator": 3,
+        "denominator": 3,
+        "value": 1.0
+      },
+      "reviewer_id": "sabukhi"
     },
     {
       "case_id": "visible-17",
@@ -862,7 +898,16 @@
         "denominator": 3,
         "value": 1.0
       },
-      "action_correct": true
+      "action_correct": true,
+      "claim_correctness": 1.0,
+      "gold_coverage": 0.0,
+      "accepted": false,
+      "evidence_entailment": {
+        "numerator": 3,
+        "denominator": 3,
+        "value": 1.0
+      },
+      "reviewer_id": "sabukhi"
     },
     {
       "case_id": "visible-18",
@@ -906,7 +951,16 @@
         "denominator": 3,
         "value": 1.0
       },
-      "action_correct": true
+      "action_correct": true,
+      "claim_correctness": 1.0,
+      "gold_coverage": 1.0,
+      "accepted": true,
+      "evidence_entailment": {
+        "numerator": 3,
+        "denominator": 3,
+        "value": 1.0
+      },
+      "reviewer_id": "sabukhi"
     },
     {
       "case_id": "visible-19",
@@ -950,7 +1004,16 @@
         "denominator": 3,
         "value": 1.0
       },
-      "action_correct": true
+      "action_correct": true,
+      "claim_correctness": 1.0,
+      "gold_coverage": 0.5,
+      "accepted": false,
+      "evidence_entailment": {
+        "numerator": 3,
+        "denominator": 3,
+        "value": 1.0
+      },
+      "reviewer_id": "sabukhi"
     },
     {
       "case_id": "visible-20",
@@ -994,7 +1057,16 @@
         "denominator": 3,
         "value": 1.0
       },
-      "action_correct": true
+      "action_correct": true,
+      "claim_correctness": 1.0,
+      "gold_coverage": 0.5,
+      "accepted": false,
+      "evidence_entailment": {
+        "numerator": 3,
+        "denominator": 3,
+        "value": 1.0
+      },
+      "reviewer_id": "sabukhi"
     },
     {
       "case_id": "visible-21",
@@ -1038,7 +1110,16 @@
         "denominator": 3,
         "value": 1.0
       },
-      "action_correct": true
+      "action_correct": true,
+      "claim_correctness": 1.0,
+      "gold_coverage": 0.3333333333333333,
+      "accepted": false,
+      "evidence_entailment": {
+        "numerator": 3,
+        "denominator": 3,
+        "value": 1.0
+      },
+      "reviewer_id": "sabukhi"
     },
     {
       "case_id": "visible-22",
@@ -1082,7 +1163,16 @@
         "denominator": 3,
         "value": 1.0
       },
-      "action_correct": true
+      "action_correct": true,
+      "claim_correctness": 1.0,
+      "gold_coverage": 0.5,
+      "accepted": false,
+      "evidence_entailment": {
+        "numerator": 3,
+        "denominator": 3,
+        "value": 1.0
+      },
+      "reviewer_id": "sabukhi"
     },
     {
       "case_id": "visible-23",
@@ -1126,7 +1216,13 @@
         "denominator": 3,
         "value": 1.0
       },
-      "action_correct": false
+      "action_correct": false,
+      "evidence_entailment": {
+        "numerator": 3,
+        "denominator": 3,
+        "value": 1.0
+      },
+      "reviewer_id": "sabukhi"
     },
     {
       "case_id": "visible-24",
@@ -1170,11 +1266,19 @@
         "denominator": 3,
         "value": 1.0
       },
-      "action_correct": false
+      "action_correct": false,
+      "evidence_entailment": {
+        "numerator": 3,
+        "denominator": 3,
+        "value": 1.0
+      },
+      "reviewer_id": "sabukhi"
     }
   ],
   "reproducibility": {
     "source_archive": "runs/submission/baseline-20261126/extractive-visible.zip",
     "source_archive_sha256": "07e9cbdde4c85e5961b35d24efa187c3792b3655eed0c54f9dea296df3b18303"
-  }
+  },
+  "assessment_basis": "Supplied J2 ratings; the recorded review method is described in the associated provenance.",
+  "assessment_provenance_sha256": "f49b1c609c8ea3eaec81896733fbd71908ac0030ecd40d16e85f181bb71eace6"
 }

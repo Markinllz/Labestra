@@ -7,8 +7,8 @@
   "quality": {
     "claim_correctness": {
       "baseline": {
-        "assessed_cases": 0,
-        "mean": null
+        "assessed_cases": 10,
+        "mean": 1.0
       },
       "system": {
         "assessed_cases": 10,
@@ -17,8 +17,8 @@
     },
     "gold_coverage": {
       "baseline": {
-        "assessed_cases": 0,
-        "mean": null
+        "assessed_cases": 10,
+        "mean": 0.5833333333333334
       },
       "system": {
         "assessed_cases": 10,
@@ -27,8 +27,8 @@
     },
     "accepted": {
       "baseline": {
-        "assessed_cases": 0,
-        "mean": null
+        "assessed_cases": 10,
+        "mean": 0.4
       },
       "system": {
         "assessed_cases": 10,
@@ -77,8 +77,8 @@
     },
     "evidence_entailment": {
       "baseline": {
-        "assessed_cases": 0,
-        "mean": null
+        "assessed_cases": 12,
+        "mean": 1.0
       },
       "system": {
         "assessed_cases": 9,
@@ -161,11 +161,11 @@
     ],
     "provider_invoice_confirmed": false
   },
-  "semantic_baseline_assessments": 0,
+  "semantic_baseline_assessments": 10,
   "limitations": [
     "Baseline method selected after visible system results; descriptive comparison, not untouched evaluation.",
     "Technical completion, valid citations and literal quotation do not establish answer correctness or coverage.",
-    "Baseline semantic ratings remain unassessed unless separately supplied; null is not zero.",
+    "Semantic ratings are supplied; review procedures and reading aids are recorded with the ratings.",
     "System duration includes operator interaction and is not human labor; no labor-saving claim is made.",
     "Recorded durations are from separate sessions; timing differences are not controlled causal estimates.",
     "Cost uses reference token prices, not a verified proxy invoice; old unknown-usage attempts remain archived."

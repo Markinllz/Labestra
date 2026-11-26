@@ -38,10 +38,54 @@ def extract_cohort(archive, output):
         raise ValueError('Primary visible cohort missing from archive')
 
 
+def supplementary_audit(root):
+    """Validate the derived primary subset and compare the new manual labels."""
+    root = Path(root)
+    directory = root / 'eval/review/audit-24'
+    if not directory.exists():
+        return None
+    packet = strict_json((directory / 'packet.json').read_text(encoding='utf-8'))
+    provenance = strict_json((directory / 'provenance.json').read_text(encoding='utf-8'))
+    source_packet = strict_json((root / 'eval/review/packet.json').read_text(encoding='utf-8'))
+    primary_path = root / 'eval/annotations/chelush-20261123/annotations.max.jsonl'
+    if (provenance['source_annotations_sha256'] != digest(primary_path) or
+            provenance['source_packet_sha256'] != source_packet['packet_sha256'] or
+            packet['source_packet_sha256'] != source_packet['packet_sha256'] or
+            provenance['derived_packet_sha256'] != packet['packet_sha256']):
+        raise ValueError('Supplementary audit source/version mismatch')
+    for name, expected in provenance['files'].items():
+        if Path(name).name != name or digest(directory / name) != expected:
+            raise ValueError('Supplementary audit file hash mismatch: ' + name)
+    original_objects = {(o['case_id'], o['object_id']): o for o in source_packet['objects']}
+    for obj in packet['objects']:
+        if original_objects.get((obj['case_id'], obj['object_id'])) != obj:
+            raise ValueError('Supplementary audit object differs from the original packet')
+    source_labels = {(r['case_id'], r['object_id']): r for r in rows(primary_path)}
+    primary = rows(directory / 'annotations.primary.jsonl')
+    for row in primary:
+        original = source_labels.get((row['case_id'], row['object_id']))
+        if original is None or row != {**original, 'packet_sha256': packet['packet_sha256']}:
+            raise ValueError('Derived primary annotation was changed')
+    result = agreement(packet, primary, rows(directory / 'annotations.secondary.jsonl'))
+    result['review_method'] = {
+        'primary': provenance['primary_method'], 'secondary': provenance['secondary_method'],
+        'blinding': provenance['blinding'], 'reading_aid': provenance['reading_aid'],
+        'selection': provenance['selection']}
+    result['provenance_sha256'] = digest(directory / 'provenance.json')
+    return result
+
+
 def build(root=ROOT, *, baseline_session=None, baseline_ratings=None):
     root = Path(root)
     validate_dataset(root)
     review = root / 'eval/review'
+    if baseline_ratings is None and (review / 'baseline-ratings.sabukhi.jsonl').is_file():
+        baseline_ratings = review / 'baseline-ratings.sabukhi.jsonl'
+        provenance_path = review / 'baseline-ratings.provenance.json'
+        provenance = strict_json(provenance_path.read_text(encoding='utf-8'))
+        if digest(baseline_ratings) != provenance['ratings_sha256']:
+            raise ValueError('Baseline rating hash mismatch')
+    audit_report = supplementary_audit(root)
     archive = root / ARCHIVE
     validate_gold_rows(load_cases(root / 'eval/dev/tasks.jsonl'), rows(review / 'gold.dev.jsonl'),
                        {s.source_id: s for s in load_sources(root / 'data/sources.jsonl')},
@@ -89,10 +133,18 @@ def build(root=ROOT, *, baseline_session=None, baseline_ratings=None):
         baseline['reproducibility'] = {'source_archive': BASELINE_ARCHIVE,
                                        'source_archive_sha256': digest(root / BASELINE_ARCHIVE)}
     if baseline:
+        if baseline_ratings is not None:
+            baseline['assessment_basis'] = 'Supplied J2 ratings; the recorded review method is described in the associated provenance.'
+            local_provenance = review / 'baseline-ratings.provenance.json'
+            if (Path(baseline_ratings).resolve() == (review / 'baseline-ratings.sabukhi.jsonl').resolve()
+                    and local_provenance.is_file()):
+                baseline['assessment_provenance_sha256'] = digest(local_provenance)
         from .comparison import compare
         reports['baseline-quality.json'] = baseline
         reports['comparison.json'] = compare(report, baseline)
         report['baseline_comparison'] = 'comparison.json'
+    if audit_report is not None:
+        reports['agreement.audit-24.json'] = audit_report
     reports['readiness.json'] = {
         'public_dataset_valid': True, 'visible_system_cases': report['planned'],
         'reviewed_public_gold_cases': len(rows(review / 'gold.dev.jsonl')) + len(rows(review / 'gold.visible.jsonl')),
@@ -100,13 +152,15 @@ def build(root=ROOT, *, baseline_session=None, baseline_ratings=None):
         'baseline_measured': baseline is not None,
         'paired_comparison_available': baseline is not None,
         'baseline_semantic_ratings_complete': bool(baseline and baseline['quality']['accepted']['assessed_cases'] == 10),
-        'fully_independent_blind_annotation_established': False,
+        'supplementary_annotation_audit_complete': audit_report is not None,
+        'supplementary_annotation_objects': sum(v['total'] for v in audit_report['by_kind'].values()) if audit_report else 0,
+        'annotation_blinding_basis': 'self-reported' if audit_report else 'not established',
         'coursework_complete': False,
         'remaining': (['Measure baseline'] if baseline is None else []) +
             ([] if baseline and baseline['quality']['accepted']['assessed_cases'] == 10 else
-             ['Complete semantic review of baseline answers']) + [
-            'Resolve annotation independence limitation',
-            'Teacher review request and submission form'],
+             ['Complete semantic review of baseline answers']) +
+            ([] if audit_report is not None else ['Resolve annotation independence limitation']) +
+            ['Teacher review request and submission form'],
     }
     return reports
 

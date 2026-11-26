@@ -1,0 +1,57 @@
+{
+  "annotators": [
+    "chelush",
+    "sabukhi"
+  ],
+  "packet_sha256": "b8acf7e62788ddbfcaf73fdeaa637b3f0dd40b52144b75a739f8c11e531fcb90",
+  "by_kind": {
+    "action": {
+      "matched": 8,
+      "total": 8,
+      "agreement": 1.0,
+      "cohen_kappa": 1.0,
+      "kappa_limitation": null,
+      "observed_labels": [
+        "answer",
+        "clarify",
+        "search"
+      ],
+      "disagreements": []
+    },
+    "entailment": {
+      "matched": 8,
+      "total": 8,
+      "agreement": 1.0,
+      "cohen_kappa": 1.0,
+      "kappa_limitation": null,
+      "observed_labels": [
+        "contradicts",
+        "supports",
+        "uncertain"
+      ],
+      "disagreements": []
+    },
+    "relevance": {
+      "matched": 8,
+      "total": 8,
+      "agreement": 1.0,
+      "cohen_kappa": 1.0,
+      "kappa_limitation": null,
+      "observed_labels": [
+        "not_relevant",
+        "relevant",
+        "uncertain"
+      ],
+      "disagreements": []
+    }
+  },
+  "note": "Compute before reconciliation; no gold approval or answer-quality score is implied.",
+  "review_method": {
+    "primary": "Subset of previously confirmed primary labels; only packet linkage changed. No new primary annotation is claimed.",
+    "secondary": "Manual completion of the unlabelled form, reported by the reviewer.",
+    "blinding": "Reviewer reported no prior access to gold/other labels; form requires confirmation before export. Self-reported, not independently observed.",
+    "reading_aid": "Russian reading translations with English originals; no proposed labels.",
+    "selection": "8 action, 8 relevance, 8 entailment objects stratified by existing primary labels; all objects taken from the original 139-object packet."
+  },
+  "provenance_sha256": "ede000fc551ef35ef40a448119f139dc9ebb08901fb2ce8d4b7eb3076447cf5f"
+}

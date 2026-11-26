@@ -35,7 +35,9 @@ def compare(system, baseline):
             'limitations': [
                 'Baseline method selected after visible system results; descriptive comparison, not untouched evaluation.',
                 'Technical completion, valid citations and literal quotation do not establish answer correctness or coverage.',
-                'Baseline semantic ratings remain unassessed unless separately supplied; null is not zero.',
+                ('Baseline semantic ratings are not supplied; null is not zero.'
+                 if baseline['quality']['accepted']['assessed_cases'] == 0 else
+                 'Semantic ratings are supplied; review procedures and reading aids are recorded with the ratings.'),
                 'System duration includes operator interaction and is not human labor; no labor-saving claim is made.',
                 'Recorded durations are from separate sessions; timing differences are not controlled causal estimates.',
                 'Cost uses reference token prices, not a verified proxy invoice; old unknown-usage attempts remain archived.',

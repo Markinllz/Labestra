@@ -5,12 +5,12 @@
   "annotation_objects_per_reviewer": 139,
   "baseline_measured": true,
   "paired_comparison_available": true,
-  "baseline_semantic_ratings_complete": false,
-  "fully_independent_blind_annotation_established": false,
+  "baseline_semantic_ratings_complete": true,
+  "supplementary_annotation_audit_complete": true,
+  "supplementary_annotation_objects": 24,
+  "annotation_blinding_basis": "self-reported",
   "coursework_complete": false,
   "remaining": [
-    "Complete semantic review of baseline answers",
-    "Resolve annotation independence limitation",
     "Teacher review request and submission form"
   ]
 }

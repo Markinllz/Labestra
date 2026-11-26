@@ -62,5 +62,23 @@
     "active_file_links_valid": true,
     "original_ai4s_unchanged": true
   },
-  "independent_review_form": "Blank labels, 24-row in-memory export and confirmation gate checked; no human annotation generated."
+  "independent_review_form": "Blank labels, 24-row in-memory export and confirmation gate checked; no human annotation generated.",
+  "clean_checkout": {
+    "source": "git archive HEAD; no pre-existing venv or local files",
+    "commit": "9183c11079840aea1acbbe885ebcba51e2cbb2c9",
+    "commands": {
+      "check": {
+        "exit_code": 0,
+        "seconds": 3.6331346669976483
+      },
+      "scenarios": {
+        "exit_code": 0,
+        "seconds": 0.10460095800226554
+      },
+      "reports": {
+        "exit_code": 0,
+        "seconds": 0.13567341700399993
+      }
+    }
+  }
 }
